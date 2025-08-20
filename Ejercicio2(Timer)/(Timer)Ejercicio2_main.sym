@@ -1,0 +1,76 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PACKED_MEMORY.P2
+004-005 @READ_PROGRAM_MEMORY8.P3
+004-005 @WRITE_PACKED_MEMORY.P4
+006-007 @WRITE_PACKED_MEMORY.P1
+006-007 @READ_PACKED_MEMORY.P2
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+111.6   C1OUT
+113.6   C2OUT
+191-192 @WRITE_PROGRAM_MEMORY8.P1
+191-192 @READ_PROGRAM_MEMORY8.P2
+291     CCP_1_LOW
+291     CCP_1
+292     CCP_1_HIGH
+298     CCP_2_LOW
+298     CCP_2
+299     CCP_2_HIGH
+311     CCP_3_LOW
+311     CCP_3
+312     CCP_3_HIGH
+318     CCP_4_LOW
+318     CCP_4
+319     CCP_4_HIGH
+
+ROM Allocation:
+00001E  TIMER0_ISR
+000029  InitGPIO
+000037  InitTimer0
+000044  MAIN
+000044  @cinit1
+00004C  @cinit2
+
+Project Directory:
+    C:\Users\MPF\Desktop\Git\
+
+Project Files:
+    (Timer)Ejercicio2_main.c                                [20-ago.-25 17:20  CRC=897932E1]
+    (Timer)Ejercicio2_main.h                                [20-ago.-25 16:55  CRC=00000000]
+    ..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h  [21-feb.-20 15:48  CRC=D6A5AF9F]
+
+Source signature=36C4921F
+Program memory checksum=0000
+Hex file CRC=A819
+
+Units:
+    C:\Users\MPF\Desktop\Git\(Timer)Ejercicio2_main (main)
+
+Compiler Settings:
+    Processor:      PIC16F1827
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Enhanced 16:    Yes
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   (Timer)Ejercicio2_main.xsym
+    Errors:      (Timer)Ejercicio2_main.err
+    Ext Symbols: (Timer)Ejercicio2_main.esym
+    INHX8:       (Timer)Ejercicio2_main.hex
+    Symbols:     (Timer)Ejercicio2_main.sym
+    List:        (Timer)Ejercicio2_main.lst
+    Debug/COFF:  (Timer)Ejercicio2_main.cof
+    Project:     (Timer)Ejercicio2_main.ccspjt
+    Call Tree:   (Timer)Ejercicio2_main.tre
+    Statistics:  (Timer)Ejercicio2_main.STA

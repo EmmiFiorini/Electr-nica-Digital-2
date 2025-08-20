@@ -1,0 +1,51 @@
+
+ROM used:   80/4096 (2%)
+            80/4096 (2%) including unused fragments
+
+            0.1 Average locations per line
+            6.2 Average locations per statement
+
+RAM used:   8/383 (2%) at main() level
+            19/383 (5%) worst case
+
+Stack used: 1 worst case (0 in main + 1 for interrupts)
+Stack size: 16
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   57    13 100  (Timer)Ejercicio2_main.c
+    5     0   0  (Timer)Ejercicio2_main.h
+  965     0   0  ..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
+----- -----
+ 1027    13 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     11  14    0     32  1.0  TIMER0_ISR
+0     13  16    0     43  1.3  MAIN
+0     14  18    0     54  1.2  InitGPIO
+0     13  16    0     94  1.7  InitTimer0
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               4
+    Statements              13
+    Comments                181
+    Volume (V)              342
+    Difficulty (D)          5.2
+    Effort to implement (E) 1781
+    Time to implement (T)   2 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    87
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     3  0  
+00003-00003     0  1  
+00004-0001D    26  0  
+0001E-007FF    51  1967  
+00800-00FFF     0  2048  
+
+
+
