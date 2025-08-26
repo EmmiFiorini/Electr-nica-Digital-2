@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.093, 4770               26-ago-25 14:08
+CCS PCM C Compiler, Version 5.093, 4770               26-ago-25 16:37
 
                Filename:   C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Punto 2 compuertas\punto2.lst
 
@@ -123,12 +123,12 @@ CCS PCM C Compiler, Version 5.093, 4770               26-ago-25 14:08
 ....................  ****************************************************************************/
 .................... 
 .................... void InitGPIO(void){
-....................     set_tris_b(0b11101111); // RB4 como SALIDA
+....................     set_tris_b(0b11101111); // RB4 salida, resto entradas
 *
 0003:  MOVLW  EF
 0004:  MOVLB  01
 0005:  MOVWF  0D
-....................     output_low(PIN_B4);    // Por defecto salida en estado bajo
+....................     output_low(PIN_B4);     // LED apagado al inicio
 0006:  BCF    0D.4
 0007:  MOVLB  02
 0008:  BCF    0D.4
