@@ -1,0 +1,26 @@
+[PROJECT]
+Target=punto2.hex
+Processor_Text=PIC16F1827
+CCSVersion=5.093
+Compiler=PCM
+[Target Data]
+FileList=punto2.c
+[punto2.c]
+Type=4
+[mru-list]
+1=punto2.c
+[Units]
+Count=1
+1=punto2 (main)
+
+[defines]
+buildcount=1
+
+[Opened Files]
+1=punto2.c
+t1=37
+2=..\Ejercicio2(Timer)\(Timer)Ejercicio2_main.c
+t2=27
+3=..\Ejercicio2(Timer)\(Timer)Ejercicio2_main.h
+t3=1
+Count=3
