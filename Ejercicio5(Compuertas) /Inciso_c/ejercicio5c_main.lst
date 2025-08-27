@@ -1,0 +1,176 @@
+CCS PCM C Compiler, Version 5.093, 4770               19-ago.-25 19:34
+
+               Filename:   C:\Users\MPF\Desktop\Git\ejercicio5c_main.lst
+
+               ROM used:   92 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   6 (2%) at main() level
+                           17 (4%) worst case
+               Stack used: 0 locations
+               Stack size: 16
+
+0000:  MOVLP  00
+0001:  GOTO   02F
+0002:  NOP
+.................... #include <main.h>
+.................... #include <16F1827.h>
+.................... //////////// Standard Header file for the PIC16F1827 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC16F1827
+0003:  BRW
+0004:  RETLW  3F
+0005:  RETLW  06
+0006:  RETLW  5B
+0007:  RETLW  4F
+0008:  RETLW  66
+0009:  RETLW  6D
+000A:  RETLW  7D
+000B:  RETLW  07
+000C:  RETLW  7F
+000D:  RETLW  6F
+.................... 
+.................... #list
+.................... 
+.................... #device ADC=10
+.................... #use delay(crystal=20000000)
+*
+0019:  MOVLW  20
+001A:  MOVWF  05
+001B:  MOVLW  02
+001C:  MOVWF  04
+001D:  MOVF   00,W
+001E:  BTFSC  03.2
+001F:  GOTO   02D
+0020:  MOVLW  06
+0021:  MOVWF  78
+0022:  CLRF   77
+0023:  DECFSZ 77,F
+0024:  GOTO   023
+0025:  DECFSZ 78,F
+0026:  GOTO   022
+0027:  MOVLW  7B
+0028:  MOVWF  77
+0029:  DECFSZ 77,F
+002A:  GOTO   029
+002B:  DECFSZ 00,F
+002C:  GOTO   020
+002D:  MOVLP  00
+002E:  GOTO   04B (RETURN)
+.................... 
+.................... 
+.................... 
+.................... #fuses INTRC_IO // Utilizo oscilador interno con pines RA6 y RA7 como GPIO 
+.................... #fuses NOMCLR // Desactivo el MCLR 
+.................... #fuses NOWDT // Desactivo el watchdog
+.................... 
+.................... void Init_GPIO(void);
+.................... 
+.................... // Tabla de conversión de hexadecimal a número
+.................... const int tabla[10] = {
+....................    0x3F, // 0
+....................    0x06, // 1
+....................    0x5B, // 2
+....................    0x4F, // 3
+....................    0x66, // 4
+....................    0x6D, // 5
+....................    0x7D, // 6
+....................    0x07, // 7
+....................    0x7F, // 8
+....................    0x6F  // 9
+.................... };
+.................... 
+.................... void main() {
+002F:  MOVLB  03
+0030:  CLRF   0C
+0031:  CLRF   0D
+0032:  MOVLB  02
+0033:  CLRF   12
+0034:  CLRF   11
+0035:  CLRF   14
+0036:  CLRF   13
+0037:  MOVLB  00
+0038:  CLRF   21
+....................    int contador = 0;
+....................    Init_GPIO();
+0039:  GOTO   00E
+.................... 
+....................    while(TRUE) {
+....................          output_b(tabla[contador]);   // Muestra número en display
+003A:  MOVF   21,W
+003B:  CALL   003
+003C:  MOVWF  22
+003D:  MOVLB  01
+003E:  CLRF   0D
+003F:  MOVLB  00
+0040:  MOVF   22,W
+0041:  MOVLB  02
+0042:  MOVWF  0D
+....................      
+....................       // Si se aprieta el botón en RA0
+....................       if(!input(PIN_A0)) {
+0043:  MOVLB  01
+0044:  BSF    0C.0
+0045:  MOVLB  00
+0046:  BTFSC  0C.0
+0047:  GOTO   05A
+....................          delay_ms(10); // Antirrebote
+0048:  MOVLW  0A
+0049:  MOVWF  22
+004A:  GOTO   019
+....................          if(!input(PIN_A0)) { // si sigue presionado
+004B:  MOVLB  01
+004C:  BSF    0C.0
+004D:  MOVLB  00
+004E:  BTFSC  0C.0
+004F:  GOTO   05A
+....................             contador++;
+0050:  INCF   21,F
+....................             if(contador >= 10) 
+0051:  MOVF   21,W
+0052:  SUBLW  09
+0053:  BTFSS  03.0
+....................                contador = 0; // Vuelve a 0 después de 9
+0054:  CLRF   21
+....................             while(!input(PIN_A0)); // Esperar a que se suelte el botón
+0055:  MOVLB  01
+0056:  BSF    0C.0
+0057:  MOVLB  00
+0058:  BTFSS  0C.0
+0059:  GOTO   055
+....................          }
+....................       }   
+005A:  GOTO   03A
+....................    }
+.................... }
+.................... 
+005B:  SLEEP
+.................... void Init_GPIO(void){
+.................... 
+....................    set_tris_b(0x00);// PORTB como salida conectado al display
+*
+000E:  MOVLW  00
+000F:  MOVLB  01
+0010:  MOVWF  0D
+....................    set_tris_a (0x01); // RA0 como entrada
+0011:  MOVLW  01
+0012:  MOVWF  0C
+....................    output_b(0x00); // Apagar al inicio
+0013:  CLRF   0D
+0014:  MOVLB  02
+0015:  CLRF   0D
+0016:  MOVLP  00
+0017:  MOVLB  00
+0018:  GOTO   03A (RETURN)
+.................... }
+
+Configuration Fuses:
+   Word  1: 3F84   INTRC_IO NOWDT PUT NOMCLR NOPROTECT NOCPD BROWNOUT NOCLKOUT IESO FCMEN
+   Word  2: 1EFF   NOWRT PLL_SW STVREN BORV19 NODEBUG NOLVP
