@@ -1,0 +1,43 @@
+[PROJECT]
+Target=Ejercicio2_compuertas.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+CCSVersion=5.093
+[Target Data]
+FileList=Ejercicio2_compuertas.c
+[Directories]
+Include=
+[C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Ejercicio2 (Compuertas)\Ejercicio2_compuertas]
+Type=4
+[mru-list]
+1=Ejercicio2_compuertas.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=27-08-2025
+D1_L=4
+D1_L1=[52323]Project Opened.
+D1_L2=[52371]Project Closed.
+D1_L3=[52396]Project Opened.
+D1_L4=[52431]Started Editing.
+
+[Opened Files]
+1=Ejercicio2_compuertas.c
+t1=14
+2=Ejercicio2_compuertas.h
+t2=1
+Count=3
+3=..\Ejercicio2(Timer)\(Timer)Ejercicio2_main.c
+t3=37
+[Ejercicio2_compuertas.c]
+Type=4
+[Units]
+Count=1
+1=Ejercicio2_compuertas (main)
+
+[defines]
+buildcount=1

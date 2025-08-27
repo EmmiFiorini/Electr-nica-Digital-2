@@ -1,5 +1,4 @@
-#include <punto2.h>
-
+#include <punto2.h>       
 #fuses INTRC_IO   // Utilizo oscilador interno con pines RA6 y RA7 como GPIO
 #fuses NOMCLR     // Desactivo el MCLR
 #fuses NOWDT      // Desactivo el watchdog

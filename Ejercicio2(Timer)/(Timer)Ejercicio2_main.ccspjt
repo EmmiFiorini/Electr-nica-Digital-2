@@ -17,7 +17,7 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=1
+Days=2
 D1=20-08-2025
 D1_L=8
 D1_L1=[58476]Project Opened.
@@ -32,10 +32,14 @@ TotalDebug=0
 D1_E=25
 D1_D=0
 D1_L8=[62428]Project Closed.
+D2=27-08-2025
+D2_L=2
+D2_L1=[52371]Project Opened.
+D2_L2=[52396]Project Closed.
 
 [Opened Files]
 1=(Timer)Ejercicio2_main.c
-t1=44
+t1=38
 Count=2
 2=(Timer)Ejercicio2_main.h
 t2=1
