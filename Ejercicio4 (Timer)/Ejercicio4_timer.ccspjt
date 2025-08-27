@@ -1,0 +1,50 @@
+[PROJECT]
+Target=Ejercicio4_timer.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+CCSVersion=5.093
+[Target Data]
+FileList=Ejercicio4_timer.c
+[Directories]
+Include=
+[C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Ejercicio4 (Timer)\Ejercicio4_timer]
+Type=4
+[mru-list]
+1=Ejercicio4_timer.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=27-08-2025
+D1_L=9
+D1_L1=[53530]Project Opened.
+D1_L2=[53569]Started Editing.
+D1_L3=[53947]Stopped Editing.
+D1_L4=[54007]Started Editing.
+D1_L5=[55333]Stopped Editing.
+D1_L6=[55540]Started Editing.
+D1_L7=[56433]Stopped Editing.
+D1_L8=[56569]Started Editing.
+D1_L9=[57350]Stopped Editing.
+
+[Opened Files]
+1=Ejercicio4_timer.c
+t1=9
+2=..\Ejercicio2(Timer)\(Timer)Ejercicio2_main.c
+t2=13
+3=..\..\..\..\Downloads\Antirebote\Antirebote\main.c
+t3=1
+4=..\Ejercicio2 (Compuertas)\Ejercicio2_compuertas.c
+t4=9
+Count=4
+[Ejercicio4_timer.c]
+Type=4
+[Units]
+Count=1
+1=Ejercicio4_timer (main)
+
+[defines]
+buildcount=1

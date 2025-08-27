@@ -1,0 +1,6 @@
+Compiling C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Ejercicio4 (Timer)\Ejercicio4_timer on 27-ago-25 at 18:44
+>>> Warning 204 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Ejercicio4 (Timer)\Ejercicio4_timer.c" Line 20(1,1): Condition always FALSE
+>>> Warning 204 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Ejercicio4 (Timer)\Ejercicio4_timer.c" Line 21(1,1): Condition always FALSE
+      Memory usage:   ROM=8%      RAM=3% - 8%
+      0 Errors,  2 Warnings.
+Build Successful.
