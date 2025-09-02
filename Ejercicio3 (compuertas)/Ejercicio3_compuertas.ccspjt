@@ -1,0 +1,38 @@
+[PROJECT]
+Target=Ejercicio3_compuertas.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+CCSVersion=5.093
+[Target Data]
+FileList=Ejercicio3_compuertas.c
+[Directories]
+Include=
+[C:\Users\MPF\Desktop\Electr-nica-Digital-2\Ejercicio3_compuertas]
+Type=4
+[mru-list]
+1=Ejercicio3_compuertas.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=02-09-2025
+D1_L=3
+D1_L1=[56933]Project Opened.
+D1_L2=[56939]Started Editing.
+D1_L3=[57399]Stopped Editing.
+
+[Opened Files]
+1=Ejercicio3_compuertas.c
+t1=29
+Count=1
+[Ejercicio3_compuertas.c]
+Type=4
+[Units]
+Count=1
+1=Ejercicio3_compuertas (main)
+
+[defines]
+buildcount=1
