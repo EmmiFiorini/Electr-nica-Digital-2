@@ -1,0 +1,76 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+004-005 @READ_PACKED_MEMORY.P3
+004-005 @WRITE_PACKED_MEMORY.P4
+006-007 @WRITE_PACKED_MEMORY.P1
+006-007 @READ_PACKED_MEMORY.P2
+021     main.i
+022     main.@SCRATCH1
+023     @delay_ms1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+111.6   C1OUT
+113.6   C2OUT
+191-192 @WRITE_PROGRAM_MEMORY8.P1
+191-192 @READ_PROGRAM_MEMORY8.P2
+291     CCP_1_LOW
+291     CCP_1
+292     CCP_1_HIGH
+298     CCP_2
+298     CCP_2_LOW
+299     CCP_2_HIGH
+311     CCP_3_LOW
+311     CCP_3
+312     CCP_3_HIGH
+318     CCP_4
+318     CCP_4_LOW
+319     CCP_4_HIGH
+
+ROM Allocation:
+000003  tabla.call
+000004  tabla.data
+00000E  Init_GPIO
+000017  @delay_ms1
+00002D  @cinit1
+00002D  main
+000035  @cinit2
+
+Project Directory:
+    C:\Users\MPF\Desktop\Git\
+
+Project Files:
+    ejercico5b_main.c                                       [19-ago.-25 18:46  CRC=3DFC77FC]
+    main.h                                                  [19-ago.-25 17:45  CRC=00000000]
+    ..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h  [21-feb.-20 15:48  CRC=D6A5AF9F]
+
+Source signature=EB47D73A
+Program memory checksum=0000
+Hex file CRC=5CA8
+
+Units:
+    C:\Users\MPF\Desktop\Git\ejercico5b_main (main)
+
+Compiler Settings:
+    Processor:      PIC16F1827
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Enhanced 16:    Yes
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   ejercico5b_main.xsym
+    Errors:      ejercico5b_main.err
+    Ext Symbols: ejercico5b_main.esym
+    INHX8:       ejercico5b_main.hex
+    Symbols:     ejercico5b_main.sym
+    List:        ejercico5b_main.lst
+    Debug/COFF:  ejercico5b_main.cof
+    Project:     ejercico5b_main.ccspjt
+    Call Tree:   ejercico5b_main.tre
+    Statistics:  ejercico5b_main.STA
