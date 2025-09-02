@@ -1,10 +1,10 @@
-F N "InitTimer0" 0 94 ""
-D G "__PCM__" 0 103 ""5.093""
-D G "__DEVICE__" 0 103 "1827"
-D G "__DATE__" 0 103 ""27-Aug-25""
-D G "__TIME__" 0 103 ""18:44:32""
-D G "_UNICODE" 0 103 ""?""
-D G "__EVAL" 0 103 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
+C L "InitTimer0" 0 38 1 "FUNCTION"
+D G "__PCM__" 0 58 ""5.093""
+D G "__DEVICE__" 0 58 "1827"
+D G "__DATE__" 0 58 ""20-Aug-25""
+D G "__TIME__" 0 58 ""17:20:21""
+D G "_UNICODE" 0 58 ""?""
+D G "__EVAL" 0 58 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 f N "set_tris_a" 2 39 ""
 v L "value" 2 39 "int8" `55 
@@ -1399,57 +1399,31 @@ d G "INT_RB6_H2L" 2 959 "0x21400B08"
 d G "INT_RB7" 2 960 "0x31800B08"
 d G "INT_RB7_L2H" 2 961 "0x11800B08"
 d G "INT_RB7_H2L" 2 962 "0x21800B08"
-C L "jump_to_isr" 0 6 2 "*"
-F N "InitGPIO" 0 10 ""
-f G "InitGPIO" 0 10 "void()" `721  "inicializo puertas"
-F N "InitTimer0" 0 11 ""
-f G "InitTimer0" 0 11 "void()" `722  "inicializo timer"
-F N "copiar_pin" 0 12 ""
-V L "pin_in" 0 12 "int8" `724 
-V L "pin_out" 0 12 "int8" `725 
-f G "copiar_pin" 0 12 "void(int8 pin_in,int8 pin_out)" `723  "funcion q copia estados"
-C L "copiar_pin" 0 6 1 "FUNCTION"
-F N "TIMER0_ISR" 0 16 ""
-F G "TIMER0_ISR" 0 16 "void()" `726 
-V L "contador" 0 17 "int8" `727 
-C L "TIMER0_ISR" 0 6 1 "FUNCTION"
-C L "TIMER0_ISR" 0 6 1 "FUNCTION"
-C L "TIMER0_ISR" 0 6 1 "FUNCTION"
-C L "TIMER0_ISR" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
+C L "jump_to_isr" 0 8 1 "*"
+F N "InitGPIO" 0 12 ""
+f G "InitGPIO" 0 12 "void()" `721 
+F N "InitTimer0" 0 14 ""
+f G "InitTimer0" 0 14 "void()" `722  "* Interrupcion"
+F N "TIMER0_ISR" 0 21 ""
+F G "TIMER0_ISR" 0 21 "void()" `723 
+C L "TIMER0_ISR" 0 8 1 "FUNCTION"
+C L "TIMER0_ISR" 0 8 1 "FUNCTION"
+C L "MAIN" 0 26 1 "*"
 F N "MAIN" 0 30 ""
-F G "MAIN" 0 30 "void()" `728 
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "copiar_pin" 0 6 1 "FUNCTION"
-F N "copiar_pin" 0 78 ""
-V L "pin_in" 0 78 "int8" `724 
-V L "pin_out" 0 78 "int8" `733 
-F G "copiar_pin" 0 78 "void(int8 pin_in,int8 pin_out)" `723 
-V L "estado" 0 79 "int8" `731 
-C L "copiar_pin" 0 6 1 "FUNCTION"
-C L "copiar_pin" 0 6 1 "FUNCTION"
-F N "InitGPIO" 0 84 ""
-F G "InitGPIO" 0 84 "void()" `721 
-C L "InitGPIO" 0 6 1 "FUNCTION"
-C L "InitGPIO" 0 6 2 "FUNCTION"
-F N "InitTimer0" 0 93 ""
-F G "InitTimer0" 0 93 "void()" `722 
-C L "InitTimer0" 0 6 1 "FUNCTION"
-C L "InitTimer0" 0 6 1 "FUNCTION"
+F G "MAIN" 0 30 "void()" `724 
+C L "MAIN" 0 26 1 "FUNCTION"
+C L "MAIN" 0 26 1 "FUNCTION"
+C L "InitGPIO" 0 38 1 "*"
+F N "InitGPIO" 0 42 ""
+F G "InitGPIO" 0 42 "void()" `721 
+C L "InitGPIO" 0 38 1 "FUNCTION"
+C L "InitGPIO" 0 38 1 "FUNCTION"
+C L "InitGPIO" 0 38 1 "FUNCTION"
+F N "InitTimer0" 0 48 ""
+F G "InitTimer0" 0 48 "void()" `722 
+C L "InitTimer0" 0 38 1 "FUNCTION"
+C L "InitTimer0" 0 38 1 "FUNCTION"
+C L "InitTimer0" 0 38 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

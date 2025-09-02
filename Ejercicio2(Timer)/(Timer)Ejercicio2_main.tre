@@ -1,7 +1,0 @@
-ÀÄ(Timer)Ejercicio2_main
-   ÃÄMAIN  0/13  Ram=0
-   ³  ÃÄ@cinit1  (Inline)  Ram=0
-   ³  ÃÄ@cinit2  (Inline)  Ram=0
-   ³  ÃÄInitGPIO  0/14  Ram=0
-   ³  ÀÄInitTimer0  0/13  Ram=0
-   ÀÄTIMER0_ISR  0/11  Ram=0

@@ -25,22 +25,22 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0      6   2    0    187  4.0  TIMER0_ISR
 0    170  50    1    940  2.9  MAIN
 0     39  12    3     88  2.7  copiar_pin
-0     32   9    6     37  1.1  @WRITEBITA
-0     26   8    5     37  1.1  @READBITA
+0     32   9    6             @WRITEBITA
+0     26   8    5             @READBITA
 0     14   4    0     72  1.2  InitGPIO
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               6
+    Functions               4
     Statements              56
     Comments                194
-    Volume (V)              1838
-    Difficulty (D)          13.3
-    Effort to implement (E) 24364
-    Time to implement (T)   23 minutes
+    Volume (V)              1637
+    Difficulty (D)          10.6
+    Effort to implement (E) 17369
+    Time to implement (T)   16 minutes
     Est Delivered Bugs (B)  0
     Cyclomatic Complexity   6
-    Maintainability (MI)    134
+    Maintainability (MI)    48
 
  Segment     Used  Free
 -----------  ----  ----
