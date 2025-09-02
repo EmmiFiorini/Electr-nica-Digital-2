@@ -1,0 +1,11 @@
+ÀÄSemaforo
+   ÃÄMAIN  0/22  Ram=0
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄ@cinit2  (Inline)  Ram=0
+   ³  ÃÄInitGPIO  0/19  Ram=0
+   ³  ÃÄInitTimer0  0/13  Ram=0
+   ³  ÀÄMaquinaEstado  0/80  Ram=0
+   ³     ÃÄInicioCuentaTimer  0/6  Ram=1
+   ³     ÃÄInicioCuentaTimer  0/6  Ram=1
+   ³     ÀÄInicioCuentaTimer  0/6  Ram=1
+   ÀÄTimer0_ISR  0/13  Ram=0
