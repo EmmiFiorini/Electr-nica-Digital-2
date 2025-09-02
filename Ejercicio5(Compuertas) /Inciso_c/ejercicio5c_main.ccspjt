@@ -1,0 +1,43 @@
+[PROJECT]
+Target=ejercicio5c_main.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+CCSVersion=5.093
+[Target Data]
+FileList=ejercicio5c_main.c
+[Directories]
+Include=
+[C:\Users\MPF\Desktop\Git\ejercicio5c_main]
+Type=4
+[mru-list]
+1=ejercicio5c_main.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=19-08-2025
+D1_L=8
+D1_L1=[68317]Project Opened.
+D1_L2=[68373]Started Editing.
+D1_L3=[68673]Stopped Editing.
+D1_L4=[68772]Started Editing.
+D1_L5=[69738]Stopped Editing.
+D1_L6=[70011]Started Editing.
+D1_L7=[70333]Stopped Editing.
+D1_L8=[70488]Started Editing.
+
+[Opened Files]
+1=ejercicio5c_main.c
+t1=28
+Count=1
+[ejercicio5c_main.c]
+Type=4
+
+[defines]
+buildcount=2
+[Units]
+Count=1
+1=ejercicio5c_main (main)
