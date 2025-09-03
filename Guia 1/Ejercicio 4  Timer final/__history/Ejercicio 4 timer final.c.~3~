@@ -33,7 +33,7 @@ void RB_ISR(void){
    //patita PB4
    if(input(PIN_B4)){
    output_high(PIN_B0); //prendo el led
-   //delay_ms(500);//espero 500ms
+   delay_ms(500);//espero 500ms
    output_low(PIN_B0);
    }
    
@@ -54,7 +54,6 @@ void RB_ISR(void){
       output_high(PIN_B2);
       output_high(PIN_B3);
    }
-   
 }
 
 //MAIN
@@ -73,7 +72,6 @@ void main()
 
 //INICIALIZACION FUNCIONES
 void InitGPIO(void) {
-setup_adc_ports(NO_ANALOGS); // Todos los pines como digitales
    // 1) defino a mis puertos como entrada y salida
    set_tris_b(0b11110000); //RB7–RB4 entradas, RB3–RB0 salidas
    set_tris_a(0b11110000); //RA3–RA0 salidas

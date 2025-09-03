@@ -25,15 +25,23 @@ D1_L2=[71864]Started Editing.
 D1_L3=[72726]Stopped Editing.
 D1_L4=[72860]Started Editing.
 D1_L5=[73508]Stopped Editing.
-TotalEdit=16
+TotalEdit=51
 TotalDebug=0
 D1_E=16
 D1_D=0
 D1_L6=[73734]Project Closed.
 D2=03-09-2025
-D2_L=2
+D2_L=8
 D2_L1=[66623]Project Opened.
 D2_L2=[66705]Started Editing.
+D2_L3=[69045]Stopped Editing.
+D2_L4=[71037]Started Editing.
+D2_L5=[71046]Stopped Editing.
+D2_E=35
+D2_D=0
+D2_L6=[71046]Project Closed.
+D2_L7=[71112]Project Opened.
+D2_L8=[71390]Started Editing.
 
 [Opened Files]
 1=Ejercicio 4 timer final.c
