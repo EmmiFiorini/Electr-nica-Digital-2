@@ -11,7 +11,6 @@
 024     overflow_count
 025     RB_ISR.valorPB
 026     RB_ISR.@SCRATCH1
-027     @delay_ms1.P1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -27,41 +26,40 @@
 298     CCP_2_LOW
 298     CCP_2
 299     CCP_2_HIGH
-311     CCP_3
 311     CCP_3_LOW
+311     CCP_3
 312     CCP_3_HIGH
-318     CCP_4_LOW
 318     CCP_4
+318     CCP_4_LOW
 319     CCP_4_HIGH
 
 ROM Allocation:
 000024  TIMER0_ISR
 00003D  RB_ISR
-00004B  @delay_ms1
-00009D  InitGPIO
-0000B3  InitTimer0
-0000C0  InitInterrupts
-0000CA  MAIN
-0000CA  @cinit1
-0000D7  @cinit2
+000081  InitGPIO
+00009F  InitTimer0
+0000AC  InitInterrupts
+0000B6  MAIN
+0000B6  @cinit1
+0000C3  @cinit2
 
 Project Directory:
     C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 1\Ejercicio 4  Timer final\
 
 Project Files:
-    Ejercicio 4 timer final.c                               [03-sept-25 19:04  CRC=8C9424C2]
-    Ejercicio 4 timer final.h                               [02-sept-25 19:56  CRC=00000000]
-    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16LF1827.h [21-feb-20 15:48  CRC=C4EB568A]
+    Ejercicio 4 timer final.c                               [03-sept-25 19:53  CRC=3A95F14D]
+    Ejercicio 4 timer final.h                               [03-sept-25 19:44  CRC=00000000]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb-20 15:48  CRC=D6A5AF9F]
 
-Source signature=166AD1D6
+Source signature=E7E1508B
 Program memory checksum=0000
-Hex file CRC=D90E
+Hex file CRC=292A
 
 Units:
     C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 1\Ejercicio 4  Timer final\Ejercicio 4 timer final (main)
 
 Compiler Settings:
-    Processor:      PIC16LF1827
+    Processor:      PIC16F1827
     Pointer Size:   16
     ADC Range:      0-1023
     Opt Level:      9

@@ -1,6 +1,6 @@
 [PROJECT]
 Target=Ejercicio 4 timer final.hex
-Processor_Text=PIC16LF1827
+Processor_Text=PIC16F1827
 CCSVerions=5.093
 Compiler=PCM
 CCSVersion=5.093
@@ -31,7 +31,7 @@ D1_E=16
 D1_D=0
 D1_L6=[73734]Project Closed.
 D2=03-09-2025
-D2_L=8
+D2_L=9
 D2_L1=[66623]Project Opened.
 D2_L2=[66705]Started Editing.
 D2_L3=[69045]Stopped Editing.
@@ -42,20 +42,25 @@ D2_D=0
 D2_L6=[71046]Project Closed.
 D2_L7=[71112]Project Opened.
 D2_L8=[71390]Started Editing.
+D2_L9=[71907]Stopped Editing.
 
 [Opened Files]
 1=Ejercicio 4 timer final.c
-t1=74
+t1=77
 2=..\Ejercicio2(Timer)\(Timer)Ejercicio2_main.c
 t2=18
 3=..\AntiRebote\AntiRebote3.c
 t3=70
-Count=3
+Count=5
+4=Ejercicio 4 timer final.h
+t4=1
+5=..\Ejercicio2 (Compuertas)\Ejercicio2_compuertas.h
+t5=1
 [Ejercicio 4 timer final.c]
 Type=4
+
+[defines]
+buildcount=2
 [Units]
 Count=1
 1=Ejercicio 4 timer final (main)
-
-[defines]
-buildcount=1
