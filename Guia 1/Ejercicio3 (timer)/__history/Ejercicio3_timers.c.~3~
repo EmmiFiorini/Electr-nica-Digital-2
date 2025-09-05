@@ -5,6 +5,12 @@
 #fuses NOWDT      // Desactivo el watchdog
 
 
+/*****************************************************************************
+ * Funciones de Inicializacion de Perifericos
+ ****************************************************************************/
+void InitGPIO(void);
+void InitTimer0(void); //inicializo timer
+
 int contador= 0;
 int led_activo= 0; // 1= led encendido esperando a que pasen los 500ms
 
@@ -15,7 +21,7 @@ void TIMER0_ISR() {
    if (led_activo) {
    contador++; 
       if (contador >= 8) {  //despues de 8 "vueltas", aprox 524 ms
-         output_low(PIN_B2); 
+         output_low(PIN_B"); 
          led_activo=0; 
          contador=0; 
       }
@@ -23,35 +29,32 @@ void TIMER0_ISR() {
 }
 
 /*****************************************************************************
- * Funciones de Inicializacion de Perifericos
- ****************************************************************************/
-void InitGPIO(void);
-void InitTimer0(void); //inicializo timer
-
-
-/*****************************************************************************
  * Main
  ****************************************************************************/
 
 void main(void) { 
-
    InitGPIO(); // Inicializo PORTB
-   InitTimer0();
-   
+   InitTimer0(=; 
    while(TRUE) { 
    
-      // Leo el estado de RB4-RB7
+      // Leo el estado de RB1 y RB2
       int sw4 = input(PIN_B4); 
       int sw5 = input(PIN_B5);
       int sw6 = input(PIN_B6); 
       int sw7 = input(PIN_B7);
 
       // Si hay alguna entrada en esos pines
-      if((sw4 || sw5 || sw6 || sw7) && !led_activo) {
+      if(sw4 or sw5 or sw6 or sw7) {
          output_high(PIN_B2);  // Prendo LED
-         led_activo=1; // marco que el LED esta activo 
-         contador=0; // reseteo cuenta de timer0
+         delay_ms(500); 
+         output_low(PIN_B2);   // Apago LED
+         delay_ms(500);
       }
+      else {
+         output_low(PIN_B2);   // Si no son iguales, LED apagado
+      }
+   } 
+
 }
 
 void InitGPIO(void){ 
@@ -60,13 +63,10 @@ void InitGPIO(void){
 }
 
 void InitTimer0(void){
-   setup_timer_0(RTCC_INTERNAL | RTCC_8_BIT | RTCC_DIV_256); // Timer0 interno con prescaler maximo
-   set_timer0(0); // precarga inicial
+   setup_timer_0(RTCC_INTERNAL | RTCC_8_BIT | RTCC_DIV_8); // Timer0 interno con prescaler 1:8
+   set_timer0(100); // precarga inicial
    enable_interrupts(INT_TIMER0);
    enable_interrupts(GLOBAL);
 }
-
-}
-
 
 

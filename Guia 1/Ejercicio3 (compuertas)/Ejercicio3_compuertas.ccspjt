@@ -17,7 +17,7 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=2
+Days=3
 D1=02-09-2025
 D1_L=3
 D1_L1=[56933]Project Opened.
@@ -28,21 +28,37 @@ D2_L=4
 D2_L1=[61737]Project Opened.
 D2_L2=[61775]Started Editing.
 D2_L3=[62225]Stopped Editing.
-TotalEdit=3
+TotalEdit=27
 TotalDebug=0
 D2_E=3
 D2_D=0
 D2_L4=[62275]Project Closed.
+D3=05-09-2025
+D3_L=10
+D3_L1=[42468]Project Opened.
+D3_L2=[42469]Project Closed.
+D3_L3=[42470]Project Opened.
+D3_L4=[42535]Started Editing.
+D3_L5=[43152]Stopped Editing.
+D3_L6=[43396]Started Editing.
+D3_L7=[44272]Stopped Editing.
+D3_L8=[44404]Started Editing.
+D3_L9=[44942]Stopped Editing.
+D3_E=24
+D3_D=0
+D3_L10=[44942]Project Closed.
 
 [Opened Files]
-1=Ejercicio3_compuertas.c
-t1=29
-Count=1
+1=..\AntiRebote\AntiRebote3.c
+t1=1
+Count=2
+2=..\Ejercicio3 (timer)\Ejercicio3_timers.c
+t2=1
 [Ejercicio3_compuertas.c]
 Type=4
+
+[defines]
+buildcount=2
 [Units]
 Count=1
 1=Ejercicio3_compuertas (main)
-
-[defines]
-buildcount=1
