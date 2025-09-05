@@ -17,12 +17,22 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=1
+Days=2
 D1=02-09-2025
 D1_L=3
 D1_L1=[56933]Project Opened.
 D1_L2=[56939]Started Editing.
 D1_L3=[57399]Stopped Editing.
+D2=03-09-2025
+D2_L=4
+D2_L1=[61737]Project Opened.
+D2_L2=[61775]Started Editing.
+D2_L3=[62225]Stopped Editing.
+TotalEdit=3
+TotalDebug=0
+D2_E=3
+D2_D=0
+D2_L4=[62275]Project Closed.
 
 [Opened Files]
 1=Ejercicio3_compuertas.c
