@@ -37,22 +37,6 @@ void RB_ISR(void){
    output_low(PIN_B0);
    }
    
-   //patita PB5 
-     if(input(PIN_B5)) 
-      overflow_count=0; //reinicion mi contador para usar en el timer
-   //patita PB6 
-   if(input(PIN_B6)){ 
-      int valorPB = input_b() & 0x0F; // leo PB0–PB3 
-      output_a(valorPB); // copio a PA0–PA3 
-      } 
-      
-   //patita PB7 
-   if (input(PIN_B7)) { 
-   output_high(PIN_B0); 
-   output_high(PIN_B1); 
-   output_high(PIN_B2); 
-   output_high(PIN_B3); 
-   }
    
    
 }

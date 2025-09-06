@@ -1,16 +1,16 @@
-CCS PCM C Compiler, Version 5.093, 4770               03-sept-25 20:02
+CCS PCM C Compiler, Version 5.093, 4770               06-sept-25 13:30
 
                Filename:   C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 1\Ejercicio 4  Timer final\Ejercicio 4 timer final.lst
 
-               ROM used:   200 words (5%)
+               ROM used:   228 words (6%)
                            Largest free fragment is 2048
                RAM used:   9 (2%) at main() level
-                           22 (6%) worst case
+                           23 (6%) worst case
                Stack used: 1 locations (0 in main + 1 for interrupts)
                Stack size: 16
 
 0000:  MOVLP  00
-0001:  GOTO   0B6
+0001:  GOTO   0D2
 0002:  NOP
 *
 0004:  CLRF   03
@@ -63,6 +63,28 @@ CCS PCM C Compiler, Version 5.093, 4770               03-sept-25 20:02
 .................... 
 .................... #device ADC=10
 .................... #use delay(internal=4MHz)
+*
+004B:  MOVLW  20
+004C:  MOVWF  05
+004D:  MOVLW  07
+004E:  MOVWF  04
+004F:  MOVF   00,W
+0050:  BTFSC  03.2
+0051:  GOTO   060
+0052:  MOVLW  01
+0053:  MOVWF  78
+0054:  CLRF   77
+0055:  DECFSZ 77,F
+0056:  GOTO   055
+0057:  DECFSZ 78,F
+0058:  GOTO   054
+0059:  MOVLW  4A
+005A:  MOVWF  77
+005B:  DECFSZ 77,F
+005C:  GOTO   05B
+005D:  GOTO   05E
+005E:  DECFSZ 00,F
+005F:  GOTO   052
 .................... 
 .................... 
 .................... 
@@ -83,6 +105,7 @@ CCS PCM C Compiler, Version 5.093, 4770               03-sept-25 20:02
 .................... #INT_TIMER0
 .................... void TIMER0_ISR(void) {
 ....................    set_timer0(12); //para prescaler 256 => 256-12=244
+*
 0024:  MOVLW  0C
 0025:  MOVWF  15
 ....................    overflow_count++; //cuento las interrupciones
@@ -128,173 +151,181 @@ CCS PCM C Compiler, Version 5.093, 4770               03-sept-25 20:02
 003E:  BSF    0D.4
 003F:  MOVLB  00
 0040:  BTFSS  0D.4
-0041:  GOTO   04B
+0041:  GOTO   067
 ....................    output_high(PIN_B0); //prendo el led
 0042:  MOVLB  01
 0043:  BCF    0D.0
 0044:  MOVLB  02
 0045:  BSF    0D.0
-....................    //delay_ms(500);//espero 500ms
+....................    delay_ms(500);//espero 500ms
+0046:  MOVLW  02
+0047:  MOVLB  00
+0048:  MOVWF  26
+0049:  MOVLW  FA
+004A:  MOVWF  27
+*
+0060:  DECFSZ 26,F
+0061:  GOTO   049
 ....................    output_low(PIN_B0);
-0046:  MOVLB  01
-0047:  BCF    0D.0
-0048:  MOVLB  02
-0049:  BCF    0D.0
-004A:  MOVLB  00
+0062:  MOVLB  01
+0063:  BCF    0D.0
+0064:  MOVLB  02
+0065:  BCF    0D.0
+0066:  MOVLB  00
 ....................    }
 ....................    
-....................    //patita PB5
-....................    if(input(PIN_B5))
-004B:  MOVLB  01
-004C:  BSF    0D.5
-004D:  MOVLB  00
-004E:  BTFSC  0D.5
-....................    overflow_count=0; //reinicion mi contador para usar en el timer
-004F:  CLRF   24
-....................    
-....................    //patita PB6
-....................    if(input(PIN_B6)){
-0050:  MOVLB  01
-0051:  BSF    0D.6
-0052:  MOVLB  00
-0053:  BTFSS  0D.6
-0054:  GOTO   063
-....................    int valorPB = input_b() & 0x0F; // leo PB0–PB3
-0055:  MOVLW  FF
-0056:  MOVLB  01
-0057:  MOVWF  0D
-0058:  MOVLB  00
-0059:  MOVF   0D,W
-005A:  ANDLW  0F
-005B:  MOVWF  25
-....................    output_a(valorPB); // copio a PA0–PA3
-005C:  MOVLB  01
-005D:  CLRF   0C
-005E:  MOVLB  00
-005F:  MOVF   25,W
-0060:  MOVLB  02
-0061:  MOVWF  0C
-0062:  MOVLB  00
-....................    }
-....................    
-....................    //patita PB7
-....................    if (input(PIN_B7)) {
-0063:  MOVLB  01
-0064:  BSF    0D.7
-0065:  MOVLB  00
-0066:  BTFSS  0D.7
-0067:  GOTO   079
-....................       output_high(PIN_B0);
-0068:  MOVLB  01
-0069:  BCF    0D.0
-006A:  MOVLB  02
-006B:  BSF    0D.0
-....................       output_high(PIN_B1);
+....................    //patita PB5 
+....................      if(input(PIN_B5)) 
+0067:  MOVLB  01
+0068:  BSF    0D.5
+0069:  MOVLB  00
+006A:  BTFSC  0D.5
+....................       overflow_count=0; //reinicion mi contador para usar en el timer
+006B:  CLRF   24
+....................    //patita PB6 
+....................    if(input(PIN_B6)){ 
 006C:  MOVLB  01
-006D:  BCF    0D.1
-006E:  MOVLB  02
-006F:  BSF    0D.1
-....................       output_high(PIN_B2);
-0070:  MOVLB  01
-0071:  BCF    0D.2
-0072:  MOVLB  02
-0073:  BSF    0D.2
-....................       output_high(PIN_B3);
-0074:  MOVLB  01
-0075:  BCF    0D.3
-0076:  MOVLB  02
-0077:  BSF    0D.3
-0078:  MOVLB  00
+006D:  BSF    0D.6
+006E:  MOVLB  00
+006F:  BTFSS  0D.6
+0070:  GOTO   07F
+....................       int valorPB = input_b() & 0x0F; // leo PB0–PB3 
+0071:  MOVLW  FF
+0072:  MOVLB  01
+0073:  MOVWF  0D
+0074:  MOVLB  00
+0075:  MOVF   0D,W
+0076:  ANDLW  0F
+0077:  MOVWF  25
+....................       output_a(valorPB); // copio a PA0–PA3 
+0078:  MOVLB  01
+0079:  CLRF   0C
+007A:  MOVLB  00
+007B:  MOVF   25,W
+007C:  MOVLB  02
+007D:  MOVWF  0C
+007E:  MOVLB  00
+....................       } 
+....................       
+....................    //patita PB7 
+....................    if (input(PIN_B7)) { 
+007F:  MOVLB  01
+0080:  BSF    0D.7
+0081:  MOVLB  00
+0082:  BTFSS  0D.7
+0083:  GOTO   095
+....................    output_high(PIN_B0); 
+0084:  MOVLB  01
+0085:  BCF    0D.0
+0086:  MOVLB  02
+0087:  BSF    0D.0
+....................    output_high(PIN_B1); 
+0088:  MOVLB  01
+0089:  BCF    0D.1
+008A:  MOVLB  02
+008B:  BSF    0D.1
+....................    output_high(PIN_B2); 
+008C:  MOVLB  01
+008D:  BCF    0D.2
+008E:  MOVLB  02
+008F:  BSF    0D.2
+....................    output_high(PIN_B3); 
+0090:  MOVLB  01
+0091:  BCF    0D.3
+0092:  MOVLB  02
+0093:  BSF    0D.3
+0094:  MOVLB  00
 ....................    }
 ....................    
-0079:  MOVLW  FF
-007A:  MOVLB  07
-007B:  XORWF  16,W
-007C:  ANDWF  16,F
-007D:  BCF    0B.0
-007E:  MOVLP  00
-007F:  MOVLB  00
-0080:  GOTO   017
+....................    
+0095:  MOVLW  FF
+0096:  MOVLB  07
+0097:  XORWF  16,W
+0098:  ANDWF  16,F
+0099:  BCF    0B.0
+009A:  MOVLP  00
+009B:  MOVLB  00
+009C:  GOTO   017
 .................... }
 .................... 
 .................... //MAIN
 .................... void main()
 *
-00B6:  MOVLW  6A
-00B7:  MOVLB  01
-00B8:  MOVWF  19
-00B9:  MOVLB  00
-00BA:  CLRF   24
-00BB:  MOVLB  03
-00BC:  CLRF   0C
-00BD:  CLRF   0D
-00BE:  MOVLB  02
-00BF:  CLRF   12
-00C0:  CLRF   11
-00C1:  CLRF   14
-00C2:  CLRF   13
+00D2:  MOVLW  6A
+00D3:  MOVLB  01
+00D4:  MOVWF  19
+00D5:  MOVLB  00
+00D6:  CLRF   24
+00D7:  MOVLB  03
+00D8:  CLRF   0C
+00D9:  CLRF   0D
+00DA:  MOVLB  02
+00DB:  CLRF   12
+00DC:  CLRF   11
+00DD:  CLRF   14
+00DE:  CLRF   13
 .................... {
 ....................    InitGPIO();    // Inicializo el PORTA y PORTB
-00C3:  MOVLB  00
-00C4:  GOTO   081
+00DF:  MOVLB  00
+00E0:  GOTO   09D
 ....................    InitTimer0(); //inicalizo el timer0 en el main
-00C5:  GOTO   09F
+00E1:  GOTO   0BB
 ....................    InitInterrupts(); //inicializo las interrupciones x cambio de estado de las patas PB7-PB4
-00C6:  GOTO   0AC
+00E2:  GOTO   0C8
 ....................    
 ....................    
 ....................    while(TRUE)
 ....................    {
-00C7:  GOTO   0C7
+00E3:  GOTO   0E3
 ....................    }
 .................... 
 .................... }
 .................... 
-00C8:  SLEEP
+00E4:  SLEEP
 .................... //INICIALIZACION FUNCIONES
 .................... void InitGPIO(void) {
 .................... setup_adc_ports(NO_ANALOGS); // Todos los pines como digitales
 *
-0081:  MOVLB  01
-0082:  BCF    1E.0
-0083:  BCF    1E.1
-0084:  BCF    1E.2
-0085:  MOVLW  00
-0086:  MOVLB  03
-0087:  MOVWF  0C
-0088:  MOVWF  0D
+009D:  MOVLB  01
+009E:  BCF    1E.0
+009F:  BCF    1E.1
+00A0:  BCF    1E.2
+00A1:  MOVLW  00
+00A2:  MOVLB  03
+00A3:  MOVWF  0C
+00A4:  MOVWF  0D
 ....................    // 1) defino a mis puertos como entrada y salida
 ....................    set_tris_b(0b11110000); //RB7–RB4 entradas, RB3–RB0 salidas
-0089:  MOVLW  F0
-008A:  MOVLB  01
-008B:  MOVWF  0D
+00A5:  MOVLW  F0
+00A6:  MOVLB  01
+00A7:  MOVWF  0D
 ....................    set_tris_a(0b11110000); //RA3–RA0 salidas
-008C:  MOVWF  0C
+00A8:  MOVWF  0C
 .................... 
 .................... 
 ....................    // 2) los inicializo en low
 ....................    output_low(PIN_B0);
-008D:  BCF    0D.0
-008E:  MOVLB  02
-008F:  BCF    0D.0
+00A9:  BCF    0D.0
+00AA:  MOVLB  02
+00AB:  BCF    0D.0
 ....................    output_low(PIN_B1);
-0090:  MOVLB  01
-0091:  BCF    0D.1
-0092:  MOVLB  02
-0093:  BCF    0D.1
+00AC:  MOVLB  01
+00AD:  BCF    0D.1
+00AE:  MOVLB  02
+00AF:  BCF    0D.1
 ....................    output_low(PIN_B2);
-0094:  MOVLB  01
-0095:  BCF    0D.2
-0096:  MOVLB  02
-0097:  BCF    0D.2
+00B0:  MOVLB  01
+00B1:  BCF    0D.2
+00B2:  MOVLB  02
+00B3:  BCF    0D.2
 ....................    output_low(PIN_B3);
-0098:  MOVLB  01
-0099:  BCF    0D.3
-009A:  MOVLB  02
-009B:  BCF    0D.3
-009C:  MOVLP  00
-009D:  MOVLB  00
-009E:  GOTO   0C5 (RETURN)
+00B4:  MOVLB  01
+00B5:  BCF    0D.3
+00B6:  MOVLB  02
+00B7:  BCF    0D.3
+00B8:  MOVLP  00
+00B9:  MOVLB  00
+00BA:  GOTO   0E1 (RETURN)
 ....................    // no inicializo mis puertos A, asi se puede complir la consigna
 .................... 
 .................... }
@@ -302,37 +333,37 @@ CCS PCM C Compiler, Version 5.093, 4770               03-sept-25 20:02
 .................... void InitTimer0(void){
 ....................    // configurar Timer0: reloj interno (Tcy), prescaler 256
 ....................    setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256);
-009F:  MOVLB  01
-00A0:  MOVF   15,W
-00A1:  ANDLW  C0
-00A2:  IORLW  07
-00A3:  MOVWF  15
+00BB:  MOVLB  01
+00BC:  MOVF   15,W
+00BD:  ANDLW  C0
+00BE:  IORLW  07
+00BF:  MOVWF  15
 ....................    set_timer0(12); // carga inicial
-00A4:  MOVLW  0C
-00A5:  MOVLB  00
-00A6:  MOVWF  15
+00C0:  MOVLW  0C
+00C1:  MOVLB  00
+00C2:  MOVWF  15
 ....................    enable_interrupts(INT_TIMER0); // habilita interrupción del Timer0
-00A7:  BSF    0B.5
+00C3:  BSF    0B.5
 ....................    enable_interrupts(GLOBAL); // habilita interrupciones globales
-00A8:  MOVLW  C0
-00A9:  IORWF  0B,F
-00AA:  MOVLP  00
-00AB:  GOTO   0C6 (RETURN)
+00C4:  MOVLW  C0
+00C5:  IORWF  0B,F
+00C6:  MOVLP  00
+00C7:  GOTO   0E2 (RETURN)
 .................... }
 .................... 
 .................... void InitInterrupts(void){
 ....................    enable_interrupts(INT_RB);    // Habilita interrupción en RB4-RB7
-00AC:  BSF    0B.3
-00AD:  MOVLW  FF
-00AE:  MOVLB  07
-00AF:  IORWF  11,F
-00B0:  IORWF  12,F
+00C8:  BSF    0B.3
+00C9:  MOVLW  FF
+00CA:  MOVLB  07
+00CB:  IORWF  11,F
+00CC:  IORWF  12,F
 ....................    enable_interrupts(GLOBAL);    // Habilita todas las interrupciones
-00B1:  MOVLW  C0
-00B2:  IORWF  0B,F
-00B3:  MOVLP  00
-00B4:  MOVLB  00
-00B5:  GOTO   0C7 (RETURN)
+00CD:  MOVLW  C0
+00CE:  IORWF  0B,F
+00CF:  MOVLP  00
+00D0:  MOVLB  00
+00D1:  GOTO   0E3 (RETURN)
 .................... 
 .................... }
 
