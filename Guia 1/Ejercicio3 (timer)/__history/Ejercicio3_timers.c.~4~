@@ -4,12 +4,6 @@
 #fuses NOMCLR     // Desactivo el MCLR
 #fuses NOWDT      // Desactivo el watchdog
 
-/*****************************************************************************
- * Funciones de Inicializacion de Perifericos
- ****************************************************************************/
-void InitGPIO(void);
-void InitTimer0(void); //inicializo timer
-
 
 int contador= 0;
 int led_activo= 0; // 1= led encendido esperando a que pasen los 500ms
@@ -27,6 +21,12 @@ void TIMER0_ISR() {
       }
    }
 }
+
+/*****************************************************************************
+ * Funciones de Inicializacion de Perifericos
+ ****************************************************************************/
+void InitGPIO(void);
+void InitTimer0(void); //inicializo timer
 
 
 /*****************************************************************************
@@ -52,7 +52,6 @@ void main(void) {
          led_activo=1; // marco que el LED esta activo 
          contador=0; // reseteo cuenta de timer0
       }
-   }
 }
 
 void InitGPIO(void){ 
@@ -67,6 +66,7 @@ void InitTimer0(void){
    enable_interrupts(GLOBAL);
 }
 
+}
 
 
 

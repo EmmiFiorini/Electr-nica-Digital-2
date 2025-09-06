@@ -1,8 +1,9 @@
 [PROJECT]
-Target=C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio3_timers.hex
+Target=Ejercicio3_timers.hex
 Processor_Text=PIC16F1827
 CCSVerions=5.093
 Compiler=PCM
+CCSVersion=5.093
 [Target Data]
 FileList=Ejercicio3_timers.c
 [Directories]
@@ -11,15 +12,37 @@ Include=
 Type=4
 [mru-list]
 1=Ejercicio3_timers.c
-[Units]
-Count=1
-1=Ejercicio3_timers (main)
 
 [fileformats]
 forcecoff=0
 
 [ProjectLog]
-Days=1
+Days=2
 D1=03-09-2025
 D1_L=1
 D1_L1=[60685]Project Opened.
+D2=05-09-2025
+D2_L=6
+D2_L1=[42469]Project Opened.
+D2_L2=[42470]Project Closed.
+D2_L3=[47060]Project Opened.
+D2_L4=[47162]Started Editing.
+D2_L5=[47261]Stopped Editing.
+TotalEdit=2
+TotalDebug=0
+D2_E=2
+D2_D=0
+D2_L6=[47261]Project Closed.
+
+[Opened Files]
+1=Ejercicio3_timers.c
+t1=53
+Count=1
+[Ejercicio3_timers.c]
+Type=4
+[Units]
+Count=1
+1=Ejercicio3_timers (main)
+
+[defines]
+buildcount=1

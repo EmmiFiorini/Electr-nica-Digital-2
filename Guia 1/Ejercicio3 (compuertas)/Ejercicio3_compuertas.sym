@@ -38,19 +38,19 @@ ROM Allocation:
 00002D  @cinit2
 
 Project Directory:
-    C:\Users\MPF\Desktop\Electr-nica-Digital-2\
+    C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio3 (compuertas)\
 
 Project Files:
-    Ejercicio3_compuertas.c                                 [02-sept-25 15:51  CRC=F3748A1E]
-    Ejercicio3_compuertas.h                                 [02-sept-25 15:48  CRC=00000000]
-    ..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h  [21-feb-20 15:48  CRC=D6A5AF9F]
+    Ejercicio3_compuertas.c                                 [03-sept-25 13:39  CRC=F3748A1E]
+    Ejercicio3_compuertas.h                                 [03-sept-25 13:39  CRC=00000000]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb-20 15:48  CRC=D6A5AF9F]
 
 Source signature=A0BFE95C
 Program memory checksum=0000
 Hex file CRC=A704
 
 Units:
-    C:\Users\MPF\Desktop\Electr-nica-Digital-2\Ejercicio3_compuertas (main)
+    C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio3 (compuertas)\Ejercicio3_compuertas (main)
 
 Compiler Settings:
     Processor:      PIC16F1827

@@ -1,10 +1,10 @@
-F N "InitGPIO" 0 40 ""
-D G "__PCM__" 0 46 ""5.093""
-D G "__DEVICE__" 0 46 "1827"
-D G "__DATE__" 0 46 ""5-Sep-25""
-D G "__TIME__" 0 46 ""12:28:35""
-D G "_UNICODE" 0 46 ""?""
-D G "__EVAL" 0 46 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
+F N "MAIN" 0 36 ""
+D G "__PCM__" 0 75 ""5.093""
+D G "__DEVICE__" 0 75 "1827"
+D G "__DATE__" 0 75 ""5-Sep-25""
+D G "__TIME__" 0 75 ""13:07:19""
+D G "_UNICODE" 0 75 ""?""
+D G "__EVAL" 0 75 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 f N "set_tris_a" 2 39 ""
 v L "value" 2 39 "int8" `55 
@@ -1399,22 +1399,38 @@ d G "INT_RB6_H2L" 2 959 "0x21400B08"
 d G "INT_RB7" 2 960 "0x31800B08"
 d G "INT_RB7_L2H" 2 961 "0x11800B08"
 d G "INT_RB7_H2L" 2 962 "0x21800B08"
-C L "jump_to_isr" 0 8 1 "*"
-F N "InitGPIO" 0 12 ""
-f G "InitGPIO" 0 12 "void()" `721  "* Main"
-F N "main" 0 18 ""
-F G "main" 0 18 "void()" `722 
-C L "main" 0 8 1 "FUNCTION"
-C L "main" 0 8 1 "FUNCTION"
-V L "sw1" 0 23 "int8" `725 
-V L "sw2" 0 24 "int8" `726 
-C L "main" 0 8 1 "FUNCTION"
-C L "main" 0 8 1 "FUNCTION"
-C L "main" 0 8 1 "FUNCTION"
-C L "main" 0 8 1 "FUNCTION"
-F N "InitGPIO" 0 40 ""
-F G "InitGPIO" 0 40 "void()" `721 
-C L "InitGPIO" 0 8 1 "FUNCTION"
+C L "jump_to_isr" 0 7 1 "*"
+F N "InitGPIO" 0 10 ""
+f G "InitGPIO" 0 10 "void()" `721 
+F N "InitTimer0" 0 11 ""
+f G "InitTimer0" 0 11 "void()" `722  "inicializo timer"
+V G "contador" 0 14 "int8" `723 
+V G "led_activo" 0 15 "int8" `724 
+C L "InitTimer0" 0 7 2 "FUNCTION"
+F N "TIMER0_ISR" 0 20 ""
+F G "TIMER0_ISR" 0 20 "void()" `725 
+C L "TIMER0_ISR" 0 7 1 "FUNCTION"
+C L "MAIN" 0 32 1 "*"
+F N "MAIN" 0 36 ""
+F G "MAIN" 0 36 "void()" `726 
+C L "MAIN" 0 32 1 "FUNCTION"
+C L "MAIN" 0 32 1 "FUNCTION"
+V L "sw4" 0 44 "int8" `729 
+V L "sw5" 0 45 "int8" `730 
+V L "sw6" 0 46 "int8" `731 
+V L "sw7" 0 47 "int8" `732 
+C L "MAIN" 0 32 1 "FUNCTION"
+C L "MAIN" 0 32 1 "FUNCTION"
+C L "MAIN" 0 32 1 "FUNCTION"
+C L "MAIN" 0 32 1 "FUNCTION"
+F N "InitGPIO" 0 58 ""
+F G "InitGPIO" 0 58 "void()" `721 
+C L "InitGPIO" 0 32 1 "FUNCTION"
+C L "InitGPIO" 0 32 1 "FUNCTION"
+F N "InitTimer0" 0 63 ""
+F G "InitTimer0" 0 63 "void()" `722 
+C L "InitTimer0" 0 32 1 "FUNCTION"
+C L "InitTimer0" 0 32 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0
