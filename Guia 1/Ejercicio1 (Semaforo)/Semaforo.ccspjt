@@ -17,7 +17,7 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=2
+Days=1
 D1=26-08-2025
 D1_L=17
 D1_L1=[48246]Project Opened.
@@ -41,10 +41,6 @@ D1_L14=[65950]Project Closed.
 D1_L15=[65982]Project Opened.
 D1_L16=[66016]Started Editing.
 D1_L17=[66623]Project Closed.
-D2=02-09-2025
-D2_L=2
-D2_L1=[53246]Project Opened.
-D2_L2=[53271]Project Closed.
 
 [Opened Files]
 1=Semaforo.c
