@@ -17,34 +17,43 @@
 #define LCD_DATA7       PIN_B7
 #include <lcd.c>
 
+
+
+
 /*****************************************************************************
  * Funciones de Inicializacion de Perifericos
  ****************************************************************************/
  
- typedef enum {
+ /*typedef enum {
     SUELTO,
     Q_PRESIONADO,
     PRESIONADO,
     Q_SUELTO
-} eEstado;
-//typedef enum { SUELTO, PRESIONADO, ESTABLE, LIBERADO } eEstado;
+} eEstado;*/
+typedef enum { SUELTO, PRESIONADO, ESTABLE, LIBERADO } eEstado;
+
+
 eEstado estado_actual = SUELTO;
 
 void MaquinaEstado(void);
  
+
 void InitGPIO(void);
+
 void EscribirDisplay(signed int valor);
+
 int8 EstadoPulsador(void);
+
 void InitTimer0(void);
 
+int valor = 0;
 
-volatile int flag_pulsado = 0;
-volatile int flag_segundo = 0;
-volatile int flanco_d = 0;
-volatile int flanco_a = 0;
+int flag_pulsado = 0;
 
-// CREO MI VARIABLE GLOBAL
-volatile int valor = 0; //mi contador de presionados
+int flag_segundo = 0;
+
+int flanco_d = 0;
+int flanco_a = 0;
 
 #INT_TIMER0 // ACA ESCRIBO QUÉ DEBO HACER EN CADA INTERRUPCIÓN
 void Timer0_ISR() {
@@ -101,45 +110,41 @@ void InitTimer0(void){
     enable_interrupts(GLOBAL);        // Desactivo Interrupciones globales
 }
 
-void MaquinaEstado(void){
+void MaquinaEstado(void) {
     int boton = EstadoPulsador();
 
-    switch (estado_actual) {
-
+    switch(estado_actual) {
         case SUELTO:
-            flanco_a = 0;
-            flanco_d = 0;
-            if(boton == 0){          // botón presionado
-                estado_actual = Q_PRESIONADO;
-                flag_segundo = 0;
-                set_timer0(178);      // reinicia timer para anti-rebote
-            }
-            break;
-
-        case Q_PRESIONADO:
-            if(boton == 0 && flag_segundo == 1){
-                flag_segundo = 0;
-                flanco_d = 1;
-                estado_actual = PRESIONADO;  // botón confirmado presionado
-            } else if(boton == 1){
-                flag_segundo = 0;
-                estado_actual = SUELTO;      // se liberó antes de tiempo
+            if(boton == 0) {   // Botón presionado
+                estado_actual = PRESIONADO;
+                flag_segundo = 0;      // reinicio la medición de anti-rebote
+                set_timer0(178);       // reiniciar timer
             }
             break;
 
         case PRESIONADO:
-            valor++;                     // contar pulsación
-            EscribirDisplay(valor);
-            estado_actual = Q_SUELTO;    // preparar transición a liberado
-            flag_segundo = 0;
-            set_timer0(178);             // reinicia timer para anti-rebote al soltar
+            if(boton == 0) {          
+                if(flag_segundo == 1) {   // si ya pasó el tiempo de anti-rebote
+                    estado_actual = ESTABLE;
+                    flag_segundo = 0;     // reseteo para la próxima pulsación
+                }
+            } else {                     // si se liberó antes del tiempo
+                estado_actual = SUELTO;
+                flag_segundo = 0;         // reinicio flag
+            }
             break;
 
-        case Q_SUELTO:
-            if(boton == 1 && flag_segundo == 1){
-                flag_segundo = 0;
-                estado_actual = SUELTO;      // listo para nueva pulsación
+        case ESTABLE:
+            if(boton == 1) {             // botón liberado
+                estado_actual = LIBERADO;
             }
+            break;
+
+        case LIBERADO:
+            valor++;                     // contamos la pulsación
+            EscribirDisplay(valor);
+            estado_actual = SUELTO;      // volvemos al estado inicial
+            flag_segundo = 0;            // reiniciamos flag para la próxima pulsación
             break;
     }
 }

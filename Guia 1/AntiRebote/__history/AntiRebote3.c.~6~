@@ -102,45 +102,63 @@ void InitTimer0(void){
 }
 
 void MaquinaEstado(void){
-    int boton = EstadoPulsador();
-
-    switch (estado_actual) {
-
-        case SUELTO:
-            flanco_a = 0;
-            flanco_d = 0;
-            if(boton == 0){          // botón presionado
-                estado_actual = Q_PRESIONADO;
-                flag_segundo = 0;
-                set_timer0(178);      // reinicia timer para anti-rebote
-            }
-            break;
-
-        case Q_PRESIONADO:
-            if(boton == 0 && flag_segundo == 1){
-                flag_segundo = 0;
-                flanco_d = 1;
-                estado_actual = PRESIONADO;  // botón confirmado presionado
-            } else if(boton == 1){
-                flag_segundo = 0;
-                estado_actual = SUELTO;      // se liberó antes de tiempo
-            }
-            break;
-
-        case PRESIONADO:
-            valor++;                     // contar pulsación
-            EscribirDisplay(valor);
-            estado_actual = Q_SUELTO;    // preparar transición a liberado
+   
+   switch (estado_actual) {
+      
+      case SUELTO:
+         
+         flanco_a = 0;
+         flanco_d = 0;
+         
+         if(EstadoPulsador() == 0) {
+         estado_actual = Q_PRESIONADO;
+         flag_segundo = 0;
+         set_timer0(178);
+         }
+         
+         break;
+         
+      case PRESIONADO:
+   
+               valor=valor+1; //si esta presionado entonces cambio el valor q presento
+               EscribirDisplay(valor); //imprimo en pantalla el valor
+               flag_pulsado = 1;
+               flanco_d = 0;
+  
+         estado_actual = Q_SUELTO;
+         flag_segundo = 0;
+         set_timer0(178);
+        
+         
+         break;
+         
+      case Q_PRESIONADO:
+      
+      
+     if(EstadoPulsador() == 0 && flag_segundo == 1) {
+     flag_segundo = 0;
+     flanco_d = 1;
+     estado_actual = PRESIONADO;
+     }
+     
+     if(EstadoPulsador() == 1 && flag_segundo == 1) {
+      flag_segundo = 0;
+     estado_actual == SUELTO;
+     }
+         break;  
+         
+      case Q_SUELTO:
+      
+         if(EstadoPulsador() == 0 && flag_segundo == 1) {
             flag_segundo = 0;
-            set_timer0(178);             // reinicia timer para anti-rebote al soltar
-            break;
-
-        case Q_SUELTO:
-            if(boton == 1 && flag_segundo == 1){
-                flag_segundo = 0;
-                estado_actual = SUELTO;      // listo para nueva pulsación
+            estado_actual = PRESIONADO;
             }
-            break;
-    }
+     
+         if(EstadoPulsador() == 1 && flag_segundo == 1) {
+            flag_segundo = 0;
+            estado_actual == SUELTO;
+            }
+        break;
+      }
 }
 
