@@ -19,24 +19,31 @@ forcecoff=0
 [ProjectLog]
 Days=1
 D1=07-09-2025
-D1_L=5
+D1_L=8
 D1_L1=[65678]Project Opened.
 D1_L2=[65716]Started Editing.
 D1_L3=[66511]Stopped Editing.
 D1_L4=[67150]Started Editing.
 D1_L5=[68761]Stopped Editing.
+D1_L6=[71252]Started Editing.
+D1_L7=[72024]Stopped Editing.
+D1_L8=[72124]Started Editing.
 
 [Opened Files]
 1=Ejercicio 1 Timer.c
-t1=29
+t1=52
 2=..\Ejercicio 4  Timer final\Ejercicio 4 timer final.c
-t2=56
-Count=2
+t2=32
+Count=4
+3=..\AntiRebote\AntiRebote3.c
+t3=1
+4=..\..\..\..\..\OneDrive\Documentos\Facultad\Electronica Digital 2\Guia 1\Guia 1\Ej6\main.c
+t4=40
 [Ejercicio 1 Timer.c]
 Type=4
 
 [defines]
-buildcount=5
+buildcount=6
 [Units]
 Count=1
 1=Ejercicio 1 Timer (main)

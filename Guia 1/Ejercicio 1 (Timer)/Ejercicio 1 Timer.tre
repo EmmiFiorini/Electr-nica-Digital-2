@@ -1,9 +1,7 @@
 ÀÄEjercicio 1 Timer
-   ÃÄMAIN  0/19  Ram=0
+   ÃÄMAIN  0/81  Ram=1
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄ@cinit2  (Inline)  Ram=0
    ³  ÃÄInitGPIO  0/9  Ram=0
-   ³  ÃÄInitTimer0  0/11  Ram=0
-   ³  ÀÄInitInterrupts  0/8  Ram=0
-   ÃÄTIMER0_ISR  0/28  Ram=0
-   ÀÄRB0_ISR  0/9  Ram=0
+   ³  ÀÄInitTimer0  0/14  Ram=0
+   ÀÄTIMER0_ISR  0/31  Ram=0

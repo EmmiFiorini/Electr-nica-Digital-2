@@ -9,46 +9,62 @@ valor del pin RB1 cada 500ms. A su vez, el pin RB1 debe estar conectado al pin
 RB0 de forma que active la interrupción externa del RB0 y en esta interrupción
 cambie el estado de un led en el pin RB7 (ver figura).*/
 
-// CREO MI VARIABLE GLOBAL
+// CREO MIS VARIABLES
 volatile int overflow_count=0; //mi contador q uso en el timer
+volatile int rb1_state = 0;   // 0 = LOW, 1 = HIGH
+
+int rb0_prev = 0;             // Estado anterior de RB0
+int led_state = 0;             // 0 = OFF, 1 = ON
 
 // DEFINICION DE FUNCIONES
 void InitGPIO(void); //inicializo los puesrtos
 void InitTimer0(void);  //inicializo el timer 0
-void InitInterrupts(void); //inicializo las interrupciones por el cambio de estado de las patitas PB7-4
+
 
 // HABILITO INTERRUPCION
 #INT_TIMER0
 void TIMER0_ISR(void) {
-   set_timer0(12);       // recargo timer
+   set_timer0(178);// Recarga para 10ms
    overflow_count++; 
-   output_low(PIN_B1);
 
-   if (overflow_count == 8) { // 0.5s
-      output_toggle(PIN_B1);  // cambio el estado de RB1
+   if (overflow_count >= 50) {   // 50 × 10ms = 500ms
       overflow_count = 0;
-   }else
-   output_low(PIN_B1);
+      rb1_state = !rb1_state;  
+      output_bit(PIN_B1, rb1_state);
+   }
+   clear_interrupt(INT_TIMER0);
 }
 
-#INT_EXT
-void RB0_ISR(void){
-   output_toggle(PIN_B7); // cambio estado LED en RB7
-}
 
 
 //MAIN
-void main()
-{
-   InitGPIO();    // Inicializo el PORTA y PORTB
+void main() {
+    InitGPIO();    // Inicializo el PORTA y PORTB
    InitTimer0(); //inicalizo el timer0 en el main
-   InitInterrupts(); //inicializo las interrupciones x cambio de estado de las patas PB7-PB4
-   
-   while(TRUE)
-   {
-   }
 
+    while(TRUE) {
+        //MODELO DE ESTADOS PARA RB0 Y LED
+        int rb0_curr = input(PIN_B0);
+
+        switch(rb0_prev) {
+            case 0: // RB0 estaba LOW
+                if(rb0_curr) {  // sube flanco
+                    led_state = !led_state;
+                    output_bit(PIN_B7, led_state);
+                }
+                break;
+            case 1: // RB0 estaba HIGH
+                if(!rb0_curr) { // baja flanco
+                    led_state = !led_state;
+                    output_bit(PIN_B7, led_state);
+                }
+                break;
+        }
+
+        rb0_prev = rb0_curr;
+    }
 }
+
 
 //INICIALIZACION FUNCIONES
 void InitGPIO(void) {
@@ -60,14 +76,11 @@ void InitGPIO(void) {
 
 void InitTimer0(void){
 // configurar Timer0: reloj interno (Tcy), prescaler 256
-   setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256);
-   set_timer0(12); // carga inicial
-   enable_interrupts(INT_TIMER0); // habilita interrupción del Timer0
-  
+  setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256);
+  set_timer0(178);
+  enable_interrupts(INT_TIMER0);
+  enable_interrupts(GLOBAL);
+  clear_interrupt(INT_TIMER0);
 }
 
-void InitInterrupts(void){
-   ext_int_edge(L_TO_H);//flanco ascendente
-   enable_interrupts(INT_EXT);// interrupción externa RB0
-   enable_interrupts(GLOBAL);
-}
+

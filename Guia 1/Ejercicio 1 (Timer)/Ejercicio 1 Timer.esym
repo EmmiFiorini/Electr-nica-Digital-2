@@ -1,10 +1,10 @@
-F N "InitInterrupts" 0 69 ""
-D G "__PCM__" 0 75 ""5.093""
-D G "__DEVICE__" 0 75 "1827"
-D G "__DATE__" 0 75 ""7-Sep-25""
-D G "__TIME__" 0 75 ""19:01:27""
-D G "_UNICODE" 0 75 ""?""
-D G "__EVAL" 0 75 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
+F N "InitTimer0" 0 57 ""
+D G "__PCM__" 0 68 ""5.093""
+D G "__DEVICE__" 0 68 "1827"
+D G "__DATE__" 0 68 ""7-Sep-25""
+D G "__TIME__" 0 68 ""20:07:04""
+D G "_UNICODE" 0 68 ""?""
+D G "__EVAL" 0 68 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 f N "set_tris_a" 2 39 ""
 v L "value" 2 39 "int8" `55 
@@ -1401,41 +1401,40 @@ d G "INT_RB7_L2H" 2 961 "0x11800B08"
 d G "INT_RB7_H2L" 2 962 "0x21800B08"
 C L "jump_to_isr" 0 7 5 "FUNCTION"
 V G "overflow_count" 0 13 "int8" `721 
+C L "jump_to_isr" 0 7 1 "FUNCTION"
+V G "rb1_state" 0 14 "int8" `722 
+C L "jump_to_isr" 0 7 1 "FUNCTION"
+V G "rb0_prev" 0 16 "int8" `723 
+C L "jump_to_isr" 0 7 1 "FUNCTION"
+V G "led_state" 0 17 "int8" `724 
 C L "jump_to_isr" 0 7 2 "FUNCTION"
-F N "InitGPIO" 0 16 ""
-f G "InitGPIO" 0 16 "void()" `722  "inicializo los puesrtos"
-F N "InitTimer0" 0 17 ""
-f G "InitTimer0" 0 17 "void()" `723  "inicializo el timer 0"
-F N "InitInterrupts" 0 18 ""
-f G "InitInterrupts" 0 18 "void()" `724  "inicializo las interrupciones por el cambio de estado de las patitas PB7-4"
-C L "InitInterrupts" 0 7 1 "FUNCTION"
-F N "TIMER0_ISR" 0 22 ""
-F G "TIMER0_ISR" 0 22 "void()" `725 
+F N "InitGPIO" 0 20 ""
+f G "InitGPIO" 0 20 "void()" `725  "inicializo los puesrtos"
+F N "InitTimer0" 0 21 ""
+f G "InitTimer0" 0 21 "void()" `726  "inicializo el timer 0"
+C L "InitTimer0" 0 7 1 "FUNCTION"
+F N "TIMER0_ISR" 0 26 ""
+F G "TIMER0_ISR" 0 26 "void()" `727 
 C L "TIMER0_ISR" 0 7 1 "FUNCTION"
 C L "TIMER0_ISR" 0 7 1 "FUNCTION"
-C L "TIMER0_ISR" 0 7 1 "FUNCTION"
-F N "RB0_ISR" 0 35 ""
-F G "RB0_ISR" 0 35 "void()" `726 
-C L "RB0_ISR" 0 7 1 "FUNCTION"
 C L "MAIN" 0 7 1 "FUNCTION"
 F N "MAIN" 0 41 ""
-F G "MAIN" 0 42 "void()" `727 
+F G "MAIN" 0 41 "void()" `728 
+C L "MAIN" 0 7 1 "FUNCTION"
+C L "MAIN" 0 7 1 "FUNCTION"
+C L "MAIN" 0 7 1 "FUNCTION"
+V L "rb0_curr" 0 47 "int8" `731 
+C L "MAIN" 0 7 1 "FUNCTION"
 C L "MAIN" 0 7 1 "FUNCTION"
 C L "MAIN" 0 7 1 "FUNCTION"
 C L "MAIN" 0 7 1 "FUNCTION"
 C L "InitGPIO" 0 7 1 "FUNCTION"
-F N "InitGPIO" 0 54 ""
-F G "InitGPIO" 0 54 "void()" `722  "1)Defino las entradas y salidas"
+F N "InitGPIO" 0 70 ""
+F G "InitGPIO" 0 70 "void()" `725  "1)Defino las entradas y salidas"
 C L "InitGPIO" 0 7 2 "FUNCTION"
 C L "InitGPIO" 0 7 1 "FUNCTION"
-F N "InitTimer0" 0 61 ""
-F G "InitTimer0" 0 61 "void()" `723  "configurar Timer0: reloj interno (Tcy), prescaler 256"
-C L "InitTimer0" 0 7 1 "FUNCTION"
-C L "InitTimer0" 0 7 1 "FUNCTION"
-F N "InitInterrupts" 0 69 ""
-F G "InitInterrupts" 0 69 "void()" `724 
-C L "InitInterrupts" 0 7 1 "FUNCTION"
-C L "InitInterrupts" 0 7 1 "FUNCTION"
+F N "InitTimer0" 0 77 ""
+F G "InitTimer0" 0 77 "void()" `726  "configurar Timer0: reloj interno (Tcy), prescaler 256"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0
