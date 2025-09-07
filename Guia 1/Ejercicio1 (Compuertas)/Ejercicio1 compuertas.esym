@@ -1,8 +1,7 @@
-F N "InitGPIO" 0 83 ""
 D G "__PCM__" 0 99 ""5.093""
 D G "__DEVICE__" 0 99 "1827"
 D G "__DATE__" 0 99 ""7-Sep-25""
-D G "__TIME__" 0 99 ""17:40:48""
+D G "__TIME__" 0 99 ""17:41:56""
 D G "_UNICODE" 0 99 ""?""
 D G "__EVAL" 0 99 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
@@ -1413,9 +1412,9 @@ C L "main" 0 7 1 "FUNCTION"
 C L "main" 0 7 1 "FUNCTION"
 C L "main" 0 7 1 "FUNCTION"
 C L "main" 0 7 1 "FUNCTION"
-C L "InitGPIO" 0 7 20 "FUNCTION"
-F N "InitGPIO" 0 83 ""
-F G "InitGPIO" 0 83 "void()" `721 
+C L "InitGPIO" 0 7 1 "FUNCTION"
+F N "InitGPIO" 0 56 ""
+F G "InitGPIO" 0 56 "void()" `721 
 C L "InitGPIO" 0 7 2 "FUNCTION"
 C L "InitGPIO" 0 7 2 "FUNCTION"
 F B "reset_cpu" 0 0

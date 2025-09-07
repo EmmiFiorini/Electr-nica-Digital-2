@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.093, 4770               07-sept-25 17:40
+CCS PCM C Compiler, Version 5.093, 4770               07-sept-25 17:41
 
                Filename:   C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 1\Ejercicio1 (Compuertas)\Ejercicio1 compuertas.lst
 
@@ -230,34 +230,7 @@ CCS PCM C Compiler, Version 5.093, 4770               07-sept-25 17:40
 .................... }
 .................... 
 00C1:  SLEEP
-.................... /*void main()
-.................... {
 .................... 
-....................    while(TRUE)
-....................    {
-....................       if(input(PIN_B4)){
-....................          output_high(PIN_B0); //prendo el led
-....................          delay_ms(500);//espero 500ms
-....................          output_low(PIN_B0);
-....................       }
-....................    if(input(PIN_B5)){
-....................          output_high(PIN_B1); //prendo el led
-....................          delay_ms(500);//espero 500ms
-....................          output_low(PIN_B1);
-....................       }
-....................       if(input(PIN_B6)){
-....................          output_high(PIN_B2); //prendo el led
-....................          delay_ms(500);//espero 500ms
-....................          output_low(PIN_B2);
-....................       }
-....................       if(input(PIN_B7)){
-....................          output_high(PIN_B3); //prendo el led
-....................          delay_ms(500);//espero 500ms
-....................          output_low(PIN_B3);
-....................       }
-....................    }
-.................... 
-.................... }*/
 .................... 
 .................... //INICIALIZACION FUNCIONES
 .................... void InitGPIO(void) {

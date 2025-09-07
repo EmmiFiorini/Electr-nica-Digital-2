@@ -50,7 +50,34 @@ void main()
    }
 }
 
+/*void main()
+{
 
+   while(TRUE)
+   {
+      if(input(PIN_B4)){
+         output_high(PIN_B0); //prendo el led
+         delay_ms(500);//espero 500ms
+         output_low(PIN_B0);
+      }
+   if(input(PIN_B5)){
+         output_high(PIN_B1); //prendo el led
+         delay_ms(500);//espero 500ms
+         output_low(PIN_B1);
+      }
+      if(input(PIN_B6)){
+         output_high(PIN_B2); //prendo el led
+         delay_ms(500);//espero 500ms
+         output_low(PIN_B2);
+      }
+      if(input(PIN_B7)){
+         output_high(PIN_B3); //prendo el led
+         delay_ms(500);//espero 500ms
+         output_low(PIN_B3);
+      }
+   }
+
+}*/
 
 //INICIALIZACION FUNCIONES
 void InitGPIO(void) {

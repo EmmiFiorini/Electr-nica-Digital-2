@@ -13,11 +13,11 @@ Stack size: 16
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   98    37 100  Ejercicio1 compuertas.c
+   71    37 100  Ejercicio1 compuertas.c
     5     0   0  Ejercicio1 compuertas.h
   965     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
 ----- -----
- 1068    37 Total
+ 1041    37 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
@@ -29,14 +29,14 @@ Page ROM  %  RAM    Vol Diff  Functions:
 Program metrics:
     Functions               3
     Statements              37
-    Comments                207
+    Comments                179
     Volume (V)              1053
     Difficulty (D)          6.3
     Effort to implement (E) 6673
     Time to implement (T)   6 minutes
     Est Delivered Bugs (B)  0
     Cyclomatic Complexity   4
-    Maintainability (MI)    114
+    Maintainability (MI)    71
 
  Segment     Used  Free
 -----------  ----  ----
