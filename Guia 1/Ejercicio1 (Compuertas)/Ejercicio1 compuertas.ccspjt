@@ -19,15 +19,21 @@ forcecoff=0
 [ProjectLog]
 Days=1
 D1=07-09-2025
-D1_L=4
+D1_L=6
 D1_L1=[60590]Project Opened.
 D1_L2=[60643]Started Editing.
 D1_L3=[61485]Stopped Editing.
 D1_L4=[63053]Started Editing.
+D1_L5=[63830]Stopped Editing.
+TotalEdit=22
+TotalDebug=0
+D1_E=22
+D1_D=0
+D1_L6=[63830]Project Closed.
 
 [Opened Files]
 1=Ejercicio1 compuertas.c
-t1=9
+t1=35
 2=..\Ejercicio 4  Timer final\Ejercicio 4 timer final.c
 t2=21
 Count=2
