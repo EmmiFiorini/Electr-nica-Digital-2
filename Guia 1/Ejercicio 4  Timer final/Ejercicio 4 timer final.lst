@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.093, 4770               06-sept-25 13:30
+CCS PCM C Compiler, Version 5.093, 4770               07-sept-25 16:47
 
                Filename:   C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 1\Ejercicio 4  Timer final\Ejercicio 4 timer final.lst
 
@@ -299,8 +299,9 @@ CCS PCM C Compiler, Version 5.093, 4770               06-sept-25 13:30
 00A5:  MOVLW  F0
 00A6:  MOVLB  01
 00A7:  MOVWF  0D
-....................    set_tris_a(0b11110000); //RA3–RA0 salidas
+....................  set_tris_a(0b11110000); // RA7–RA4 entradas, RA3–RA0 salidas
 00A8:  MOVWF  0C
+.................... 
 .................... 
 .................... 
 ....................    // 2) los inicializo en low

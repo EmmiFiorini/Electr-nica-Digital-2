@@ -13,11 +13,11 @@ Stack size: 16
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  104    43 100  Ejercicio 4 timer final.c
+  105    43 100  Ejercicio 4 timer final.c
     6     0   0  Ejercicio 4 timer final.h
   965     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
 ----- -----
- 1075    43 Total
+ 1076    43 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------

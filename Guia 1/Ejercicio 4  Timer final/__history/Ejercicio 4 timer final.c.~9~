@@ -76,8 +76,7 @@ void InitGPIO(void) {
 setup_adc_ports(NO_ANALOGS); // Todos los pines como digitales
    // 1) defino a mis puertos como entrada y salida
    set_tris_b(0b11110000); //RB7–RB4 entradas, RB3–RB0 salidas
- set_tris_a(0b11110000); // RA7–RA4 entradas, RA3–RA0 salidas
-
+   set_tris_a(0b11110000); //RA3–RA0 salidas
 
 
    // 2) los inicializo en low
