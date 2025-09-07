@@ -1,0 +1,13 @@
+#include <Ejercicio 1 Timer.h>
+
+void main()
+{
+
+	while(TRUE)
+	{
+
+
+		//TODO: User Code
+	}
+
+}

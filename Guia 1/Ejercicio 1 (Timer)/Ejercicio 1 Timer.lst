@@ -1,0 +1,229 @@
+CCS PCM C Compiler, Version 5.093, 4770               07-sept-25 19:01
+
+               Filename:   C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 1\Ejercicio 1 (Timer)\Ejercicio 1 Timer.lst
+
+               ROM used:   119 words (3%)
+                           Largest free fragment is 2048
+               RAM used:   9 (2%) at main() level
+                           20 (5%) worst case
+               Stack used: 1 locations (0 in main + 1 for interrupts)
+               Stack size: 16
+
+0000:  MOVLP  00
+0001:  GOTO   065
+0002:  NOP
+*
+0004:  CLRF   03
+0005:  MOVLP  00
+0006:  MOVLB  00
+0007:  MOVF   77,W
+0008:  MOVWF  20
+0009:  MOVF   78,W
+000A:  MOVWF  21
+000B:  MOVF   79,W
+000C:  MOVWF  22
+000D:  MOVF   7A,W
+000E:  MOVWF  23
+000F:  BTFSS  0B.4
+0010:  GOTO   013
+0011:  BTFSC  0B.1
+0012:  GOTO   020
+0013:  BTFSS  0B.5
+0014:  GOTO   017
+0015:  BTFSC  0B.2
+0016:  GOTO   022
+0017:  MOVF   20,W
+0018:  MOVWF  77
+0019:  MOVF   21,W
+001A:  MOVWF  78
+001B:  MOVF   22,W
+001C:  MOVWF  79
+001D:  MOVF   23,W
+001E:  MOVWF  7A
+001F:  RETFIE
+0020:  MOVLP  00
+0021:  GOTO   040
+0022:  MOVLP  00
+0023:  GOTO   024
+.................... #include <Ejercicio 1 Timer.h>
+.................... #include <16F1827.h>
+.................... //////////// Standard Header file for the PIC16F1827 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC16F1827
+.................... 
+.................... #list
+.................... 
+.................... #device ADC=10
+.................... #use delay(internal=4MHz)
+.................... 
+.................... 
+.................... 
+.................... #fuses INTRC_IO   // Utilizo oscilador interno con pines RA6 y RA7 como GPIO
+.................... #fuses NOMCLR     // Desactivo el MCLR
+.................... #fuses NOWDT      // Desactivo el watchdog
+.................... 
+.................... /*Realice una rutina que, por intermedio del Timer 0, cambie el
+.................... valor del pin RB1 cada 500ms. A su vez, el pin RB1 debe estar conectado al pin
+.................... RB0 de forma que active la interrupción externa del RB0 y en esta interrupción
+.................... cambie el estado de un led en el pin RB7 (ver figura).*/
+.................... 
+.................... // CREO MI VARIABLE GLOBAL
+.................... volatile int overflow_count=0; //mi contador q uso en el timer
+.................... 
+.................... // DEFINICION DE FUNCIONES
+.................... void InitGPIO(void); //inicializo los puesrtos
+.................... void InitTimer0(void);  //inicializo el timer 0
+.................... void InitInterrupts(void); //inicializo las interrupciones por el cambio de estado de las patitas PB7-4
+.................... 
+.................... // HABILITO INTERRUPCION
+.................... #INT_TIMER0
+.................... void TIMER0_ISR(void) {
+....................    set_timer0(12);       // recargo timer
+0024:  MOVLW  0C
+0025:  MOVWF  15
+....................    overflow_count++; 
+0026:  INCF   24,F
+....................    output_low(PIN_B1);
+0027:  MOVLB  01
+0028:  BCF    0D.1
+0029:  MOVLB  02
+002A:  BCF    0D.1
+.................... 
+....................    if (overflow_count == 8) { // 0.5s
+002B:  MOVLB  00
+002C:  MOVF   24,W
+002D:  SUBLW  08
+002E:  BTFSS  03.2
+002F:  GOTO   038
+....................       output_toggle(PIN_B1);  // cambio el estado de RB1
+0030:  MOVLB  01
+0031:  BCF    0D.1
+0032:  MOVLW  02
+0033:  MOVLB  02
+0034:  XORWF  0D,F
+....................       overflow_count = 0;
+0035:  MOVLB  00
+0036:  CLRF   24
+....................    }else
+0037:  GOTO   03D
+....................    output_low(PIN_B1);
+0038:  MOVLB  01
+0039:  BCF    0D.1
+003A:  MOVLB  02
+003B:  BCF    0D.1
+003C:  MOVLB  00
+.................... }
+.................... 
+003D:  BCF    0B.2
+003E:  MOVLP  00
+003F:  GOTO   017
+.................... #INT_EXT
+.................... void RB0_ISR(void){
+....................    output_toggle(PIN_B7); // cambio estado LED en RB7
+0040:  MOVLB  01
+0041:  BCF    0D.7
+0042:  MOVLW  80
+0043:  MOVLB  02
+0044:  XORWF  0D,F
+0045:  BCF    0B.1
+0046:  MOVLP  00
+0047:  MOVLB  00
+0048:  GOTO   017
+.................... }
+.................... 
+.................... 
+.................... //MAIN
+.................... void main()
+*
+0065:  MOVLW  6A
+0066:  MOVLB  01
+0067:  MOVWF  19
+0068:  MOVLB  00
+0069:  CLRF   24
+006A:  MOVLB  03
+006B:  CLRF   0C
+006C:  CLRF   0D
+006D:  MOVLB  02
+006E:  CLRF   12
+006F:  CLRF   11
+0070:  CLRF   14
+0071:  CLRF   13
+.................... {
+....................    InitGPIO();    // Inicializo el PORTA y PORTB
+0072:  MOVLB  00
+0073:  GOTO   049
+....................    InitTimer0(); //inicalizo el timer0 en el main
+0074:  GOTO   052
+....................    InitInterrupts(); //inicializo las interrupciones x cambio de estado de las patas PB7-PB4
+0075:  GOTO   05D
+....................    
+....................    while(TRUE)
+....................    {
+0076:  GOTO   076
+....................    }
+.................... 
+.................... }
+.................... 
+0077:  SLEEP
+.................... //INICIALIZACION FUNCIONES
+.................... void InitGPIO(void) {
+....................    //1)Defino las entradas y salidas
+....................    set_tris_b(0b10000001); // RB7 salida, RB1 salida, RB0 entrada
+*
+0049:  MOVLW  81
+004A:  MOVLB  01
+004B:  MOVWF  0D
+....................   // 2) los inicializo en low
+....................    output_b(0x00);// inicio en 0
+004C:  CLRF   0D
+004D:  MOVLB  02
+004E:  CLRF   0D
+004F:  MOVLP  00
+0050:  MOVLB  00
+0051:  GOTO   074 (RETURN)
+.................... }
+.................... 
+.................... void InitTimer0(void){
+.................... // configurar Timer0: reloj interno (Tcy), prescaler 256
+....................    setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256);
+0052:  MOVLB  01
+0053:  MOVF   15,W
+0054:  ANDLW  C0
+0055:  IORLW  07
+0056:  MOVWF  15
+....................    set_timer0(12); // carga inicial
+0057:  MOVLW  0C
+0058:  MOVLB  00
+0059:  MOVWF  15
+....................    enable_interrupts(INT_TIMER0); // habilita interrupción del Timer0
+005A:  BSF    0B.5
+005B:  MOVLP  00
+005C:  GOTO   075 (RETURN)
+....................   
+.................... }
+.................... 
+.................... void InitInterrupts(void){
+....................    ext_int_edge(L_TO_H);//flanco ascendente
+005D:  MOVLB  01
+005E:  BSF    15.6
+....................    enable_interrupts(INT_EXT);// interrupción externa RB0
+005F:  BSF    0B.4
+....................    enable_interrupts(GLOBAL);
+0060:  MOVLW  C0
+0061:  IORWF  0B,F
+0062:  MOVLP  00
+0063:  MOVLB  00
+0064:  GOTO   076 (RETURN)
+.................... }
+
+Configuration Fuses:
+   Word  1: 3F84   INTRC_IO NOWDT PUT NOMCLR NOPROTECT NOCPD BROWNOUT NOCLKOUT IESO FCMEN
+   Word  2: 1EFF   NOWRT PLL_SW STVREN BORV19 NODEBUG NOLVP

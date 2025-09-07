@@ -1,0 +1,81 @@
+#include <Ejercicio 1 Timer.h>
+
+#fuses INTRC_IO   // Utilizo oscilador interno con pines RA6 y RA7 como GPIO
+#fuses NOMCLR     // Desactivo el MCLR
+#fuses NOWDT      // Desactivo el watchdog
+
+/*Realice una rutina que, por intermedio del Timer 0, cambie el
+valor del pin RB1 cada 500ms. A su vez, el pin RB1 debe estar conectado al pin
+RB0 de forma que active la interrupción externa del RB0 y en esta interrupción
+cambie el estado de un led en el pin RB7 (ver figura).*/
+
+// CREO MI VARIABLE GLOBAL
+volatile int overflow_count=0; //mi contador q uso en el timer
+
+// DEFINICION DE FUNCIONES
+void InitGPIO(void); //inicializo los puesrtos
+void InitTimer0(void);  //inicializo el timer 0
+void InitInterrupts(void); //inicializo las interrupciones por el cambio de estado de las patitas PB7-4
+
+// HABILITO INTERRUPCION
+#INT_TIMER0
+void TIMER0_ISR(void) {
+   set_timer0(12); //para prescaler 256 => 256-12=244
+   overflow_count++; //cuento las interrupciones
+   output_low(PIN_B1); //lo pongo en bajo
+   
+   if (overflow_count == 8) { //0.5s
+      output_high(PIN_B1);// pongo en 1 al pin b1
+      overflow_count = 0; //reinicio contaodr
+   }
+   else{
+   output_low(PIN_B1); //lo pongo en bajo
+   }
+}
+#INT_RB
+void RB_ISR(void){
+   //patita PB0
+   if(input(PIN_B0))
+   output_high(PIN_B7); //prendo el led
+}
+
+//MAIN
+void main()
+{
+
+   while(TRUE)
+   {
+
+
+      //TODO: User Code
+   }
+
+}
+
+//INICIALIZACION FUNCIONES
+void InitGPIO(void) {
+   //1)Defino las entradas y salidas
+  set_tris_b(0b10000000); //RB7 salida, RB0–RB1 entradas
+  // 2) los inicializo en low
+   output_low(PIN_B0);
+   output_low(PIN_B1);
+   output_low(PIN_B2);
+   output_low(PIN_B3);
+   output_low(PIN_B4);
+   output_low(PIN_B5);
+   output_low(PIN_B6);
+   output_low(PIN_B7);
+}
+
+void InitTimer0(void){
+// configurar Timer0: reloj interno (Tcy), prescaler 256
+   setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256);
+   set_timer0(12); // carga inicial
+   enable_interrupts(INT_TIMER0); // habilita interrupción del Timer0
+   enable_interrupts(GLOBAL); // habilita interrupciones globales
+}
+
+void InitInterrupts(void){
+   enable_interrupts(INT_RB);    // Habilita interrupción en RB4-RB7
+   enable_interrupts(GLOBAL);    // Habilita todas las interrupciones
+}
