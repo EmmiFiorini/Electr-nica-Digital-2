@@ -1,0 +1,53 @@
+
+ROM used:   275/4096 (7%)
+            275/4096 (7%) including unused fragments
+
+            0.2 Average locations per line
+            3.7 Average locations per statement
+
+RAM used:   11/383 (3%) at main() level
+            23/383 (6%) worst case
+
+Stack used: 2 worst case (1 in main + 1 for interrupts)
+Stack size: 16
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  140    74 100  Timers_EJ4.c
+    5     0   0  Timers_EJ4.h
+  965     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
+----- -----
+ 1110    74 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     23   8    1             @delay_ms1
+0     89  32    0    816  6.7  Timer0_ISR
+0     24   9    0     68  1.5  MAIN
+0     38  14    0    195  1.4  Init_GPIO
+0     13   5    0     84  1.7  InitTimer0
+0     59  21    0    522  4.3  IdentificarPata
+ Inline         0    573  4.3  @cinit1
+
+Program metrics:
+    Functions               6
+    Statements              74
+    Comments                184
+    Volume (V)              3196
+    Difficulty (D)          19.9
+    Effort to implement (E) 63718
+    Time to implement (T)   59 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   17
+    Maintainability (MI)    134
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     3  0  
+00003-00003     0  1  
+00004-0001D    26  0  
+0001E-007FF   246  1772  
+00800-00FFF     0  2048  
+
+
+
