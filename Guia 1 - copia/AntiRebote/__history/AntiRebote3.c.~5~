@@ -1,0 +1,164 @@
+#include <AntiRebote3.h>
+
+#fuses INTRC_IO   // Oscilador interno con pines RA6 y RA7 como GPIO
+#fuses NOMCLR     // Desactivo el MCLR
+#fuses NOWDT      // Desactivo el watchdog
+
+/*****************************************************************************
+ * LCD
+ ****************************************************************************/
+
+#define LCD_ENABLE_PIN  PIN_B0
+#define LCD_RS_PIN      PIN_B1
+#define LCD_RW_PIN      PIN_B2
+#define LCD_DATA4       PIN_B4
+#define LCD_DATA5       PIN_B5
+#define LCD_DATA6       PIN_B6
+#define LCD_DATA7       PIN_B7
+#include <lcd.c>
+
+/*****************************************************************************
+ * Funciones de Inicializacion de Perifericos
+ ****************************************************************************/
+ 
+ typedef enum {
+    SUELTO,
+    Q_PRESIONADO,
+    PRESIONADO,
+    Q_SUELTO
+} eEstado;
+//typedef enum { SUELTO, PRESIONADO, ESTABLE, LIBERADO } eEstado;
+eEstado estado_actual = SUELTO;
+
+void MaquinaEstado(void);
+ 
+void InitGPIO(void);
+void EscribirDisplay(signed int valor);
+int8 EstadoPulsador(void);
+void InitTimer0(void);
+
+
+int flag_pulsado = 0;
+int flag_segundo = 0;
+int flanco_d = 0;
+int flanco_a = 0;
+
+// CREO MI VARIABLE GLOBAL
+volatile int valor = 0; //mi contador de presionados
+
+#INT_TIMER0 // ACA ESCRIBO QUÉ DEBO HACER EN CADA INTERRUPCIÓN
+void Timer0_ISR() {
+   
+   set_timer0(178);   // Reinicio el timer 0
+   flag_segundo = 1; // aviso que ya pasó el tiempo deseado
+   
+}
+
+/*****************************************************************************
+ * Main
+ ****************************************************************************/
+
+void main(void) {
+   
+   InitGPIO();    // Inicializo el PORTA y PORTB
+   lcd_init();// Inicializo LCD
+   InitTimer0();
+  
+   printf(LCD_PUTC,"Cuenta: %d",valor);
+   estado_actual=SUELTO;
+   while (TRUE) {
+   MaquinaEstado();
+   }
+}
+
+/*****************************************************************************
+ * Implementacion de funciones
+ ****************************************************************************/
+ 
+void InitGPIO(void){
+    set_tris_a(0xFF);   // PORTA como ENTRADA
+    set_tris_b(0x00);   // PORTB como SALIDA
+}
+
+void EscribirDisplay(signed int valor) {
+   lcd_putc('\f');
+   printf(LCD_PUTC,"Cuenta: %d",valor);
+}
+
+int8 EstadoPulsador(void)
+{
+   int8 res = 0;
+   res = input(PIN_A0);
+   return res;
+}
+
+void InitTimer0(void){
+   
+    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256); // Configuro prescaler y osc
+    
+    set_timer0(178);                  // Reinicio el timer
+    enable_interrupts(INT_TIMER0);    // Desactivo Interrupcion timer1
+    enable_interrupts(GLOBAL);        // Desactivo Interrupciones globales
+}
+
+void MaquinaEstado(void){
+   
+   switch (estado_actual) {
+      
+      case SUELTO:
+         
+         flanco_a = 0;
+         flanco_d = 0;
+         
+         if(EstadoPulsador() == 0) {
+         estado_actual = Q_PRESIONADO;
+         flag_segundo = 0;
+         set_timer0(178);
+         }
+         
+         break;
+         
+      case PRESIONADO:
+   
+               valor=valor+1; //si esta presionado entonces cambio el valor q presento
+               EscribirDisplay(valor); //imprimo en pantalla el valor
+               flag_pulsado = 1;
+               flanco_d = 0;
+  
+         estado_actual = Q_SUELTO;
+         flag_segundo = 0;
+         set_timer0(178);
+        
+         
+         break;
+         
+      case Q_PRESIONADO:
+      
+      
+     if(EstadoPulsador() == 0 && flag_segundo == 1) {
+     flag_segundo = 0;
+     flanco_d = 1;
+     estado_actual = PRESIONADO;
+     }
+     
+     if(EstadoPulsador() == 1 && flag_segundo == 1) {
+      flag_segundo = 0;
+     estado_actual == SUELTO;
+     }
+         break;  
+         
+      case Q_SUELTO:
+      
+         if(EstadoPulsador() == 0 && flag_segundo == 1) {
+            flag_segundo = 0;
+            estado_actual = PRESIONADO;
+            }
+     
+         if(EstadoPulsador() == 1 && flag_segundo == 1) {
+            flag_segundo = 0;
+            estado_actual == SUELTO;
+            }
+        break;
+      }
+}
+

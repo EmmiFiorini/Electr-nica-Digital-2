@@ -1,0 +1,37 @@
+#include <Ejercicio 4 compuertas.h>
+
+#fuses INTRC_IO   // Utilizo oscilador interno con pines RA6 y RA7 como GPIO
+#fuses NOMCLR     // Desactivo el MCLR
+#fuses NOWDT      // Desactivo el watchdog
+
+// DEFINICION DE FUNCIONES
+void InitGPIO(void); //inicializo los puesrtos
+
+// CREO MI VARIABLE GLOBAL
+volatile int overflow_count=0; //mi contador q uso en el timer
+
+/*Realizar un programa que permita contar de 0 a 255, y que vaya
+mostrando el resultado en 8 leds conectados al puerto B. Utilizar la función delay
+cada 200ms.*/
+
+
+//MAIN
+void main()
+{
+
+   while(TRUE)
+   {
+      int i; //creo el indice
+      for(i = 0; i <= 255; i++) {
+         output_b(i);       // mando el valor del contador al puerto B
+         delay_ms(200);     // espero 200 ms
+      }
+   }
+
+}
+
+//INICIALIZACION DE FUNCIONES
+void InitGPIO(void) {
+ set_tris_b(0b00000000); //todo como salidas
+ output_b(0x00);
+}

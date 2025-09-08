@@ -1,0 +1,45 @@
+[PROJECT]
+Target=Timers_EJ4.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+CCSVersion=5.093
+[Target Data]
+FileList=Timers_EJ4.c
+[Directories]
+Include=
+[C:\Users\santi\OneDrive\Escritorio\EDI2\TP1\Timers_EJ4]
+Type=4
+[mru-list]
+1=Timers_EJ4.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=07-09-2025
+D1_L=6
+D1_L1=[78002]Project Opened.
+D1_L2=[78005]Started Editing.
+D1_L3=[78959]Stopped Editing.
+D1_L4=[79044]Started Editing.
+D1_L5=[81333]Stopped Editing.
+TotalEdit=50
+TotalDebug=0
+D1_E=50
+D1_D=0
+D1_L6=[81333]Project Closed.
+
+[Opened Files]
+1=Timers_EJ4.c
+t1=123
+Count=1
+[Timers_EJ4.c]
+Type=4
+
+[defines]
+buildcount=12
+[Units]
+Count=1
+1=Timers_EJ4 (main)

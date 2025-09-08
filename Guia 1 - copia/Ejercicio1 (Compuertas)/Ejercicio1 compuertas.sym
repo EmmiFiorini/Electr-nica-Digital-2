@@ -1,0 +1,73 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PACKED_MEMORY.P2
+004-005 @READ_PROGRAM_MEMORY8.P3
+004-005 @WRITE_PACKED_MEMORY.P4
+006-007 @WRITE_PACKED_MEMORY.P1
+006-007 @READ_PACKED_MEMORY.P2
+021     main.@SCRATCH1
+022     @delay_ms1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+111.6   C1OUT
+113.6   C2OUT
+191-192 @WRITE_PROGRAM_MEMORY8.P1
+191-192 @READ_PROGRAM_MEMORY8.P2
+291     CCP_1_LOW
+291     CCP_1
+292     CCP_1_HIGH
+298     CCP_2_LOW
+298     CCP_2
+299     CCP_2_HIGH
+311     CCP_3
+311     CCP_3_LOW
+312     CCP_3_HIGH
+318     CCP_4_LOW
+318     CCP_4
+319     CCP_4_HIGH
+
+ROM Allocation:
+000003  InitGPIO
+000030  @delay_ms1
+000046  main
+000046  @cinit1
+000051  @cinit2
+
+Project Directory:
+    C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 1\Ejercicio1 (Compuertas)\
+
+Project Files:
+    Ejercicio1 compuertas.c                                 [07-sept-25 17:41  CRC=A8F7CE87]
+    Ejercicio1 compuertas.h                                 [07-sept-25 16:49  CRC=00000000]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb-20 15:48  CRC=D6A5AF9F]
+
+Source signature=56432DC5
+Program memory checksum=0000
+Hex file CRC=BBB7
+
+Units:
+    C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 1\Ejercicio1 (Compuertas)\Ejercicio1 compuertas (main)
+
+Compiler Settings:
+    Processor:      PIC16F1827
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Enhanced 16:    Yes
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   Ejercicio1 compuertas.xsym
+    Errors:      Ejercicio1 compuertas.err
+    Ext Symbols: Ejercicio1 compuertas.esym
+    INHX8:       Ejercicio1 compuertas.hex
+    Symbols:     Ejercicio1 compuertas.sym
+    List:        Ejercicio1 compuertas.lst
+    Debug/COFF:  Ejercicio1 compuertas.cof
+    Project:     Ejercicio1 compuertas.ccspjt
+    Call Tree:   Ejercicio1 compuertas.tre
+    Statistics:  Ejercicio1 compuertas.STA

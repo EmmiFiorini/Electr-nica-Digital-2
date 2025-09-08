@@ -1,0 +1,13 @@
+#include <Ejercicio1 compuertas.h>
+
+void main()
+{
+
+	while(TRUE)
+	{
+
+
+		//TODO: User Code
+	}
+
+}

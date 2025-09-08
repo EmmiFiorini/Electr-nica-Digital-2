@@ -1,0 +1,72 @@
+#include <Ejercicio3_timers.h>
+
+#fuses INTRC_IO   // Utilizo oscilador interno con pines RA6 y RA7 como GPIO
+#fuses NOMCLR     // Desactivo el MCLR
+#fuses NOWDT      // Desactivo el watchdog
+
+
+int contador= 0;
+int led_activo= 0; // 1= led encendido esperando a que pasen los 500ms
+
+
+//INTERRUPCIONES
+#INT_TIMER0
+void TIMER0_ISR() {
+   if (led_activo) {
+   contador++; 
+      if (contador >= 8) {  //despues de 8 "vueltas", aprox 524 ms
+         output_low(PIN_B2); 
+         led_activo=0; 
+         contador=0; 
+      }
+   }
+}
+
+/*****************************************************************************
+ * Funciones de Inicializacion de Perifericos
+ ****************************************************************************/
+void InitGPIO(void);
+void InitTimer0(void); //inicializo timer
+
+
+/*****************************************************************************
+ * Main
+ ****************************************************************************/
+
+void main(void) { 
+
+   InitGPIO(); // Inicializo PORTB
+   InitTimer0();
+   
+   while(TRUE) { 
+   
+      // Leo el estado de RB4-RB7
+      int sw4 = input(PIN_B4); 
+      int sw5 = input(PIN_B5);
+      int sw6 = input(PIN_B6); 
+      int sw7 = input(PIN_B7);
+
+      // Si hay alguna entrada en esos pines
+      if((sw4 || sw5 || sw6 || sw7) && !led_activo) {
+         output_high(PIN_B2);  // Prendo LED
+         led_activo=1; // marco que el LED esta activo 
+         contador=0; // reseteo cuenta de timer0
+      }
+}
+
+void InitGPIO(void){ 
+      set_tris_b(0b10111111); // RB2 salida, resto entradas 
+      output_low(PIN_B2); // LED apagado al inicio 
+}
+
+void InitTimer0(void){
+   setup_timer_0(RTCC_INTERNAL | RTCC_8_BIT | RTCC_DIV_256); // Timer0 interno con prescaler maximo
+   set_timer0(0); // precarga inicial
+   enable_interrupts(INT_TIMER0);
+   enable_interrupts(GLOBAL);
+}
+
+}
+
+
+

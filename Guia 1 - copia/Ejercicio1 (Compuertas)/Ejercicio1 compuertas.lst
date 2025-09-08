@@ -1,0 +1,300 @@
+CCS PCM C Compiler, Version 5.093, 4770               07-sept-25 17:41
+
+               Filename:   C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 1\Ejercicio1 (Compuertas)\Ejercicio1 compuertas.lst
+
+               ROM used:   194 words (5%)
+                           Largest free fragment is 2048
+               RAM used:   5 (1%) at main() level
+                           17 (4%) worst case
+               Stack used: 0 locations
+               Stack size: 16
+
+0000:  MOVLP  00
+0001:  GOTO   046
+0002:  NOP
+.................... #include <Ejercicio1 compuertas.h>
+.................... #include <16F1827.h>
+.................... //////////// Standard Header file for the PIC16F1827 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC16F1827
+.................... 
+.................... #list
+.................... 
+.................... #device ADC=10
+.................... #use delay(internal=4MHz)
+*
+0030:  MOVLW  20
+0031:  MOVWF  05
+0032:  MOVLW  02
+0033:  MOVWF  04
+0034:  MOVF   00,W
+0035:  BTFSC  03.2
+0036:  GOTO   045
+0037:  MOVLW  01
+0038:  MOVWF  78
+0039:  CLRF   77
+003A:  DECFSZ 77,F
+003B:  GOTO   03A
+003C:  DECFSZ 78,F
+003D:  GOTO   039
+003E:  MOVLW  4A
+003F:  MOVWF  77
+0040:  DECFSZ 77,F
+0041:  GOTO   040
+0042:  GOTO   043
+0043:  DECFSZ 00,F
+0044:  GOTO   037
+0045:  RETURN
+.................... 
+.................... 
+.................... 
+.................... #fuses INTRC_IO   // Utilizo oscilador interno con pines RA6 y RA7 como GPIO
+.................... #fuses NOMCLR     // Desactivo el MCLR
+.................... #fuses NOWDT      // Desactivo el watchdog
+.................... 
+.................... // DEFINICION DE FUNCIONES
+.................... void InitGPIO(void); //inicializo los puesrtos
+.................... 
+.................... /*Configurar el puerto B de la siguiente manera: PIN_B7, PIN_B6,
+.................... PIN_B5, PIN_B4 como entradas, y PIN_B3, PIN_B2, PIN_B1, y PIN_B0 como
+.................... salidas. Suponiendo que dichas salidas están conectadas a 4 leds, enviar por
+.................... dichas salidas un dato que permita prender solamente los leds conectados a las
+.................... líneas 0 y 1. Suponer que los leds se activan por estado alto.*/
+.................... 
+.................... //MAIN
+.................... void main()
+0046:  MOVLW  6A
+0047:  MOVLB  01
+0048:  MOVWF  19
+0049:  MOVLB  03
+004A:  CLRF   0C
+004B:  CLRF   0D
+004C:  MOVLB  02
+004D:  CLRF   12
+004E:  CLRF   11
+004F:  CLRF   14
+0050:  CLRF   13
+.................... {
+....................    InitGPIO();
+0051:  MOVLB  00
+0052:  GOTO   003
+.................... 
+....................    while(TRUE)
+....................    {
+....................       if(!input(PIN_B4))  { // cuando el pin está en 0 (botón apretado)
+0053:  MOVLB  01
+0054:  BSF    0D.4
+0055:  MOVLB  00
+0056:  BTFSC  0D.4
+0057:  GOTO   06A
+....................          output_high(PIN_B0);
+0058:  MOVLB  01
+0059:  BCF    0D.0
+005A:  MOVLB  02
+005B:  BSF    0D.0
+....................          delay_ms(500);//espero 500ms
+005C:  MOVLW  02
+005D:  MOVLB  00
+005E:  MOVWF  21
+005F:  MOVLW  FA
+0060:  MOVWF  22
+0061:  CALL   030
+0062:  DECFSZ 21,F
+0063:  GOTO   05F
+....................          output_low(PIN_B0);
+0064:  MOVLB  01
+0065:  BCF    0D.0
+0066:  MOVLB  02
+0067:  BCF    0D.0
+....................       }else
+0068:  GOTO   06E
+0069:  MOVLB  00
+....................          output_low(PIN_B0);
+006A:  MOVLB  01
+006B:  BCF    0D.0
+006C:  MOVLB  02
+006D:  BCF    0D.0
+....................    
+....................       if(!input(PIN_B5)){   // cuando el pin está en 0 (botón apretado)
+006E:  MOVLB  01
+006F:  BSF    0D.5
+0070:  MOVLB  00
+0071:  BTFSC  0D.5
+0072:  GOTO   085
+....................          output_high(PIN_B1);
+0073:  MOVLB  01
+0074:  BCF    0D.1
+0075:  MOVLB  02
+0076:  BSF    0D.1
+....................          delay_ms(500);//espero 500ms
+0077:  MOVLW  02
+0078:  MOVLB  00
+0079:  MOVWF  21
+007A:  MOVLW  FA
+007B:  MOVWF  22
+007C:  CALL   030
+007D:  DECFSZ 21,F
+007E:  GOTO   07A
+....................          output_low(PIN_B1);
+007F:  MOVLB  01
+0080:  BCF    0D.1
+0081:  MOVLB  02
+0082:  BCF    0D.1
+....................       }else
+0083:  GOTO   089
+0084:  MOVLB  00
+....................          output_low(PIN_B1);
+0085:  MOVLB  01
+0086:  BCF    0D.1
+0087:  MOVLB  02
+0088:  BCF    0D.1
+....................          
+....................          if(!input(PIN_B6))  { // cuando el pin está en 0 (botón apretado)
+0089:  MOVLB  01
+008A:  BSF    0D.6
+008B:  MOVLB  00
+008C:  BTFSC  0D.6
+008D:  GOTO   0A0
+....................          output_high(PIN_B2);
+008E:  MOVLB  01
+008F:  BCF    0D.2
+0090:  MOVLB  02
+0091:  BSF    0D.2
+....................          delay_ms(500);//espero 500ms
+0092:  MOVLW  02
+0093:  MOVLB  00
+0094:  MOVWF  21
+0095:  MOVLW  FA
+0096:  MOVWF  22
+0097:  CALL   030
+0098:  DECFSZ 21,F
+0099:  GOTO   095
+....................          output_low(PIN_B2);
+009A:  MOVLB  01
+009B:  BCF    0D.2
+009C:  MOVLB  02
+009D:  BCF    0D.2
+....................          }else
+009E:  GOTO   0A4
+009F:  MOVLB  00
+....................          output_low(PIN_B2);
+00A0:  MOVLB  01
+00A1:  BCF    0D.2
+00A2:  MOVLB  02
+00A3:  BCF    0D.2
+....................          
+....................          if(!input(PIN_B7)){   // cuando el pin está en 0 (botón apretado)
+00A4:  MOVLB  01
+00A5:  BSF    0D.7
+00A6:  MOVLB  00
+00A7:  BTFSC  0D.7
+00A8:  GOTO   0BB
+....................          output_high(PIN_B3);
+00A9:  MOVLB  01
+00AA:  BCF    0D.3
+00AB:  MOVLB  02
+00AC:  BSF    0D.3
+....................          delay_ms(500);//espero 500ms
+00AD:  MOVLW  02
+00AE:  MOVLB  00
+00AF:  MOVWF  21
+00B0:  MOVLW  FA
+00B1:  MOVWF  22
+00B2:  CALL   030
+00B3:  DECFSZ 21,F
+00B4:  GOTO   0B0
+....................          output_low(PIN_B3);
+00B5:  MOVLB  01
+00B6:  BCF    0D.3
+00B7:  MOVLB  02
+00B8:  BCF    0D.3
+....................          }else
+00B9:  GOTO   0BF
+00BA:  MOVLB  00
+....................          output_low(PIN_B3);
+00BB:  MOVLB  01
+00BC:  BCF    0D.3
+00BD:  MOVLB  02
+00BE:  BCF    0D.3
+00BF:  MOVLB  00
+00C0:  GOTO   053
+....................    }
+.................... }
+.................... 
+00C1:  SLEEP
+.................... 
+.................... 
+.................... //INICIALIZACION FUNCIONES
+.................... void InitGPIO(void) {
+.................... setup_adc_ports(NO_ANALOGS); // Todos los pines como digitales
+*
+0003:  MOVLB  01
+0004:  BCF    1E.0
+0005:  BCF    1E.1
+0006:  BCF    1E.2
+0007:  MOVLW  00
+0008:  MOVLB  03
+0009:  MOVWF  0C
+000A:  MOVWF  0D
+....................    // 1) defino a mis puertos como entrada y salida
+....................    set_tris_b(0b11110000); //RB7–RB4 entradas, RB3–RB0 salidas
+000B:  MOVLW  F0
+000C:  MOVLB  01
+000D:  MOVWF  0D
+.................... 
+....................    // 2) los inicializo en low
+....................    output_low(PIN_B0);
+000E:  BCF    0D.0
+000F:  MOVLB  02
+0010:  BCF    0D.0
+....................    output_low(PIN_B1);
+0011:  MOVLB  01
+0012:  BCF    0D.1
+0013:  MOVLB  02
+0014:  BCF    0D.1
+....................    output_low(PIN_B2);
+0015:  MOVLB  01
+0016:  BCF    0D.2
+0017:  MOVLB  02
+0018:  BCF    0D.2
+....................    output_low(PIN_B3);
+0019:  MOVLB  01
+001A:  BCF    0D.3
+001B:  MOVLB  02
+001C:  BCF    0D.3
+....................    output_low(PIN_B4);
+001D:  MOVLB  01
+001E:  BCF    0D.4
+001F:  MOVLB  02
+0020:  BCF    0D.4
+....................    output_low(PIN_B5);
+0021:  MOVLB  01
+0022:  BCF    0D.5
+0023:  MOVLB  02
+0024:  BCF    0D.5
+....................    output_low(PIN_B6);
+0025:  MOVLB  01
+0026:  BCF    0D.6
+0027:  MOVLB  02
+0028:  BCF    0D.6
+....................    output_low(PIN_B7);
+0029:  MOVLB  01
+002A:  BCF    0D.7
+002B:  MOVLB  02
+002C:  BCF    0D.7
+002D:  MOVLP  00
+002E:  MOVLB  00
+002F:  GOTO   053 (RETURN)
+.................... }
+
+Configuration Fuses:
+   Word  1: 3F84   INTRC_IO NOWDT PUT NOMCLR NOPROTECT NOCPD BROWNOUT NOCLKOUT IESO FCMEN
+   Word  2: 1EFF   NOWRT PLL_SW STVREN BORV19 NODEBUG NOLVP

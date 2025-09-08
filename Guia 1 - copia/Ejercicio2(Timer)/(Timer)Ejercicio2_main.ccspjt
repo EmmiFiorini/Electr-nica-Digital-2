@@ -1,0 +1,60 @@
+[PROJECT]
+Target=(Timer)Ejercicio2_main.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+CCSVersion=5.093
+[Target Data]
+FileList=(Timer)Ejercicio2_main.c
+[Directories]
+Include=
+[C:\Users\MPF\Desktop\Git\(Timer)Ejercicio2_main]
+Type=4
+[mru-list]
+1=(Timer)Ejercicio2_main.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=3
+D1=20-08-2025
+D1_L=8
+D1_L1=[58476]Project Opened.
+D1_L2=[58483]Started Editing.
+D1_L3=[59611]Stopped Editing.
+D1_L4=[60284]Started Editing.
+D1_L5=[61230]Stopped Editing.
+D1_L6=[62414]Started Editing.
+D1_L7=[62428]Stopped Editing.
+TotalEdit=25
+TotalDebug=0
+D1_E=25
+D1_D=0
+D1_L8=[62428]Project Closed.
+D2=27-08-2025
+D2_L=2
+D2_L1=[52371]Project Opened.
+D2_L2=[52396]Project Closed.
+D3=03-09-2025
+D3_L=5
+D3_L1=[60829]Project Opened.
+D3_L2=[60926]Started Editing.
+D3_L3=[61230]Stopped Editing.
+D3_L4=[61542]Started Editing.
+D3_L5=[61551]Project Closed.
+
+[Opened Files]
+1=(Timer)Ejercicio2_main.c
+t1=38
+Count=2
+2=(Timer)Ejercicio2_main.h
+t2=1
+[(Timer)Ejercicio2_main.c]
+Type=4
+
+[defines]
+buildcount=2
+[Units]
+Count=1
+1=(Timer)Ejercicio2_main (main)

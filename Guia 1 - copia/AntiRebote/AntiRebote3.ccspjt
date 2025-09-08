@@ -1,0 +1,45 @@
+[PROJECT]
+Target=AntiRebote3.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+CCSVersion=5.093
+[Target Data]
+FileList=AntiRebote3.c
+[Directories]
+Include=
+[C:\Users\santi\OneDrive\Escritorio\EDI2\TP0\AntiRebote3]
+Type=4
+[mru-list]
+1=AntiRebote3.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=28-08-2025
+D1_L=4
+D1_L1=[50092]Project Opened.
+D1_L2=[50095]Started Editing.
+D1_L3=[52101]Stopped Editing.
+TotalEdit=36
+TotalDebug=0
+D1_E=36
+D1_D=0
+D1_L4=[52101]Project Closed.
+
+[Opened Files]
+1=AntiRebote3.c
+t1=138
+Count=2
+2=Semaforo.c
+t2=117
+[AntiRebote3.c]
+Type=4
+
+[defines]
+buildcount=8
+[Units]
+Count=1
+1=AntiRebote3 (main)

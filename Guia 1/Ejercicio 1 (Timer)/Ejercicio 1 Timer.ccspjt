@@ -19,7 +19,7 @@ forcecoff=0
 [ProjectLog]
 Days=1
 D1=07-09-2025
-D1_L=12
+D1_L=13
 D1_L1=[65678]Project Opened.
 D1_L2=[65716]Started Editing.
 D1_L3=[66511]Stopped Editing.
@@ -32,6 +32,7 @@ D1_L9=[72702]Stopped Editing.
 D1_L10=[73650]Started Editing.
 D1_L11=[75181]Stopped Editing.
 D1_L12=[83114]Started Editing.
+D1_L13=[86035]Stopped Editing.
 
 [Opened Files]
 1=Ejercicio 1 Timer.c
@@ -47,7 +48,7 @@ t4=109
 Type=4
 
 [defines]
-buildcount=18
+buildcount=20
 [Units]
 Count=1
 1=Ejercicio 1 Timer (main)

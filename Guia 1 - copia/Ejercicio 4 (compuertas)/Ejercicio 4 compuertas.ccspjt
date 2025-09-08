@@ -1,0 +1,51 @@
+[PROJECT]
+Target=Ejercicio 4 compuertas.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+CCSVersion=5.093
+[Target Data]
+FileList=Ejercicio 4 compuertas.c
+[Directories]
+Include=
+[C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 1\Ejercicio 4 (compuertas)\Ejercicio 4 compuertas]
+Type=4
+[mru-list]
+1=Ejercicio 4 compuertas.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=07-09-2025
+D1_L=8
+D1_L1=[63830]Project Opened.
+D1_L2=[63867]Started Editing.
+D1_L3=[64479]Stopped Editing.
+D1_L4=[64511]Started Editing.
+D1_L5=[64909]Stopped Editing.
+D1_L6=[65025]Started Editing.
+D1_L7=[65624]Stopped Editing.
+TotalEdit=12
+TotalDebug=0
+D1_E=12
+D1_D=0
+D1_L8=[65678]Project Closed.
+
+[Opened Files]
+1=Ejercicio 4 compuertas.c
+t1=13
+2=..\Ejercicio1 (Compuertas)\Ejercicio1 compuertas.c
+t2=1
+3=..\Ejercicio 4  Timer final\Ejercicio 4 timer final.c
+t3=72
+Count=3
+[Ejercicio 4 compuertas.c]
+Type=4
+
+[defines]
+buildcount=4
+[Units]
+Count=1
+1=Ejercicio 4 compuertas (main)

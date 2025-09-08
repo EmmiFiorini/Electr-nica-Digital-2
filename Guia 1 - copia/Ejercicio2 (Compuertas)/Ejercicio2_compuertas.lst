@@ -1,0 +1,144 @@
+CCS PCM C Compiler, Version 5.093, 4770               27-ago-25 14:38
+
+               Filename:   C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Ejercicio2 (Compuertas)\Ejercicio2_compuertas.lst
+
+               ROM used:   73 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   5 (1%) at main() level
+                           17 (4%) worst case
+               Stack used: 0 locations
+               Stack size: 16
+
+0000:  MOVLP  00
+0001:  GOTO   022
+0002:  NOP
+.................... #include <Ejercicio2_compuertas.h>
+.................... #include <16F1827.h>
+.................... //////////// Standard Header file for the PIC16F1827 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC16F1827
+.................... 
+.................... #list
+.................... 
+.................... #device ADC=10
+.................... #use delay(internal=4MHz)
+*
+000C:  MOVLW  20
+000D:  MOVWF  05
+000E:  MOVLW  02
+000F:  MOVWF  04
+0010:  MOVF   00,W
+0011:  BTFSC  03.2
+0012:  GOTO   021
+0013:  MOVLW  01
+0014:  MOVWF  78
+0015:  CLRF   77
+0016:  DECFSZ 77,F
+0017:  GOTO   016
+0018:  DECFSZ 78,F
+0019:  GOTO   015
+001A:  MOVLW  4A
+001B:  MOVWF  77
+001C:  DECFSZ 77,F
+001D:  GOTO   01C
+001E:  GOTO   01F
+001F:  DECFSZ 00,F
+0020:  GOTO   013
+0021:  RETURN
+.................... 
+.................... 
+.................... 
+.................... #fuses INTRC_IO   // Utilizo oscilador interno con pines RA6 y RA7 como GPIO
+.................... #fuses NOMCLR     // Desactivo el MCLR
+.................... #fuses NOWDT      // Desactivo el watchdog
+.................... 
+.................... 
+.................... /*****************************************************************************
+....................  * Funciones de Inicializacion de Perifericos
+....................  ****************************************************************************/
+.................... 
+.................... void InitGPIO(void);
+.................... 
+.................... /*****************************************************************************
+....................  * Main
+....................  ****************************************************************************/
+.................... 
+.................... void main(void) { 
+0022:  MOVLW  6A
+0023:  MOVLB  01
+0024:  MOVWF  19
+0025:  MOVLB  03
+0026:  CLRF   0C
+0027:  CLRF   0D
+0028:  MOVLB  02
+0029:  CLRF   12
+002A:  CLRF   11
+002B:  CLRF   14
+002C:  CLRF   13
+....................    InitGPIO(); // Inicializo PORTB
+002D:  MOVLB  00
+002E:  GOTO   003
+....................    while(TRUE) { 
+....................       output_high(PIN_B4); // Prende LED 
+002F:  MOVLB  01
+0030:  BCF    0D.4
+0031:  MOVLB  02
+0032:  BSF    0D.4
+....................       delay_ms(500); // Espera 500 ms 
+0033:  MOVLW  02
+0034:  MOVLB  00
+0035:  MOVWF  21
+0036:  MOVLW  FA
+0037:  MOVWF  22
+0038:  CALL   00C
+0039:  DECFSZ 21,F
+003A:  GOTO   036
+....................       output_low(PIN_B4); // Apaga LED 
+003B:  MOVLB  01
+003C:  BCF    0D.4
+003D:  MOVLB  02
+003E:  BCF    0D.4
+....................       delay_ms(500); // Espera 500 ms 
+003F:  MOVLW  02
+0040:  MOVLB  00
+0041:  MOVWF  21
+0042:  MOVLW  FA
+0043:  MOVWF  22
+0044:  CALL   00C
+0045:  DECFSZ 21,F
+0046:  GOTO   042
+0047:  GOTO   02F
+....................       } 
+....................      }     
+....................      
+0048:  SLEEP
+.................... 
+.................... void InitGPIO(void){ 
+....................       set_tris_b(0b11101111); // RB4 salida, resto entradas 
+*
+0003:  MOVLW  EF
+0004:  MOVLB  01
+0005:  MOVWF  0D
+....................       output_low(PIN_B4); // LED apagado al inicio 
+0006:  BCF    0D.4
+0007:  MOVLB  02
+0008:  BCF    0D.4
+0009:  MOVLP  00
+000A:  MOVLB  00
+000B:  GOTO   02F (RETURN)
+.................... }
+.................... 
+.................... 
+.................... 
+
+Configuration Fuses:
+   Word  1: 3F84   INTRC_IO NOWDT PUT NOMCLR NOPROTECT NOCPD BROWNOUT NOCLKOUT IESO FCMEN
+   Word  2: 1EFF   NOWRT PLL_SW STVREN BORV19 NODEBUG NOLVP

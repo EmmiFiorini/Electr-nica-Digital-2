@@ -1,0 +1,60 @@
+[PROJECT]
+Target=Semaforo.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+CCSVersion=5.093
+[Target Data]
+FileList=Semaforo.c
+[Directories]
+Include=
+[C:\Users\santi\OneDrive\Escritorio\EDI2\TP0\Semaforo]
+Type=4
+[mru-list]
+1=Semaforo.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=26-08-2025
+D1_L=17
+D1_L1=[48246]Project Opened.
+D1_L2=[48319]Started Editing.
+D1_L3=[50830]Stopped Editing.
+TotalEdit=76
+TotalDebug=0
+D1_E=76
+D1_D=0
+D1_L4=[50830]Project Closed.
+D1_L5=[51850]Project Opened.
+D1_L6=[51919]Started Editing.
+D1_L7=[53372]Stopped Editing.
+D1_L8=[53445]Started Editing.
+D1_L9=[54414]Stopped Editing.
+D1_L10=[54667]Started Editing.
+D1_L11=[55152]Stopped Editing.
+D1_L12=[56293]Project Closed.
+D1_L13=[65556]Project Opened.
+D1_L14=[65950]Project Closed.
+D1_L15=[65982]Project Opened.
+D1_L16=[66016]Started Editing.
+D1_L17=[66623]Project Closed.
+
+[Opened Files]
+1=Semaforo.c
+t1=59
+2=..\Temporizador60segundos\main.c
+t2=5
+Count=3
+3=Semaforo.h
+t3=1
+[Semaforo.c]
+Type=4
+
+[defines]
+buildcount=3
+[Units]
+Count=1
+1=Semaforo (main)

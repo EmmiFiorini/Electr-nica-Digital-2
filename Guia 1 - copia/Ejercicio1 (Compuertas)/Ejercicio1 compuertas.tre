@@ -1,0 +1,9 @@
+ÀÄEjercicio1 compuertas
+   ÀÄmain  0/124  Ram=1
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ@cinit2  (Inline)  Ram=0
+      ÃÄInitGPIO  0/45  Ram=0
+      ÃÄ@delay_ms1  0/22  Ram=1
+      ÃÄ@delay_ms1  0/22  Ram=1
+      ÃÄ@delay_ms1  0/22  Ram=1
+      ÀÄ@delay_ms1  0/22  Ram=1

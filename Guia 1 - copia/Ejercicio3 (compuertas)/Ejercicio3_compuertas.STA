@@ -1,0 +1,48 @@
+
+ROM used:   95/4096 (2%)
+            95/4096 (2%) including unused fragments
+
+            0.1 Average locations per line
+            7.3 Average locations per statement
+
+RAM used:   7/383 (2%) at main() level
+            19/383 (5%) worst case
+
+Stack used: 0 worst case (0 in main + 0 for interrupts)
+Stack size: 16
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   45    13 100  Ejercicio3_compuertas.c
+    5     0   0  Ejercicio3_compuertas.h
+  965     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
+----- -----
+ 1015    13 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     22  23    1             @delay_ms1
+0     61  64    3    260  3.8  main
+0      9   9    0     37  1.1  InitGPIO
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               2
+    Statements              13
+    Comments                172
+    Volume (V)              344
+    Difficulty (D)          4.7
+    Effort to implement (E) 1605
+    Time to implement (T)   1 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    162
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     3  0  
+00003-007FF    92  1953  
+00800-00FFF     0  2048  
+
+
+

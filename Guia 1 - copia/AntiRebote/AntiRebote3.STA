@@ -1,0 +1,69 @@
+
+ROM used:   777/4096 (19%)
+            777/4096 (19%) including unused fragments
+
+            0.5 Average locations per line
+            5.3 Average locations per statement
+
+RAM used:   18/383 (5%) at main() level
+            50/383 (13%) worst case
+
+Stack used: 6 worst case (5 in main + 1 for interrupts)
+Stack size: 16
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  162    48  32  AntiRebote3.c
+    5     0   0  AntiRebote3.h
+  965     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
+  456   100  68  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+----- -----
+ 1588   148 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     22   3    1             @delay_ms1
+ Inline         3    760  4.5  lcd_read_byte
+0     49   6    2    262  3.7  lcd_read_nibble
+0     55   7    1    399  2.4  lcd_send_nibble
+0     97  12    3    415  3.7  lcd_send_byte
+0     73   9    6    852  6.2  lcd_init
+0     18   2    4    208  6.3  lcd_gotoxy
+0     44   6    1    354  4.7  lcd_putc
+0      7   1    0     33  1.3  Timer0_ISR
+0     41   5    0    136  2.4  MAIN
+0      6   1    0             @const779
+0     80  10    5             @PSTRINGCN7_745
+0     21   3    3             @DIV88
+0     87  11    9             @PRINTF_D_745
+0      8   1    0     37  1.1  InitGPIO
+ Inline         1     68  1.5  EscribirDisplay
+0      6   1    0             @const788
+0     10   1    1     66  2.0  EstadoPulsador
+0     13   2    0     84  1.7  InitTimer0
+0     71   9    1    735  5.8  MaquinaEstado
+0      8   1    0             @goto33189
+ Inline         0   1081  6.3  @cinit1
+
+Program metrics:
+    Functions               15
+    Statements              148
+    Comments                285
+    Volume (V)              8908
+    Difficulty (D)          53.5
+    Effort to implement (E) 476189
+    Time to implement (T)   7 hours, 21 minutes
+    Est Delivered Bugs (B)  2
+    Cyclomatic Complexity   27
+    Maintainability (MI)    123
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     3  0  
+00003-00003     0  1  
+00004-0003D    58  0  
+0003E-007FF   716  1270  
+00800-00FFF     0  2048  
+
+
+

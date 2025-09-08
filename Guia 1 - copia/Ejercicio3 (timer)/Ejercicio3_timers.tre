@@ -1,0 +1,7 @@
+ÀÄEjercicio3_timers
+   ÃÄMAIN  0/66  Ram=4
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄ@cinit2  (Inline)  Ram=0
+   ³  ÃÄInitGPIO  0/9  Ram=0
+   ³  ÀÄInitTimer0  0/12  Ram=0
+   ÀÄTIMER0_ISR  0/18  Ram=0
