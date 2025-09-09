@@ -1,0 +1,140 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @READ_PACKED_MEMORY.P2
+004-005 @WRITE_PROGRAM_MEMORY8.P3
+004-005 @WRITE_PACKED_MEMORY.P4
+006-007 @WRITE_PACKED_MEMORY.P1
+006-007 @READ_PACKED_MEMORY.P2
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028     estado_actual
+029     contador
+02A     contador_ms
+02B     flag_segundo
+02C-02D @sprintf_string
+02E     @PRINTF_D_745.P1
+02E     lcd_init.i
+02E     @PSTRINGCN7_745.P1
+02E     @PSTRINGC7_745.@SCRATCH1
+02F     @PRINTF_D_745.P1
+02F-032 lcd_init.LCD_INIT_STRING
+02F     @PSTRINGC7_745.@SCRATCH2
+030     @PSTRINGC7_745.@SCRATCH3
+030     @PRINTF_D_745.@SCRATCH1
+031     @PSTRINGCN7_745.@SCRATCH1
+031     @PRINTF_D_745.@SCRATCH2
+032     @PSTRINGCN7_745.@SCRATCH2
+032     @PRINTF_D_745.@SCRATCH3
+033     lcd_init.@SCRATCH1
+033     @PSTRINGCN7_745.@SCRATCH3
+033     @PRINTF_D_745.@SCRATCH4
+034     @DIV88.P1
+034     lcd_putc.c
+035     @DIV88.P1
+035     @delay_ms1.P2
+035     lcd_gotoxy.x
+036     lcd_gotoxy.y
+036     @DIV88.@SCRATCH1
+037     lcd_gotoxy.address
+038     lcd_gotoxy.@SCRATCH1
+039     lcd_send_byte.address
+03A     lcd_send_byte.n
+03B     lcd_read_byte.low
+03B     lcd_send_byte.@SCRATCH1
+03C     lcd_send_nibble.n
+03C     lcd_read_byte.high
+03D     lcd_read_nibble.n
+03D     lcd_read_byte.@SCRATCH1
+03E     lcd_read_nibble.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+111.6   C1OUT
+113.6   C2OUT
+191-192 @WRITE_PROGRAM_MEMORY8.P1
+191-192 @READ_PROGRAM_MEMORY8.P2
+291     CCP_1_LOW
+291     CCP_1
+292     CCP_1_HIGH
+298     CCP_2
+298     CCP_2_LOW
+299     CCP_2_HIGH
+311     CCP_3
+311     CCP_3_LOW
+312     CCP_3_HIGH
+318     CCP_4
+318     CCP_4_LOW
+319     CCP_4_HIGH
+
+ROM Allocation:
+000003  @const773.call
+00003E  Timer0_ISR
+00004B  @const778.call
+000051  @const779.call
+000052  @const780.call
+000059  @const781.call
+00005C  @const782.call
+00005D  @const783.call
+000064  Init_GPIO
+00006D  @delay_ms1
+000083  lcd_send_nibble
+0000BA  lcd_read_nibble
+0000EB  lcd_send_byte
+0000F3  lcd_read_byte
+00014C  lcd_init
+000195  InitTimer0
+0001A2  lcd_gotoxy
+0001B4  lcd_putc
+0001E0  @PSTRINGC7_745
+00022A  @DIV88
+00023F  maquina
+000294  @PSTRINGCN7_745
+0002E7  @PRINTF_D_745
+000344  @cinit1
+000344  MAIN
+000356  @cinit2
+
+Project Directory:
+    C:\Users\santi\OneDrive\Escritorio\EDI2\TP2\
+
+Project Files:
+    Ejercicio1_TP2.c                                        [09-sept-25 14:48  CRC=0551F193]
+    Ejercicio1_TP2.h                                        [09-sept-25 12:43  CRC=00000000]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb-20 15:48  CRC=D6A5AF9F]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb-16 09:05  CRC=D1A6378A]
+
+Source signature=7F441046
+Program memory checksum=0000
+Hex file CRC=4C55
+
+Units:
+    C:\Users\santi\OneDrive\Escritorio\EDI2\TP2\Ejercicio1_TP2 (main)
+
+Compiler Settings:
+    Processor:      PIC16F1827
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Enhanced 16:    Yes
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   Ejercicio1_TP2.xsym
+    Errors:      Ejercicio1_TP2.err
+    Ext Symbols: Ejercicio1_TP2.esym
+    INHX8:       Ejercicio1_TP2.hex
+    Symbols:     Ejercicio1_TP2.sym
+    List:        Ejercicio1_TP2.lst
+    Debug/COFF:  Ejercicio1_TP2.cof
+    Project:     Ejercicio1_TP2.ccspjt
+    Call Tree:   Ejercicio1_TP2.tre
+    Statistics:  Ejercicio1_TP2.STA
