@@ -11,7 +11,6 @@
 
 #define LCD_ENABLE_PIN  PIN_B0
 #define LCD_RS_PIN      PIN_B1
-#define LCD_RW_PIN      PIN_B2 // CONECTADO A GND SI NO LO USAMOS
 #define LCD_DATA4       PIN_B4
 #define LCD_DATA5       PIN_B5
 #define LCD_DATA6       PIN_B6
@@ -47,6 +46,7 @@ void main()
 
 Init_GPIO();
 lcd_init();
+
    while(TRUE) {
    maquina();
    }
@@ -60,8 +60,6 @@ void Init_GPIO()
    
 /* SETEAMOS LOS PINES RA0 y RA1 como entrada */
    set_tris_a(0b00000011);
-   output_low(PIN_A0);
-   output_low(PIN_A1);
 }
 
 void maquina() {
@@ -69,26 +67,27 @@ void maquina() {
  switch(estado_actual) {
  
   case Espero:
-   if(input(PIN_A0) == 1) {
-   printf(LCD_PUTC,"\f");
+ 
+   if(input(PIN_A0) == 0) {
    estado_actual = Prendido;
    }
   break;
  
   case Prendido:
- 
-  printf(LCD_PUTC,"Prendiendo \f");
-  
-  if(input(PIN_A1) == 1) {
+  lcd_gotoxy(1,1);
+  printf(LCD_PUTC,"Prendiendo");
+
+  if(input(PIN_A1) == 0) {
+  printf(LCD_PUTC,"\f");
    estado_actual = Apagado;
    }
   break;
  
   case Apagado:
+  lcd_gotoxy(1,1);
+  printf(LCD_PUTC,"Apangando");
   
-  printf(LCD_PUTC,"Apangando \f");
-  
-  if(input(PIN_A0) == 1) {
+  if(input(PIN_A0) == 0) {
    printf(LCD_PUTC,"\f");
    estado_actual = Prendido;
    }
