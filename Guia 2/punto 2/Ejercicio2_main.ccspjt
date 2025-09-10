@@ -19,23 +19,25 @@ forcecoff=0
 [ProjectLog]
 Days=1
 D1=09-09-2025
-D1_L=8
+D1_L=10
 D1_L1=[52035]Project Opened.
 D1_L2=[52039]Started Editing.
 D1_L3=[52201]Stopped Editing.
-TotalEdit=6
+TotalEdit=19
 TotalDebug=0
-D1_E=6
+D1_E=19
 D1_D=0
 D1_L4=[52205]Project Closed.
 D1_L5=[53534]Project Opened.
 D1_L6=[53535]Project Closed.
 D1_L7=[75165]Project Opened.
 D1_L8=[76042]Started Editing.
+D1_L9=[77065]Stopped Editing.
+D1_L10=[77071]Project Closed.
 
 [Opened Files]
 1=Ejercicio2_main.c
-t1=81
+t1=1
 Count=2
 2=..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
 t2=199
