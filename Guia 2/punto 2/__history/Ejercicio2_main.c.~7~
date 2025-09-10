@@ -70,9 +70,9 @@ void maquina() {
  switch(estado_actual) {
  
   case Espero:
-
-   if(input(PIN_A0) == 0) {
+ 
    printf(LCD_PUTC,"\f");
+   if(input(PIN_A0) == 0) {
     printf(LCD_PUTC,"Prendiendo");
    estado_actual = Prendido;
    }
@@ -80,8 +80,8 @@ void maquina() {
  
   case Prendido:
 
-  if(input(PIN_A1) == 0) {
    printf(LCD_PUTC,"\f");
+  if(input(PIN_A1) == 0) {
    printf(LCD_PUTC,"Apangando");
    estado_actual = Apagado;
    }
@@ -89,8 +89,8 @@ void maquina() {
  
   case Apagado:
   
-  if(input(PIN_A0) == 0) {
   printf(LCD_PUTC,"\f");
+  if(input(PIN_A0) == 0) {
    printf(LCD_PUTC,"Prendiendo");
    estado_actual = Prendido;
    }

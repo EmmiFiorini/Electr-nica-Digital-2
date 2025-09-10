@@ -1,6 +1,4 @@
 #include <Ejercicio2_main.h>
-#define use_portb_lcd TRUE
-#include <lcd.c>
 
 
 #fuses INTRC_IO   // Oscilador interno con pines RA6 y RA7 como GPIO
@@ -18,6 +16,8 @@
 #define LCD_DATA5       PIN_B5
 #define LCD_DATA6       PIN_B6
 #define LCD_DATA7       PIN_B7
+#define use_portb_lcd TRUE
+#include <lcd.c>
 
 
 /***************************
@@ -62,7 +62,6 @@ void Init_GPIO()
    
 /* SETEAMOS LOS PINES RA0 y RA1 como entrada */
    set_tris_a(0b00000011);
-   
 }
 
 void maquina() {
@@ -70,28 +69,28 @@ void maquina() {
  switch(estado_actual) {
  
   case Espero:
-
+ 
    if(input(PIN_A0) == 0) {
-   printf(LCD_PUTC,"\f");
-    printf(LCD_PUTC,"Prendiendo");
    estado_actual = Prendido;
    }
   break;
  
   case Prendido:
+  lcd_gotoxy(1,1);
+  printf(LCD_PUTC,"Prendiendo");
 
   if(input(PIN_A1) == 0) {
-   printf(LCD_PUTC,"\f");
-   printf(LCD_PUTC,"Apangando");
+  printf(LCD_PUTC,"\f");
    estado_actual = Apagado;
    }
   break;
  
   case Apagado:
+  lcd_gotoxy(1,1);
+  printf(LCD_PUTC,"Apangando");
   
   if(input(PIN_A0) == 0) {
-  printf(LCD_PUTC,"\f");
-   printf(LCD_PUTC,"Prendiendo");
+   printf(LCD_PUTC,"\f");
    estado_actual = Prendido;
    }
    break;

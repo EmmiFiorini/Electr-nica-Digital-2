@@ -89,8 +89,8 @@ void maquina() {
  
   case Apagado:
   
-  if(input(PIN_A0) == 0) {
   printf(LCD_PUTC,"\f");
+  if(input(PIN_A0) == 0) {
    printf(LCD_PUTC,"Prendiendo");
    estado_actual = Prendido;
    }

@@ -1,8 +1,9 @@
 [PROJECT]
-Target=C:\Users\MPF\Desktop\Git\EDI II\Ejercicio2_main.hex
+Target=Ejercicio2_main.hex
 Processor_Text=PIC16F1827
 CCSVerions=5.093
 Compiler=PCM
+CCSVersion=5.093
 [Target Data]
 FileList=Ejercicio2_main.c
 [Directories]
@@ -11,9 +12,6 @@ Include=
 Type=4
 [mru-list]
 1=Ejercicio2_main.c
-[Units]
-Count=1
-1=Ejercicio2_main (main)
 
 [fileformats]
 forcecoff=0
@@ -21,7 +19,7 @@ forcecoff=0
 [ProjectLog]
 Days=1
 D1=09-09-2025
-D1_L=6
+D1_L=8
 D1_L1=[52035]Project Opened.
 D1_L2=[52039]Started Editing.
 D1_L3=[52201]Stopped Editing.
@@ -32,8 +30,20 @@ D1_D=0
 D1_L4=[52205]Project Closed.
 D1_L5=[53534]Project Opened.
 D1_L6=[53535]Project Closed.
+D1_L7=[75165]Project Opened.
+D1_L8=[76042]Started Editing.
 
 [Opened Files]
 1=Ejercicio2_main.c
-t1=78
+t1=81
+Count=2
+2=..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+t2=199
+[Ejercicio2_main.c]
+Type=4
+
+[defines]
+buildcount=6
+[Units]
 Count=1
+1=Ejercicio2_main (main)
