@@ -49,15 +49,16 @@ void maquina(void);
 
 #INT_TIMER0 // ACA ESCRIBO QUÉ DEBO HACER EN CADA INTERRUPCIÓN
 void Timer0_ISR() {
-   set_timer0(61);
+  set_timer0(252);
    contador_ms++;
-   if(contador_ms >= 20) { //PASO 1 SEG
+   
+   if(contador_ms >= 100) {  // 1000 ms = 1 segundo
       contador_ms = 0;
       flag_segundo = 1;       
    }
    
    contador_3s++;
-   if(contador_3s >= 60) {  // 3 segundos
+   if(contador_3s >= 300) {  // 3000 ms = 3 segundos
       contador_3s = 0;
       flag_3segundo = 1;     
    }
@@ -87,7 +88,7 @@ void InitTimer0(void) {
 
     setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256); // Configuro prescaler
    
-     set_timer0(61);              // Reinicio el timer --> Interrupciones cada 50ms
+    set_timer0(252);                  // Reinicio el timer --> Interrupciones cada 50ms
     enable_interrupts(INT_TIMER0);    // Activo Interrupcion timer0
     enable_interrupts(GLOBAL);        // Activo Interrupciones globales
 }

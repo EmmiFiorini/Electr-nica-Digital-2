@@ -17,7 +17,7 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=2
+Days=3
 D1=09-09-2025
 D1_L=10
 D1_L1=[77154]Project Opened.
@@ -50,6 +50,11 @@ D2_D=0
 D2_L10=[52447]Project Closed.
 D2_L11=[52497]Project Opened.
 D2_L12=[52505]Started Editing.
+D3=11-09-2025
+D3_L=3
+D3_L1=[41284]Project Opened.
+D3_L2=[41286]Project Opened.
+D3_L3=[41291]Project Opened.
 
 [Opened Files]
 1=Ejercicio3_main.c
