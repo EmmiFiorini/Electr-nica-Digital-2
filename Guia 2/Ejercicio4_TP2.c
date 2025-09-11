@@ -8,13 +8,13 @@
  * LCD
  ****************************************************************************/
 
-#define LCD_ENABLE_PIN  PIN_B0
-#define LCD_RS_PIN      PIN_B1
-#define LCD_RW_PIN      PIN_B2 // CONECTADO A GND SI NO LO USAMOS
-#define LCD_DATA4       PIN_B4
-#define LCD_DATA5       PIN_B5
-#define LCD_DATA6       PIN_B6
-#define LCD_DATA7       PIN_B7
+#define LCD_ENABLE_PIN  PIN_A0
+#define LCD_RS_PIN      PIN_A1
+#define LCD_RW_PIN      PIN_A2 // CONECTADO A GND SI NO LO USAMOS
+#define LCD_DATA4       PIN_A4
+#define LCD_DATA5       PIN_A5
+#define LCD_DATA6       PIN_A6
+#define LCD_DATA7       PIN_A7
 #include <lcd.c>
 
 
@@ -28,43 +28,36 @@ void Init_GPIO();
 * Estados
 ****************************************************************************/
 typedef enum {
-    MSJ_1,
-    MSJ_2,
-    MSJ_3
+
 } eEstado;
 
-eEstado estado_actual = MSJ_1;
+eEstado estado_actual = ;
 /*****************************************************************************
 * Variables globales
 ****************************************************************************/
-int contador = 0;
-int contador_ms = 0;
-int flag_segundo = 0;
+
+/*****************************************************************************
+* Teclado
+****************************************************************************/
+
+char teclado[4][4] = {
+   {'1','2','3','A'},
+   {'4','5','6','B'},
+   {'7','8','9','C'},
+   {'*','0','#','D'}
+};
 /*****************************************************************************
 * Funciones
 ****************************************************************************/
-void InitTimer0(void);
+char read_keypad();
 void maquina(void);
 
-
-
-#INT_TIMER0 // ACA ESCRIBO QUÉ DEBO HACER EN CADA INTERRUPCIÓN
-void Timer0_ISR() {
-  
-  set_timer0(61);
-  if(contador_ms >= 20) { //PASO 1 SEG
-       contador_ms = 0;
-       flag_segundo = 1; // aviso que ya pasó el tiempo deseado
-   }
-   contador_ms++;
-}
 
 void main()
 {
 
 Init_GPIO();
 lcd_init();
-InitTimer0();
 
    while(TRUE) {
    maquina();
@@ -75,62 +68,31 @@ InitTimer0();
 void Init_GPIO()
 {
 /* SETEAMOS LOS PINES PB0-PB7 COMO SALIDA */
-   set_tris_b(0x00);
-   output_b(0x00); // TODO COMO SALIDA EN ESTADO BAJO (SI TENGO PINES COMO ENTRADA, LOS FUERZA A SER SALIDA)
+   set_tris_b(0b00001111); RB0-RB3 = entrada, columnad, RB4-RB7 = Filas, salidas
+   set_tris_a(0b00000000); // TODO COMO SALIDA EN ESTADO BAJO 
    
 }
 
-void InitTimer0(void) {
+char read_keypad() {
+   int fila, col;
+   for(fila=0; fila<4; fila++) {
+      output_b(0b11111111);            // Todas filas en 1
+      output_low(PIN_B4+fila);         // Activar una fila en 0
 
-    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256); // Configuro prescaler
-    
-    set_timer0(61);                  // Reinicio el timer --> Interrupciones cada 50ms
-    enable_interrupts(INT_TIMER0);    // Activo Interrupcion timer0
-    enable_interrupts(GLOBAL);        // Activo Interrupciones globales
+      for(col=0; col<4; col++) {
+         if(!input(PIN_B0+col)) {     // Si columna detecta 0, tecla presionada
+            while(!input(PIN_B0+col)); // Esperar que suelte la tecla
+            return teclado[fila][col];
+         }
+      }
+   }
+   return 0; // nada presionado
 }
 
 void maquina() {
  
  switch(estado_actual) {
  
-  case MSJ_1: 
 
-   if(flag_segundo == 1) {
-    lcd_putc("\f");
-    printf(LCD_PUTC,"Hello World");
-    flag_segundo = 0;
-    estado_actual = MSJ_2;
-   }
-  break;
-  
- 
-  case MSJ_2: 
-  
-  if(flag_segundo == 1) {
-    lcd_putc("\f");
-    printf(LCD_PUTC,"Bienvenidos a");
-    lcd_gotoxy(1,2); // DIVIDIMOS EN 2 'RENGLONES'. MAXIMO 2 RENGLONES TENEMOS
-    printf(LCD_PUTC,"EDI 2");
-    flag_segundo = 0;
-    estado_actual = MSJ_3;
-   }
-  break;
-  
- 
-  case MSJ_3: 
-  
-  if(flag_segundo == 1) {
-   lcd_putc("\f");
-   lcd_gotoxy(1,1); // REESTABLECEMOS EL PUNTERO DEL CURSOR
-   printf(LCD_PUTC,"Contador = %d",contador);
-   contador++;
-   flag_segundo = 0;
-   estado_actual = MSJ_1;
-   }
-   break;
-  
-  default:
-  estado_actual = MSJ_1;
- }
  
 }
