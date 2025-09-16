@@ -44,6 +44,7 @@ volatile int flanco_a = 0;*/
 
 int16 flag_segundo = 0;
 int valor = 0;
+int16 overflow_count=0; //mi contador q uso en el timer
 
 //FUNCIONES
 void MaquinaEstado(void);
@@ -56,7 +57,7 @@ void InitTimer0(void);
 #INT_TIMER0 // ACA ESCRIBO QUÉ DEBO HACER EN CADA INTERRUPCIÓN
 void Timer0_ISR() {
    set_timer0(178);   // Reinicio el timer 0
-   flag_segundo++; // pasaron 20 ms
+   overflow_count++; //incremento el contador
 }
 
 /*****************************************************************************
@@ -64,15 +65,19 @@ void Timer0_ISR() {
  ****************************************************************************/
 
 void main(void) {
-
+   
    InitGPIO();    // Inicializo el PORTA y PORTB
    lcd_init();// Inicializo LCD
    InitTimer0();
   
    printf(LCD_PUTC,"Cuenta: %d",valor);
    estado_actual=SUELTO;
-   while (TRUE)
-      MaquinaEstado();
+   while (TRUE) {
+      if( overflow_count >= 1) {
+         overflow_count = 0;
+         MaquinaEstado();
+      }
+   }
 }
 
 /*****************************************************************************
@@ -112,40 +117,40 @@ void MaquinaEstado(void){
     switch (estado_actual) { //entro en el switch
 
         case SUELTO:
-            if(boton == 0) {// botón presionado (activo en 0)
-                flag_segundo = 0;
-                estado_actual = Q_PRES;
+            if(boton == 1){// botón presionado (activo en 0)
+                estado_actual = PRESIONADO;
+                flag_segundo=0;
             }
-            
             break;
             
-        case PRESIONADO:
-           if(boton == 1){ // se soltó
-              flag_segundo = 0;
-              estado_actual = Q_SUELTO;
-           }
-           break;
+            case PRESIONADO:
+            if(boton == 1){
+                flag_segundo++;
+                if(flag_segundo >= 20) //20 = tiempo del antirebote
+                  estado_actual = Q_PRES;
+            }else {
+            // El botón se liberó antes de tiempo 
+            estado_actual = SUELTO;
+         }
+            break;
 
         case Q_PRES:
-           if(boton == 0){ // sigue presionado
-                if(flag_segundo >= 1) //20 = tiempo del antirebote
-                     estado_actual = PRESIONADO;
-               else // El botón se liberó antes de tiempo 
-               estado_actual = SUELTO;
-            }
-               break;       
+            if(boton == 0){
+                // pasó el tiempo de rebote y sigue apretado
+                estado_actual = Q_SUELTO;
+            } 
+            break;
 
-        case Q_SUELTO:
-             if(boton == 1) { // sigue suelto
-                 if(flag_segundo >= 1) { // confirmo liberación estable
-                     valor++;
-                     EscribirDisplay(valor);
-                     estado_actual = SUELTO;
-                 }
-                 else 
-                     estado_actual = PRESIONADO; // rebote ? seguía apretado
-             }
-             break;
+        case Q_SUELTO:// estuvo presionado y ahora se soltó estable
+                valor++; //incremento el valor
+                EscribirDisplay(valor);
+                estado_actual = SUELTO;
+            }
+            break;
+            
+       default: //x si falla
+         estado_actual = SUELTO;
+         break;
     }
 }
 

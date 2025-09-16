@@ -17,7 +17,7 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=1
+Days=2
 D1=28-08-2025
 D1_L=4
 D1_L1=[50092]Project Opened.
@@ -28,18 +28,24 @@ TotalDebug=0
 D1_E=36
 D1_D=0
 D1_L4=[52101]Project Closed.
+D2=16-09-2025
+D2_L=4
+D2_L1=[55403]Project Opened.
+D2_L2=[55456]Started Editing.
+D2_L3=[57726]Stopped Editing.
+D2_L4=[57828]Started Editing.
 
 [Opened Files]
 1=AntiRebote3.c
-t1=138
-Count=2
+t1=136
+Count=1
 2=Semaforo.c
 t2=117
 [AntiRebote3.c]
 Type=4
 
 [defines]
-buildcount=8
+buildcount=12
 [Units]
 Count=1
 1=AntiRebote3 (main)

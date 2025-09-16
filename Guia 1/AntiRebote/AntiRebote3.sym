@@ -1,5 +1,5 @@
-004-005 @READ_PACKED_MEMORY.P1
-004-005 @WRITE_PROGRAM_MEMORY8.P2
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PACKED_MEMORY.P2
 004-005 @READ_PROGRAM_MEMORY8.P3
 004-005 @WRITE_PACKED_MEMORY.P4
 006-007 @READ_PACKED_MEMORY.P1
@@ -13,45 +13,42 @@
 026     @INTERRUPT_AREA
 027     @INTERRUPT_AREA
 028     estado_actual
-029     valor
-02A     flag_pulsado
-02B     flag_segundo
-02C     flanco_d
-02D     flanco_a
-02E     EscribirDisplay.valor
-02E     EstadoPulsador.res
-02E     lcd_init.i
-02E     MaquinaEstado.@SCRATCH1
+029-02A flag_segundo
+02B     valor
+02C     MaquinaEstado.boton
+02C     lcd_init.i
+02D-030 lcd_init.LCD_INIT_STRING
+02D     EstadoPulsador.res
+02D     EscribirDisplay.valor
+02E     @PRINTF_D_745.P1
+02E     @PSTRINGCN7_745.P2
 02F     @PRINTF_D_745.P1
-02F-032 lcd_init.LCD_INIT_STRING
-02F     @PSTRINGCN7_745.P1
-030     @PRINTF_D_745.P1
+030     @PRINTF_D_745.@SCRATCH1
+031     lcd_init.@SCRATCH1
 031     @PSTRINGCN7_745.@SCRATCH1
+031     @PRINTF_D_745.@SCRATCH2
 032     @PSTRINGCN7_745.@SCRATCH2
-033     lcd_init.@SCRATCH1
+032     @PRINTF_D_745.@SCRATCH3
 033     @PSTRINGCN7_745.@SCRATCH3
-034     @PRINTF_D_745.@SCRATCH1
-035     @PRINTF_D_745.@SCRATCH2
-036     @PRINTF_D_745.@SCRATCH3
-037     @PRINTF_D_745.@SCRATCH4
-038     @DIV88.P1
-038     lcd_putc.c
-039     lcd_gotoxy.x
-039     @DIV88.P1
-039     @delay_ms1.P2
-03A     lcd_gotoxy.y
-03A     @DIV88.@SCRATCH1
-03B     lcd_gotoxy.address
-03C     lcd_gotoxy.@SCRATCH1
-03D     lcd_send_byte.address
-03E     lcd_send_byte.n
-03F     lcd_read_byte.low
-03F     lcd_send_byte.@SCRATCH1
-040     lcd_send_nibble.n
-040     lcd_read_byte.high
-041     lcd_read_nibble.n
-041     lcd_read_byte.@SCRATCH1
-042     lcd_read_nibble.@SCRATCH1
+033     @PRINTF_D_745.@SCRATCH4
+034     @DIV88.P1
+034     lcd_putc.c
+035     lcd_gotoxy.x
+035     @delay_ms1.P1
+035     @DIV88.P2
+036     lcd_gotoxy.y
+036     @DIV88.@SCRATCH1
+037     lcd_gotoxy.address
+038     lcd_gotoxy.@SCRATCH1
+039     lcd_send_byte.address
+03A     lcd_send_byte.n
+03B     lcd_read_byte.low
+03B     lcd_send_byte.@SCRATCH1
+03C     lcd_read_byte.high
+03C     lcd_send_nibble.n
+03D     lcd_read_nibble.n
+03D     lcd_read_byte.@SCRATCH1
+03E     lcd_read_nibble.@SCRATCH1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -61,59 +58,59 @@
 113.6   C2OUT
 191-192 @READ_PROGRAM_MEMORY8.P1
 191-192 @WRITE_PROGRAM_MEMORY8.P2
-291     CCP_1
 291     CCP_1_LOW
+291     CCP_1
 292     CCP_1_HIGH
-298     CCP_2
 298     CCP_2_LOW
+298     CCP_2
 299     CCP_2_HIGH
-311     CCP_3_LOW
 311     CCP_3
+311     CCP_3_LOW
 312     CCP_3_HIGH
-318     CCP_4_LOW
 318     CCP_4
+318     CCP_4_LOW
 319     CCP_4_HIGH
 
 ROM Allocation:
 00003E  Timer0_ISR
-000045  @const779.call
-00004B  @const788.call
-000051  InitGPIO
-000059  @delay_ms1
-00006F  lcd_send_nibble
-0000A6  lcd_read_nibble
-0000D7  lcd_send_byte
-0000DF  lcd_read_byte
-000138  lcd_init
-000181  InitTimer0
-00018E  lcd_gotoxy
-0001A0  lcd_putc
-0001CC  @PSTRINGCN7_745
-00021C  @DIV88
-000231  @PRINTF_D_745
-000288  EstadoPulsador
-000292  MaquinaEstado
-0002A7  EscribirDisplay
-0002D9  @goto33189
-0002E1  @cinit1
-0002E1  MAIN
-0002F3  @cinit2
+000046  @const776.call
+00004C  @const785.call
+000052  InitGPIO
+00005D  @delay_ms1
+000073  lcd_send_nibble
+0000AA  lcd_read_nibble
+0000DB  lcd_send_byte
+0000E3  lcd_read_byte
+00013C  lcd_init
+000185  InitTimer0
+000192  lcd_gotoxy
+0001A4  lcd_putc
+0001D0  @PSTRINGCN7_745
+000220  @DIV88
+000235  @PRINTF_D_745
+00028C  EstadoPulsador
+00028C  MaquinaEstado
+0002C7  EscribirDisplay
+0002DF  @goto29822
+0002E7  @cinit1
+0002E7  MAIN
+0002F7  @cinit2
 
 Project Directory:
-    C:\Users\santi\OneDrive\Escritorio\EDI2\TP0\
+    C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 1\AntiRebote\
 
 Project Files:
-    AntiRebote3.c                                           [28-ago-25 14:27  CRC=05910CD3]
-    AntiRebote3.h                                           [28-ago-25 13:54  CRC=00000000]
-    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb-20 15:48  CRC=D6A5AF9F]
-    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb-16 09:05  CRC=D1A6378A]
+    AntiRebote3.c                                           [16-sep.-25 16:06  CRC=3E79BD4F]
+    AntiRebote3.h                                           [09-sep.-25 15:29  CRC=00000000]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb.-20 15:48  CRC=D6A5AF9F]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb.-16 09:05  CRC=D1A6378A]
 
-Source signature=7F832B86
+Source signature=B86BDC02
 Program memory checksum=0000
-Hex file CRC=11A1
+Hex file CRC=A93D
 
 Units:
-    C:\Users\santi\OneDrive\Escritorio\EDI2\TP0\AntiRebote3 (main)
+    C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 1\AntiRebote\AntiRebote3 (main)
 
 Compiler Settings:
     Processor:      PIC16F1827

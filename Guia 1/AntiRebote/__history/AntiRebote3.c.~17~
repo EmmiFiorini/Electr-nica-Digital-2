@@ -56,7 +56,7 @@ void InitTimer0(void);
 #INT_TIMER0 // ACA ESCRIBO QUÉ DEBO HACER EN CADA INTERRUPCIÓN
 void Timer0_ISR() {
    set_timer0(178);   // Reinicio el timer 0
-   flag_segundo++; // pasaron 20 ms
+   flag_segundo = 1; // pasaron 20 ms
 }
 
 /*****************************************************************************
@@ -128,7 +128,7 @@ void MaquinaEstado(void){
 
         case Q_PRES:
            if(boton == 0){ // sigue presionado
-                if(flag_segundo >= 1) //20 = tiempo del antirebote
+                if(flag_segundo == 1) //20 = tiempo del antirebote
                      estado_actual = PRESIONADO;
                else // El botón se liberó antes de tiempo 
                estado_actual = SUELTO;
@@ -136,16 +136,16 @@ void MaquinaEstado(void){
                break;       
 
         case Q_SUELTO:
-             if(boton == 1) { // sigue suelto
-                 if(flag_segundo >= 1) { // confirmo liberación estable
-                     valor++;
-                     EscribirDisplay(valor);
-                     estado_actual = SUELTO;
-                 }
-                 else 
-                     estado_actual = PRESIONADO; // rebote ? seguía apretado
-             }
-             break;
+            if(boton == 0) {
+                if(flag_segundo == 1) // confirmo pulsación
+                    estado_actual = PRESIONADO;
+            else {
+                valor++;                 // ? incremento aquí
+                EscribirDisplay(valor);
+                estado_actual = SUELTO; // rebote ? no era válido
+            }
+         }
+            break;
     }
 }
 

@@ -1,8 +1,8 @@
 ÀÄAntiRebote3
-   ÃÄMAIN  0/41  Ram=0
+   ÃÄMAIN  0/39  Ram=0
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄ@cinit2  (Inline)  Ram=0
-   ³  ÃÄInitGPIO  0/8  Ram=0
+   ³  ÃÄInitGPIO  0/11  Ram=0
    ³  ÃÄlcd_init  0/73  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/22  Ram=1
    ³  ³  ÃÄlcd_send_nibble  0/55  Ram=1
@@ -16,7 +16,7 @@
    ³  ³     ÃÄlcd_send_nibble  0/55  Ram=1
    ³  ³     ÀÄlcd_send_nibble  0/55  Ram=1
    ³  ÃÄInitTimer0  0/13  Ram=0
-   ³  ÃÄ@PSTRINGCN7_745  0/80  Ram=5
+   ³  ÃÄ@PSTRINGCN7_745  0/80  Ram=6
    ³  ³  ÃÄlcd_putc  0/44  Ram=1
    ³  ³  ³  ÃÄlcd_gotoxy  0/18  Ram=4
    ³  ³  ³  ³  ÀÄlcd_send_byte  0/97  Ram=3
@@ -32,7 +32,7 @@
    ³  ³  ³     ÀÄ*
    ³  ³  ÀÄlcd_putc  0/44  Ram=1
    ³  ³     ÀÄ*
-   ³  ÃÄ@PRINTF_D_745  0/87  Ram=9
+   ³  ÃÄ@PRINTF_D_745  0/87  Ram=6
    ³  ³  ÃÄ@DIV88  0/21  Ram=3
    ³  ³  ÃÄ@DIV88  0/21  Ram=3
    ³  ³  ÃÄlcd_putc  0/44  Ram=1
@@ -43,16 +43,14 @@
    ³  ³  ³  ÀÄ*
    ³  ³  ÀÄlcd_putc  0/44  Ram=1
    ³  ³     ÀÄ*
-   ³  ÀÄMaquinaEstado  0/71  Ram=1
-   ³     ÃÄ@goto33189  0/8  Ram=0
-   ³     ÃÄEstadoPulsador  0/10  Ram=1
-   ³     ÃÄEscribirDisplay  (Inline)  Ram=1
-   ³     ³  ÃÄlcd_putc  0/44  Ram=1
-   ³     ³  ³  ÀÄ*
-   ³     ³  ÃÄ@PSTRINGCN7_745  0/80  Ram=5
-   ³     ³  ³  ÀÄ*
-   ³     ³  ÀÄ@PRINTF_D_745  0/87  Ram=9
-   ³     ³     ÀÄ*
-   ³     ÃÄEstadoPulsador  0/10  Ram=1
-   ³     ÀÄEstadoPulsador  0/10  Ram=1
-   ÀÄTimer0_ISR  0/7  Ram=0
+   ³  ÀÄMaquinaEstado  0/83  Ram=1
+   ³     ÃÄEstadoPulsador  (Inline)  Ram=1
+   ³     ÃÄ@goto29822  0/8  Ram=0
+   ³     ÀÄEscribirDisplay  (Inline)  Ram=1
+   ³        ÃÄlcd_putc  0/44  Ram=1
+   ³        ³  ÀÄ*
+   ³        ÃÄ@PSTRINGCN7_745  0/80  Ram=6
+   ³        ³  ÀÄ*
+   ³        ÀÄ@PRINTF_D_745  0/87  Ram=6
+   ³           ÀÄ*
+   ÀÄTimer0_ISR  0/8  Ram=0

@@ -1,9 +1,10 @@
-D G "__PCM__" 0 175 ""5.093""
-D G "__DEVICE__" 0 175 "1827"
-D G "__DATE__" 0 175 ""28-Aug-25""
-D G "__TIME__" 0 175 ""14:27:32""
-D G "_UNICODE" 0 175 ""?""
-D G "__EVAL" 0 175 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
+F N "MaquinaEstado" 0 109 ""
+D G "__PCM__" 0 154 ""5.093""
+D G "__DEVICE__" 0 154 "1827"
+D G "__DATE__" 0 154 ""16-Sep-25""
+D G "__TIME__" 0 154 ""16:05:58""
+D G "_UNICODE" 0 154 ""?""
+D G "__EVAL" 0 154 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 f N "set_tris_a" 2 39 ""
 v L "value" 2 39 "int8" `55 
@@ -1472,57 +1473,67 @@ V L "on" 3 443 "int8" `756
 F G "lcd_cursor_on" 3 444 "void(int8 on)" `755 
 C L "lcd_cursor_on" 3 2 1 "FUNCTION"
 C L "lcd_cursor_on" 3 2 1 "FUNCTION"
-C G "" 0 23 1 "*"
-E G "SUELTO" 0 29 "0" `758 
-E G "Q_PRESIONADO" 0 30 "1" `759 
-E G "PRESIONADO" 0 31 "2" `760 
-E G "Q_SUELTO" 0 32 "3" `761 
-T G "eEstado" 0 32 "" `762 
-V G "estado_actual" 0 34 "eEstado" `763 
-F N "MaquinaEstado" 0 36 ""
-f G "MaquinaEstado" 0 36 "void()" `764 
-F N "InitGPIO" 0 39 ""
-f G "InitGPIO" 0 39 "void()" `765 
-F N "EscribirDisplay" 0 41 ""
-V L "valor" 0 41 "sint8" `767 
-f G "EscribirDisplay" 0 41 "void(sint8 valor)" `766 
-F N "EstadoPulsador" 0 43 ""
-f G "EstadoPulsador" 0 43 "int8()" `768 
-F N "InitTimer0" 0 45 ""
-f G "InitTimer0" 0 45 "void()" `769 
-V G "valor" 0 47 "int8" `770 
-V G "flag_pulsado" 0 49 "int8" `771 
-V G "flag_segundo" 0 51 "int8" `772 
-V G "flanco_d" 0 53 "int8" `773 
-V G "flanco_a" 0 54 "int8" `774 
+C G "" 0 20 7 "*"
+E G "SUELTO" 0 33 "0" `758 
+E G "PRESIONADO" 0 34 "1" `759 
+E G "Q_PRES" 0 35 "2" `760 
+E G "Q_SUELTO" 0 36 "3" `761 
+T G "eEstado" 0 36 "" `762 
+V G "estado_actual" 0 38 "eEstado" `763 
+V G "flag_segundo" 0 45 "int16" `764 
+V G "valor" 0 46 "int8" `765 
+C L "MaquinaEstado" 0 20 1 "FUNCTION"
+F N "MaquinaEstado" 0 49 ""
+f G "MaquinaEstado" 0 49 "void()" `766 
+F N "InitGPIO" 0 50 ""
+f G "InitGPIO" 0 50 "void()" `767 
+F N "EscribirDisplay" 0 51 ""
+V L "valor" 0 51 "sint8" `769 
+f G "EscribirDisplay" 0 51 "void(sint8 valor)" `768 
+F N "EstadoPulsador" 0 52 ""
+f G "EstadoPulsador" 0 52 "int8()" `770 
+F N "InitTimer0" 0 53 ""
+f G "InitTimer0" 0 53 "void()" `771 
 F N "Timer0_ISR" 0 57 ""
-F G "Timer0_ISR" 0 57 "void()" `775 
-C L "Timer0_ISR" 0 23 1 "FUNCTION"
-C L "Timer0_ISR" 0 23 1 "FUNCTION"
-C L "MAIN" 0 64 1 "*"
-F N "MAIN" 0 68 ""
-F G "MAIN" 0 68 "void()" `776 
-C L "MAIN" 0 64 1 "FUNCTION"
-C L "MAIN" 0 64 1 "FUNCTION"
-C L "InitGPIO" 0 81 1 "*"
-F N "InitGPIO" 0 85 ""
-F G "InitGPIO" 0 85 "void()" `765 
-C L "InitGPIO" 0 81 1 "FUNCTION"
-C L "InitGPIO" 0 81 1 "FUNCTION"
-F N "EscribirDisplay" 0 90 ""
-V L "valor" 0 90 "sint8" `789 
-F G "EscribirDisplay" 0 90 "void(sint8 valor)" `766 
-F N "EstadoPulsador" 0 95 ""
-F G "EstadoPulsador" 0 96 "int8()" `768 
-V L "res" 0 97 "int8" `789 
-F N "InitTimer0" 0 102 ""
-F G "InitTimer0" 0 102 "void()" `769 
-C L "InitTimer0" 0 81 1 "FUNCTION"
-C L "InitTimer0" 0 81 1 "FUNCTION"
-C L "InitTimer0" 0 81 1 "FUNCTION"
-C L "InitTimer0" 0 81 1 "FUNCTION"
-F N "MaquinaEstado" 0 111 ""
-F G "MaquinaEstado" 0 111 "void()" `764 
+F G "Timer0_ISR" 0 57 "void()" `772 
+C L "Timer0_ISR" 0 20 1 "FUNCTION"
+C L "Timer0_ISR" 0 20 1 "FUNCTION"
+C L "MAIN" 0 62 1 "*"
+F N "MAIN" 0 66 ""
+F G "MAIN" 0 66 "void()" `773 
+C L "MAIN" 0 62 1 "FUNCTION"
+C L "MAIN" 0 62 1 "FUNCTION"
+C L "InitGPIO" 0 78 1 "*"
+F N "InitGPIO" 0 82 ""
+F G "InitGPIO" 0 82 "void()" `767 
+C L "InitGPIO" 0 78 1 "FUNCTION"
+C L "InitGPIO" 0 78 1 "FUNCTION"
+C L "InitGPIO" 0 78 1 "FUNCTION"
+F N "EscribirDisplay" 0 88 ""
+V L "valor" 0 88 "sint8" `786 
+F G "EscribirDisplay" 0 88 "void(sint8 valor)" `768 
+F N "EstadoPulsador" 0 93 ""
+F G "EstadoPulsador" 0 94 "int8()" `770 
+V L "res" 0 95 "int8" `786 
+F N "InitTimer0" 0 100 ""
+F G "InitTimer0" 0 100 "void()" `771 
+C L "InitTimer0" 0 78 1 "FUNCTION"
+C L "InitTimer0" 0 78 1 "FUNCTION"
+C L "InitTimer0" 0 78 1 "FUNCTION"
+C L "InitTimer0" 0 78 1 "FUNCTION"
+F N "MaquinaEstado" 0 109 ""
+F G "MaquinaEstado" 0 109 "void()" `766 
+V L "boton" 0 110 "int8" `787 
+C L "MaquinaEstado" 0 78 1 "FUNCTION"
+C L "MaquinaEstado" 0 78 1 "FUNCTION"
+C L "MaquinaEstado" 0 78 1 "FUNCTION"
+C L "MaquinaEstado" 0 78 1 "FUNCTION"
+C L "MaquinaEstado" 0 78 1 "FUNCTION"
+C L "MaquinaEstado" 0 78 1 "FUNCTION"
+C L "MaquinaEstado" 0 78 1 "FUNCTION"
+C L "MaquinaEstado" 0 78 1 "FUNCTION"
+C L "MaquinaEstado" 0 78 1 "FUNCTION"
+C L "MaquinaEstado" 0 78 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0
