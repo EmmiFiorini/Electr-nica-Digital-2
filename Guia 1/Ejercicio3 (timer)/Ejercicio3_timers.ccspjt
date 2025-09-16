@@ -34,13 +34,18 @@ D2_E=2
 D2_D=0
 D2_L6=[47261]Project Closed.
 D3=16-09-2025
-D3_L=4
+D3_L=9
 D3_L1=[33160]Project Opened.
 D3_L2=[34066]Started Editing.
 D3_L3=[34574]Stopped Editing.
 D3_E=9
 D3_D=0
 D3_L4=[34574]Project Closed.
+D3_L5=[47797]Project Opened.
+D3_L6=[49561]Project Closed.
+D3_L7=[59539]Project Opened.
+D3_L8=[59540]Project Closed.
+D3_L9=[59542]Project Opened.
 
 [Opened Files]
 1=Ejercicio3_timers.c
