@@ -19,7 +19,7 @@ Count=1
 forcecoff=0
 
 [ProjectLog]
-Days=2
+Days=3
 D1=11-09-2025
 D1_L=9
 D1_L1=[41187]Project Opened.
@@ -40,6 +40,9 @@ D2_E=14
 D2_D=0
 D2_L=1
 D2_L1=[72482]Project Closed.
+D3=16-09-2025
+D3_L=1
+D3_L1=[58298]Project Opened.
 
 [Opened Files]
 1=Ejercicio4_TP2.c

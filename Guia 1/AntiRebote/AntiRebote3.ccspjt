@@ -23,17 +23,21 @@ D1_L=4
 D1_L1=[50092]Project Opened.
 D1_L2=[50095]Started Editing.
 D1_L3=[52101]Stopped Editing.
-TotalEdit=36
+TotalEdit=76
 TotalDebug=0
 D1_E=36
 D1_D=0
 D1_L4=[52101]Project Closed.
 D2=16-09-2025
-D2_L=4
+D2_L=6
 D2_L1=[55403]Project Opened.
 D2_L2=[55456]Started Editing.
 D2_L3=[57726]Stopped Editing.
 D2_L4=[57828]Started Editing.
+D2_L5=[58243]Stopped Editing.
+D2_E=40
+D2_D=0
+D2_L6=[58243]Project Closed.
 
 [Opened Files]
 1=AntiRebote3.c
