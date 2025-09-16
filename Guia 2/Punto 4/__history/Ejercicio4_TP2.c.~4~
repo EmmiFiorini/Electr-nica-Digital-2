@@ -36,7 +36,7 @@ eEstado estado_actual = ESPERAR;
 /*****************************************************************************
 * Variables globales
 ****************************************************************************/
-char tecla = 0 ; // tecla que se presiona
+char tecla = A ; // tecla que se presiona
 /*****************************************************************************
 * Teclado
 ****************************************************************************/
@@ -67,20 +67,19 @@ lcd_init();
 void Init_GPIO()
 {
 /* SETEAMOS LOS PINES PB0-PB7 COMO SALIDA */
-   set_tris_b(0b00001111); //RB0-RB2 = entrada, columnas, RB4-RB7 = Filas, salidas
+   set_tris_b(0b00001111); //RB0-RB2 = entrada, columnas, RB3-RB6 = Filas, salidas
    set_tris_a(0b00000000); // TODO COMO SALIDA EN ESTADO BAJO 
       
    output_low(PIN_B1);
    output_low(PIN_B2);
-   output_low(PIN_B0);
+   output_low(PIN_B3);
    output_low(PIN_B4);
    output_low(PIN_B5);
    output_low(PIN_B6);
-   output_low(PIN_B7);
       
    output_low(PIN_A1);
    output_low(PIN_A2);
-   output_low(PIN_A0);
+   output_low(PIN_A3);
    output_low(PIN_A4);
    output_low(PIN_A5);
    output_low(PIN_A6);
@@ -112,14 +111,14 @@ void maquina() {
    switch(estado_actual) {
          case ESPERAR:
             tecla = read_keypad();       // leo teclado
-            if(tecla != 0) {             // si presionaron algo, no hay 0 en el teclado
+            if(tecla != A) {             // si presionaron algo, no hay 0 en el teclado
                estado_actual = MOSTRAR;
             }
          break;
    
          case MOSTRAR:
             lcd_putc('\f'); // borrar LCD
-            lcd_putc(tecla);  // mostrar tecla
+            Lcd_putc(tecla);  // mostrar tecla
             estado_actual = ESPERAR;     // volver a esperar
          break;
    }

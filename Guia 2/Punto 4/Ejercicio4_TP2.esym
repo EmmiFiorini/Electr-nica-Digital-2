@@ -1,9 +1,10 @@
-D G "__PCM__" 0 138 ""5.093""
-D G "__DEVICE__" 0 138 "1827"
-D G "__DATE__" 0 138 ""11-Sep-25""
-D G "__TIME__" 0 138 ""11:29:20""
-D G "_UNICODE" 0 138 ""?""
-D G "__EVAL" 0 138 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
+F N "maquina" 0 111 ""
+D G "__PCM__" 0 128 ""5.093""
+D G "__DEVICE__" 0 128 "1827"
+D G "__DATE__" 0 128 ""16-Sep-25""
+D G "__TIME__" 0 128 ""16:59:39""
+D G "_UNICODE" 0 128 ""?""
+D G "__EVAL" 0 128 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 f N "set_tris_a" 2 39 ""
 v L "value" 2 39 "int8" `55 
@@ -1398,13 +1399,13 @@ d G "INT_RB6_H2L" 2 959 "0x21400B08"
 d G "INT_RB7" 2 960 "0x31800B08"
 d G "INT_RB7_L2H" 2 961 "0x11800B08"
 d G "INT_RB7_H2L" 2 962 "0x21800B08"
-D G "LCD_ENABLE_PIN" 0 11 "PIN_B0"
-D G "LCD_RS_PIN" 0 12 "PIN_B1"
-D G "LCD_RW_PIN" 0 13 "PIN_B2" "CONECTADO A GND SI NO LO USAMOS"
-D G "LCD_DATA4" 0 14 "PIN_B4"
-D G "LCD_DATA5" 0 15 "PIN_B5"
-D G "LCD_DATA6" 0 16 "PIN_B6"
-D G "LCD_DATA7" 0 17 "PIN_B7"
+D G "LCD_ENABLE_PIN" 0 11 "PIN_A0"
+D G "LCD_RS_PIN" 0 12 "PIN_A1"
+D G "LCD_RW_PIN" 0 13 "PIN_A2" "CONECTADO A GND SI NO LO USAMOS"
+D G "LCD_DATA4" 0 14 "PIN_A4"
+D G "LCD_DATA5" 0 15 "PIN_A5"
+D G "LCD_DATA6" 0 16 "PIN_A6"
+D G "LCD_DATA7" 0 17 "PIN_A7"
 D G "__LCD_C__" 3 76 ""
 C L "jump_to_isr" 3 2 2 "FUNCTION"
 C L "jump_to_isr" 3 2 1 "FUNCTION"
@@ -1475,39 +1476,42 @@ C L "lcd_cursor_on" 3 2 1 "FUNCTION"
 C L "Init_GPIO" 0 21 1 "*"
 F N "Init_GPIO" 0 25 ""
 f G "Init_GPIO" 0 25 "void()" `757  "* Estados"
-E G "MSJ_1" 0 32 "0" `759 
-E G "MSJ_2" 0 33 "1" `760 
-E G "MSJ_3" 0 34 "2" `761 
-T G "eEstado" 0 34 "" `762 
-V G "estado_actual" 0 36 "eEstado" `763 
-C L "Init_GPIO" 0 37 1 "*"
-V G "contador" 0 40 "int8" `764 
-V G "contador_ms" 0 41 "int8" `765 
-V G "flag_segundo" 0 42 "int8" `766 
-C L "Init_GPIO" 0 43 1 "*"
-F N "InitTimer0" 0 46 ""
-f G "InitTimer0" 0 46 "void()" `767 
-F N "maquina" 0 47 ""
-f G "maquina" 0 47 "void()" `768 
-F N "Timer0_ISR" 0 52 ""
-F G "Timer0_ISR" 0 52 "void()" `769 
-C L "Timer0_ISR" 0 43 1 "FUNCTION"
-C L "Timer0_ISR" 0 43 1 "FUNCTION"
-F N "MAIN" 0 62 ""
-F G "MAIN" 0 63 "void()" `770 
-F N "Init_GPIO" 0 75 ""
-F G "Init_GPIO" 0 76 "void()" `757  "SETEAMOS LOS PINES PB0-PB7 COMO SALIDA *"
-C L "Init_GPIO" 0 43 1 "FUNCTION"
-F N "InitTimer0" 0 83 ""
-F G "InitTimer0" 0 83 "void()" `767 
-C L "InitTimer0" 0 43 1 "FUNCTION"
-C L "InitTimer0" 0 43 1 "FUNCTION"
-C L "InitTimer0" 0 43 1 "FUNCTION"
-C L "InitTimer0" 0 43 1 "FUNCTION"
-F N "maquina" 0 92 ""
-F G "maquina" 0 92 "void()" `768 
-C L "maquina" 0 43 1 "FUNCTION"
-C L "maquina" 0 43 1 "FUNCTION"
+C L "Init_GPIO" 0 21 1 "FUNCTION"
+E G "ESPERAR" 0 32 "0" `759  "Muestro la tecla en el LCD"
+E G "MOSTRAR" 0 33 "1" `760 
+T G "eEstado" 0 33 "" `761 
+V G "estado_actual" 0 35 "eEstado" `762 
+C L "Init_GPIO" 0 36 1 "*"
+V G "tecla" 0 39 "int8" `763 
+C L "Init_GPIO" 0 36 1 "FUNCTION"
+C L "Init_GPIO" 0 40 1 "*"
+V G "teclado" 0 44 "int8[4][3]" `764 
+C L "Init_GPIO" 0 49 1 "*"
+F N "read_keypad" 0 52 ""
+f G "read_keypad" 0 52 "int8()" `766 
+F N "maquina" 0 53 ""
+f G "maquina" 0 53 "void()" `767 
+F N "MAIN" 0 55 ""
+F G "MAIN" 0 56 "void()" `768 
+F N "Init_GPIO" 0 67 ""
+F G "Init_GPIO" 0 68 "void()" `757  "SETEAMOS LOS PINES PB0-PB7 COMO SALIDA *"
+C L "Init_GPIO" 0 49 1 "FUNCTION"
+C L "Init_GPIO" 0 49 1 "FUNCTION"
+F N "read_keypad" 0 90 ""
+F G "read_keypad" 0 90 "int8()" `766 
+V L "fila" 0 91 "int8" `771 
+V L "col" 0 92 "int8" `772 
+C L "read_keypad" 0 49 1 "FUNCTION"
+C L "read_keypad" 0 49 1 "FUNCTION"
+C L "read_keypad" 0 49 1 "FUNCTION"
+C L "read_keypad" 0 49 1 "FUNCTION"
+F N "maquina" 0 111 ""
+F G "maquina" 0 111 "void()" `767 
+C L "maquina" 0 49 1 "FUNCTION"
+C L "maquina" 0 49 1 "FUNCTION"
+C L "maquina" 0 49 1 "FUNCTION"
+C L "maquina" 0 49 1 "FUNCTION"
+C L "maquina" 0 49 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

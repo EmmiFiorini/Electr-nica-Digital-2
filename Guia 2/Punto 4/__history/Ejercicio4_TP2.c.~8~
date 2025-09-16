@@ -36,7 +36,7 @@ eEstado estado_actual = ESPERAR;
 /*****************************************************************************
 * Variables globales
 ****************************************************************************/
-char tecla = 0 ; // tecla que se presiona
+char tecla ='a' ; // tecla que se presiona
 /*****************************************************************************
 * Teclado
 ****************************************************************************/
@@ -112,14 +112,14 @@ void maquina() {
    switch(estado_actual) {
          case ESPERAR:
             tecla = read_keypad();       // leo teclado
-            if(tecla != 0) {             // si presionaron algo, no hay 0 en el teclado
+            if(tecla != 'a') {             // si presionaron algo, no hay 0 en el teclado
                estado_actual = MOSTRAR;
             }
          break;
    
          case MOSTRAR:
             lcd_putc('\f'); // borrar LCD
-            lcd_putc(tecla);  // mostrar tecla
+            Lcd_putc(tecla);  // mostrar tecla
             estado_actual = ESPERAR;     // volver a esperar
          break;
    }

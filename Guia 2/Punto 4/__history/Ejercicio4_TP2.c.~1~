@@ -28,29 +28,30 @@ void Init_GPIO();
 * Estados
 ****************************************************************************/
 typedef enum {
-   ESPERAR,     // Espero que se presione una tecla
-   MOSTRAR      // Muestro la tecla en el LCD
+
 } eEstado;
 
-eEstado estado_actual = ESPERAR;
+eEstado estado_actual = ;
 /*****************************************************************************
 * Variables globales
 ****************************************************************************/
-char tecla = 0 ; // tecla que se presiona
+
 /*****************************************************************************
 * Teclado
 ****************************************************************************/
 
-char teclado[4][3] = {{'1','2','3'},
-                      {'4','5','6'},
-                      {'7','8','9'},
-                      {'*','0','#'}};
-
+char teclado[4][4] = {
+   {'1','2','3','A'},
+   {'4','5','6','B'},
+   {'7','8','9','C'},
+   {'*','0','#','D'}
+};
 /*****************************************************************************
 * Funciones
 ****************************************************************************/
-char read_keypad(void);
+char read_keypad();
 void maquina(void);
+
 
 void main()
 {
@@ -67,60 +68,31 @@ lcd_init();
 void Init_GPIO()
 {
 /* SETEAMOS LOS PINES PB0-PB7 COMO SALIDA */
-   set_tris_b(0b00001111); //RB0-RB2 = entrada, columnas, RB4-RB7 = Filas, salidas
+   set_tris_b(0b00001111); RB0-RB3 = entrada, columnad, RB4-RB7 = Filas, salidas
    set_tris_a(0b00000000); // TODO COMO SALIDA EN ESTADO BAJO 
-      
-   output_low(PIN_B1);
-   output_low(PIN_B2);
-   output_low(PIN_B0);
-   output_low(PIN_B4);
-   output_low(PIN_B5);
-   output_low(PIN_B6);
-   output_low(PIN_B7);
-      
-   output_low(PIN_A1);
-   output_low(PIN_A2);
-   output_low(PIN_A0);
-   output_low(PIN_A4);
-   output_low(PIN_A5);
-   output_low(PIN_A6);
-   output_low(PIN_A7);
+   
 }
 
-char read_keypad(void) {
-   int fila;
-   int col;
+char read_keypad() {
+   int fila, col;
    for(fila=0; fila<4; fila++) {
-         output_high(PIN_B1);
-         output_high(PIN_B2);
-         output_high(PIN_B3);
-         output_high(PIN_B4);
-         output_high(PIN_B5);
-         output_high(PIN_B6);
-         output_high(PIN_B7);          // Todas filas en 1
-         output_low(PIN_B4 + fila);    // Activar una fila en 0
+      output_b(0b11111111);            // Todas filas en 1
+      output_low(PIN_B4+fila);         // Activar una fila en 0
 
-      for(col=0; col<3; col++) {
-         if(!input(PIN_B0+col))     // Si columna detecta 0, tecla presionada
+      for(col=0; col<4; col++) {
+         if(!input(PIN_B0+col)) {     // Si columna detecta 0, tecla presionada
+            while(!input(PIN_B0+col)); // Esperar que suelte la tecla
             return teclado[fila][col];
+         }
       }
    }
    return 0; // nada presionado
 }
 
 void maquina() {
-   switch(estado_actual) {
-         case ESPERAR:
-            tecla = read_keypad();       // leo teclado
-            if(tecla != 0) {             // si presionaron algo, no hay 0 en el teclado
-               estado_actual = MOSTRAR;
-            }
-         break;
-   
-         case MOSTRAR:
-            lcd_putc('\f'); // borrar LCD
-            lcd_putc(tecla);  // mostrar tecla
-            estado_actual = ESPERAR;     // volver a esperar
-         break;
-   }
+ 
+ switch(estado_actual) {
+ 
+
+ 
 }

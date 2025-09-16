@@ -1,8 +1,9 @@
 [PROJECT]
-Target=C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Ejercicio4_TP2.hex
+Target=Ejercicio4_TP2.hex
 Processor_Text=PIC16F1827
 CCSVerions=5.093
 Compiler=PCM
+CCSVersion=5.093
 [Target Data]
 FileList=Ejercicio4_TP2.c
 [Directories]
@@ -11,9 +12,6 @@ Include=
 Type=4
 [mru-list]
 1=Ejercicio4_TP2.c
-[Units]
-Count=1
-1=Ejercicio4_TP2 (main)
 
 [fileformats]
 forcecoff=0
@@ -41,12 +39,28 @@ D2_D=0
 D2_L=1
 D2_L1=[72482]Project Closed.
 D3=16-09-2025
-D3_L=1
+D3_L=9
 D3_L1=[58298]Project Opened.
+D3_L2=[58459]Started Editing.
+D3_L3=[59985]Stopped Editing.
+D3_L4=[60036]Started Editing.
+D3_L5=[60682]Stopped Editing.
+D3_L6=[60688]Started Editing.
+D3_L7=[61154]Stopped Editing.
+D3_L8=[61165]Started Editing.
+D3_L9=[61478]Stopped Editing.
 
 [Opened Files]
 1=Ejercicio4_TP2.c
 t1=1
 2=Ejercicio4_TP2.h
-t2=75
+t2=1
+Count=2
+[Ejercicio4_TP2.c]
+Type=4
+
+[defines]
+buildcount=6
+[Units]
 Count=1
+1=Ejercicio4_TP2 (main)
