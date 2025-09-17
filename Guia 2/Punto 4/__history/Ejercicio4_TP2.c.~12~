@@ -7,7 +7,7 @@
 /*****************************************************************************
  * LCD
  ****************************************************************************/
-#include <lcd.c>
+
 #define LCD_ENABLE_PIN  PIN_A0
 #define LCD_RS_PIN      PIN_A1
 //#define LCD_RW_PIN      PIN_A2 // CONECTADO A GND SI NO LO USAMOS
@@ -15,7 +15,7 @@
 #define LCD_DATA5       PIN_A5
 #define LCD_DATA6       PIN_A6
 #define LCD_DATA7       PIN_A7
-
+#include <lcd.c>
 
 
 /*****************************************************************************
@@ -70,16 +70,19 @@ lcd_init();
 void Init_GPIO()
 {
 /* SETEAMOS LOS PINES PB0-PB7 COMO SALIDA */
-   set_tris_b(0b00000111); //RB0-RB2 = entrada, columnas, RB4-RB7 = Filas, salidas
+   set_tris_b(0b00011111); //RB0-RB2 = entrada, columnas, RB4-RB7 = Filas, salidas
    set_tris_a(0b00000000); // TODO COMO SALIDA EN ESTADO BAJO 
-
+      
+   output_low(PIN_B1);
+   output_low(PIN_B2);
+   output_low(PIN_B0);
    output_low(PIN_B4);
    output_low(PIN_B5);
    output_low(PIN_B6);
    output_low(PIN_B7);
       
    output_low(PIN_A1);
-   output_low(PIN_A2);
+//   output_low(PIN_A2);
    output_low(PIN_A0);
    output_low(PIN_A4);
    output_low(PIN_A5);
@@ -91,6 +94,9 @@ char read_keypad(void) {
    int fila;
    int col;
    for(fila=0; fila<4; fila++) {
+         output_high(PIN_B1);
+         output_high(PIN_B2);
+         output_high(PIN_B3);
          output_high(PIN_B4);
          output_high(PIN_B5);
          output_high(PIN_B6);
@@ -98,7 +104,7 @@ char read_keypad(void) {
          output_low(fila_pins[fila]);    // Activar una fila en 0
 
       for(col=0; col<3; col++) {
-         if(!input(col_pins[col])) // si se presiono alguna tecla la col tmb 0
+         if(!input(col_pins[col])) // si se presiono alguna tecla la col tmb va a ser 0
             return teclado[fila][col];
       }
    }

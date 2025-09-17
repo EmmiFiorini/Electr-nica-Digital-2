@@ -1,10 +1,9 @@
-F N "IdentificarPata" 0 149 ""
-D G "__PCM__" 0 175 ""5.093""
-D G "__DEVICE__" 0 175 "1827"
-D G "__DATE__" 0 175 ""7-Sep-25""
-D G "__TIME__" 0 175 ""22:34:37""
-D G "_UNICODE" 0 175 ""?""
-D G "__EVAL" 0 175 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
+D G "__PCM__" 0 184 ""5.093""
+D G "__DEVICE__" 0 184 "1827"
+D G "__DATE__" 0 184 ""16-Sep-25""
+D G "__TIME__" 0 184 ""18:13:35""
+D G "_UNICODE" 0 184 ""?""
+D G "__EVAL" 0 184 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 f N "set_tris_a" 2 39 ""
 v L "value" 2 39 "int8" `55 
@@ -1401,41 +1400,44 @@ d G "INT_RB7_L2H" 2 961 "0x11800B08"
 d G "INT_RB7_H2L" 2 962 "0x21800B08"
 C L "jump_to_isr" 0 7 1 "*"
 V G "contador_ms" 0 11 "int8" `721 
-V G "pata" 0 12 "int8" `722 
-V G "vecesPresionado" 0 13 "int8" `723 
-C L "jump_to_isr" 0 16 1 "*"
-F N "Init_GPIO" 0 20 ""
-f G "Init_GPIO" 0 20 "void()" `724  "* Funciones"
-F N "InitTimer0" 0 26 ""
-f G "InitTimer0" 0 26 "void()" `725 
-F N "IdentificarPata" 0 27 ""
-f G "IdentificarPata" 0 27 "void()" `726 
-F N "Timer0_ISR" 0 30 ""
-F G "Timer0_ISR" 0 30 "void()" `727 
-C L "Timer0_ISR" 0 16 1 "FUNCTION"
-C L "Timer0_ISR" 0 16 1 "FUNCTION"
-C L "Timer0_ISR" 0 16 1 "FUNCTION"
-C L "Timer0_ISR" 0 16 1 "FUNCTION"
-C L "Timer0_ISR" 0 16 1 "FUNCTION"
-C L "Timer0_ISR" 0 16 1 "FUNCTION"
-C L "Timer0_ISR" 0 16 1 "FUNCTION"
-C L "Timer0_ISR" 0 16 1 "FUNCTION"
-C L "Timer0_ISR" 0 16 1 "FUNCTION"
-F N "MAIN" 0 78 ""
-F G "MAIN" 0 79 "void()" `728 
-C L "MAIN" 0 16 1 "FUNCTION"
-F N "Init_GPIO" 0 92 ""
-F G "Init_GPIO" 0 93 "void()" `724  "SETEAMOS LOS PINES PB0-3 y PA0-3 COMO SALIDA *"
-F N "InitTimer0" 0 109 ""
-F G "InitTimer0" 0 109 "void()" `725 
-C L "InitTimer0" 0 16 1 "FUNCTION"
-C L "InitTimer0" 0 16 1 "FUNCTION"
-C L "InitTimer0" 0 16 1 "FUNCTION"
-C L "InitTimer0" 0 16 1 "FUNCTION"
-F N "IdentificarPata" 0 118 ""
-F G "IdentificarPata" 0 118 "void()" `726 
-C L "IdentificarPata" 0 16 1 "FUNCTION"
-C L "IdentificarPata" 0 16 1 "FUNCTION"
+V G "flag_RB4" 0 13 "int8" `722 
+V G "flag_RB5" 0 14 "int8" `723 
+V G "flag_RB6" 0 15 "int8" `724 
+V G "flag_RB7" 0 16 "int8" `725 
+V G "flag_RB2_high" 0 18 "int8" `726 
+V G "flag_RB1_high" 0 19 "int8" `727 
+C L "jump_to_isr" 0 22 1 "*"
+F N "Init_GPIO" 0 26 ""
+f G "Init_GPIO" 0 26 "void()" `728  "* Funciones"
+F N "InitTimer0" 0 32 ""
+f G "InitTimer0" 0 32 "void()" `729 
+F N "maquina" 0 33 ""
+f G "maquina" 0 33 "void()" `730  "* Interrupciones"
+F N "Timer0_ISR" 0 40 ""
+F G "Timer0_ISR" 0 40 "void()" `731 
+C L "Timer0_ISR" 0 22 1 "FUNCTION"
+C L "Timer0_ISR" 0 22 1 "FUNCTION"
+C L "Timer0_ISR" 0 22 1 "FUNCTION"
+F N "RB_ISR" 0 71 ""
+F G "RB_ISR" 0 71 "void()" `732 
+V L "estadoB" 0 72 "int8" `733 
+C L "RB_ISR" 0 22 1 "FUNCTION"
+C L "RB_ISR" 0 22 1 "FUNCTION"
+F N "MAIN" 0 91 ""
+F G "MAIN" 0 92 "void()" `734 
+F N "Init_GPIO" 0 103 ""
+F G "Init_GPIO" 0 104 "void()" `728  "SETEAMOS LOS PINES PB0-3 y PA0-3 COMO SALIDA *"
+C L "Init_GPIO" 0 22 1 "FUNCTION"
+F N "InitTimer0" 0 123 ""
+F G "InitTimer0" 0 123 "void()" `729 
+C L "InitTimer0" 0 22 1 "FUNCTION"
+C L "InitTimer0" 0 22 1 "FUNCTION"
+C L "InitTimer0" 0 22 1 "FUNCTION"
+F N "maquina" 0 131 ""
+F G "maquina" 0 131 "void()" `730 
+C L "maquina" 0 22 2 "FUNCTION"
+C L "maquina" 0 22 1 "FUNCTION"
+C L "maquina" 0 22 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

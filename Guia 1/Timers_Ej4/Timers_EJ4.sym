@@ -1,17 +1,21 @@
-004-005 @WRITE_PROGRAM_MEMORY8.P1
-004-005 @READ_PACKED_MEMORY.P2
-004-005 @READ_PROGRAM_MEMORY8.P3
-004-005 @WRITE_PACKED_MEMORY.P4
-006-007 @WRITE_PACKED_MEMORY.P1
-006-007 @READ_PACKED_MEMORY.P2
+004-005 @READ_PACKED_MEMORY.P1
+004-005 @WRITE_PACKED_MEMORY.P2
+004-005 @WRITE_PROGRAM_MEMORY8.P3
+004-005 @READ_PROGRAM_MEMORY8.P4
+006-007 @READ_PACKED_MEMORY.P1
+006-007 @WRITE_PACKED_MEMORY.P2
 020     @INTERRUPT_AREA
 021     @INTERRUPT_AREA
 022     @INTERRUPT_AREA
 023     @INTERRUPT_AREA
 024     contador_ms
-025     pata
-026     vecesPresionado
-027     @delay_ms1.P1
+025     flag_RB4
+026     flag_RB5
+027     flag_RB6
+028     flag_RB7
+029     flag_RB2_high
+02A     flag_RB1_high
+02B     RB_ISR.estadoB
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -35,26 +39,26 @@
 319     CCP_4_HIGH
 
 ROM Allocation:
-00001E  Timer0_ISR
-000077  Init_GPIO
+000024  Timer0_ISR
+000052  RB_ISR
+000070  Init_GPIO
 00009D  InitTimer0
-0000AA  IdentificarPata
-0000E5  @delay_ms1
-0000FC  MAIN
-0000FC  @cinit1
-00010B  @cinit2
+0000A8  maquina
+00010B  MAIN
+00010B  @cinit1
+00011F  @cinit2
 
 Project Directory:
     C:\Users\santi\OneDrive\Escritorio\EDI2\TP1\
 
 Project Files:
-    Timers_EJ4.c                                            [07-sept-25 22:34  CRC=6CBCD520]
+    Timers_EJ4.c                                            [16-sept-25 18:13  CRC=B2D85BFF]
     Timers_EJ4.h                                            [07-sept-25 21:40  CRC=00000000]
     ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb-20 15:48  CRC=D6A5AF9F]
 
-Source signature=1A08345E
+Source signature=6023BB3D
 Program memory checksum=0000
-Hex file CRC=FE9C
+Hex file CRC=1D4F
 
 Units:
     C:\Users\santi\OneDrive\Escritorio\EDI2\TP1\Timers_EJ4 (main)

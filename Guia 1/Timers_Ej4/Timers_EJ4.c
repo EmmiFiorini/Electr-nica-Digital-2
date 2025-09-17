@@ -9,8 +9,14 @@
  ****************************************************************************/
 
 int contador_ms = 0;
-int pata = 0;
-int vecesPresionado = 0;
+
+int flag_RB4 = 0;
+int flag_RB5 = 0;
+int flag_RB6 = 0;
+int flag_RB7 = 0;
+
+int flag_RB2_high = 1;
+int flag_RB1_high = 0;
 
 
 /*****************************************************************************
@@ -24,55 +30,62 @@ void Init_GPIO();
 ****************************************************************************/
 
 void InitTimer0(void);
-void IdentificarPata(void);
+void maquina();
+
+/*****************************************************************************
+* Interrupciones
+****************************************************************************/
 
 #INT_TIMER0 // ACA ESCRIBO QUÉ DEBO HACER EN CADA INTERRUPCIÓN
 void Timer0_ISR() {
-
-    set_timer0(61);
-    contador_ms++;
-    switch(pata) {
-        case 4:
-               if(contador_ms >= 20) {  // 1 seg
-                output_low(PIN_B0); // Pasado el tiempo apagamos LED
-                contador_ms = 0;
-                pata = 0;
-                disable_interrupts(INT_TIMER0);
-               }
-            break;
-        
-        case 5:
-            if(contador_ms == 20) {  // 1 seg
-                output_high(PIN_B1); // Prendemos
-            }
-            else if(contador_ms >= 40) {  // 2 seg
-                output_low(PIN_B1);  // Apagamos
-                contador_ms = 0;
-                pata = 0;
-                disable_interrupts(INT_TIMER0);
-            }
-            break;
-        
-        case 7:
-            if(contador_ms >= 10) {  // 500ms
-                vecesPresionado++;
-                output_toggle(PIN_B2);
-                output_toggle(PIN_B3);
-                contador_ms = 0;
-                if(vecesPresionado >= 10) {  // Togglea 10 veces
-                    output_low(PIN_B2);
-                    output_low(PIN_B3);
-                    vecesPresionado = 0;
-                    pata = 0;
-                    disable_interrupts(INT_TIMER0);
-                }
-            }
-            break;
-        default:
-            // Nada
-            break;
-    }
+   
+   set_timer0(61);
+   
+   /* INTERRUPCION RB4 */
+   if(flag_RB4 == 1 && contador_ms >= 10) {
+      output_low(PIN_B0);
+      contador_ms = 0;
+      flag_RB4 = 0;
+   }
+   
+   /* INTERRUPCION RB5 */
+   if(flag_RB5 == 1 && contador_ms >= 20) {
+      output_high(PIN_B1);
+      flag_RB1_high = 1;
+   }
+   if(flag_RB1_high == 1 && contador_ms >= 40) {
+      output_low(PIN_B1);
+      contador_ms = 0;
+      flag_RB5 = 0;
+      flag_RB1_high = 0;
+   }
+   
+   /* INTERRUPCION RB6 */
+   
+   
+   
+   contador_ms++;
 }
+
+#INT_RB
+void RB_ISR(void) {
+   int estadoB = input_b(); // Leo todo el puerto B
+
+   if(bit_test(estadoB, 4)) {//Veo de qué puerto se emitió la interrupción '1'
+      flag_RB4 = 1;
+   }
+   if(bit_test(estadoB, 5)) {
+      flag_RB5 = 1;
+   }
+   if(bit_test(estadoB, 6)) {
+      flag_RB6 = 1;
+   }
+   if(bit_test(estadoB, 7)) {
+      flag_RB7 = 1;
+   }
+}
+
+
 
 
 void main()
@@ -81,10 +94,8 @@ void main()
 Init_GPIO();
 InitTimer0();
 
-   while(TRUE)
-   {
-    IdentificarPata();
-    delay_ms(20); //Hasta tener el anti rebote
+   while(TRUE) {
+      maquina();
    }
 
 }
@@ -97,13 +108,16 @@ void Init_GPIO()
 
    output_low(PIN_B0);
    output_low(PIN_B1);
-   output_low(PIN_B2);
+   output_high(PIN_B2);
    output_low(PIN_B3);
    
    output_low(PIN_A0);
    output_low(PIN_A1);
    output_low(PIN_A2);
    output_low(PIN_A3);
+   
+   enable_interrupts(INT_RB);// HABILITO INTERRUPCIONES EN LOS PINES RB4–RB7
+   enable_interrupts(GLOBAL);
 }
 
 void InitTimer0(void){
@@ -112,28 +126,57 @@ void InitTimer0(void){
     
     set_timer0(61);                  // Reinicio el timer --> Interrupciones cada 50ms
     enable_interrupts(INT_TIMER0);    // Activo Interrupcion timer0
-    enable_interrupts(GLOBAL);        // Activo Interrupciones globales
 }
 
-void IdentificarPata() {
+void maquina() {
 
-   if(!input(PIN_B4) && pata == 0) {
-     pata = 4;
-     output_high(PIN_B0);
-     set_timer0(61);                   // arranco el conteo
-     enable_interrupts(INT_TIMER0);    // habilito interrupción recien ahora
-   } 
-   else if(!input(PIN_B5) && pata == 0) {
-     pata = 5;
-     set_timer0(61);
-     enable_interrupts(INT_TIMER0);
+   if(flag_RB4 == 1) {
+      output_high(PIN_B0);
    }
-   else if(!input(PIN_B6) && pata == 0) {
-     pata = 6;
-   }
-   else if(!input(PIN_B7) && pata == 0) {
-     pata = 7;
-     set_timer0(61);
-     enable_interrupts(INT_TIMER0);
-   }
+   
+   
+   if(flag_RB6 == 1) { //PASO LOS ESTADOS SEGÚN SE ESTE CORRIENDO OTRA INTERRUPCIÓN
+         
+         /* RB4 */
+         if(flag_RB4 == 1) {
+         output_high(PIN_A0);
+         }
+         else{
+         output_low(PIN_A0);
+         }
+         
+         /* RB5 */
+         if(flag_RB5 == 1) {
+         output_high(PIN_A1);
+         }
+         else{
+         output_low(PIN_A1);
+         }
+         
+         /* RB7 */
+         if(flag_RB7 == 1 && flag_RB2_high == 1) {
+         output_high(PIN_A2);
+         output_low(PIN_A3);
+         }
+         else if(flag_RB7 == 1 && flag_RB2_high != 1) {
+         output_low(PIN_A2);
+         output_low(PIN_A3);
+         }
+         
+         flag_RB6 = 0;
+      }
+       
+       
+      if(flag_RB7 == 1 && flag_RB2_high == 1) {
+         output_low(PIN_B2);
+         output_high(PIN_B3);
+         flag_RB2_high = 0;
+         flag_RB7 = 0;
+      }
+      else if(flag_RB7 == 1 && flag_RB2_high != 1) {
+         output_low(PIN_B3);
+         output_high(PIN_B2);
+         flag_RB2_high = 1;
+         flag_RB7 = 0;
+      }
 }

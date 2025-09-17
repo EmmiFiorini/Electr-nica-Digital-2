@@ -7,15 +7,15 @@
 /*****************************************************************************
  * LCD
  ****************************************************************************/
-#include <lcd.c>
+
 #define LCD_ENABLE_PIN  PIN_A0
 #define LCD_RS_PIN      PIN_A1
-//#define LCD_RW_PIN      PIN_A2 // CONECTADO A GND SI NO LO USAMOS
+#define LCD_RW_PIN      PIN_A2 // CONECTADO A GND SI NO LO USAMOS
 #define LCD_DATA4       PIN_A4
 #define LCD_DATA5       PIN_A5
 #define LCD_DATA6       PIN_A6
 #define LCD_DATA7       PIN_A7
-
+#include <lcd.c>
 
 
 /*****************************************************************************
@@ -91,6 +91,9 @@ char read_keypad(void) {
    int fila;
    int col;
    for(fila=0; fila<4; fila++) {
+         output_high(PIN_B1);
+         output_high(PIN_B2);
+         output_high(PIN_B3);
          output_high(PIN_B4);
          output_high(PIN_B5);
          output_high(PIN_B6);
