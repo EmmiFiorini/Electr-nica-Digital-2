@@ -39,8 +39,14 @@ D1_L12=[50861]Started Editing.
 D1_L13=[51228]Stopped Editing.
 D1_L14=[52552]Project Closed.
 D2=16-09-2025
+<<<<<<< Updated upstream
 D2_L=1
 D2_L1=[58413]Project Opened.
+=======
+D2_L=2
+D2_L1=[63212]Project Opened.
+D2_L2=[63213]Project Closed.
+>>>>>>> Stashed changes
 
 [Opened Files]
 1=Ejercicio6_TP2.c
