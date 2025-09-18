@@ -34,7 +34,7 @@ D2_E=2
 D2_D=0
 D2_L6=[47261]Project Closed.
 D3=16-09-2025
-D3_L=9
+D3_L=10
 D3_L1=[33160]Project Opened.
 D3_L2=[34066]Started Editing.
 D3_L3=[34574]Stopped Editing.
@@ -46,10 +46,11 @@ D3_L6=[49561]Project Closed.
 D3_L7=[59539]Project Opened.
 D3_L8=[59540]Project Closed.
 D3_L9=[59542]Project Opened.
+D3_L10=[62515]Project Closed.
 
 [Opened Files]
-1=Ejercicio3_timers.c
-t1=53
+1=..\..\Guia 2\Punto 6\Ejercicio6_TP2.c
+t1=156
 Count=1
 [Ejercicio3_timers.c]
 Type=4
