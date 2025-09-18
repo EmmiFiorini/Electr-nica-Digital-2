@@ -118,6 +118,7 @@ void maquina() {
    
          case MOSTRAR:
             lcd_putc('\f'); // borrar LCD
+            lcd_putc("Hola");
             lcd_putc(tecla);  // mostrar tecla
             estado_actual = ESPERAR;     // volver a esperar
          break;

@@ -1,9 +1,9 @@
-D G "__PCM__" 0 125 ""5.093""
-D G "__DEVICE__" 0 125 "1827"
-D G "__DATE__" 0 125 ""16-Sep-25""
-D G "__TIME__" 0 125 ""18:50:12""
-D G "_UNICODE" 0 125 ""?""
-D G "__EVAL" 0 125 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
+D G "__PCM__" 0 127 ""5.093""
+D G "__DEVICE__" 0 127 "1827"
+D G "__DATE__" 0 127 ""18-Sep-25""
+D G "__TIME__" 0 127 ""12:54:08""
+D G "_UNICODE" 0 127 ""?""
+D G "__EVAL" 0 127 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 f N "set_tris_a" 2 39 ""
 v L "value" 2 39 "int8" `55 
@@ -1499,16 +1499,16 @@ F N "Init_GPIO" 0 70 ""
 F G "Init_GPIO" 0 71 "void()" `759  "SETEAMOS LOS PINES PB0-PB7 COMO SALIDA *"
 C L "Init_GPIO" 0 52 1 "FUNCTION"
 C L "Init_GPIO" 0 52 1 "FUNCTION"
-F N "read_keypad" 0 90 ""
-F G "read_keypad" 0 90 "int8()" `770 
-V L "fila" 0 91 "int8" `775 
-V L "col" 0 92 "int8" `776 
+F N "read_keypad" 0 92 ""
+F G "read_keypad" 0 92 "int8()" `770 
+V L "fila" 0 93 "int8" `775 
+V L "col" 0 94 "int8" `776 
 C L "read_keypad" 0 52 1 "FUNCTION"
 C L "read_keypad" 0 52 1 "FUNCTION"
 C L "read_keypad" 0 52 1 "FUNCTION"
 C L "read_keypad" 0 52 1 "FUNCTION"
-F N "maquina" 0 108 ""
-F G "maquina" 0 108 "void()" `771 
+F N "maquina" 0 110 ""
+F G "maquina" 0 110 "void()" `771 
 C L "maquina" 0 52 1 "FUNCTION"
 C L "maquina" 0 52 1 "FUNCTION"
 C L "maquina" 0 52 1 "FUNCTION"
