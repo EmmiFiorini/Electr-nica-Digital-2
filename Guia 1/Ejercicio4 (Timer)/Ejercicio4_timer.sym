@@ -53,11 +53,11 @@ ROM Allocation:
 0000B4  @cinit2
 
 Project Directory:
-    C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Ejercicio4 (Timer)\
+    C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\
 
 Project Files:
-    Ejercicio4_timer.c                                      [27-ago-25 15:51  CRC=7C03109C]
-    Ejercicio4_timer.h                                      [27-ago-25 14:52  CRC=00000000]
+    Ejercicio4_timer.c                                      [03-sept-25 13:39  CRC=7C03109C]
+    Ejercicio4_timer.h                                      [03-sept-25 13:39  CRC=00000000]
     ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb-20 15:48  CRC=D6A5AF9F]
 
 Source signature=294E6FDA
@@ -65,7 +65,7 @@ Program memory checksum=0000
 Hex file CRC=A69F
 
 Units:
-    C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Ejercicio4 (Timer)\Ejercicio4_timer (main)
+    C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\Ejercicio4_timer (main)
 
 Compiler Settings:
     Processor:      PIC16F1827

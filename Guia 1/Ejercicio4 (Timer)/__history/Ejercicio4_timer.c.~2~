@@ -82,9 +82,8 @@ void copiar_pin(int pin_in, int pin_out){
 }
 
 void InitGPIO(void){
-   set_tris_b(0b11111111); // RB7–RB0 entradas
-   set_tris_a(0b11110000); // RA7–RA4 entradas, RA3–RA0 salidas
-
+   set_tris_b(0b11110000); // RB0, RB1, RB2 , RB4 como SALIDA Y el resto como ENTRADA
+   set_tris_a(0b11110000); // RA3..RA0 salidas, RA7..RA4 entradas (si los necesitás)
 
    // Inicializo salidas en 0
    output_b(0x00);
