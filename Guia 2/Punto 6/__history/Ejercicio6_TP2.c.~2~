@@ -33,8 +33,7 @@ void InitTimer0(void);
 ****************************************************************************/
 typedef enum {
     ESCRITURA,
-    LECTURA, 
-    STAND_BY
+    LECTURA
 } eEstado;
 
 eEstado estado_actual = STAND_BY;
