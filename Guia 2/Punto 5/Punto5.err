@@ -1,0 +1,62 @@
+Compiling C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 5\Punto5 on 19-sept-25 at 18:42
+*** Error 28 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 32(34,35): Expecting an identifier  Bad SFR name
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 67(9,15): Undefined identifier
+*** Error 48 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 70(12,16): Expecting a (
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 70(17,18): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 70(18,19): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 70(19,20): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 70(20,21): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 70(21,22): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 70(23,24): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 70(25,26): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 70(26,27): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 70(27,30): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 70(30,31): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 70(31,34): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 70(34,35): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 70(35,38): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 70(38,39): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 70(39,40): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 71(26,27): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 71(27,30): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 71(30,31): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 71(31,34): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 71(34,35): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 71(35,38): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 71(38,39): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 71(39,40): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 72(26,27): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 72(27,30): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 72(30,31): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 72(31,34): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 72(34,35): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 72(35,38): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 72(38,39): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 72(39,40): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 73(26,27): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 73(27,30): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 73(30,31): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 73(31,34): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 73(34,35): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 73(35,38): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 73(38,39): Expecting a declaration
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 73(39,40): Expecting a declaration
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 95(49,50): Undefined identifier  -- set_tris_d
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 96(21,24): Undefined identifier   kbd
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 98(49,50): Undefined identifier  -- set_tris_d
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 99(21,24): Undefined identifier   kbd
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 101(49,50): Undefined identifier  -- set_tris_d
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 102(21,24): Undefined identifier   kbd
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 107(14,17): Undefined identifier   kbd
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 113(15,18): Undefined identifier   kbd
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 114(18,21): Undefined identifier   kbd
+*** Error 51 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 116(14,18): A numeric expression must appear here
+*** Error 51 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 118(14,18): A numeric expression must appear here
+*** Error 51 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 120(14,18): A numeric expression must appear here
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 122(24,28): Undefined identifier   KEYS
+*** Error 51 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 124(13,17): A numeric expression must appear here
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\kbd.c" Line 132(25,26): Undefined identifier  -- set_tris_d
+*** Error 27 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 5\Punto5.c" Line 105(4,5): Expression must evaluate to a constant
+*** Error 43 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 5\Punto5.c" Line 107(1,2): Expecting a declaration
+      59 Errors,  0 Warnings.
+Build Failed.
