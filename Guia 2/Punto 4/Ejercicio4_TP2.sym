@@ -1,46 +1,60 @@
-004-005 @READ_PACKED_MEMORY.P1
+004-005 @WRITE_PACKED_MEMORY.P1
 004-005 @READ_PROGRAM_MEMORY8.P2
-004-005 @WRITE_PROGRAM_MEMORY8.P3
-004-005 @WRITE_PACKED_MEMORY.P4
-006-007 @WRITE_PACKED_MEMORY.P1
-006-007 @READ_PACKED_MEMORY.P2
-00D     lcd
+004-005 @READ_PACKED_MEMORY.P3
+004-005 @WRITE_PROGRAM_MEMORY8.P4
+006-007 @READ_PACKED_MEMORY.P1
+006-007 @WRITE_PACKED_MEMORY.P2
 00D     lcdlat
-020.0   estado_actual
-021     tecla
-022-025 fila_pins
-026-028 col_pins
-029-034 teclado
-035-036 @sprintf_string
-037     read_keypad.fila
-037     lcd_init.i
-037     @PSTRINGC7_747.@SCRATCH1
-038     read_keypad.col
-038-03B lcd_init.LCD_INIT_STRING
-038     @PSTRINGC7_747.@SCRATCH2
-039     @MUL88.P1
-039     read_keypad.@SCRATCH1
-039     @PSTRINGC7_747.@SCRATCH3
-03A     @WRITEBITA.P1
-03A     @READBITA.P2
-03A     @MUL88.P3
-03A     lcd_putc.c
-03B     lcd_gotoxy.x
-03B     @WRITEBITA.P1
-03B-03C @READBITA.P2
-03C-03D @WRITEBITA.P1
-03C     lcd_gotoxy.y
-03C     @delay_ms1.P1
-03C     lcd_init.@SCRATCH1
-03D     lcd_gotoxy.address
-03E     lcd_gotoxy.@SCRATCH1
-03F     lcd_send_byte.address
-040     lcd_send_byte.n
-041     lcd_read_byte.low
-041     lcd_send_byte.@SCRATCH1
-042     lcd_send_nibble.n
-042     lcd_read_byte.high
-043     lcd_read_byte.@SCRATCH1
+00D     lcd
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028.0   estado_actual
+029     tecla
+02A-02D fila_pins
+02E-030 col_pins
+031-032 resultado_adc
+033     flag_adc
+034     contador_ms
+035     flag_segundo
+036-041 teclado
+042-043 @sprintf_string
+044     lcd_init.i
+044     read_keypad.fila
+044     @PSTRINGR_747.@SCRATCH1
+045     read_keypad.col
+045-048 lcd_init.LCD_INIT_STRING
+045     @PSTRINGR_747.@SCRATCH2
+046     @MUL88.P1
+046     read_keypad.@SCRATCH1
+046     @PSTRINGC7_747.@SCRATCH1
+047     @WRITEBITA.P1
+047     @READBITA.P2
+047     @MUL88.P3
+047     @PSTRINGC7_747.@SCRATCH2
+048     @WRITEBITA.P1
+048-049 @READBITA.P2
+048     @PSTRINGC7_747.@SCRATCH3
+049     lcd_putc.c
+049-04A @WRITEBITA.P1
+049     lcd_init.@SCRATCH1
+04A     lcd_gotoxy.x
+04A     @delay_ms1.P1
+04B     lcd_gotoxy.y
+04C     lcd_gotoxy.address
+04D     lcd_gotoxy.@SCRATCH1
+04E     lcd_send_byte.address
+04F     lcd_send_byte.n
+050     lcd_read_byte.low
+050     lcd_send_byte.@SCRATCH1
+051     lcd_read_byte.high
+051     lcd_send_nibble.n
+052     lcd_read_byte.@SCRATCH1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -51,11 +65,11 @@
 113.6   C2OUT
 191-192 @READ_PROGRAM_MEMORY8.P1
 191-192 @WRITE_PROGRAM_MEMORY8.P2
-291     CCP_1_LOW
 291     CCP_1
+291     CCP_1_LOW
 292     CCP_1_HIGH
-298     CCP_2_LOW
 298     CCP_2
+298     CCP_2_LOW
 299     CCP_2_HIGH
 311     CCP_3
 311     CCP_3_LOW
@@ -65,41 +79,46 @@
 319     CCP_4_HIGH
 
 ROM Allocation:
-000003  @const787.call
-000006  Init_GPIO
-00003E  @delay_ms1
-000053  lcd_send_nibble
-000062  lcd_read_nibble
-000068  lcd_send_byte
-00006E  lcd_read_byte
-0000AA  lcd_init
-0000EA  @WRITEBITA
-00010A  @READBITA
-000124  lcd_gotoxy
-000136  lcd_putc
-000162  maquina
-00016C  read_keypad
-0001B8  @MUL88
-0001FB  @PSTRINGC7_747
-000247  MAIN
-000247  @cinit1
-000253  @cinit2
+000003  @const795.call
+000047  Timer0_ISR
+000054  ISR_ADC
+000067  Init_GPIO
+0000A2  @delay_ms1
+0000B7  lcd_send_nibble
+0000C6  lcd_read_nibble
+0000CC  lcd_send_byte
+0000D2  lcd_read_byte
+00010E  lcd_init
+00014E  Init_ADC
+000166  InitTimer0
+000171  @WRITEBITA
+000191  @READBITA
+0001AB  lcd_gotoxy
+0001BD  lcd_putc
+0001E9  maquina
+0001F5  read_keypad
+000242  @MUL88
+00028A  @PSTRINGC7_747
+0002D4  @PSTRINGR_747
+0002E9  @cinit1
+0002E9  MAIN
+0002FA  @cinit2
 
 Project Directory:
-    C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Punto 4\
+    C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\
 
 Project Files:
-    Ejercicio4_TP2.c                                        [18-sep.-25 12:54  CRC=559ED611]
-    Ejercicio4_TP2.h                                        [16-sep.-25 16:34  CRC=00000000]
-    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb.-20 15:48  CRC=D6A5AF9F]
-    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb.-16 09:05  CRC=D1A6378A]
+    Ejercicio4_TP2.c                                        [18-sept-25 21:20  CRC=D17422E3]
+    Ejercicio4_TP2.h                                        [16-sept-25 17:26  CRC=00000000]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb-20 15:48  CRC=D6A5AF9F]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb-16 09:05  CRC=D1A6378A]
 
-Source signature=CF90F4C4
+Source signature=4B664196
 Program memory checksum=0000
-Hex file CRC=9F97
+Hex file CRC=7A1C
 
 Units:
-    C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2 (main)
+    C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2 (main)
 
 Compiler Settings:
     Processor:      PIC16F1827

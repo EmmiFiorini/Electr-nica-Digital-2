@@ -57,7 +57,7 @@ D3_L12=[66720]Started Editing.
 D3_L13=[68007]Stopped Editing.
 D3_L14=[68007]Project Closed.
 D4=18-09-2025
-D4_L=8
+D4_L=12
 D4_L1=[44032]Project Opened.
 D4_L2=[44527]Started Editing.
 D4_L3=[44836]Stopped Editing.
@@ -66,18 +66,22 @@ D4_L5=[45142]Stopped Editing.
 D4_L6=[45547]Started Editing.
 D4_L7=[45847]Stopped Editing.
 D4_L8=[46443]Started Editing.
+D4_L9=[75503]Project Opened.
+D4_L10=[75606]Started Editing.
+D4_L11=[76113]Stopped Editing.
+D4_L12=[76263]Started Editing.
 
 [Opened Files]
 1=Ejercicio4_TP2.c
-t1=113
-2=..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
-t2=193
-Count=1
+t1=1
+2=..\Punto 6\Ejercicio6_TP2.c
+t2=166
+Count=2
 [Ejercicio4_TP2.c]
 Type=4
 
 [defines]
-buildcount=19
+buildcount=23
 [Units]
 Count=1
 1=Ejercicio4_TP2 (main)

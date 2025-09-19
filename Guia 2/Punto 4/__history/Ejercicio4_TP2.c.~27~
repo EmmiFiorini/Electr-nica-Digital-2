@@ -131,25 +131,6 @@ void Init_GPIO()
    enable_interrupts(GLOBAL);
 }
 
-void Init_ADC() {
-
-setup_adc_ports(sAN0);
-setup_adc(ADC_CLOCK_INTERNAL);
-set_adc_channel(0);
-enable_interrupts(INT_AD);
-
-}
-
-void InitTimer0(void) {
-
-    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256); // Configuro prescaler
-    
-    set_timer0(61);                  // Reinicio el timer --> Interrupciones cada 50ms
-    enable_interrupts(INT_TIMER0);    // Activo Interrupcion timer0
-    
-}
-
-
 char read_keypad(void) {
    int fila;
    int col;
