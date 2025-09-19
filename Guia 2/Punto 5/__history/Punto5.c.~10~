@@ -59,8 +59,7 @@ int flag_adc = 0;*/
 int contador_ms = 0;
 int flag_segundo = 0;
 
-/* TECLAS */
-char tecla;
+/* TECLAS */                      
  char cont_ing[3]; //donde voy a guardar el dato
  char contra_real [3]={'2','5','3'}; //la contraseña con la q voy a verificar
  int contador_boton_pres = 0; //contador de cuantas veces se preciono el boton
@@ -111,7 +110,8 @@ void maquina(void) {
   case LECTURA:
      lcd_putc("\f Ingrese clave");
      //read_adc(ADC_START_ONLY); // SIEMPRE ESTOY LEYENDO HASTA PERO ESPERO AL BOTÓN
-      tecla = kbd_getc(); //leo
+     contador_boton_pres=0;
+     char tecla = kbd_getc(); //leo
      if(tecla){
       lcd_putc("\f");
       lcd_putc(tecla);
@@ -125,7 +125,7 @@ void maquina(void) {
 
   case ESCRITURA:
     
-    if(flag_segundo == 1 && contador_boton_pres>=3) {
+    if(flag_segundo == 1) {
       lcd_putc("\f");
       
       if(comparadorcontra() == 0 ){
@@ -136,7 +136,6 @@ void maquina(void) {
       
       flag_segundo = 0;
       //flag_adc = 0;
-      contador_boton_pres=0;
       estado_actual = LECTURA;
     }
   break;

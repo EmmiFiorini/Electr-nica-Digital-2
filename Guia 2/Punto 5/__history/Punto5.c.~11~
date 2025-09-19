@@ -125,7 +125,7 @@ void maquina(void) {
 
   case ESCRITURA:
     
-    if(flag_segundo == 1 && contador_boton_pres>=3) {
+    if(flag_segundo == 1) {
       lcd_putc("\f");
       
       if(comparadorcontra() == 0 ){
