@@ -17,7 +17,7 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=2
+Days=3
 D1=09-09-2025
 D1_L=12
 D1_L1=[45802]Project Opened.
@@ -40,13 +40,17 @@ D2=11-09-2025
 D2_L=2
 D2_L1=[41014]Project Opened.
 D2_L2=[41187]Project Closed.
+D3=19-09-2025
+D3_L=2
+D3_L1=[68555]Project Opened.
+D3_L2=[68656]Started Editing.
 
 [Opened Files]
 1=Ejercicio1_TP2.c
 t1=1
-2=Ejercicio1_TP2.c
-t2=85
-Count=1
+2=..\Punto 6\Ejercicio6_TP2.c
+t2=1
+Count=2
 3=..\Antirebote\main.c
 t3=66
 4=..\TP0\Semaforo.c
@@ -55,7 +59,7 @@ t4=66
 Type=4
 
 [defines]
-buildcount=21
+buildcount=24
 [Units]
 Count=1
 1=Ejercicio1_TP2 (main)

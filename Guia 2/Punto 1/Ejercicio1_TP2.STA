@@ -15,8 +15,8 @@ Lines Stmts  %   Files
 ----- ----- ---  -----
   137    45  31  Ejercicio1_TP2.c
     5     0   0  Ejercicio1_TP2.h
-  965     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
-  456   100  69  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+  965     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
+  456   100  69  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
 ----- -----
  1563   145 Total
 
