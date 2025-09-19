@@ -1,12 +1,11 @@
 D G "__PCM__" 0 1 ""5.093""
 D G "__DEVICE__" 0 1 "1827"
 D G "__DATE__" 0 1 ""18-Sep-25""
-D G "__TIME__" 0 1 ""21:34:35""
+D G "__TIME__" 0 1 ""22:05:00""
 D G "_UNICODE" 0 1 ""?""
-D G "__EVAL" 0 1 ""?""
-F B "W" 0 0
-F B "OW_MM" 1 0
-F B "sleep" 0 0
+F B "aeYaiWW" 0 0
+F B "u" 1 0
+F B "s" 0 0
 F B "delay_cycles" 1 0
 F B "read_bank" 2 0
 F B "write_bank" 3 0

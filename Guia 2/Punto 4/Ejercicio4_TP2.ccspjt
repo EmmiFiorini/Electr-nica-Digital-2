@@ -23,7 +23,7 @@ D1_L=9
 D1_L1=[41187]Project Opened.
 D1_L2=[41198]Started Editing.
 D1_L3=[41468]Stopped Editing.
-TotalEdit=71
+TotalEdit=101
 TotalDebug=0
 D1_E=5
 D1_D=0
@@ -57,7 +57,7 @@ D3_L12=[66720]Started Editing.
 D3_L13=[68007]Stopped Editing.
 D3_L14=[68007]Project Closed.
 D4=18-09-2025
-D4_L=12
+D4_L=14
 D4_L1=[44032]Project Opened.
 D4_L2=[44527]Started Editing.
 D4_L3=[44836]Stopped Editing.
@@ -70,12 +70,16 @@ D4_L9=[75503]Project Opened.
 D4_L10=[75606]Started Editing.
 D4_L11=[76113]Stopped Editing.
 D4_L12=[76263]Started Editing.
+D4_L13=[77805]Stopped Editing.
+D4_E=30
+D4_D=0
+D4_L14=[77806]Project Closed.
 
 [Opened Files]
 1=Ejercicio4_TP2.c
 t1=1
 2=..\Punto 6\Ejercicio6_TP2.c
-t2=166
+t2=165
 Count=2
 [Ejercicio4_TP2.c]
 Type=4

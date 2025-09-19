@@ -1,6 +1,85 @@
-Compiling C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2 on 18-sept-25 at 21:30
-*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 1(169,170): Illegal C character in input file  0x12
-*** Error 128 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 3(169,170): A #DEVICE required before this line
-*** Error 48 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 1(169,170): Expecting a (
-      3 Errors,  0 Warnings.
+Compiling C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2 on 18-sept-25 at 21:34
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 1(0,1): Illegal C character in input file  0xD3
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 1(0,1): Illegal C character in input file  0x18
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 1(0,1): Illegal C character in input file  0x1C
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 1(0,1): Illegal C character in input file  0x10
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 1(0,1): Illegal C character in input file  0x18
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 1(1,2): Illegal C character in input file  0x0E
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 1(1,2): Illegal C character in input file  0x0E
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 1(1,2): Illegal C character in input file  0xC8
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 1(1,2): Illegal C character in input file  0xE3
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 1(1,2): Illegal C character in input file  0xEB
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 1(1,2): Illegal C character in input file  0x0F
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 1(4,5): Illegal C character in input file  0x15
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 1(4,5): Illegal C character in input file  0x05
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(4,5): Illegal C character in input file  0x03
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(4,5): Illegal C character in input file  0x08
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xD1
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xFB
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xEF
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xEA
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xCB
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xC6
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xFF
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xD4
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xA2
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0x9E
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xA0
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0x9C
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xB4
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xF6
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0x04
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0x01
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xF2
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xFF
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xAB
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xD3
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xD7
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xDC
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xD9
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xC9
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xE4
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xCD
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xD2
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xA2
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xA1
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xA0
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xAE
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xAD
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0x9D
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xCB
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xEE
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xDD
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xE2
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xE4
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xD8
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xDA
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xE4
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xE6
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0x93
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xDB
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xDF
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xE4
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xD4
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xE0
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xDB
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xDB
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0x8B
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xCD
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xD8
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xD6
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0x87
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xD6
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xCE
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xD2
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xC8
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xD5
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0x81
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xB2
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0xA0
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Illegal C character in input file  0x94
+*** Error 128 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 1(2,7): A #DEVICE required before this line
+*** Error 43 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(1,2): Expecting a declaration
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4\Ejercicio4_TP2.c" Line 2(64,65): Illegal C character in input file  0xD5
+      82 Errors,  0 Warnings.
 Build Failed.
