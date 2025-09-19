@@ -35,9 +35,10 @@ void InitTimer0(void);
 typedef enum {
     ESCRITURA,
     LECTURA, 
+    STAND_BY
 } eEstado;
 
-eEstado estado_actual = LECTURA;
+eEstado estado_actual = STAND_BY;
 
 /*****************************************************************************
 * Funciones
@@ -51,8 +52,8 @@ int comparadorcontra(void);
 ****************************************************************************/
 
 /* ADC */
-/*int16 resultado_adc=0;
-int flag_adc = 0;*/
+int16 resultado_adc=0;
+int flag_adc = 0;
 
 
 /* TIMER 0 */
@@ -60,7 +61,11 @@ int contador_ms = 0;
 int flag_segundo = 0;
 
 /* TECLAS */
-char tecla;
+char const KEYS[4][3]={{'1','2','3'},
+                       {'4','5','6'},
+                       {'7','8','9'},
+                       {'*','0','#'}}; //defino el teclado
+                       
  char cont_ing[3]; //donde voy a guardar el dato
  char contra_real [3]={'2','5','3'}; //la contraseña con la q voy a verificar
  int contador_boton_pres = 0; //contador de cuantas veces se preciono el boton
@@ -79,12 +84,12 @@ void Timer0_ISR() {
    contador_ms++;
 }
 
-/*#INT_AD
+#INT_AD
 void ISR_ADC(void) {
    resultado_adc = read_adc(ADC_READ_ONLY);
    flag_adc = 1;
    
-}*/
+}
 
 /*****************************************************************************
 * Main
@@ -95,7 +100,7 @@ void main()
    Init_GPIO();
    lcd_init(); //inicializo el led
    kbd_init();//inicializo el teclado
-   //Init_ADC();
+   Init_ADC();
    InitTimer0();
 
    while(TRUE) {
@@ -109,34 +114,31 @@ void maquina(void) {
  switch(estado_actual) {
   
   case LECTURA:
-     lcd_putc("\f Ingrese clave");
-     //read_adc(ADC_START_ONLY); // SIEMPRE ESTOY LEYENDO HASTA PERO ESPERO AL BOTÓN
-      tecla = kbd_getc(); //leo
-     if(tecla){
-      lcd_putc("\f");
-      lcd_putc(tecla);
-      cont_ing[contador_boton_pres]= tecla;
-      contador_boton_pres++; //cada vez q presiono el boton cuento
-     }
-      if(contador_boton_pres>=3)
+     
+     read_adc(ADC_START_ONLY); // SIEMPRE ESTOY LEYENDO HASTA PERO ESPERO AL BOTÓN
+     contador_boton_pres=0;
+      if(flag_adc == 1 && contador_boton_pres<3) {
+         for(int i=0; i<3;i++){
+            cont_ing[i]= kbd_getc(); //me guardo cada tecla
+            contador_boton_pres++; //cada vez q presiono el boton cuento
+         }
          estado_actual = ESCRITURA;
-       
+       }
   break;
 
   case ESCRITURA:
     
-    if(flag_segundo == 1 && contador_boton_pres>=3) {
+    if(flag_segundo == 1) {
       lcd_putc("\f");
-      
-      if(comparadorcontra() == 0 ){
+      int flag_impresion =comparadorcontra();
+      if(flag_impresion == 0 ){
          printf(LCD_PUTC,"Contraseña Incorrecta");
       }else{
          printf(LCD_PUTC,"Contraseña Correcta");
       }
       
       flag_segundo = 0;
-      //flag_adc = 0;
-      contador_boton_pres=0;
+      flag_adc = 0;
       estado_actual = LECTURA;
     }
   break;
@@ -156,16 +158,14 @@ int comparadorcontra(void){
    return 1;
 }
 
-
-
-/*void Init_ADC() {
+void Init_ADC() {
 
 setup_adc_ports(sAN0);
 setup_adc(ADC_CLOCK_INTERNAL);
 set_adc_channel(0);
 enable_interrupts(INT_AD);
 
-}*/
+}
 
 void InitTimer0(void) {
 
