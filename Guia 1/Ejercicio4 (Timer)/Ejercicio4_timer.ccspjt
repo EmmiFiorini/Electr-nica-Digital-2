@@ -17,7 +17,7 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=6
+Days=7
 D1=27-08-2025
 D1_L=10
 D1_L1=[53530]Project Opened.
@@ -29,7 +29,7 @@ D1_L6=[55540]Started Editing.
 D1_L7=[56433]Stopped Editing.
 D1_L8=[56569]Started Editing.
 D1_L9=[57350]Stopped Editing.
-TotalEdit=38
+TotalEdit=49
 TotalDebug=0
 D1_E=37
 D1_D=0
@@ -66,10 +66,20 @@ D6_L9=[75530]Project Opened.
 D6_L10=[75878]Project Closed.
 D6_L11=[75908]Project Opened.
 D6_L12=[76005]Project Closed.
+D7=20-09-2025
+D7_L=6
+D7_L1=[39939]Project Opened.
+D7_L2=[40220]Started Editing.
+D7_L3=[41096]Stopped Editing.
+D7_L4=[41558]Started Editing.
+D7_L5=[41609]Stopped Editing.
+D7_E=11
+D7_D=0
+D7_L6=[41609]Project Closed.
 
 [Opened Files]
 1=Ejercicio4_timer.c
-t1=1
+t1=85
 2=..\Ejercicio2(Timer)\(Timer)Ejercicio2_main.c
 t2=35
 3=..\..\..\..\Downloads\Antirebote\Antirebote\main.c
@@ -81,7 +91,7 @@ Count=1
 Type=4
 
 [defines]
-buildcount=4
+buildcount=5
 [Units]
 Count=1
 1=Ejercicio4_timer (main)

@@ -1,16 +1,16 @@
-CCS PCM C Compiler, Version 5.093, 4770               19-sept-25 10:31
+CCS PCM C Compiler, Version 5.093, 4770               20-sept-25 11:22
 
                Filename:   C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\Ejercicio4_timer.lst
 
-               ROM used:   338 words (8%)
+               ROM used:   291 words (7%)
                            Largest free fragment is 2048
-               RAM used:   10 (3%) at main() level
-                           29 (8%) worst case
-               Stack used: 3 locations (2 in main + 1 for interrupts)
+               RAM used:   12 (3%) at main() level
+                           23 (6%) worst case
+               Stack used: 1 locations (0 in main + 1 for interrupts)
                Stack size: 16
 
 0000:  MOVLP  00
-0001:  GOTO   0A9
+0001:  GOTO   10E
 0002:  NOP
 *
 0004:  CLRF   03
@@ -24,21 +24,27 @@ CCS PCM C Compiler, Version 5.093, 4770               19-sept-25 10:31
 000C:  MOVWF  22
 000D:  MOVF   7A,W
 000E:  MOVWF  23
-000F:  BTFSS  0B.5
+000F:  BTFSS  0B.3
 0010:  GOTO   013
-0011:  BTFSC  0B.2
-0012:  GOTO   01C
-0013:  MOVF   20,W
-0014:  MOVWF  77
-0015:  MOVF   21,W
-0016:  MOVWF  78
-0017:  MOVF   22,W
-0018:  MOVWF  79
-0019:  MOVF   23,W
-001A:  MOVWF  7A
-001B:  RETFIE
-001C:  MOVLP  00
-001D:  GOTO   01E
+0011:  BTFSC  0B.0
+0012:  GOTO   020
+0013:  BTFSS  0B.5
+0014:  GOTO   017
+0015:  BTFSC  0B.2
+0016:  GOTO   022
+0017:  MOVF   20,W
+0018:  MOVWF  77
+0019:  MOVF   21,W
+001A:  MOVWF  78
+001B:  MOVF   22,W
+001C:  MOVWF  79
+001D:  MOVF   23,W
+001E:  MOVWF  7A
+001F:  RETFIE
+0020:  MOVLP  00
+0021:  GOTO   050
+0022:  MOVLP  00
+0023:  GOTO   024
 .................... #include <Ejercicio4_timer.h>
 .................... #include <16F1827.h>
 .................... //////////// Standard Header file for the PIC16F1827 device ////////////////
@@ -52,426 +58,388 @@ CCS PCM C Compiler, Version 5.093, 4770               19-sept-25 10:31
 .................... //// form are not restricted in any way.                               ////
 .................... ///////////////////////////////////////////////////////////////////////////
 .................... #device PIC16F1827
-*
-0048:  MOVF   28,W
-0049:  ANDLW  07
-004A:  MOVWF  77
-004B:  RRF    28,W
-004C:  MOVWF  78
-004D:  RRF    78,F
-004E:  RRF    78,F
-004F:  MOVLW  1F
-0050:  ANDWF  78,F
-0051:  MOVF   78,W
-0052:  ADDWF  2A,W
-0053:  MOVWF  04
-0054:  MOVLW  00
-0055:  ADDWFC 2B,W
-0056:  MOVWF  05
-0057:  CLRF   78
-0058:  INCF   78,F
-0059:  INCF   77,F
-005A:  GOTO   05C
-005B:  RLF    78,F
-005C:  DECFSZ 77,F
-005D:  GOTO   05B
-005E:  MOVF   29,F
-005F:  BTFSC  03.2
-0060:  GOTO   064
-0061:  MOVF   78,W
-0062:  IORWF  00,F
-0063:  GOTO   067
-0064:  COMF   78,F
-0065:  MOVF   78,W
-0066:  ANDWF  00,F
-0067:  RETURN
-0068:  MOVF   28,W
-0069:  ANDLW  07
-006A:  MOVWF  77
-006B:  RRF    28,W
-006C:  MOVWF  78
-006D:  RRF    78,F
-006E:  RRF    78,F
-006F:  MOVLW  1F
-0070:  ANDWF  78,F
-0071:  MOVF   78,W
-0072:  ADDWF  29,W
-0073:  MOVWF  04
-0074:  MOVLW  00
-0075:  ADDWFC 2A,W
-0076:  MOVWF  05
-0077:  MOVF   00,W
-0078:  MOVWF  78
-0079:  INCF   77,F
-007A:  GOTO   07C
-007B:  RRF    78,F
-007C:  DECFSZ 77,F
-007D:  GOTO   07B
-007E:  MOVLW  01
-007F:  ANDWF  78,F
-0080:  MOVLP  00
-0081:  GOTO   08F (RETURN)
 .................... 
 .................... #list
 .................... 
 .................... #device ADC=10
 .................... #use delay(internal=4MHz)
-*
-0032:  MOVLW  20
-0033:  MOVWF  05
-0034:  MOVLW  06
-0035:  MOVWF  04
-0036:  MOVF   00,W
-0037:  BTFSC  03.2
-0038:  GOTO   047
-0039:  MOVLW  01
-003A:  MOVWF  78
-003B:  CLRF   77
-003C:  DECFSZ 77,F
-003D:  GOTO   03C
-003E:  DECFSZ 78,F
-003F:  GOTO   03B
-0040:  MOVLW  4A
-0041:  MOVWF  77
-0042:  DECFSZ 77,F
-0043:  GOTO   042
-0044:  GOTO   045
-0045:  DECFSZ 00,F
-0046:  GOTO   039
-0047:  RETURN
 .................... 
 .................... 
 .................... #fuses INTRC_IO   // Utilizo oscilador interno con pines RA6 y RA7 como GPIO
 .................... #fuses NOMCLR     // Desactivo el MCLR
 .................... #fuses NOWDT      // Desactivo el watchdog
 .................... 
-.................... /*****************************************************************************
-....................  * Funciones de Inicializacion de Perifericos
-....................  ****************************************************************************/
-.................... // DEFINO MIS FUNCIONES
-.................... void InitGPIO(void); //inicializo puertas
-.................... void InitTimer0(void); //inicializo timer
-.................... void copiar_pin(int pin_in, int pin_out); //funcion q copia estados
 .................... 
-.................... //INTERRUPCIONES
+.................... 
+.................... // flags y contadores por función (nombres claros)
+.................... volatile int flag_PB4 = 0;        // 1 = PB4 activo temporizador 
+.................... volatile int flag_PB5 = 0;        // 1 = PB5 activo secuencia
+.................... volatile unsigned int contador_PB4 = 0; // contador de Timer0 para PB4
+.................... volatile unsigned int contador_PB5 = 0; // contador de Timer0 para PB5
+.................... 
+.................... // prototipos
+.................... void InitGPIO(void);
+.................... void InitTimer0(void);
+.................... void InitInterrupts(void);
+.................... 
+.................... 
 .................... #INT_TIMER0
-.................... void TIMER0_ISR() {
-....................    static int contador = 0; //contador de interrupciones
-....................    set_timer0(100);   // Reinicio el timer 0
-*
-001E:  MOVLW  64
-001F:  MOVWF  15
-....................    contador++;
-0020:  INCF   24,F
-....................    if(contador >= 500){ //paso 1s
-....................       if(PIN_B1==0)
-....................          output_high(PIN_B1);
-....................       else
-....................          output_low(PIN_B1);
-....................       contador = 0; //reinicio el contador
+.................... void TIMER0_ISR(void) {
+....................    set_timer0(12); // recarga para prescaler 256
+0024:  MOVLW  0C
+0025:  MOVWF  15
+.................... 
+....................    if (flag_PB4) {
+0026:  MOVF   24,F
+0027:  BTFSC  03.2
+0028:  GOTO   035
+....................       contador_PB4++;
+0029:  INCF   26,F
+....................       if (contador_PB4 >= 8) {    // aprox 0,5s
+002A:  MOVF   26,W
+002B:  SUBLW  07
+002C:  BTFSC  03.0
+002D:  GOTO   035
+....................          output_low(PIN_B0);   // apaga LED 
+002E:  MOVLB  01
+002F:  BCF    0D.0
+0030:  MOVLB  02
+0031:  BCF    0D.0
+....................          flag_PB4 = 0;
+0032:  MOVLB  00
+0033:  CLRF   24
+....................          contador_PB4= 0;
+0034:  CLRF   26
+....................       }
 ....................    }
-0021:  BCF    0B.2
-0022:  MOVLP  00
-0023:  GOTO   013
+.................... 
+....................    if (flag_PB5) {
+0035:  MOVF   25,F
+0036:  BTFSC  03.2
+0037:  GOTO   04D
+....................       contador_PB5++;
+0038:  INCF   27,F
+....................       if (contador_PB5 == 16) {   // aprox 1 s
+0039:  MOVF   27,W
+003A:  SUBLW  10
+003B:  BTFSS  03.2
+003C:  GOTO   042
+....................          output_high(PIN_B1);  // prende LED 
+003D:  MOVLB  01
+003E:  BCF    0D.1
+003F:  MOVLB  02
+0040:  BSF    0D.1
+0041:  MOVLB  00
+....................       }
+....................       if (contador_PB5 == 32) {   // aprox 2 s
+0042:  MOVF   27,W
+0043:  SUBLW  20
+0044:  BTFSS  03.2
+0045:  GOTO   04D
+....................          output_low(PIN_B1);   // apaga LED
+0046:  MOVLB  01
+0047:  BCF    0D.1
+0048:  MOVLB  02
+0049:  BCF    0D.1
+....................          flag_PB5 = 0;
+004A:  MOVLB  00
+004B:  CLRF   25
+....................          contador_PB5 = 0;
+004C:  CLRF   27
+....................       }
+....................    }
 .................... }
 .................... 
-.................... //MAIN:
-.................... void main (void){
-*
-00A9:  MOVLW  6A
-00AA:  MOVLB  01
-00AB:  MOVWF  19
-00AC:  MOVLB  03
-00AD:  CLRF   0C
-00AE:  CLRF   0D
-00AF:  MOVLB  02
-00B0:  CLRF   12
-00B1:  CLRF   11
-00B2:  CLRF   14
-00B3:  CLRF   13
-00B4:  MOVLB  00
-00B5:  CLRF   24
-....................    InitGPIO();
-00B6:  GOTO   024
-....................    while (TRUE) {
-....................       if (input(PIN_B4)) {
-00B7:  MOVLB  01
-00B8:  BSF    0D.4
-00B9:  MOVLB  00
-00BA:  BTFSS  0D.4
-00BB:  GOTO   0CD
-....................          output_high(PIN_B0); // Prende LED 
+004D:  BCF    0B.2
+004E:  MOVLP  00
+004F:  GOTO   017
+.................... #INT_RB
+.................... void RB_ISR(void) {
+....................    // PB4: prender LED en B0 y apagar 500 ms después 
+....................    if (input(PIN_B4)) {
+0050:  MOVLB  01
+0051:  BSF    0D.4
+0052:  MOVLB  00
+0053:  BTFSS  0D.4
+0054:  GOTO   05F
+....................       output_high(PIN_B0);
+0055:  MOVLB  01
+0056:  BCF    0D.0
+0057:  MOVLB  02
+0058:  BSF    0D.0
+....................       flag_PB4 = 1;
+0059:  MOVLW  01
+005A:  MOVLB  00
+005B:  MOVWF  24
+....................       contador_PB4 = 0;
+005C:  CLRF   26
+....................       set_timer0(12); // sincronizo timer
+005D:  MOVLW  0C
+005E:  MOVWF  15
+....................    }
+.................... 
+....................    // PB5: iniciar secuencia 1s prendo 2s apago en B1
+....................    if (input(PIN_B5)) {
+005F:  MOVLB  01
+0060:  BSF    0D.5
+0061:  MOVLB  00
+0062:  BTFSS  0D.5
+0063:  GOTO   069
+....................       flag_PB5 = 1;    
+0064:  MOVLW  01
+0065:  MOVWF  25
+....................       contador_PB5 = 0;
+0066:  CLRF   27
+....................       set_timer0(12);
+0067:  MOVLW  0C
+0068:  MOVWF  15
+....................    }
+.................... 
+....................    // PB6: copiar PB0..PB3 a PA0..PA3
+....................    if (input(PIN_B6)) {
+0069:  MOVLB  01
+006A:  BSF    0D.6
+006B:  MOVLB  00
+006C:  BTFSS  0D.6
+006D:  GOTO   0AB
+....................       if (input(PIN_B0)) output_high(PIN_A0); else output_low(PIN_A0);
+006E:  MOVLB  01
+006F:  BSF    0D.0
+0070:  MOVLB  00
+0071:  BTFSS  0D.0
+0072:  GOTO   079
+0073:  MOVLB  01
+0074:  BCF    0C.0
+0075:  MOVLB  02
+0076:  BSF    0C.0
+0077:  GOTO   07D
+0078:  MOVLB  00
+0079:  MOVLB  01
+007A:  BCF    0C.0
+007B:  MOVLB  02
+007C:  BCF    0C.0
+....................       if (input(PIN_B1)) output_high(PIN_A1); else output_low(PIN_A1);
+007D:  MOVLB  01
+007E:  BSF    0D.1
+007F:  MOVLB  00
+0080:  BTFSS  0D.1
+0081:  GOTO   088
+0082:  MOVLB  01
+0083:  BCF    0C.1
+0084:  MOVLB  02
+0085:  BSF    0C.1
+0086:  GOTO   08C
+0087:  MOVLB  00
+0088:  MOVLB  01
+0089:  BCF    0C.1
+008A:  MOVLB  02
+008B:  BCF    0C.1
+....................       if (input(PIN_B2)) output_high(PIN_A2); else output_low(PIN_A2);
+008C:  MOVLB  01
+008D:  BSF    0D.2
+008E:  MOVLB  00
+008F:  BTFSS  0D.2
+0090:  GOTO   097
+0091:  MOVLB  01
+0092:  BCF    0C.2
+0093:  MOVLB  02
+0094:  BSF    0C.2
+0095:  GOTO   09B
+0096:  MOVLB  00
+0097:  MOVLB  01
+0098:  BCF    0C.2
+0099:  MOVLB  02
+009A:  BCF    0C.2
+....................       if (input(PIN_B3)) output_high(PIN_A3); else output_low(PIN_A3);
+009B:  MOVLB  01
+009C:  BSF    0D.3
+009D:  MOVLB  00
+009E:  BTFSS  0D.3
+009F:  GOTO   0A6
+00A0:  MOVLB  01
+00A1:  BCF    0C.3
+00A2:  MOVLB  02
+00A3:  BSF    0C.3
+00A4:  GOTO   0AA
+00A5:  MOVLB  00
+00A6:  MOVLB  01
+00A7:  BCF    0C.3
+00A8:  MOVLB  02
+00A9:  BCF    0C.3
+00AA:  MOVLB  00
+....................    }
+.................... 
+....................    // PB7: prende los pines B0 a B3
+....................    if (input(PIN_B7)) {
+00AB:  MOVLB  01
+00AC:  BSF    0D.7
+00AD:  MOVLB  00
+00AE:  BTFSS  0D.7
+00AF:  GOTO   0C1
+....................       output_high(PIN_B0);
+00B0:  MOVLB  01
+00B1:  BCF    0D.0
+00B2:  MOVLB  02
+00B3:  BSF    0D.0
+....................       output_high(PIN_B1);
+00B4:  MOVLB  01
+00B5:  BCF    0D.1
+00B6:  MOVLB  02
+00B7:  BSF    0D.1
+....................       output_high(PIN_B2);
+00B8:  MOVLB  01
+00B9:  BCF    0D.2
+00BA:  MOVLB  02
+00BB:  BSF    0D.2
+....................       output_high(PIN_B3);
 00BC:  MOVLB  01
-00BD:  BCF    0D.0
+00BD:  BCF    0D.3
 00BE:  MOVLB  02
-00BF:  BSF    0D.0
-....................          delay_ms(500); // Espera 500 ms 
-00C0:  MOVLW  02
-00C1:  MOVLB  00
-00C2:  MOVWF  25
-00C3:  MOVLW  FA
-00C4:  MOVWF  26
-00C5:  CALL   032
-00C6:  DECFSZ 25,F
-00C7:  GOTO   0C3
-....................          output_low(PIN_B0); // Apaga LED 
-00C8:  MOVLB  01
-00C9:  BCF    0D.0
-00CA:  MOVLB  02
-00CB:  BCF    0D.0
-00CC:  MOVLB  00
-....................       }
-....................       if (input(PIN_B5)) {
-00CD:  MOVLB  01
-00CE:  BSF    0D.5
-00CF:  MOVLB  00
-00D0:  BTFSS  0D.5
-00D1:  GOTO   0D2
-.................... 
-....................       }
-....................       if (input(PIN_B6)) {
-00D2:  MOVLB  01
-00D3:  BSF    0D.6
-00D4:  MOVLB  00
-00D5:  BTFSS  0D.6
-00D6:  GOTO   0EB
-....................          copiar_pin(PIN_A0,PIN_B0);
-00D7:  MOVLW  60
-00D8:  MOVWF  25
-00D9:  MOVLW  68
-00DA:  MOVWF  26
-00DB:  CALL   082
-....................          copiar_pin(PIN_A1,PIN_B1);
-00DC:  MOVLW  61
-00DD:  MOVWF  25
-00DE:  MOVLW  69
-00DF:  MOVWF  26
-00E0:  CALL   082
-....................          copiar_pin(PIN_A2,PIN_B2);
-00E1:  MOVLW  62
-00E2:  MOVWF  25
-00E3:  MOVLW  6A
-00E4:  MOVWF  26
-00E5:  CALL   082
-....................          copiar_pin(PIN_A3,PIN_B3);
-00E6:  MOVLW  63
-00E7:  MOVWF  25
-00E8:  MOVLW  6B
-00E9:  MOVWF  26
-00EA:  CALL   082
-....................       }
-....................       if (input(PIN_B7)) {
-00EB:  MOVLB  01
-00EC:  BSF    0D.7
-00ED:  MOVLB  00
-00EE:  BTFSS  0D.7
-00EF:  GOTO   151
-....................    
-....................          output_high(PIN_B0); // Prende LED 
-00F0:  MOVLB  01
-00F1:  BCF    0D.0
-00F2:  MOVLB  02
-00F3:  BSF    0D.0
-....................          output_high(PIN_A0);
-00F4:  MOVLB  01
-00F5:  BCF    0C.0
-00F6:  MOVLB  02
-00F7:  BSF    0C.0
-....................          delay_ms(500); // Espera 500 ms 
-00F8:  MOVLW  02
-00F9:  MOVLB  00
-00FA:  MOVWF  25
-00FB:  MOVLW  FA
-00FC:  MOVWF  26
-00FD:  CALL   032
-00FE:  DECFSZ 25,F
-00FF:  GOTO   0FB
-....................          output_low(PIN_B0); // Apaga LED 
-0100:  MOVLB  01
-0101:  BCF    0D.0
-0102:  MOVLB  02
-0103:  BCF    0D.0
-....................          output_low(PIN_A0);
-0104:  MOVLB  01
-0105:  BCF    0C.0
-0106:  MOVLB  02
-0107:  BCF    0C.0
-....................       
-....................          output_high(PIN_B1); // Prende LED 
-0108:  MOVLB  01
-0109:  BCF    0D.1
-010A:  MOVLB  02
-010B:  BSF    0D.1
-....................          output_low(PIN_A1);
-010C:  MOVLB  01
-010D:  BCF    0C.1
-010E:  MOVLB  02
-010F:  BCF    0C.1
-....................          delay_ms(500); // Espera 500 ms 
-0110:  MOVLW  02
-0111:  MOVLB  00
-0112:  MOVWF  25
-0113:  MOVLW  FA
-0114:  MOVWF  26
-0115:  CALL   032
-0116:  DECFSZ 25,F
-0117:  GOTO   113
-....................          output_low(PIN_B1); // Apaga LED 
-0118:  MOVLB  01
-0119:  BCF    0D.1
-011A:  MOVLB  02
-011B:  BCF    0D.1
-....................          output_low(PIN_A1);
-011C:  MOVLB  01
-011D:  BCF    0C.1
-011E:  MOVLB  02
-011F:  BCF    0C.1
-....................       
-....................          output_high(PIN_B2); // Prende LED 
-0120:  MOVLB  01
-0121:  BCF    0D.2
-0122:  MOVLB  02
-0123:  BSF    0D.2
-....................          output_low(PIN_A2);
-0124:  MOVLB  01
-0125:  BCF    0C.2
-0126:  MOVLB  02
-0127:  BCF    0C.2
-....................          delay_ms(500); // Espera 500 ms 
-0128:  MOVLW  02
-0129:  MOVLB  00
-012A:  MOVWF  25
-012B:  MOVLW  FA
-012C:  MOVWF  26
-012D:  CALL   032
-012E:  DECFSZ 25,F
-012F:  GOTO   12B
-....................          output_low(PIN_B2); // Apaga LED 
-0130:  MOVLB  01
-0131:  BCF    0D.2
-0132:  MOVLB  02
-0133:  BCF    0D.2
-....................          output_low(PIN_A2);
-0134:  MOVLB  01
-0135:  BCF    0C.2
-0136:  MOVLB  02
-0137:  BCF    0C.2
-....................       
-....................          output_high(PIN_B3); // Prende LED 
-0138:  MOVLB  01
-0139:  BCF    0D.3
-013A:  MOVLB  02
-013B:  BSF    0D.3
-....................          output_low(PIN_A3);
-013C:  MOVLB  01
-013D:  BCF    0C.3
-013E:  MOVLB  02
-013F:  BCF    0C.3
-....................          delay_ms(500); // Espera 500 ms 
-0140:  MOVLW  02
-0141:  MOVLB  00
-0142:  MOVWF  25
-0143:  MOVLW  FA
-0144:  MOVWF  26
-0145:  CALL   032
-0146:  DECFSZ 25,F
-0147:  GOTO   143
-....................          output_low(PIN_B3); // Apaga LED 
-0148:  MOVLB  01
-0149:  BCF    0D.3
-014A:  MOVLB  02
-014B:  BCF    0D.3
-....................          output_low(PIN_A3);
-014C:  MOVLB  01
-014D:  BCF    0C.3
-014E:  MOVLB  02
-014F:  BCF    0C.3
-0150:  MOVLB  00
-....................       }
-0151:  GOTO   0B7
+00BF:  BSF    0D.3
+00C0:  MOVLB  00
 ....................    }
+.................... 
+00C1:  MOVLW  FF
+00C2:  MOVLB  07
+00C3:  XORWF  16,W
+00C4:  ANDWF  16,F
+00C5:  BCF    0B.0
+00C6:  MOVLP  00
+00C7:  MOVLB  00
+00C8:  GOTO   017
 .................... }
 .................... 
-0152:  SLEEP
-.................... 
-.................... //INICIALIZO FUNCIONES
-.................... void copiar_pin(int pin_in, int pin_out){
-....................    int estado;
-....................    estado = input(pin_in);         // Leo la entrada
+.................... void main(void) {
 *
-0082:  MOVF   25,W
-0083:  MOVWF  28
-0084:  MOVLW  01
-0085:  MOVWF  29
-0086:  CLRF   2B
-0087:  MOVLW  80
-0088:  MOVWF  2A
-0089:  CALL   048
-008A:  MOVF   25,W
-008B:  MOVWF  28
-008C:  CLRF   2A
-008D:  CLRF   29
-008E:  GOTO   068
-008F:  CLRF   27
-0090:  BTFSC  78.0
-0091:  INCF   27,F
-....................    output_bit(pin_out, estado);    // Copio a la salida
-0092:  MOVF   27,F
-0093:  BTFSS  03.2
-0094:  GOTO   097
-0095:  MOVLW  00
-0096:  GOTO   098
-0097:  MOVLW  01
-0098:  MOVWF  77
-0099:  MOVF   26,W
-009A:  MOVWF  28
-009B:  MOVF   77,W
-009C:  MOVWF  29
-009D:  MOVLW  01
-009E:  MOVWF  2B
-009F:  CLRF   2A
-00A0:  CALL   048
-00A1:  MOVF   26,W
-00A2:  MOVWF  28
-00A3:  CLRF   29
-00A4:  CLRF   2B
-00A5:  MOVLW  80
-00A6:  MOVWF  2A
-00A7:  CALL   048
-00A8:  RETURN
+010E:  MOVLW  6A
+010F:  MOVLB  01
+0110:  MOVWF  19
+0111:  MOVLB  00
+0112:  CLRF   24
+0113:  CLRF   25
+0114:  CLRF   26
+0115:  CLRF   27
+0116:  MOVLB  03
+0117:  CLRF   0C
+0118:  CLRF   0D
+0119:  MOVLB  02
+011A:  CLRF   12
+011B:  CLRF   11
+011C:  CLRF   14
+011D:  CLRF   13
+....................    InitGPIO();
+011E:  MOVLB  00
+011F:  GOTO   0C9
+....................    InitTimer0();
+0120:  GOTO   0F7
+....................    InitInterrupts();
+0121:  GOTO   104
+.................... 
+....................    while (TRUE) { }
+0122:  GOTO   122
 .................... }
 .................... 
-.................... void InitGPIO(void){
-....................    set_tris_b(0b11110000); // RB0, RB1, RB2 , RB4 como SALIDA Y el resto como ENTRADA
+0123:  SLEEP
+.................... void InitGPIO(void) {
+....................    setup_adc_ports(NO_ANALOGS);
 *
-0024:  MOVLW  F0
-0025:  MOVLB  01
-0026:  MOVWF  0D
-....................    set_tris_a(0b11110000); // RA3..RA0 salidas, RA7..RA4 entradas (si los necesitás)
-0027:  MOVWF  0C
+00C9:  MOVLB  01
+00CA:  BCF    1E.0
+00CB:  BCF    1E.1
+00CC:  BCF    1E.2
+00CD:  MOVLW  00
+00CE:  MOVLB  03
+00CF:  MOVWF  0C
+00D0:  MOVWF  0D
 .................... 
-....................    // Inicializo salidas en 0
-....................    output_b(0x00);
-0028:  CLRF   0D
-0029:  MOVLB  02
-002A:  CLRF   0D
-....................    output_a(0x00);
-002B:  MOVLB  01
-002C:  CLRF   0C
-002D:  MOVLB  02
-002E:  CLRF   0C
-002F:  MOVLP  00
-0030:  MOVLB  00
-0031:  GOTO   0B7 (RETURN)
+....................  
+....................    set_tris_b(0b11110000);
+00D1:  MOVLW  F0
+00D2:  MOVLB  01
+00D3:  MOVWF  0D
+....................    set_tris_a(0b11110000);
+00D4:  MOVWF  0C
+.................... 
+....................    // inicializo salidas en 0
+....................    output_low(PIN_B0);
+00D5:  BCF    0D.0
+00D6:  MOVLB  02
+00D7:  BCF    0D.0
+....................    output_low(PIN_B1);
+00D8:  MOVLB  01
+00D9:  BCF    0D.1
+00DA:  MOVLB  02
+00DB:  BCF    0D.1
+....................    output_low(PIN_B2);
+00DC:  MOVLB  01
+00DD:  BCF    0D.2
+00DE:  MOVLB  02
+00DF:  BCF    0D.2
+....................    output_low(PIN_B3);
+00E0:  MOVLB  01
+00E1:  BCF    0D.3
+00E2:  MOVLB  02
+00E3:  BCF    0D.3
+.................... 
+....................    output_low(PIN_A0);
+00E4:  MOVLB  01
+00E5:  BCF    0C.0
+00E6:  MOVLB  02
+00E7:  BCF    0C.0
+....................    output_low(PIN_A1);
+00E8:  MOVLB  01
+00E9:  BCF    0C.1
+00EA:  MOVLB  02
+00EB:  BCF    0C.1
+....................    output_low(PIN_A2);
+00EC:  MOVLB  01
+00ED:  BCF    0C.2
+00EE:  MOVLB  02
+00EF:  BCF    0C.2
+....................    output_low(PIN_A3);
+00F0:  MOVLB  01
+00F1:  BCF    0C.3
+00F2:  MOVLB  02
+00F3:  BCF    0C.3
+00F4:  MOVLP  00
+00F5:  MOVLB  00
+00F6:  GOTO   120 (RETURN)
 .................... }
 .................... 
-.................... void InitTimer0(void){
-....................    setup_timer_0(RTCC_INTERNAL | RTCC_8_BIT | RTCC_DIV_8); // Timer0 interno con prescaler 1:8
-....................    set_timer0(100); // precarga inicial
+.................... void InitTimer0(void) {
+....................    setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256);
+00F7:  MOVLB  01
+00F8:  MOVF   15,W
+00F9:  ANDLW  C0
+00FA:  IORLW  07
+00FB:  MOVWF  15
+....................    set_timer0(12);
+00FC:  MOVLW  0C
+00FD:  MOVLB  00
+00FE:  MOVWF  15
 ....................    enable_interrupts(INT_TIMER0);
+00FF:  BSF    0B.5
 ....................    enable_interrupts(GLOBAL);
+0100:  MOVLW  C0
+0101:  IORWF  0B,F
+0102:  MOVLP  00
+0103:  GOTO   121 (RETURN)
 .................... }
 .................... 
+.................... void InitInterrupts(void) {
+....................    enable_interrupts(INT_RB);
+0104:  BSF    0B.3
+0105:  MOVLW  FF
+0106:  MOVLB  07
+0107:  IORWF  11,F
+0108:  IORWF  12,F
+....................    enable_interrupts(GLOBAL);
+0109:  MOVLW  C0
+010A:  IORWF  0B,F
+010B:  MOVLP  00
+010C:  MOVLB  00
+010D:  GOTO   122 (RETURN)
+.................... }
 .................... 
 
 Configuration Fuses:

@@ -4,6 +4,8 @@
 #fuses NOWDT      // Desactivo el watchdog
 
 
+
+// flags y contadores por función (nombres claros)
 volatile int flag_PB4 = 0;        // 1 = PB4 activo temporizador 
 volatile int flag_PB5 = 0;        // 1 = PB5 activo secuencia
 volatile unsigned int contador_PB4 = 0; // contador de Timer0 para PB4

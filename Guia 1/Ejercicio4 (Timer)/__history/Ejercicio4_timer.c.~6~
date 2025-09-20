@@ -4,6 +4,8 @@
 #fuses NOWDT      // Desactivo el watchdog
 
 
+
+// flags y contadores por función (nombres claros)
 volatile int flag_PB4 = 0;        // 1 = PB4 activo temporizador 
 volatile int flag_PB5 = 0;        // 1 = PB5 activo secuencia
 volatile unsigned int contador_PB4 = 0; // contador de Timer0 para PB4
@@ -20,13 +22,14 @@ void TIMER0_ISR(void) {
    set_timer0(12); // recarga para prescaler 256
 
    if (flag_PB4) {
-      contador_PB4++;
+      contador_PB4;
       if (contador_PB4 >= 8) {    // aprox 0,5s
          output_low(PIN_B0);   // apaga LED 
-         flag_PB4 = 0;
+         flag_PB4 = 0;}
          contador_PB4= 0;
       }
    }
+   
 
    if (flag_PB5) {
       contador_PB5++;

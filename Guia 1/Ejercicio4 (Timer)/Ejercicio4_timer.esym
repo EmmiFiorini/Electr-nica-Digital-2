@@ -1,9 +1,9 @@
-D G "__PCM__" 0 0 ""5.093""
-D G "__DEVICE__" 0 0 ""
-D G "__DATE__" 0 0 ""19-Sep-25""
-D G "__TIME__" 0 0 ""10:31:18""
-D G "_UNICODE" 0 0 ""?""
-D G "__EVAL" 0 0 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
+D G "__PCM__" 0 122 ""5.093""
+D G "__DEVICE__" 0 122 "1827"
+D G "__DATE__" 0 122 ""20-Sep-25""
+D G "__TIME__" 0 122 ""11:22:00""
+D G "_UNICODE" 0 122 ""?""
+D G "__EVAL" 0 122 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 f N "set_tris_a" 2 39 ""
 v L "value" 2 39 "int8" `55 
@@ -562,9 +562,9 @@ f N "read_adc" 2 564 ""
 f G "read_adc" 2 564 "int16()" `234 
 f N "read_adc" 2 565 ""
 v L "mode" 2 565 "int8" `235 
-f G "read_adc" 2 565 "int16(int8 mode)" `234 
+f G "read_adc" 2 565 "int16(int8 mode,int32 pins)" `234 
 f N "adc_done" 2 566 ""
-f B "adc_done" 2 566 "int8(int8 mode)" `234  "Constants used for SETUP_ADC() are:"
+f B "adc_done" 2 566 "int8(int8 mode,int32 pins)" `234  "Constants used for SETUP_ADC() are:"
 d G "ADC_OFF" 2 568 "0" "ADC Off"
 d G "ADC_CLOCK_DIV_2" 2 569 "0x100"
 d G "ADC_CLOCK_DIV_4" 2 570 "0x40"
@@ -969,9 +969,9 @@ f B "i2c_transfer_in" 2 729 "int8(int8 stream,int8 address,*int8 rData,int8 rCou
 f N "spi_xfer" 2 732 ""
 f B "spi_xfer" 2 732 "int8()" `505 
 f N "spi_xfer" 2 733 ""
-f G "spi_xfer" 2 733 "int16()" `506 
+f G "spi_xfer" 2 733 "int16(int8 data)" `506 
 f N "spi_xfer" 2 734 ""
-f G "spi_xfer" 2 734 "int32()" `506 
+f G "spi_xfer" 2 734 "int32(int8 data)" `506 
 f N "spi_xfer" 2 735 ""
 v L "data" 2 735 "int8" `507 
 f B "spi_xfer" 2 735 "int8(int8 data)" `506 
@@ -1051,18 +1051,18 @@ f B "spi_prewrite" 2 754 "void(int8 ,int32 data)" `559
 f N "spi_xfer_in" 2 755 ""
 f B "spi_xfer_in" 2 755 "int8()" `562 
 f N "spi_xfer_in" 2 756 ""
-f G "spi_xfer_in" 2 756 "int16()" `563 
+f G "spi_xfer_in" 2 756 "int16(int8 bits)" `563 
 f N "spi_xfer_in" 2 757 ""
-f G "spi_xfer_in" 2 757 "int32()" `563 
+f G "spi_xfer_in" 2 757 "int32(int8 bits)" `563 
 f N "spi_xfer_in" 2 758 ""
 v L "bits" 2 758 "int8" `564 
 f B "spi_xfer_in" 2 758 "int8(int8 bits)" `563 
 f N "spi_xfer_in" 2 759 ""
 v L "bits" 2 759 "int8" `566 
-f G "spi_xfer_in" 2 759 "int16(int8 bits)" `565 
+f G "spi_xfer_in" 2 759 "int16(int8 bits,int8 bits)" `565 
 f N "spi_xfer_in" 2 760 ""
 v L "bits" 2 760 "int8" `566 
-f G "spi_xfer_in" 2 760 "int32(int8 bits)" `565 
+f G "spi_xfer_in" 2 760 "int32(int8 bits,int8 bits)" `565 
 f N "spi_xfer_in" 2 761 ""
 v L "stream" 2 761 "int8" `566 
 v L "bits" 2 761 "int8" `567 
@@ -1070,11 +1070,11 @@ f B "spi_xfer_in" 2 761 "int8(int8 stream,int8 bits)" `565
 f N "spi_xfer_in" 2 762 ""
 v L "stream" 2 762 "int8" `566 
 v L "bits" 2 762 "int8" `570 
-f G "spi_xfer_in" 2 762 "int16(int8 stream,int8 bits)" `568 
+f G "spi_xfer_in" 2 762 "int16(int8 stream,int8 bits,int16 count)" `568 
 f N "spi_xfer_in" 2 763 ""
 v L "stream" 2 763 "int8" `566 
 v L "bits" 2 763 "int8" `570 
-f G "spi_xfer_in" 2 763 "int32(int8 stream,int8 bits)" `568 
+f G "spi_xfer_in" 2 763 "int32(int8 stream,int8 bits,int16 count)" `568 
 f N "spi_transfer" 2 764 ""
 v L "wData" 2 764 "*int8" `569 
 v L "rData" 2 764 "*int8" `570 
@@ -1143,9 +1143,9 @@ f B "rtos_stats" 2 784 "void(int8 task,*int8 stat)" `611  "#use timer() Prototyp
 f N "get_ticks" 2 787 ""
 f B "get_ticks" 2 787 "int8()" `614 
 f N "get_ticks" 2 788 ""
-f G "get_ticks" 2 788 "int16()" `615 
+f G "get_ticks" 2 788 "int16(int8 stream)" `615 
 f N "get_ticks" 2 789 ""
-f G "get_ticks" 2 789 "int32()" `615 
+f G "get_ticks" 2 789 "int32(int8 stream)" `615 
 f N "get_ticks" 2 790 ""
 v L "stream" 2 790 "int8" `616 
 f B "get_ticks" 2 790 "int8(int8 stream)" `615 
@@ -1249,7 +1249,7 @@ f B "read_configuration_memory" 2 838 "void(int8 offset,*int8 dataptr,int8 count
 f N "read_configuration_memory" 2 839 ""
 v L "dataptr" 2 839 "*int8" `673 
 v L "count" 2 839 "int8" `681 
-f G "read_configuration_memory" 2 839 "void(*int8 dataptr,int8 count)" `679 
+f G "read_configuration_memory" 2 839 "void(*int8 dataptr,int8 count,int16 count)" `679 
 f N "read_configuration_memory" 2 840 ""
 v L "offset" 2 840 "int8" `676 
 v L "dataptr" 2 840 "*int8" `677 
@@ -1276,16 +1276,16 @@ f B "write_configuration_memory" 2 846 "void(int8 offset,*int8 dataptr,int8 coun
 f N "write_configuration_memory" 2 847 ""
 v L "dataptr" 2 847 "*int8" `687 
 v L "count" 2 847 "int8" `695 
-f G "write_configuration_memory" 2 847 "void(*int8 dataptr,int8 count)" `693 
+f G "write_configuration_memory" 2 847 "void(*int8 dataptr,int8 count,int8 address,int8 value)" `693 
 f N "write_configuration_memory" 2 848 ""
 v L "offset" 2 848 "int8" `690 
 v L "dataptr" 2 848 "*int8" `691 
 v L "count" 2 848 "int8" `696 
-f G "write_configuration_memory" 2 848 "void(int8 offset,*int8 dataptr,int8 count)" `693  "EEPROM Prototypes:"
+f G "write_configuration_memory" 2 848 "void(int8 offset,*int8 dataptr,int8 count,int8 value)" `693  "EEPROM Prototypes:"
 d G "__EEADDRESS__" 2 855 "unsigned int8"
 f N "read_eeprom" 2 858 ""
 v L "address" 2 858 "int8" `694 
-f B "read_eeprom" 2 858 "int8(int8 address,*int8 dataptr,int8 count)" `693 
+f B "read_eeprom" 2 858 "int8(int8 address,*int8 dataptr,int8 count,int8 value)" `693 
 f N "write_eeprom" 2 859 ""
 v L "address" 2 859 "int8" `696 
 v L "value" 2 859 "int8" `697 
@@ -1398,57 +1398,45 @@ d G "INT_RB6_H2L" 2 959 "0x21400B08"
 d G "INT_RB7" 2 960 "0x31800B08"
 d G "INT_RB7_L2H" 2 961 "0x11800B08"
 d G "INT_RB7_H2L" 2 962 "0x21800B08"
-C L "jump_to_isr" 0 6 2 "*"
-F N "InitGPIO" 0 10 ""
-f G "InitGPIO" 0 10 "void()" `721  "inicializo puertas"
-F N "InitTimer0" 0 11 ""
-f G "InitTimer0" 0 11 "void()" `722  "inicializo timer"
-F N "copiar_pin" 0 12 ""
-V L "pin_in" 0 12 "int8" `724 
-V L "pin_out" 0 12 "int8" `725 
-f G "copiar_pin" 0 12 "void(int8 pin_in,int8 pin_out)" `723  "funcion q copia estados"
-C L "copiar_pin" 0 6 1 "FUNCTION"
-F N "TIMER0_ISR" 0 16 ""
-F G "TIMER0_ISR" 0 16 "void()" `726 
-V L "contador" 0 17 "int8" `727 
-C L "TIMER0_ISR" 0 6 1 "FUNCTION"
-C L "TIMER0_ISR" 0 6 1 "FUNCTION"
-C L "TIMER0_ISR" 0 6 1 "FUNCTION"
-C L "TIMER0_ISR" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-F N "MAIN" 0 30 ""
-F G "MAIN" 0 30 "void()" `728 
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "copiar_pin" 0 6 1 "FUNCTION"
-F N "copiar_pin" 0 78 ""
-V L "pin_in" 0 78 "int8" `724 
-V L "pin_out" 0 78 "int8" `733 
-F G "copiar_pin" 0 78 "void(int8 pin_in,int8 pin_out)" `723 
-V L "estado" 0 79 "int8" `731 
-C L "copiar_pin" 0 6 1 "FUNCTION"
-C L "copiar_pin" 0 6 1 "FUNCTION"
-F N "InitGPIO" 0 84 ""
-F G "InitGPIO" 0 84 "void()" `721 
-C L "InitGPIO" 0 6 1 "FUNCTION"
-C L "InitGPIO" 0 6 2 "FUNCTION"
-F N "InitTimer0" 0 93 ""
-F G "InitTimer0" 0 93 "void()" `722 
-C L "InitTimer0" 0 6 1 "FUNCTION"
-C L "InitTimer0" 0 6 1 "FUNCTION"
+C L "jump_to_isr" 0 8 1 "FUNCTION"
+V G "flag_PB4" 0 9 "int8" `721 
+C L "jump_to_isr" 0 8 1 "FUNCTION"
+V G "flag_PB5" 0 10 "int8" `722 
+C L "jump_to_isr" 0 8 1 "FUNCTION"
+V G "contador_PB4" 0 11 "int8" `723 
+C L "jump_to_isr" 0 8 1 "FUNCTION"
+V G "contador_PB5" 0 12 "int8" `724 
+C L "jump_to_isr" 0 8 2 "FUNCTION"
+F N "InitGPIO" 0 15 ""
+f G "InitGPIO" 0 15 "void()" `725 
+F N "InitTimer0" 0 16 ""
+f G "InitTimer0" 0 16 "void()" `726 
+F N "InitInterrupts" 0 17 ""
+f G "InitInterrupts" 0 17 "void()" `727 
+F N "TIMER0_ISR" 0 21 ""
+F G "TIMER0_ISR" 0 21 "void()" `728 
+C L "TIMER0_ISR" 0 8 1 "FUNCTION"
+C L "TIMER0_ISR" 0 8 1 "FUNCTION"
+C L "TIMER0_ISR" 0 8 1 "FUNCTION"
+C L "TIMER0_ISR" 0 8 1 "FUNCTION"
+C L "TIMER0_ISR" 0 8 1 "FUNCTION"
+C L "TIMER0_ISR" 0 8 1 "FUNCTION"
+C L "TIMER0_ISR" 0 8 1 "FUNCTION"
+F N "RB_ISR" 0 47 ""
+F G "RB_ISR" 0 47 "void()" `729  "PB4: prender LED en B0 y apagar 500 ms después"
+C L "RB_ISR" 0 8 1 "FUNCTION"
+C L "RB_ISR" 0 8 1 "FUNCTION"
+C L "RB_ISR" 0 8 1 "FUNCTION"
+C L "RB_ISR" 0 8 1 "FUNCTION"
+F N "MAIN" 0 81 ""
+F G "MAIN" 0 81 "void()" `730 
+F N "InitGPIO" 0 89 ""
+F G "InitGPIO" 0 89 "void()" `725 
+C L "InitGPIO" 0 8 1 "FUNCTION"
+F N "InitTimer0" 0 108 ""
+F G "InitTimer0" 0 108 "void()" `726 
+F N "InitInterrupts" 0 115 ""
+F G "InitInterrupts" 0 115 "void()" `727 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0
