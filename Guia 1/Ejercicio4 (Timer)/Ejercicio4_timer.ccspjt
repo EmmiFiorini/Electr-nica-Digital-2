@@ -51,7 +51,7 @@ D5_L1=[55773]Project Closed.
 D5_L2=[56980]Project Opened.
 D5_L3=[57187]Project Closed.
 D6=19-09-2025
-D6_L=8
+D6_L=12
 D6_L1=[37873]Project Opened.
 D6_L2=[38168]Started Editing.
 D6_L3=[38474]Stopped Editing.
@@ -62,6 +62,10 @@ D6_L5=[63503]Project Opened.
 D6_L6=[63511]Project Closed.
 D6_L7=[74819]Project Opened.
 D6_L8=[75015]Project Closed.
+D6_L9=[75530]Project Opened.
+D6_L10=[75878]Project Closed.
+D6_L11=[75908]Project Opened.
+D6_L12=[76005]Project Closed.
 
 [Opened Files]
 1=Ejercicio4_timer.c
