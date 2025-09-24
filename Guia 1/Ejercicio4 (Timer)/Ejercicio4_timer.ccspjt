@@ -17,7 +17,7 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=7
+Days=8
 D1=27-08-2025
 D1_L=10
 D1_L1=[53530]Project Opened.
@@ -76,6 +76,10 @@ D7_L5=[41609]Stopped Editing.
 D7_E=11
 D7_D=0
 D7_L6=[41609]Project Closed.
+D8=24-09-2025
+D8_L=2
+D8_L1=[55185]Project Opened.
+D8_L2=[55896]Project Closed.
 
 [Opened Files]
 1=Ejercicio4_timer.c
