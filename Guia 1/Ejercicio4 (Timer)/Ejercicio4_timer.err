@@ -1,4 +1,5 @@
-Compiling C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\Ejercicio4_timer on 20-sept-25 at 11:22
-      Memory usage:   ROM=7%      RAM=3% - 6%
-      0 Errors,  0 Warnings.
-Build Successful.
+Compiling C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\Ejercicio4_timer on 26-sept-25 at 12:22
+*** Error 12 "C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\Ejercicio4_timer.c" Line 89(4,10): Undefined identifier   ANSELB
+*** Error 12 "C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\Ejercicio4_timer.c" Line 117(4,9): Undefined identifier   IOCBP
+*** Error 12 "C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\Ejercicio4_timer.c" Line 118(4,9): Undefined identifier   IOCBN
+*** Error 12 "C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\Ejercicio4_timer.c" Line 119(4,9): Undefined identifier   IOCBF

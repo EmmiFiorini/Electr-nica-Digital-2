@@ -42,7 +42,7 @@ void TIMER0_ISR(void) {
 }
 
 #INT_IOC
-void IOC_ISR(void) {
+void RB_ISR(void) {
    // PB4: prender LED en B0 y apagar 500 ms después 
    if (input(PIN_B4)) {
       output_high(PIN_B0);
@@ -85,8 +85,6 @@ void main(void) {
 }
 
 void InitGPIO(void) {
-
-
    setup_adc_ports(NO_ANALOGS);
 
  
@@ -113,6 +111,12 @@ void InitTimer0(void) {
 }
 
 void InitInterrupts(void) {
+   // habilito IOC en RB4-RB7
+   IOCBP = 0b11110000;   // interrupción en flanco ascendente
+   IOCBN = 0b00000000;   // no uso flanco descendente
+   IOCBF = 0;  //limpio banderas de puerto B
+   IOCIF = 0;            // limpio flag
+   IOCIE = 1; //habilito IOC
    enable_interrupts(INT_IOC); 
    enable_interrupts(GLOBAL);
 }
