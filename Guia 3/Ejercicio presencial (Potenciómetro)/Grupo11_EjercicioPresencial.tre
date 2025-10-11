@@ -1,0 +1,20 @@
+ÀÄGrupo11_EjercicioPresencial
+   ÃÄMAIN  0/48  Ram=0
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄ@cinit2  (Inline)  Ram=0
+   ³  ÃÄInit_GPIO  0/37  Ram=0
+   ³  ÃÄInitTimer0  0/11  Ram=0
+   ³  ÃÄInit_ADC  0/24  Ram=0
+   ³  ÀÄmaquina  0/276  Ram=1
+   ³     ÃÄ@PSTRINGC7_9600_106_105  0/80  Ram=3
+   ³     ÃÄ@PSTRINGC7_9600_106_105  0/80  Ram=3
+   ³     ÃÄ@PSTRINGCN7_9600_106_105  0/86  Ram=5
+   ³     ÃÄ@PRINTF_LD_9600_106_105  (Inline)  Ram=11
+   ³     ÃÄ@PSTRINGCN7_9600_106_105  0/86  Ram=5
+   ³     ÃÄ@PRINTF_U_9600_106_105  (Inline)  Ram=2
+   ³     ³  ÃÄ@DIV88  0/21  Ram=3
+   ³     ³  ÀÄ@DIV88  0/21  Ram=3
+   ³     ÀÄ@PSTRINGC7_9600_106_105  0/80  Ram=3
+   ÃÄISR_ADC  0/19  Ram=0
+   ÃÄRDA_isr  0/43  Ram=0
+   ÀÄTimer0_ISR  0/13  Ram=0
