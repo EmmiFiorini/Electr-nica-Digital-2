@@ -17,13 +17,13 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=5
+Days=6
 D1=11-09-2025
 D1_L=9
 D1_L1=[41187]Project Opened.
 D1_L2=[41198]Started Editing.
 D1_L3=[41468]Stopped Editing.
-TotalEdit=101
+TotalEdit=102
 TotalDebug=0
 D1_E=5
 D1_D=0
@@ -81,6 +81,11 @@ D5_L2=[51860]Started Editing.
 D5_L3=[52160]Stopped Editing.
 D5_L4=[53636]Started Editing.
 D5_L5=[53943]Stopped Editing.
+D6=14-10-2025
+D6_E=1
+D6_D=0
+D6_L=1
+D6_L1=[50841]Project Closed.
 
 [Opened Files]
 1=Ejercicio4_TP2.c
