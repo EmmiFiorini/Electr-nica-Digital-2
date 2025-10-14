@@ -75,21 +75,28 @@ D4_E=30
 D4_D=0
 D4_L14=[77806]Project Closed.
 D5=19-09-2025
-D5_L=2
+D5_L=5
 D5_L1=[51845]Project Opened.
 D5_L2=[51860]Started Editing.
+D5_L3=[52160]Stopped Editing.
+D5_L4=[53636]Started Editing.
+D5_L5=[53943]Stopped Editing.
 
 [Opened Files]
 1=Ejercicio4_TP2.c
 t1=1
-2=..\Punto 6\Ejercicio6_TP2.c
-t2=165
-Count=1
+2=Ejercicio4_TP2.h
+t2=1
+Count=4
+3=..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
+t3=1
+4=lcd.c
+t4=88
 [Ejercicio4_TP2.c]
 Type=4
 
 [defines]
-buildcount=24
+buildcount=26
 [Units]
 Count=1
 1=Ejercicio4_TP2 (main)
