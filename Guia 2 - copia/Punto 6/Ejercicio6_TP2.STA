@@ -1,0 +1,69 @@
+
+ROM used:   931/4096 (23%)
+            931/4096 (23%) including unused fragments
+
+            0.6 Average locations per line
+            5.9 Average locations per statement
+
+RAM used:   21/383 (5%) at main() level
+            57/383 (15%) worst case
+
+Stack used: 5 worst case (4 in main + 1 for interrupts)
+Stack size: 16
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  185    57  36  Ejercicio6_TP2.c
+    5     0   0  Ejercicio6_TP2.h
+  965     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
+  456   100  64  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+----- -----
+ 1611   157 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     21   2    1             @delay_ms1
+ Inline         3    760  4.5  lcd_read_byte
+0     49   5    2    262  3.7  lcd_read_nibble
+0     55   6    1    399  2.4  lcd_send_nibble
+0     97  10    3    415  3.7  lcd_send_byte
+0     73   8    6    852  6.2  lcd_init
+0     18   2    4    208  6.3  lcd_gotoxy
+0     44   5    1    354  4.7  lcd_putc
+0     13   1    0     96  2.9  Timer0_ISR
+0      5   1    0     22  1.2  EXT_ISR
+0     19   2    0     47  1.5  ISR_ADC
+0     29   3    0     75  1.5  MAIN
+0     65   7    0    396  1.4  Init_GPIO
+0    326  35    0    414  5.9  maquina
+0      1   0    0             @const778
+ Inline         3     67  1.2  @PSTRINGC7_745
+0      5   1    0     65  1.6  @const783
+ Inline         6             @PSTRINGCN7_745
+ Inline        14     65  1.6  @PRINTF_LD_745
+0     24   3    0     67  1.2  Init_ADC
+0     11   1    0     65  1.6  InitTimer0
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               18
+    Statements              157
+    Comments                294
+    Volume (V)              7920
+    Difficulty (D)          54.0
+    Effort to implement (E) 427394
+    Time to implement (T)   6 hours, 36 minutes
+    Est Delivered Bugs (B)  2
+    Cyclomatic Complexity   14
+    Maintainability (MI)    103
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     3  0  
+00003-00003     1  0  
+00004-0004C    73  0  
+0004D-007FF   854  1117  
+00800-00FFF     0  2048  
+
+
+
