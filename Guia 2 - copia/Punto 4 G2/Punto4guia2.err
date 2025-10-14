@@ -1,0 +1,14 @@
+Compiling C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4 G2\Punto4guia2 on 18-sept-25 at 22:05
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4 G2\Punto4guia2.c" Line 1(0,1): Illegal C character in input file  0xD3
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4 G2\Punto4guia2.c" Line 1(0,1): Illegal C character in input file  0x18
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4 G2\Punto4guia2.c" Line 1(0,1): Illegal C character in input file  0x1C
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4 G2\Punto4guia2.c" Line 1(0,1): Illegal C character in input file  0x10
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4 G2\Punto4guia2.c" Line 1(0,1): Illegal C character in input file  0x18
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4 G2\Punto4guia2.c" Line 1(1,2): Illegal C character in input file  0x0E
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4 G2\Punto4guia2.c" Line 1(1,2): Illegal C character in input file  0x0E
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4 G2\Punto4guia2.c" Line 1(1,2): Illegal C character in input file  0xC8
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4 G2\Punto4guia2.c" Line 1(1,2): Illegal C character in input file  0xE3
+*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4 G2\Punto4guia2.c" Line 1(1,2): Illegal C character in input file  0xF6
+*** Error 128 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4 G2\Punto4guia2.c" Line 1(9,10): A #DEVICE required before this line
+      11 Errors,  0 Warnings.
+Build Failed.
