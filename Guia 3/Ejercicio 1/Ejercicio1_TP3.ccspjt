@@ -51,7 +51,7 @@ D3_E=12
 D3_D=0
 D3_L8=[48093]Project Closed.
 D4=14-10-2025
-D4_L=7
+D4_L=9
 D4_L1=[49024]Project Opened.
 D4_L2=[51007]Project Opened.
 D4_L3=[51117]Project Closed.
@@ -59,6 +59,8 @@ D4_L4=[52326]Project Opened.
 D4_L5=[52333]Project Closed.
 D4_L6=[52616]Project Opened.
 D4_L7=[52679]Project Closed.
+D4_L8=[52752]Project Opened.
+D4_L9=[52758]Project Closed.
 
 [Opened Files]
 1=Ejercicio1_TP3.c
