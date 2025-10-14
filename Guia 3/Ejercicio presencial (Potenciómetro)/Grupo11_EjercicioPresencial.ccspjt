@@ -1,0 +1,54 @@
+[PROJECT]
+Target=Grupo11_EjercicioPresencial.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+CCSVersion=5.093
+[Target Data]
+FileList=Grupo11_EjercicioPresencial.c
+[Directories]
+Include=
+[C:\Users\santi\OneDrive\Escritorio\EDI2\TP3\Grupo11_EjercicioPresencial]
+Type=4
+[mru-list]
+1=Grupo11_EjercicioPresencial.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=2
+D1=09-10-2025
+D1_L=6
+D1_L1=[50600]Project Opened.
+D1_L2=[50603]Started Editing.
+D1_L3=[51875]Stopped Editing.
+D1_L4=[52087]Started Editing.
+D1_L5=[52384]Stopped Editing.
+TotalEdit=22
+TotalDebug=0
+D1_E=22
+D1_D=0
+D1_L6=[52384]Project Closed.
+D2=11-10-2025
+D2_L=5
+D2_L1=[45766]Project Opened.
+D2_L2=[47559]Started Editing.
+D2_L3=[49963]Stopped Editing.
+D2_L4=[55743]Started Editing.
+D2_L5=[56398]Stopped Editing.
+
+[Opened Files]
+1=Grupo11_EjercicioPresencial.c
+t1=142
+2=..\TP2\Ejercicio6_TP2.c
+t2=138
+Count=2
+[Grupo11_EjercicioPresencial.c]
+Type=4
+
+[defines]
+buildcount=22
+[Units]
+Count=1
+1=Grupo11_EjercicioPresencial (main)

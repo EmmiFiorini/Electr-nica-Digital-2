@@ -1,0 +1,13 @@
+ÀÄEjercicio1_TP3
+   ÃÄMAIN  0/31  Ram=0
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄ@cinit2  (Inline)  Ram=0
+   ³  ÀÄmaquina  0/222  Ram=3
+   ³     ÃÄ@PSTRINGCN7_9600_106_105  0/86  Ram=5
+   ³     ÃÄ@PSTRINGR_9600_106_105  0/20  Ram=2
+   ³     ÃÄ@PSTRINGCN7_9600_106_105  0/86  Ram=5
+   ³     ÃÄ@PSTRINGR_9600_106_105  0/20  Ram=2
+   ³     ÃÄ@PSTRINGCN7_9600_106_105  0/86  Ram=5
+   ³     ÃÄ@PSTRINGR_9600_106_105  0/20  Ram=2
+   ³     ÀÄ@PSTRINGC7_9600_106_105  (Inline)  Ram=4
+   ÀÄTimer0_ISR  0/13  Ram=0
