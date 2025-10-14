@@ -50,11 +50,13 @@ void maquina();
 
 void main()
 {
-
-   while(TRUE)
-   {
-      maquina();
-   }
+   Init_GPIO();
+   InitTimer0();
+   
+      while(TRUE)
+      {
+         maquina();
+      }
 
 }
 
@@ -74,48 +76,33 @@ void Init_GPIO()
    set_tris_a(0b11111111); 
    set_tris_b(0b00000000);
    
-   output_low(PIN_B0);
-   output_low(PIN_B2);
-   output_low(PIN_B3);
-   output_low(PIN_B4);
-   output_low(PIN_B5);
-   output_low(PIN_B6);
-   output_low(PIN_B7);
-
-   output_low(PIN_A3);
-   output_low(PIN_A4);
-   output_low(PIN_A5);
-   output_low(PIN_A6);
-   output_low(PIN_A7);
-   
    enable_interrupts(GLOBAL);
 }
 
 void maquina(void) {
 
-b1 = input(PIN_A0);
-b2 = input(PIN_A1);
-b3 = input(PIN_A2);
-
    if(flag_segundo == 1) {
+   
+     if(input(PIN_A0)) {
+      printf("Boton 1: PULSADO");
+     }
+     else {
+      printf("Boton 1: NO PULSADO");
+     }
+
+     if(input(PIN_A1)) {
+      printf("Boton 2: PULSADO");
+     }
+     else {
+      printf("Boton 2: NO PULSADO");
+     }
      
-     /*
-      if(b1 == 1)
-         putc('0');
-         
-        if(b1 == 1)
-         putc('0');
-         
-         if(b1 == 1)
-         putc('0');
-     */
-      
-     
-      printf("Boton 1: %s\r\n", (b1 ? "PULSADO" : "NO PULSADO")); //Operador ternario, si b1 = 1 pulsado, b1 = 0 no pulsado
-      printf("Boton 2: %s\r\n", (b2 ? "PULSADO" : "NO PULSADO"));
-      printf("Boton 3: %s\r\n", (b3 ? "PULSADO" : "NO PULSADO"));
-      printf("------------------------\r\n");
-      
+     if(input(PIN_A2)) {
+      printf("Boton 3: PULSADO");
+     }
+     else {
+      printf("Boton 3: NO PULSADO");
+     }
      
       flag_segundo = 0;
    }
