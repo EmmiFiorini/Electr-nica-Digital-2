@@ -1,0 +1,132 @@
+#include <Ejercicio3_main.h>
+
+#include <string.h>
+
+#fuses INTRC_IO   // Oscilador interno con pines RA6 y RA7 como GPIO
+#fuses NOMCLR     // Desactivo el MCLR
+#fuses NOWDT      // Desactivo el watchdog
+/***************************
+ * LCD
+ **************************/
+#define LCD_ENABLE_PIN  PIN_B0
+#define LCD_RS_PIN      PIN_B1
+#define LCD_RW_PIN      PIN_B2 // CONECTADO A GND SI NO LO USAMOS
+#define LCD_DATA4       PIN_B4
+#define LCD_DATA5       PIN_B5
+#define LCD_DATA6       PIN_B6
+#define LCD_DATA7       PIN_B7
+#include <lcd.c>
+
+/***************************
+ * Funciones de Inicializacion de Perifericos
+ **************************/
+void Init_GPIO();
+
+/***************************
+•?  ?Estados
+**************************/
+typedef enum {
+    MostrarMensaje,
+    RotandoMensaje,
+} eEstado;
+
+eEstado estado_actual = MostrarMensaje;
+/***************************
+•?  ?Variables globales
+**************************/
+int contador_ms = 0;
+int flag_segundo = 0;
+int flag_3segundo = 0;
+int posicion = 1;
+int linea = 1;
+char mensaje[] = "EDI2";
+/***************************
+•?  ?Funciones
+**************************/
+void InitTimer0(void);
+void maquina(void);
+
+#INT_TIMER0 // ACA ESCRIBO QUÉ DEBO HACER EN CADA INTERRUPCIÓN
+void Timer0_ISR() {
+  set_timer0(252);
+  contador_ms++;
+  if(contador_ms >= 3) { //PASO 3 SEG
+       contador_ms = 0;
+       flag_3segundo = 1; // aviso que ya pasó el tiempo deseado
+  }
+    if(contador_ms >= 1) {
+       contador_ms = 0;
+       flag_segundo = 1; // aviso que ya pasó el tiempo deseado
+  }
+}
+
+void main()
+{
+Init_GPIO();
+lcd_init();
+InitTimer0();
+
+   while(TRUE) {
+   maquina();
+   }
+
+}
+
+void Init_GPIO()
+{
+/* SETEAMOS LOS PINES PB0-PB7 COMO SALIDA */
+   set_tris_b(0x00);
+   output_low(0x00); // Solo porque no hay entradas
+   
+}
+
+void InitTimer0(void) {
+
+    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256); // Configuro prescaler
+   
+    set_timer0(252);                  // Reinicio el timer --> Interrupciones cada 50ms
+    enable_interrupts(INT_TIMER0);    // Activo Interrupcion timer0
+    enable_interrupts(GLOBAL);        // Activo Interrupciones globales
+}
+
+void maquina() {
+ 
+ switch(estado_actual) {
+ 
+  case MostrarMensaje:
+
+   lcd_gotoxy(1,1);
+   printf(LCD_PUTC,"Rotando mensaje");
+   lcd_gotoxy(1,2);
+   printf(LCD_PUTC,"en LCD 16x2");
+   
+   if(flag_3segundo == 1) {
+   printf(LCD_PUTC,"\f");
+   flag_3segundo = 0;
+   estado_actual = RotandoMensaje;
+   }
+  break;
+ 
+  case RotandoMensaje:
+      
+      if(flag_segundo == 1) {
+         printf(LCD_PUTC,"%s", mensaje);
+         lcd_gotoxy(posicion, linea);
+         printf(LCD_PUTC,"%s", mensaje);
+         posicion++;
+         if(posicion > (8 - strlen(mensaje) + 1)) { // llegó al final de la linea
+            posicion = 1;
+            if(linea == 1)
+               linea = 2;
+            else
+               linea = 1; // vuelve a línea 1
+         }
+      flag_segundo = 0;
+      }
+   break;
+   default:
+   estado_actual = MostrarMensaje;
+ }
+ 
+}
+

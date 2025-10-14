@@ -1,0 +1,43 @@
+[PROJECT]
+Target=C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4 G2\Punto4guia2.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+[Target Data]
+FileList=Punto4guia2.c
+[Directories]
+Include=
+[C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 4 G2\Punto4guia2]
+Type=4
+[mru-list]
+1=Punto4guia2.c
+[Units]
+Count=1
+1=Punto4guia2 (main)
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=2
+D1=18-09-2025
+D1_L=4
+D1_L1=[79089]Project Opened.
+D1_L2=[79187]Started Editing.
+D1_L3=[79510]Stopped Editing.
+TotalEdit=6
+TotalDebug=0
+D1_E=6
+D1_D=0
+D1_L4=[85292]Project Closed.
+D2=19-09-2025
+D2_L=2
+D2_L1=[66453]Project Opened.
+D2_L2=[66533]Project Closed.
+
+[Opened Files]
+1=Punto4guia2.c
+t1=1
+Count=2
+2=Punto4guia2.h
+t2=1
