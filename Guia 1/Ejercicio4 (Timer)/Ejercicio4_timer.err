@@ -1,3 +1,5 @@
-Compiling C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\Ejercicio4_timer on 19-sept-25 at 10:36
->>> Warning 204 "C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\Ejercicio4_timer.c" Line 20(1,1): Condition always FALSE
->>> Warning 204 "C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\Ejercicio4_timer.c" Line 21(1,1): Condition always FALSE
+Compiling C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\Ejercicio4_timer on 26-sept-25 at 12:22
+*** Error 12 "C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\Ejercicio4_timer.c" Line 89(4,10): Undefined identifier   ANSELB
+*** Error 12 "C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\Ejercicio4_timer.c" Line 117(4,9): Undefined identifier   IOCBP
+*** Error 12 "C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\Ejercicio4_timer.c" Line 118(4,9): Undefined identifier   IOCBN
+*** Error 12 "C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 1\Ejercicio4 (Timer)\Ejercicio4_timer.c" Line 119(4,9): Undefined identifier   IOCBF

@@ -1,0 +1,67 @@
+[PROJECT]
+Target=Ejercicio1_TP3.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+CCSVersion=5.093
+[Target Data]
+FileList=Ejercicio1_TP3.c
+[Directories]
+Include=
+[C:\Users\santi\OneDrive\Escritorio\EDI2\TP3\Ejercicio1_TP3]
+Type=4
+[mru-list]
+1=Ejercicio1_TP3.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=3
+D1=23-09-2025
+D1_L=4
+D1_L1=[52480]Project Opened.
+D1_L2=[52597]Started Editing.
+D1_L3=[52899]Stopped Editing.
+TotalEdit=68
+TotalDebug=0
+D1_E=1
+D1_D=0
+D1_L4=[53522]Project Closed.
+D2=30-09-2025
+D2_L=6
+D2_L1=[30497]Project Opened.
+D2_L2=[30766]Started Editing.
+D2_L3=[31944]Stopped Editing.
+D2_L4=[32935]Started Editing.
+D2_L5=[35326]Stopped Editing.
+D2_E=55
+D2_D=0
+D2_L6=[35326]Project Closed.
+D3=07-10-2025
+D3_L=8
+D3_L1=[45260]Project Opened.
+D3_L2=[46112]Started Editing.
+D3_L3=[46700]Stopped Editing.
+D3_L4=[46737]Started Editing.
+D3_L5=[47369]Stopped Editing.
+D3_L6=[47667]Started Editing.
+D3_L7=[48013]Stopped Editing.
+D3_E=12
+D3_D=0
+D3_L8=[48093]Project Closed.
+
+[Opened Files]
+1=Ejercicio1_TP3.c
+t1=89
+2=..\TP2\Ejercicio6_TP2.c
+t2=10
+Count=2
+[Ejercicio1_TP3.c]
+Type=4
+
+[defines]
+buildcount=2
+[Units]
+Count=1
+1=Ejercicio1_TP3 (main)

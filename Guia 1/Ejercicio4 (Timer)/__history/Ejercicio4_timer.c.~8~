@@ -1,0 +1,117 @@
+#include <Ejercicio4_timer.h>
+#fuses INTRC_IO   // Utilizo oscilador interno con pines RA6 y RA7 como GPIO
+#fuses NOMCLR     // Desactivo el MCLR
+#fuses NOWDT      // Desactivo el watchdog
+
+
+volatile int flag_PB4 = 0;        // 1 = PB4 activo temporizador 
+volatile int flag_PB5 = 0;        // 1 = PB5 activo secuencia
+volatile unsigned int contador_PB4 = 0; // contador de Timer0 para PB4
+volatile unsigned int contador_PB5 = 0; // contador de Timer0 para PB5
+
+// prototipos
+void InitGPIO(void);
+void InitTimer0(void);
+void InitInterrupts(void);
+
+
+#INT_TIMER0
+void TIMER0_ISR(void) {
+   set_timer0(12); // recarga para prescaler 256
+
+   if (flag_PB4) {
+      contador_PB4++;
+      if (contador_PB4 >= 8) {    // aprox 0,5s
+         output_low(PIN_B0);   // apaga LED 
+         flag_PB4 = 0;
+         contador_PB4= 0;
+      }
+   }
+
+   if (flag_PB5) {
+      contador_PB5++;
+      if (contador_PB5 == 16) {   // aprox 1 s
+         output_high(PIN_B1);  // prende LED 
+      }
+      if (contador_PB5 == 32) {   // aprox 2 s
+         output_low(PIN_B1);   // apaga LED
+         flag_PB5 = 0;
+         contador_PB5 = 0;
+      }
+   }
+}
+
+#INT_RB
+void RB_ISR(void) {
+   // PB4: prender LED en B0 y apagar 500 ms después 
+   if (input(PIN_B4)) {
+      output_high(PIN_B0);
+      flag_PB4 = 1;
+      contador_PB4 = 0;
+      set_timer0(12); // sincronizo timer
+   }
+
+   // PB5: iniciar secuencia 1s prendo 2s apago en B1
+   if (input(PIN_B5)) {
+      flag_PB5 = 1;    
+      contador_PB5 = 0;
+      set_timer0(12);
+   }
+
+   // PB6: copiar PB0..PB3 a PA0..PA3
+   if (input(PIN_B6)) {
+      if (input(PIN_B0)) output_high(PIN_A0); else output_low(PIN_A0);
+      if (input(PIN_B1)) output_high(PIN_A1); else output_low(PIN_A1);
+      if (input(PIN_B2)) output_high(PIN_A2); else output_low(PIN_A2);
+      if (input(PIN_B3)) output_high(PIN_A3); else output_low(PIN_A3);
+   }
+
+   // PB7: prende los pines B0 a B3
+   if (input(PIN_B7)) {
+      output_high(PIN_B0);
+      output_high(PIN_B1);
+      output_high(PIN_B2);
+      output_high(PIN_B3);
+   }
+
+}
+
+void main(void) {
+   InitGPIO();
+   InitTimer0();
+   InitInterrupts();
+
+   while (TRUE) { }
+}
+
+void InitGPIO(void) {
+   setup_adc_ports(NO_ANALOGS);
+
+ 
+   set_tris_b(0b11110000);
+   set_tris_a(0b11110000);
+
+   // inicializo salidas en 0
+   output_low(PIN_B0);
+   output_low(PIN_B1);
+   output_low(PIN_B2);
+   output_low(PIN_B3);
+
+   output_low(PIN_A0);
+   output_low(PIN_A1);
+   output_low(PIN_A2);
+   output_low(PIN_A3);
+}
+
+void InitTimer0(void) {
+   setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256);
+   set_timer0(12);
+   enable_interrupts(INT_TIMER0);
+   enable_interrupts(GLOBAL);
+}
+
+void InitInterrupts(void) {
+   enable_interrupts(INT_RB);
+   enable_interrupts(GLOBAL);
+}
+

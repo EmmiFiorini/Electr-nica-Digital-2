@@ -1,0 +1,65 @@
+
+ROM used:   787/4096 (19%)
+            787/4096 (19%) including unused fragments
+
+            0.7 Average locations per line
+            11.9 Average locations per statement
+
+RAM used:   24/383 (6%) at main() level
+            47/383 (12%) worst case
+
+Stack used: 2 worst case (1 in main + 1 for interrupts)
+Stack size: 16
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  175    66 100  Grupo11_EjercicioPresencial.c
+    5     0   0  Grupo11_EjercicioPresencial.h
+  965     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
+----- -----
+ 1145    66 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     19   2    0     47  1.5  ISR_ADC
+0     43   5    0    310  3.7  RDA_isr
+0     13   2    0     96  2.9  Timer0_ISR
+0     48   6    0    102  1.6  MAIN
+0     11   1    0     65  1.6  InitTimer0
+0     37   5    0    195  1.4  Init_GPIO
+0     24   3    0     67  1.2  Init_ADC
+0    276  35    1    499  6.4  maquina
+0      9   1    0    195  1.4  @const744
+0     80  10    3    499  6.4  @PSTRINGC7_9600_106_105
+0     14   2    0    499  6.4  @const749
+0      6   1    0             @const750
+0     86  11    5             @PSTRINGCN7_9600_106_105
+ Inline        11             @PRINTF_LD_9600_106_105
+0      6   1    0             @const755
+0     21   3    3             @DIV88
+ Inline         2             @PRINTF_U_9600_106_105
+0     15   2    0             @const762
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               11
+    Statements              66
+    Comments                181
+    Volume (V)              4204
+    Difficulty (D)          33.6
+    Effort to implement (E) 141318
+    Time to implement (T)   2 hours, 11 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   23
+    Maintainability (MI)    111
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     3  0  
+00003-00003     0  1  
+00004-0004F    76  0  
+00050-007FF   708  1260  
+00800-00FFF     0  2048  
+
+
+

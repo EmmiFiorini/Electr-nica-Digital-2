@@ -8,15 +8,17 @@
  * LCD
  ****************************************************************************/
 
-#define LCD_ENABLE_PIN  PIN_B1
-#define LCD_RS_PIN      PIN_B2
-#define LCD_RW_PIN      PIN_B3 // CONECTADO A GND SI NO LO USAMOS
-#define LCD_DATA4       PIN_B4
-#define LCD_DATA5       PIN_B5
-#define LCD_DATA6       PIN_B6
-#define LCD_DATA7       PIN_B7
+#define LCD_ENABLE_PIN  PIN_A1
+#define LCD_RS_PIN      PIN_A2
+#define LCD_RW_PIN      PIN_A3 // CONECTADO A GND SI NO LO USAMOS
+#define LCD_DATA4       PIN_A4
+#define LCD_DATA5       PIN_A5
+#define LCD_DATA6       PIN_A6
+#define LCD_DATA7       PIN_A7
 
 #include <lcd.c>
+
+#define use_portb_kbd TRUE //defino el portb como donde va el teclado
 #include <kbd.c>
 
 /*****************************************************************************
@@ -33,31 +35,35 @@ void InitTimer0(void);
 typedef enum {
     ESCRITURA,
     LECTURA, 
-    STAND_BY
 } eEstado;
 
-eEstado estado_actual = STAND_BY;
+eEstado estado_actual = LECTURA;
 
 /*****************************************************************************
 * Funciones
 ****************************************************************************/
 
 void maquina(void);
-
+int comparadorcontra(void);
 
 /*****************************************************************************
 * Variables globales
 ****************************************************************************/
 
 /* ADC */
-int16 resultado_adc=0;
-int flag_adc = 0;
+/*int16 resultado_adc=0;
+int flag_adc = 0;*/
 
 
 /* TIMER 0 */
 int contador_ms = 0;
 int flag_segundo = 0;
 
+/* TECLAS */
+char tecla;
+ char cont_ing[3]; //donde voy a guardar el dato
+ char contra_real [3]={'2','5','3'}; //la contraseña con la q voy a verificar
+ int contador_boton_pres = 0; //contador de cuantas veces se preciono el boton
 /*****************************************************************************
 * Interrupciones
 ****************************************************************************/
@@ -73,12 +79,12 @@ void Timer0_ISR() {
    contador_ms++;
 }
 
-#INT_AD
+/*#INT_AD
 void ISR_ADC(void) {
    resultado_adc = read_adc(ADC_READ_ONLY);
    flag_adc = 1;
    
-}
+}*/
 
 /*****************************************************************************
 * Main
@@ -89,7 +95,7 @@ void main()
    Init_GPIO();
    lcd_init(); //inicializo el led
    kbd_init();//inicializo el teclado
-   Init_ADC();
+   //Init_ADC();
    InitTimer0();
 
    while(TRUE) {
@@ -99,9 +105,92 @@ void main()
 }
 
 void maquina(void) {
-   switch(estado_actual){
-      case 
-   
-   }
 
+ switch(estado_actual) {
+  
+  case LECTURA:
+     lcd_putc("\f Ingrese clave");
+     //read_adc(ADC_START_ONLY); // SIEMPRE ESTOY LEYENDO HASTA PERO ESPERO AL BOTÓN
+      tecla = kbd_getc(); //leo
+     if(tecla){
+      lcd_putc("\f");
+      lcd_putc(tecla);
+      cont_ing[contador_boton_pres]= tecla;
+      contador_boton_pres++; //cada vez q presiono el boton cuento
+     }
+      if(contador_boton_pres>=3)
+         estado_actual = ESCRITURA;
+       
+  break;
+
+  case ESCRITURA:
+    
+    if(flag_segundo == 1 && contador_boton_pres>=3) {
+      lcd_putc("\f");
+      
+      if(comparadorcontra() == 0 ){
+         printf(LCD_PUTC,"Contraseña Incorrecta");
+      }else{
+         printf(LCD_PUTC,"Contraseña Correcta");
+      }
+      
+      flag_segundo = 0;
+      //flag_adc = 0;
+      contador_boton_pres=0;
+      estado_actual = LECTURA;
+    }
+  break;
+  
+  default:
+  estado_actual = LECTURA;
+
+ }
+}
+
+int comparadorcontra(void){
+   int j;
+   for(j=0;j<3;j++){
+      if(cont_ing[j] != contra_real[j]) //si llego a tener alguno diferente devuelvo 0, sino devuelvo 1
+         return 0;
+   }
+   return 1;
+}
+
+
+
+/*void Init_ADC() {
+
+setup_adc_ports(sAN0);
+setup_adc(ADC_CLOCK_INTERNAL);
+set_adc_channel(0);
+enable_interrupts(INT_AD);
+
+}*/
+
+void InitTimer0(void) {
+
+    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256); // Configuro prescaler
+    
+    set_timer0(61);                  // Reinicio el timer --> Interrupciones cada 50ms
+    enable_interrupts(INT_TIMER0);    // Activo Interrupcion timer0
+    
+}
+
+void Init_GPIO()
+{
+   set_tris_a(0x00);
+   set_tris_b(0xFF);
+
+   output_low(PIN_A1);
+   output_low(PIN_A2);
+   output_low(PIN_A3);
+   output_low(PIN_A4);
+   output_low(PIN_A5);
+   output_low(PIN_A6);
+   output_low(PIN_A7);
+   
+   port_b_pullups(TRUE);
+   
+   enable_interrupts(INT_EXT);
+   enable_interrupts(GLOBAL);
 }

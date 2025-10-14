@@ -1,0 +1,76 @@
+[PROJECT]
+Target=Ejercicio2_TP3_V2.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+CCSVersion=5.093
+[Target Data]
+FileList=Ejercicio2_TP3_V2.c
+[Directories]
+Include=
+[C:\Users\santi\OneDrive\Escritorio\EDI2\TP3\Ejercicio2_TP3_V2]
+Type=4
+[mru-list]
+1=Ejercicio2_TP3_V2.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=3
+D1=07-10-2025
+D1_L=12
+D1_L1=[66844]Project Opened.
+D1_L2=[66849]Started Editing.
+D1_L3=[67784]Stopped Editing.
+D1_L4=[68024]Started Editing.
+D1_L5=[68341]Stopped Editing.
+D1_L6=[68413]Started Editing.
+D1_L7=[68826]Stopped Editing.
+D1_L8=[68846]Started Editing.
+D1_L9=[69359]Stopped Editing.
+D1_L10=[70020]Started Editing.
+D1_L11=[70178]Stopped Editing.
+TotalEdit=357
+TotalDebug=0
+D1_E=19
+D1_D=0
+D1_L12=[70178]Project Closed.
+D2=08-10-2025
+D2_L=8
+D2_L1=[50039]Project Opened.
+D2_L2=[50305]Project Closed.
+D2_L3=[65107]Project Opened.
+D2_L4=[65402]Started Editing.
+D2_L5=[65792]Stopped Editing.
+D2_L6=[67414]Started Editing.
+D2_L7=[67798]Stopped Editing.
+D2_L8=[67813]Started Editing.
+D3=09-10-2025
+D3_L=11
+D3_L1=[1507]Stopped Editing.
+D3_E=338
+D3_D=0
+D3_L2=[1507]Project Closed.
+D3_L3=[43641]Project Opened.
+D3_L4=[44205]Started Editing.
+D3_L5=[44856]Stopped Editing.
+D3_L6=[45791]Started Editing.
+D3_L7=[46700]Stopped Editing.
+D3_L8=[46771]Started Editing.
+D3_L9=[49802]Stopped Editing.
+D3_L10=[49822]Started Editing.
+D3_L11=[50464]Project Closed.
+
+[Opened Files]
+1=Ejercicio2_TP3_V2.c
+t1=175
+Count=1
+[Ejercicio2_TP3_V2.c]
+Type=4
+
+[defines]
+buildcount=50
+[Units]
+Count=1
+1=Ejercicio2_TP3_V2 (main)

@@ -1,0 +1,64 @@
+
+ROM used:   867/4096 (21%)
+            867/4096 (21%) including unused fragments
+
+            0.7 Average locations per line
+            8.8 Average locations per statement
+
+RAM used:   22/383 (6%) at main() level
+            45/383 (12%) worst case
+
+Stack used: 3 worst case (2 in main + 1 for interrupts)
+Stack size: 16
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  212    98 100  Ejercicio2_TP3_V2.c
+    5     0   0  Ejercicio2_TP3_V2.h
+  965     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
+----- -----
+ 1182    98 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0    109  13    0    987  3.9  RDA_isr
+0     14   2    0    112  3.3  Timer0_ISR
+0     50   6    0     68  1.5  MAIN
+0     11   1    0     65  1.6  InitTimer0
+0     11   1    0     67  1.2  Init_GPIO
+0    291  34    5   1223  6.3  maquina
+0      8   1    0     65  1.6  @const741
+0     80   9    3   1223  6.3  @PSTRINGC7_9600_106_105
+0     13   1    0             @const746
+0     12   1    0             @const748
+0     86  10    6             @PSTRINGCN7_9600_106_105
+0     21   2    3             @DIV88
+0     62   7    2             @PRINTF_U_9600_106_105
+0     14   2    0             @const757
+0      5   1    0             @const758
+0      5   1    0             @const759
+0      5   1    0             @const760
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               8
+    Statements              98
+    Comments                179
+    Volume (V)              5312
+    Difficulty (D)          25.7
+    Effort to implement (E) 136361
+    Time to implement (T)   2 hours, 6 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   37
+    Maintainability (MI)    139
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     3  0  
+00003-00003     0  1  
+00004-00046    67  0  
+00047-007FF   797  1180  
+00800-00FFF     0  2048  
+
+
+

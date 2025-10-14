@@ -3,99 +3,117 @@
 #fuses NOMCLR     // Desactivo el MCLR
 #fuses NOWDT      // Desactivo el watchdog
 
-/*****************************************************************************
- * Funciones de Inicializacion de Perifericos
- ****************************************************************************/
-// DEFINO MIS FUNCIONES
-void InitGPIO(void); //inicializo puertas
-void InitTimer0(void); //inicializo timer
-void copiar_pin(int pin_in, int pin_out); //funcion q copia estados
 
-//INTERRUPCIONES
+volatile int flag_PB4 = 0;        // 1 = PB4 activo temporizador 
+volatile int flag_PB5 = 0;        // 1 = PB5 activo secuencia
+volatile unsigned int contador_PB4 = 0; // contador de Timer0 para PB4
+volatile unsigned int contador_PB5 = 0; // contador de Timer0 para PB5
+
+// prototipos
+void InitGPIO(void);
+void InitTimer0(void);
+void InitInterrupts(void);
+
+
 #INT_TIMER0
-void TIMER0_ISR() {
-   static int contador = 0; //contador de interrupciones
-   set_timer0(100);   // Reinicio el timer 0
-   contador++;
-   if(contador >= 500){ //paso 1s
-      if(PIN_B1==0)
-         output_high(PIN_B1);
-      else
-         output_low(PIN_B1);
-      contador = 0; //reinicio el contador
+void TIMER0_ISR(void) {
+   set_timer0(12); // recarga para prescaler 256
+
+   if (flag_PB4) {
+      contador_PB4++;
+      if (contador_PB4 >= 8) {    // aprox 0,5s
+         output_low(PIN_B0);   // apaga LED 
+         flag_PB4 = 0;
+         contador_PB4= 0;
+      }
+   }
+
+   if (flag_PB5) {
+      contador_PB5++;
+      if (contador_PB5 == 16) {   // aprox 1 s
+         output_high(PIN_B1);  // prende LED 
+      }
+      if (contador_PB5 == 32) {   // aprox 2 s
+         output_low(PIN_B1);   // apaga LED
+         flag_PB5 = 0;
+         contador_PB5 = 0;
+      }
    }
 }
 
-//MAIN:
-void main (void){
+#INT_IOC
+void IOC_ISR(void) {
+   // PB4: prender LED en B0 y apagar 500 ms después 
+   if (input(PIN_B4)) {
+      output_high(PIN_B0);
+      flag_PB4 = 1;
+      contador_PB4 = 0;
+      set_timer0(12); // sincronizo timer
+   }
+
+   // PB5: iniciar secuencia 1s prendo 2s apago en B1
+   if (input(PIN_B5)) {
+      flag_PB5 = 1;    
+      contador_PB5 = 0;
+      set_timer0(12);
+   }
+
+   // PB6: copiar PB0..PB3 a PA0..PA3
+   if (input(PIN_B6)) {
+      if (input(PIN_B0)) output_high(PIN_A0); else output_low(PIN_A0);
+      if (input(PIN_B1)) output_high(PIN_A1); else output_low(PIN_A1);
+      if (input(PIN_B2)) output_high(PIN_A2); else output_low(PIN_A2);
+      if (input(PIN_B3)) output_high(PIN_A3); else output_low(PIN_A3);
+   }
+
+   // PB7: prende los pines B0 a B3
+   if (input(PIN_B7)) {
+      output_high(PIN_B0);
+      output_high(PIN_B1);
+      output_high(PIN_B2);
+      output_high(PIN_B3);
+   }
+
+}
+
+void main(void) {
    InitGPIO();
-   while (TRUE) {
-      if (input(PIN_B4)) {
-         output_high(PIN_B0); // Prende LED 
-         delay_ms(500); // Espera 500 ms 
-         output_low(PIN_B0); // Apaga LED 
-      }
-      if (input(PIN_B5)) {
+   InitTimer0();
+   InitInterrupts();
 
-      }
-      if (input(PIN_B6)) {
-         copiar_pin(PIN_A0,PIN_B0);
-         copiar_pin(PIN_A1,PIN_B1);
-         copiar_pin(PIN_A2,PIN_B2);
-         copiar_pin(PIN_A3,PIN_B3);
-      }
-      if (input(PIN_B7)) {
-   
-         output_high(PIN_B0); // Prende LED 
-         output_high(PIN_A0);
-         delay_ms(500); // Espera 500 ms 
-         output_low(PIN_B0); // Apaga LED 
-         output_low(PIN_A0);
-      
-         output_high(PIN_B1); // Prende LED 
-         output_low(PIN_A1);
-         delay_ms(500); // Espera 500 ms 
-         output_low(PIN_B1); // Apaga LED 
-         output_low(PIN_A1);
-      
-         output_high(PIN_B2); // Prende LED 
-         output_low(PIN_A2);
-         delay_ms(500); // Espera 500 ms 
-         output_low(PIN_B2); // Apaga LED 
-         output_low(PIN_A2);
-      
-         output_high(PIN_B3); // Prende LED 
-         output_low(PIN_A3);
-         delay_ms(500); // Espera 500 ms 
-         output_low(PIN_B3); // Apaga LED 
-         output_low(PIN_A3);
-      }
-   }
+   while (TRUE) { }
 }
 
+void InitGPIO(void) {
 
-//INICIALIZO FUNCIONES
-void copiar_pin(int pin_in, int pin_out){
-   int estado;
-   estado = input(pin_in);         // Leo la entrada
-   output_bit(pin_out, estado);    // Copio a la salida
+
+   setup_adc_ports(NO_ANALOGS);
+
+ 
+   set_tris_b(0b11110000);
+   set_tris_a(0b11110000);
+
+   // inicializo salidas en 0
+   output_low(PIN_B0);
+   output_low(PIN_B1);
+   output_low(PIN_B2);
+   output_low(PIN_B3);
+
+   output_low(PIN_A0);
+   output_low(PIN_A1);
+   output_low(PIN_A2);
+   output_low(PIN_A3);
 }
 
-void InitGPIO(void){
-   set_tris_b(0b11111111); // RB7–RB0 entradas
-   set_tris_a(0b11110000); // RA7–RA4 entradas, RA3–RA0 salidas
-
-
-   // Inicializo salidas en 0
-   output_b(0x00);
-   output_a(0x00);
-}
-
-void InitTimer0(void){
-   setup_timer_0(RTCC_INTERNAL | RTCC_8_BIT | RTCC_DIV_8); // Timer0 interno con prescaler 1:8
-   set_timer0(100); // precarga inicial
+void InitTimer0(void) {
+   setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256);
+   set_timer0(12);
    enable_interrupts(INT_TIMER0);
    enable_interrupts(GLOBAL);
 }
 
+void InitInterrupts(void) {
+   enable_interrupts(INT_IOC); 
+   enable_interrupts(GLOBAL);
+}
 

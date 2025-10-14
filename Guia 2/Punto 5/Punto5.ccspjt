@@ -1,8 +1,9 @@
 [PROJECT]
-Target=C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 5\Punto5.hex
+Target=Punto5.hex
 Processor_Text=PIC16F1827
 CCSVerions=5.093
 Compiler=PCM
+CCSVersion=5.093
 [Target Data]
 FileList=Punto5.c
 [Directories]
@@ -11,9 +12,6 @@ Include=
 Type=4
 [mru-list]
 1=Punto5.c
-[Units]
-Count=1
-1=Punto5 (main)
 
 [fileformats]
 forcecoff=0
@@ -21,16 +19,26 @@ forcecoff=0
 [ProjectLog]
 Days=1
 D1=19-09-2025
-D1_L=3
+D1_L=5
 D1_L1=[66533]Project Opened.
 D1_L2=[66556]Started Editing.
 D1_L3=[67343]Project Closed.
+D1_L4=[72561]Project Opened.
+D1_L5=[72773]Started Editing.
 
 [Opened Files]
-1=..\Punto 6\Ejercicio6_TP2.c
-t1=23
-2=..\Punto 6\Ejercicio6_TP2.c
-t2=23
+1=Punto5.c
+t1=117
+2=..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd.c
+t2=22
+Count=3
+3=..\Punto 4\Ejercicio4_TP2.c
+t3=88
+[Punto5.c]
+Type=4
+
+[defines]
+buildcount=6
+[Units]
 Count=1
-3=..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd.c
-t3=22
+1=Punto5 (main)
