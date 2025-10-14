@@ -17,7 +17,7 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=3
+Days=4
 D1=23-09-2025
 D1_L=4
 D1_L1=[52480]Project Opened.
@@ -50,6 +50,9 @@ D3_L7=[48013]Stopped Editing.
 D3_E=12
 D3_D=0
 D3_L8=[48093]Project Closed.
+D4=14-10-2025
+D4_L=1
+D4_L1=[49024]Project Opened.
 
 [Opened Files]
 1=Ejercicio1_TP3.c
