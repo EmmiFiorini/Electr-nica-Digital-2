@@ -4,26 +4,26 @@
 
 
 
-// CONFIGURACIÓN I2C
+// =================== CONFIGURACIÓN I2C ===================
 #use i2c(MASTER, SDA=PIN_B1, SCL=PIN_B4, FAST=100000)
 
 // dirección de PCF8574 
 #define I2C_LCD_DIR 0x40   
 
-// PINES DEL LCD 
+// =================== PINES DEL LCD ===================
 #define LCD_RS  0x01   // bit 0 ? RS
 #define LCD_RW  0x02   // bit 1 ? RW
 #define LCD_EN  0x04   // bit 2 ? enable
 // bits 4–7 ? D4–D7
 
-// PROTOTIPOS 
+// =================== PROTOTIPOS ===================
 void i2c_enviar_byte(int8 dato);
 void lcd_enviar_4bits(int8 nibble, int1 es_texto);
 void lcd_comando(int8 comando);
 void lcd_texto(char letra);
 void lcd_iniciar(void);
 
-
+// =================================================
 void main() {
 
    lcd_iniciar();                  // inicializo el LCD
@@ -39,8 +39,9 @@ void main() {
    }
 }
 
-
+// =================================================
 // FUNCIONES
+// =================================================
 
 // envía un byte por I2C al PCF8574
 void i2c_enviar_byte(int8 dato) {
@@ -57,7 +58,7 @@ void lcd_enviar_4bits(int8 nibble, int1 es_texto) {
    // alineo nibble con los pines de datos D4–D7
    byte_i2c = (nibble << 4);
 
-   // texto: activo RS
+   // texto --> activo RS
    if(es_texto)
       byte_i2c |= LCD_RS;
 

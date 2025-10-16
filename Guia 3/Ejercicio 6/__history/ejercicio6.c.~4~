@@ -123,8 +123,8 @@ float leer_temperatura_LM75(void) {
    i2c_write(0x00);          // registro de temperatura
    i2c_start();              // repetir start para leer
    i2c_write(LM75_ADDR | 1); // dirección + bit de lectura
-   msb = i2c_read();         // 
-   lsb = i2c_read(0);        //  último byte
+   msb = i2c_read();         // parte alta
+   lsb = i2c_read(0);        // parte baja (último byte)
    i2c_stop();
 
    // LM75: 9 bits -> cada bit = 0.5°C

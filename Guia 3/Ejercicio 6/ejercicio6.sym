@@ -1,0 +1,175 @@
+004-005 @READ_PACKED_MEMORY.P1
+004-005 @WRITE_PACKED_MEMORY.P2
+004-005 @READ_PROGRAM_MEMORY8.P3
+004-005 @WRITE_PROGRAM_MEMORY8.P4
+006-007 @READ_PACKED_MEMORY.P1
+006-007 @WRITE_PACKED_MEMORY.P2
+020-021 @sprintf_string
+022-025 main.temperatura
+026-029 @PRINTF_L32D_725FPFPF.P1
+026-029 lcd_mostrar_float.num
+026     lcd_comando.comando
+026     leer_temperatura_LM75.msb
+026     @PSTRINGCN7_725.P1
+026     main.@SCRATCH1
+027     leer_temperatura_LM75.lsb
+027     @delay_ms1.P1
+027     lcd_comando.@SCRATCH1
+028-02B leer_temperatura_LM75.temperatura
+028     @PSTRINGC7_738.@SCRATCH1
+028     @PSTRINGC7_725.@SCRATCH1
+028     @PSTRINGCN7_725.@SCRATCH1
+029     @PSTRINGC7_738.@SCRATCH2
+029     @PSTRINGC7_725.@SCRATCH2
+029     @PSTRINGCN7_725.@SCRATCH2
+02A     @PRINTF_L32D_725FPFPF.P1
+02A     lcd_mostrar_float.entero
+02A     @PSTRINGC7_738.@SCRATCH3
+02A     @PSTRINGC7_725.@SCRATCH3
+02A     @PSTRINGCN7_725.@SCRATCH3
+02B     lcd_mostrar_float.decimales
+02C-02F @SFTOI.P1
+02C     @PRINTF_U_738.P2
+02C-02F @ADDFF.P3
+02C-02D @ITOF.P4
+02C     @I2C_READU_129.P5
+02C     lcd_mostrar_float.@SCRATCH1
+02D     @PRINTF_U_738.P1
+02D     lcd_mostrar_float.@SCRATCH2
+02E     @DIV88.P1
+02E     lcd_texto.letra
+02E     lcd_mostrar_float.@SCRATCH3
+02F     @DIV88.P1
+02F     lcd_texto.@SCRATCH1
+02F     lcd_mostrar_float.@SCRATCH4
+030     lcd_enviar_4bits.nibble
+030-033 @ADDFF.P1
+030     @PRINTF_L32D_725FPFPF.@SCRATCH1
+030     @DIV88.@SCRATCH1
+031     lcd_enviar_4bits.es_texto
+031     @PRINTF_L32D_725FPFPF.@SCRATCH2
+032     lcd_enviar_4bits.byte_i2c
+032     @PRINTF_L32D_725FPFPF.@SCRATCH3
+033     @PRINTF_L32D_725FPFPF.@SCRATCH4
+033     lcd_enviar_4bits.@SCRATCH1
+034     i2c_enviar_byte_LCD.dato
+034     @PRINTF_L32D_725FPFPF.@SCRATCH5
+035     @I2C_WRITEU_129.P1
+035     @PRINTF_L32D_725FPFPF.@SCRATCH6
+036     @PRINTF_L32D_725FPFPF.@SCRATCH7
+037     @PRINTF_L32D_725FPFPF.@SCRATCH8
+038     @PUTCHAR_1_.P1
+038-03B @DIV3232.P2
+038-03B @FTOSD.P3
+038-03B @MULFF.P4
+038     @ADDFF.@SCRATCH1
+039     @ADDFF.@SCRATCH2
+03A     @ADDFF.@SCRATCH3
+03B     @ADDFF.@SCRATCH4
+03C-03F @DIV3232.P1
+03C-03F @MULFF.P2
+03C     @FTOSD.@SCRATCH1
+03C     @ADDFF.@SCRATCH5
+03D     @ADDFF.@SCRATCH6
+03E     @ADDFF.@SCRATCH7
+03F     @ADDFF.@SCRATCH8
+043     @MULFF.@SCRATCH1
+043     @DIV3232.@SCRATCH1
+044     @MULFF.@SCRATCH2
+044     @DIV3232.@SCRATCH2
+045     @MULFF.@SCRATCH3
+045     @DIV3232.@SCRATCH3
+046     @MULFF.@SCRATCH4
+046     @DIV3232.@SCRATCH4
+047     @MULFF.@SCRATCH5
+047     @DIV3232.@SCRATCH5
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+111.6   C1OUT
+113.6   C2OUT
+191-192 @WRITE_PROGRAM_MEMORY8.P1
+191-192 @READ_PROGRAM_MEMORY8.P2
+291     CCP_1
+291     CCP_1_LOW
+292     CCP_1_HIGH
+298     CCP_2_LOW
+298     CCP_2
+299     CCP_2_HIGH
+311     CCP_3
+311     CCP_3_LOW
+312     CCP_3_HIGH
+318     CCP_4
+318     CCP_4_LOW
+319     CCP_4_HIGH
+
+ROM Allocation:
+000003  @const748.call
+00000A  @const753.call
+000017  @const755.call
+00001B  @const757.call
+000026  @delay_ms1
+00003C  @I2C_WRITEU_129
+000050  i2c_enviar_byte_LCD
+000061  lcd_enviar_4bits
+000077  lcd_comando
+000087  lcd_iniciar
+0000BA  lcd_texto
+0000CD  @PSTRINGC7_738
+000117  @PUTCHAR_1_
+00013D  @PSTRINGC7_725
+000188  @I2C_READU_129
+000198  @ITOF
+0001B5  @ADDFF
+0002F7  leer_temperatura_LM75
+000346  @SFTOI
+000365  @MULFF
+0003DA  @DIV88
+0003EF  @PRINTF_U_738
+000424  lcd_mostrar_float
+000476  @PSTRINGCN7_725
+0004C7  @DIV3232
+000514  @PRINTF_L32D_725FPFPF
+00053B  @FTOSD
+0005F6  @cinit1
+0005F6  main
+000614  @cinit2
+
+Project Directory:
+    C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 3\Ejercicio 6\
+
+Project Files:
+    ejercicio6.c                                            [16-oct-25 19:18  CRC=EBB2239E]
+    ejercicio6.h                                            [16-oct-25 18:39  CRC=00000000]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb-20 15:48  CRC=D6A5AF9F]
+
+Source signature=98FD82DC
+Program memory checksum=0000
+Hex file CRC=FA4C
+
+Units:
+    C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 3\Ejercicio 6\ejercicio6 (main)
+
+Compiler Settings:
+    Processor:      PIC16F1827
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Enhanced 16:    Yes
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   ejercicio6.xsym
+    Errors:      ejercicio6.err
+    Ext Symbols: ejercicio6.esym
+    INHX8:       ejercicio6.hex
+    Symbols:     ejercicio6.sym
+    List:        ejercicio6.lst
+    Debug/COFF:  ejercicio6.cof
+    Project:     ejercicio6.ccspjt
+    Call Tree:   ejercicio6.tre
+    Statistics:  ejercicio6.STA

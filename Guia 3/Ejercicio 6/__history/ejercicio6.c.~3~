@@ -104,7 +104,7 @@ void lcd_iniciar(void) {
    delay_ms(2);
 }
 
-// función para mostrar un número flotante en el LCD
+// Función para mostrar un número flotante en el LCD
 void lcd_mostrar_float(float num) {
    int8 entero = (int8)num;
    int8 decimales = (int8)((num - entero) * 100);
@@ -119,12 +119,12 @@ float leer_temperatura_LM75(void) {
    float temperatura;
 
    i2c_start();
-   i2c_write(LM75_ADDR);     // dirección + bit de escritura
-   i2c_write(0x00);          // registro de temperatura
-   i2c_start();              // repetir start para leer
-   i2c_write(LM75_ADDR | 1); // dirección + bit de lectura
-   msb = i2c_read();         // 
-   lsb = i2c_read(0);        //  último byte
+   i2c_write(LM75_ADDR);     // Dirección + bit de escritura
+   i2c_write(0x00);          // Registro de temperatura
+   i2c_start();              // Repetir start para leer
+   i2c_write(LM75_ADDR | 1); // Dirección + bit de lectura
+   msb = i2c_read();         // Parte alta
+   lsb = i2c_read(0);        // Parte baja (último byte)
    i2c_stop();
 
    // LM75: 9 bits -> cada bit = 0.5°C
