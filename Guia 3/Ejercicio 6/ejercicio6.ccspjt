@@ -1,0 +1,26 @@
+[PROJECT]
+Target=C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 3\Ejercicio 6\ejercicio6.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+[Target Data]
+FileList=ejercicio6.c
+[Directories]
+Include=
+[C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 3\Ejercicio 6\ejercicio6]
+Type=4
+[mru-list]
+1=ejercicio6.c
+[Units]
+Count=1
+1=ejercicio6 (main)
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=16-10-2025
+D1_L=2
+D1_L1=[67145]Project Opened.
+D1_L2=[67174]Project Closed.
