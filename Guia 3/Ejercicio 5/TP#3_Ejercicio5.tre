@@ -1,5 +1,5 @@
 ÀÄTP#3_Ejercicio5
-   ÃÄMAIN  0/167  Ram=1
+   ÃÄMAIN  0/196  Ram=1
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄ@cinit2  (Inline)  Ram=0
    ³  ÃÄInit_GPIO  0/17  Ram=0
@@ -37,17 +37,17 @@
    ³  ³  ÀÄ*
    ³  ÃÄlcd_putc  0/44  Ram=1
    ³  ³  ÀÄ*
-   ³  ÃÄlcd_putc  0/44  Ram=1
-   ³  ³  ÀÄ*
-   ³  ÃÄleer_max128_channel  0/54  Ram=3
+   ³  ÃÄleer_max128_channel  0/290  Ram=3
    ³  ³  ÃÄ@I2C_WRITEU_129  0/20  Ram=1
    ³  ³  ÃÄ@I2C_WRITEU_129  0/20  Ram=1
    ³  ³  ÃÄ@I2C_WRITEU_129  0/20  Ram=1
    ³  ³  ÃÄ@I2C_READU_129  0/16  Ram=1
-   ³  ³  ÀÄ@I2C_READU_129  0/16  Ram=1
-   ³  ÃÄleer_max128_channel  0/54  Ram=3
+   ³  ³  ÃÄ@I2C_READU_129  0/16  Ram=1
+   ³  ³  ÃÄ@ITOF  (Inline)  Ram=2
+   ³  ³  ÀÄ@DIVFF  (Inline)  Ram=19
+   ³  ÃÄleer_max128_channel  0/290  Ram=3
    ³  ³  ÀÄ*
-   ³  ÃÄleer_max128_channel  0/54  Ram=3
+   ³  ÃÄleer_max128_channel  0/290  Ram=3
    ³  ³  ÀÄ*
    ³  ÃÄlcd_gotoxy  0/18  Ram=4
    ³  ³  ÀÄ*
@@ -57,9 +57,11 @@
    ³  ³  ÀÄ*
    ³  ÃÄlcd_putc  0/44  Ram=1
    ³  ³  ÀÄ*
-   ³  ÃÄ@PRINTF_LU_745  0/101  Ram=10
-   ³  ³  ÀÄlcd_putc  0/44  Ram=1
-   ³  ³     ÀÄ*
+   ³  ÃÄ@PRINTF_L32U_745  0/88  Ram=18
+   ³  ³  ÃÄ@DIV3232  0/77  Ram=15
+   ³  ³  ÃÄlcd_putc  0/44  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄ@DIV3232  0/77  Ram=15
    ³  ÃÄ@delay_ms1  0/22  Ram=1
    ³  ÃÄlcd_gotoxy  0/18  Ram=4
    ³  ³  ÀÄ*
@@ -69,7 +71,7 @@
    ³  ³  ÀÄ*
    ³  ÃÄlcd_putc  0/44  Ram=1
    ³  ³  ÀÄ*
-   ³  ÃÄ@PRINTF_LU_745  0/101  Ram=10
+   ³  ÃÄ@PRINTF_L32U_745  0/88  Ram=18
    ³  ³  ÀÄ*
    ³  ÃÄ@delay_ms1  0/22  Ram=1
    ³  ÃÄlcd_gotoxy  0/18  Ram=4
@@ -80,7 +82,7 @@
    ³  ³  ÀÄ*
    ³  ÃÄlcd_putc  0/44  Ram=1
    ³  ³  ÀÄ*
-   ³  ÃÄ@PRINTF_LU_745  0/101  Ram=10
+   ³  ÃÄ@PRINTF_L32U_745  0/88  Ram=18
    ³  ³  ÀÄ*
    ³  ÀÄ@delay_ms1  0/22  Ram=1
    ÀÄTimer0_ISR  0/13  Ram=0

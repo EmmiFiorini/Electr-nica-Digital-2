@@ -40,7 +40,7 @@ double leer_max128_channel(int channel);
 ****************************************************************************/
 
 /* ADC */
-double resultado_adc = 0;
+int16 resultado_adc = 0;
 double dx_val = 0;
 double dy_val = 0;
 double dz_val = 0;

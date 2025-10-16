@@ -11,10 +11,10 @@
 #define LCD_ENABLE_PIN  PIN_A0
 #define LCD_RS_PIN      PIN_A1
 #define LCD_RW_PIN      PIN_A2 // CONECTADO A GND SI NO LO USAMOS
-#define LCD_DATA4       PIN_A3
-#define LCD_DATA5       PIN_A4
-#define LCD_DATA6       PIN_A7
-#define LCD_DATA7       PIN_A6
+#define LCD_DATA4       PIN_A4
+#define LCD_DATA5       PIN_A5
+#define LCD_DATA6       PIN_A6
+#define LCD_DATA7       PIN_A7
 
 #include <lcd.c>
 
@@ -32,7 +32,7 @@
 
 void InitTimer0(void);
 void Init_GPIO(void);
-double leer_max128_channel(int channel);
+int16 leer_max128_channel(int channel);
 
 
 /*****************************************************************************
@@ -40,10 +40,10 @@ double leer_max128_channel(int channel);
 ****************************************************************************/
 
 /* ADC */
-double resultado_adc = 0;
-double dx_val = 0;
-double dy_val = 0;
-double dz_val = 0;
+int16 resultado_adc = 0;
+int16 dx_val = 0;
+int16 dy_val = 0;
+int16 dz_val = 0;
 
 /* TIMER 0 */
 int contador_ms = 0;
@@ -118,16 +118,16 @@ void Init_GPIO()
 }
 
 // Funcion para leer un canal del MAX128 y devolver un valor de 12 bits (0-4095)
-double leer_max128_channel(int8 control_byte) {
+    int16 leer_max128_channel(int8 control_byte) {
     int8 msb, lsb; // Most y Least Significant Bit
 
     //  Iniciar conversión
     i2c_start();
     i2c_write(MAX128_ADDR_W);       // Dirección de escritura
-    i2c_write(control_byte);   // Envío del byte de control
+    i2c_write(control_byte);        // Envío del byte de control
     i2c_start();
     i2c_write(MAX128_ADDR_R);
-    msb = i2c_read();
+    msb = i2c_read(1);
     lsb = i2c_read(0);
     i2c_stop();
 

@@ -1,51 +1,68 @@
-004-005 @READ_PACKED_MEMORY.P1
-004-005 @WRITE_PACKED_MEMORY.P2
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PACKED_MEMORY.P2
 004-005 @READ_PROGRAM_MEMORY8.P3
-004-005 @WRITE_PROGRAM_MEMORY8.P4
-006-007 @READ_PACKED_MEMORY.P1
-006-007 @WRITE_PACKED_MEMORY.P2
+004-005 @WRITE_PACKED_MEMORY.P4
+006-007 @WRITE_PACKED_MEMORY.P1
+006-007 @READ_PACKED_MEMORY.P2
 020     @INTERRUPT_AREA
 021     @INTERRUPT_AREA
 022     @INTERRUPT_AREA
 023     @INTERRUPT_AREA
-024-025 resultado_adc
-026-027 dx_val
-028-029 dy_val
-02A-02B dz_val
-02C     contador_ms
-02D     flag_segundo
-02E     leer_max128_channel.control_byte
-02E-02F @PRINTF_LU_745.P1
-02E     lcd_init.i
-02E     MAIN.@SCRATCH1
-02F     leer_max128_channel.msb
-02F-032 lcd_init.LCD_INIT_STRING
-030     leer_max128_channel.lsb
-031     @I2C_READU_129.P1
-031     @I2C_WRITEU_129.P2
-031     @PRINTF_LU_745.@SCRATCH1
-032     @PRINTF_LU_745.@SCRATCH2
-033     lcd_init.@SCRATCH1
-033     @PRINTF_LU_745.@SCRATCH3
-034     @PRINTF_LU_745.@SCRATCH4
-035     @PRINTF_LU_745.@SCRATCH5
-036     @PRINTF_LU_745.@SCRATCH6
-037     @PRINTF_LU_745.@SCRATCH7
-038     lcd_putc.c
-039     @delay_ms1.P1
-039     lcd_gotoxy.x
-03A     lcd_gotoxy.y
-03B     lcd_gotoxy.address
-03C     lcd_gotoxy.@SCRATCH1
-03D     lcd_send_byte.address
-03E     lcd_send_byte.n
-03F     lcd_read_byte.low
-03F     lcd_send_byte.@SCRATCH1
-040     lcd_send_nibble.n
-040     lcd_read_byte.high
-041     lcd_read_nibble.n
-041     lcd_read_byte.@SCRATCH1
-042     lcd_read_nibble.@SCRATCH1
+024-027 resultado_adc
+028-02B dx_val
+02C-02F dy_val
+030-033 dz_val
+034     contador_ms
+035     flag_segundo
+036     leer_max128_channel.control_byte
+036     lcd_init.i
+036-039 @PRINTF_L32U_745.P1
+036     MAIN.@SCRATCH1
+037     leer_max128_channel.msb
+037-03A lcd_init.LCD_INIT_STRING
+038     leer_max128_channel.lsb
+039     @I2C_READU_129.P1
+039-03A @ITOF.P2
+039     @I2C_WRITEU_129.P3
+039-03C @DIVFF.P4
+03B     lcd_init.@SCRATCH1
+03D-040 @DIVFF.P1
+040     @PRINTF_L32U_745.@SCRATCH1
+041     @PRINTF_L32U_745.@SCRATCH2
+042     @PRINTF_L32U_745.@SCRATCH3
+043     @PRINTF_L32U_745.@SCRATCH4
+044     @PRINTF_L32U_745.@SCRATCH5
+045     @PRINTF_L32U_745.@SCRATCH6
+046     @PRINTF_L32U_745.@SCRATCH7
+046     @DIVFF.@SCRATCH1
+047     @PRINTF_L32U_745.@SCRATCH8
+047     @DIVFF.@SCRATCH2
+048     lcd_putc.c
+048-04B @DIV3232.P1
+048     @DIVFF.@SCRATCH3
+049     @delay_ms1.P1
+049     lcd_gotoxy.x
+049     @DIVFF.@SCRATCH4
+04A     lcd_gotoxy.y
+04A     @DIVFF.@SCRATCH5
+04B     lcd_gotoxy.address
+04B     @DIVFF.@SCRATCH6
+04C-04F @DIV3232.P1
+04C     lcd_gotoxy.@SCRATCH1
+04D     lcd_send_byte.address
+04E     lcd_send_byte.n
+04F     lcd_read_byte.low
+04F     lcd_send_byte.@SCRATCH1
+050     lcd_read_byte.high
+050     lcd_send_nibble.n
+051     lcd_read_nibble.n
+051     lcd_read_byte.@SCRATCH1
+052     lcd_read_nibble.@SCRATCH1
+052     @DIV3232.@SCRATCH1
+053     @DIV3232.@SCRATCH2
+054     @DIV3232.@SCRATCH3
+055     @DIV3232.@SCRATCH4
+056     @DIV3232.@SCRATCH5
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -55,14 +72,14 @@
 113.6   C2OUT
 191-192 @WRITE_PROGRAM_MEMORY8.P1
 191-192 @READ_PROGRAM_MEMORY8.P2
-291     CCP_1
 291     CCP_1_LOW
+291     CCP_1
 292     CCP_1_HIGH
-298     CCP_2
 298     CCP_2_LOW
+298     CCP_2
 299     CCP_2_HIGH
-311     CCP_3
 311     CCP_3_LOW
+311     CCP_3
 312     CCP_3_HIGH
 318     CCP_4
 318     CCP_4_LOW
@@ -83,23 +100,26 @@ ROM Allocation:
 0001AF  @I2C_WRITEU_129
 0001C3  @I2C_READU_129
 0001D3  leer_max128_channel
-000209  @PRINTF_LU_745
-00026E  @cinit1
-00026E  MAIN
-000290  @cinit2
+0001FA  @ITOF
+00022B  @DIVFF
+0002F5  @DIV3232
+000342  @PRINTF_L32U_745
+00039A  @cinit1
+00039A  MAIN
+0003C4  @cinit2
 
 Project Directory:
     C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 3\Ejercicio 5\
 
 Project Files:
-    TP#3_Ejercicio5.c                                       [16-oct.-25 14:19  CRC=1028844D]
-    TP#3_Ejercicio5.h                                       [16-oct.-25 10:59  CRC=00000000]
+    TP#3_Ejercicio5.c                                       [16-oct.-25 14:50  CRC=B955323C]
+    TP3_Ejercicio5.h                                        [16-oct.-25 10:59  CRC=00000000]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb.-20 15:48  CRC=D6A5AF9F]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb.-16 09:05  CRC=D1A6378A]
 
-Source signature=8A1AA300
+Source signature=334750EF
 Program memory checksum=0000
-Hex file CRC=6A75
+Hex file CRC=4A18
 
 Units:
     C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 3\Ejercicio 5\TP#3_Ejercicio5 (main)
