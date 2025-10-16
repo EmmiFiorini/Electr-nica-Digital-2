@@ -19,7 +19,7 @@ forcecoff=0
 [ProjectLog]
 Days=1
 D1=16-10-2025
-D1_L=4
+D1_L=5
 D1_L1=[40414]Project Opened.
 D1_L2=[40544]Started Editing.
 D1_L3=[40847]Stopped Editing.
@@ -28,6 +28,7 @@ TotalDebug=0
 D1_E=6
 D1_D=0
 D1_L4=[40847]Project Closed.
+D1_L5=[41511]Project Opened.
 
 [Opened Files]
 1=ejercicio4.c
