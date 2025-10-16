@@ -6,11 +6,11 @@
 006-007 @WRITE_PACKED_MEMORY.P2
 020-021 @sprintf_string
 022     lcd_comando.comando
-022     @PSTRINGC7_736.@SCRATCH1
-023     @delay_ms2.P1
-023     @PSTRINGC7_736.@SCRATCH2
+022     @PSTRINGC7_732.@SCRATCH1
+023     @delay_ms1.P1
+023     @PSTRINGC7_732.@SCRATCH2
 023     lcd_comando.@SCRATCH1
-024     @PSTRINGC7_736.@SCRATCH3
+024     @PSTRINGC7_732.@SCRATCH3
 025     lcd_texto.letra
 026     lcd_texto.@SCRATCH1
 027     lcd_enviar_4bits.nibble
@@ -26,13 +26,13 @@
 07A     @SCRATCH
 111.6   C1OUT
 113.6   C2OUT
-191-192 @READ_PROGRAM_MEMORY8.P1
-191-192 @WRITE_PROGRAM_MEMORY8.P2
+191-192 @WRITE_PROGRAM_MEMORY8.P1
+191-192 @READ_PROGRAM_MEMORY8.P2
 291     CCP_1_LOW
 291     CCP_1
 292     CCP_1_HIGH
-298     CCP_2_LOW
 298     CCP_2
+298     CCP_2_LOW
 299     CCP_2_HIGH
 311     CCP_3
 311     CCP_3_LOW
@@ -42,16 +42,16 @@
 319     CCP_4_HIGH
 
 ROM Allocation:
-000003  @const742.call
-000009  @const747.call
-00000D  @delay_ms2
+000003  @const738.call
+000009  @const743.call
+00000D  @delay_ms1
 000023  @I2C_WRITEU_129
 000037  i2c_enviar_byte
 000048  lcd_enviar_4bits
 00005E  lcd_comando
 00006E  lcd_iniciar
 0000A1  lcd_texto
-0000B4  @PSTRINGC7_736
+0000B4  @PSTRINGC7_732
 0000FE  main
 0000FE  @cinit1
 000118  @cinit2
@@ -60,11 +60,11 @@ Project Directory:
     C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 3\Ejercicio 4\
 
 Project Files:
-    ejercicio4.c                                            [16-oct-25 11:18  CRC=F174D874]
+    ejercicio4.c                                            [16-oct-25 11:43  CRC=B9E519DE]
     ejercicio4.h                                            [16-oct-25 11:13  CRC=00000000]
     ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb-20 15:48  CRC=D6A5AF9F]
 
-Source signature=9EC037B2
+Source signature=6730791C
 Program memory checksum=0000
 Hex file CRC=85C5
 

@@ -3,14 +3,14 @@
       ÃÄ@cinit1  (Inline)  Ram=0
       ÃÄ@cinit2  (Inline)  Ram=0
       ÃÄlcd_iniciar  0/51  Ram=0
-      ³  ÃÄ@delay_ms2  0/22  Ram=1
+      ³  ÃÄ@delay_ms1  0/22  Ram=1
       ³  ÃÄlcd_enviar_4bits  0/22  Ram=4
       ³  ³  ÃÄi2c_enviar_byte  0/17  Ram=1
       ³  ³  ³  ÃÄ@I2C_WRITEU_129  0/20  Ram=1
       ³  ³  ³  ÀÄ@I2C_WRITEU_129  0/20  Ram=1
       ³  ³  ÀÄi2c_enviar_byte  0/17  Ram=1
       ³  ³     ÀÄ*
-      ³  ÃÄ@delay_ms2  0/22  Ram=1
+      ³  ÃÄ@delay_ms1  0/22  Ram=1
       ³  ÃÄlcd_enviar_4bits  0/22  Ram=4
       ³  ³  ÀÄ*
       ³  ÃÄlcd_enviar_4bits  0/22  Ram=4
@@ -22,17 +22,17 @@
       ³  ³  ³  ÀÄ*
       ³  ³  ÃÄlcd_enviar_4bits  0/22  Ram=4
       ³  ³  ³  ÀÄ*
-      ³  ³  ÀÄ@delay_ms2  0/22  Ram=1
+      ³  ³  ÀÄ@delay_ms1  0/22  Ram=1
       ³  ÃÄlcd_comando  0/16  Ram=2
       ³  ³  ÀÄ*
       ³  ÃÄlcd_comando  0/16  Ram=2
       ³  ³  ÀÄ*
       ³  ÃÄlcd_comando  0/16  Ram=2
       ³  ³  ÀÄ*
-      ³  ÀÄ@delay_ms2  0/22  Ram=1
+      ³  ÀÄ@delay_ms1  0/22  Ram=1
       ÃÄlcd_comando  0/16  Ram=2
       ³  ÀÄ*
-      ÃÄ@PSTRINGC7_736  0/74  Ram=3
+      ÃÄ@PSTRINGC7_732  0/74  Ram=3
       ³  ÃÄlcd_texto  0/19  Ram=2
       ³  ³  ÃÄlcd_enviar_4bits  0/22  Ram=4
       ³  ³  ³  ÀÄ*
@@ -42,5 +42,5 @@
       ³     ÀÄ*
       ÃÄlcd_comando  0/16  Ram=2
       ³  ÀÄ*
-      ÀÄ@PSTRINGC7_736  0/74  Ram=3
+      ÀÄ@PSTRINGC7_732  0/74  Ram=3
          ÀÄ*

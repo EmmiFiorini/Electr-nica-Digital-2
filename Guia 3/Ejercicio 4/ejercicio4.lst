@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:18
+CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:45
 
                Filename:   C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 3\Ejercicio 4\ejercicio4.lst
 
@@ -115,9 +115,6 @@ CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:18
 .................... 
 .................... #device ADC=10
 .................... #use delay(internal=4MHz)
-.................... 
-.................... 
-.................... #use delay(clock=4000000)
 *
 000D:  MOVLW  20
 000E:  MOVWF  05
@@ -141,6 +138,8 @@ CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:18
 0020:  DECFSZ 00,F
 0021:  GOTO   014
 0022:  RETURN
+.................... 
+.................... 
 .................... 
 .................... #fuses INTRC_IO, NOWDT, NOMCLR
 .................... 
@@ -169,14 +168,14 @@ CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:18
 0035:  MOVLB  00
 0036:  RETURN
 .................... 
-.................... // Dirección del chip PCF8574 (ajustar si es necesario)
-.................... #define I2C_LCD_DIR 0x40   // En Proteus suele funcionar con 0x40
+.................... // dirección de PCF8574 
+.................... #define I2C_LCD_DIR 0x40   
 .................... 
 .................... // =================== PINES DEL LCD ===================
-.................... #define LCD_RS  0x01   // Bit 0 ? RS
-.................... #define LCD_RW  0x02   // Bit 1 ? RW
-.................... #define LCD_EN  0x04   // Bit 2 ? Enable
-.................... // Bits 4–7 ? D4–D7
+.................... #define LCD_RS  0x01   // bit 0 ? RS
+.................... #define LCD_RW  0x02   // bit 1 ? RW
+.................... #define LCD_EN  0x04   // bit 2 ? enable
+.................... // bits 4–7 ? D4–D7
 .................... 
 .................... // =================== PROTOTIPOS ===================
 .................... void i2c_enviar_byte(int8 dato);
@@ -215,15 +214,15 @@ CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:18
 0116:  CLRF   14
 0117:  CLRF   13
 .................... 
-....................    lcd_iniciar();                  // Inicializo el LCD
+....................    lcd_iniciar();                  // inicializo el LCD
 0118:  MOVLB  00
 0119:  GOTO   06E
 .................... 
-....................    lcd_comando(0x80);              // Cursor al inicio (fila 1)
+....................    lcd_comando(0x80);              // cursor al inicio (fila 1)
 011A:  MOVLW  80
 011B:  MOVWF  22
 011C:  CALL   05E
-....................    printf(lcd_texto, "ELECTRONICA");    // Escribo texto
+....................    printf(lcd_texto, "ELECTRONICA");    // escribo texto
 011D:  MOVLW  03
 011E:  MOVLB  03
 011F:  MOVWF  11
@@ -232,7 +231,7 @@ CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:18
 0122:  MOVLB  00
 0123:  CALL   0B4
 .................... 
-....................    lcd_comando(0xC0);              // Fila 2
+....................    lcd_comando(0xC0);              // fila 2
 0124:  MOVLW  C0
 0125:  MOVWF  22
 0126:  CALL   05E
@@ -247,7 +246,7 @@ CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:18
 .................... 
 ....................    while(TRUE) {
 012E:  GOTO   12E
-....................       // Programa principal (no hace falta apretar nada)
+....................  
 ....................    }
 .................... }
 .................... 
@@ -256,7 +255,7 @@ CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:18
 .................... // FUNCIONES
 .................... // =================================================
 .................... 
-.................... // Envía un byte por I2C al PCF8574
+.................... // envía un byte por I2C al PCF8574
 .................... void i2c_enviar_byte(int8 dato) {
 ....................    i2c_start();
 *
@@ -264,7 +263,7 @@ CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:18
 0038:  BSF    16.0
 0039:  BTFSC  16.0
 003A:  GOTO   039
-....................    i2c_write(I2C_LCD_DIR | 0);   // Dirección + bit de escritura (0)
+....................    i2c_write(I2C_LCD_DIR | 0);   // dirección y bit de escritura (0)
 003B:  MOVLW  40
 003C:  MOVLB  00
 003D:  MOVWF  2C
@@ -282,25 +281,25 @@ CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:18
 0047:  RETURN
 .................... }
 .................... 
-.................... // Envía 4 bits al LCD (nibble)
+.................... // envía 4 bits al LCD (nibble)
 .................... void lcd_enviar_4bits(int8 nibble, int1 es_texto) {
 ....................    int8 byte_i2c;
 .................... 
-....................    // Paso 1: Alineo el nibble con los pines de datos D4–D7
+....................    // alineo nibble con los pines de datos D4–D7
 ....................    byte_i2c = (nibble << 4);
 0048:  SWAPF  27,W
 0049:  MOVWF  29
 004A:  MOVLW  F0
 004B:  ANDWF  29,F
 .................... 
-....................    // Paso 2: Si es texto, activo RS
+....................    // texto --> activo RS
 ....................    if(es_texto)
 004C:  MOVF   28,F
 004D:  BTFSS  03.2
 ....................       byte_i2c |= LCD_RS;
 004E:  BSF    29.0
 .................... 
-....................    // Paso 3: Pulso Enable para que el LCD lea el dato
+....................    // pulso enable para que el LCD lea el dato
 ....................    i2c_enviar_byte(byte_i2c | LCD_EN);   // EN=1
 004F:  MOVF   29,W
 0050:  IORLW  04
@@ -321,9 +320,9 @@ CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:18
 005D:  RETURN
 .................... }
 .................... 
-.................... // Envía un comando (RS=0)
+.................... // envía un comando (RS=0)
 .................... void lcd_comando(int8 comando) {
-....................    lcd_enviar_4bits(comando >> 4, 0);   // Nibble alto
+....................    lcd_enviar_4bits(comando >> 4, 0);   // nibble alto
 005E:  SWAPF  22,W
 005F:  MOVWF  23
 0060:  MOVLW  0F
@@ -332,7 +331,7 @@ CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:18
 0063:  MOVWF  27
 0064:  CLRF   28
 0065:  CALL   048
-....................    lcd_enviar_4bits(comando, 0);        // Nibble bajo
+....................    lcd_enviar_4bits(comando, 0);        // nibble bajo
 0066:  MOVF   22,W
 0067:  MOVWF  27
 0068:  CLRF   28
@@ -344,7 +343,7 @@ CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:18
 006D:  RETURN
 .................... }
 .................... 
-.................... // Envía una letra o símbolo (RS=1)
+.................... // envía una letra o símbolo (RS=1)
 .................... void lcd_texto(char letra) {
 ....................    lcd_enviar_4bits(letra >> 4, 1);
 *
@@ -371,15 +370,15 @@ CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:18
 00B3:  RETURN
 .................... }
 .................... 
-.................... // Inicializa el LCD en modo 4 bits (secuencia según teoría)
+.................... // inicializa el LCD en modo 4 bits 
 .................... void lcd_iniciar(void) {
-....................    delay_ms(15);               // Esperar que el LCD encienda
+....................    delay_ms(15);               // esperar que el LCD encienda
 *
 006E:  MOVLW  0F
 006F:  MOVWF  23
 0070:  CALL   00D
 .................... 
-....................    // Secuencia de arranque
+....................    // secuencia de arranque
 ....................    lcd_enviar_4bits(0x03, 0);
 0071:  MOVLW  03
 0072:  MOVWF  27
@@ -410,7 +409,7 @@ CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:18
 0086:  DECFSZ 77,F
 0087:  GOTO   086
 .................... 
-....................    // Cambiar a modo 4 bits
+....................    // cambiar a modo 4 bits
 ....................    lcd_enviar_4bits(0x02, 0);
 0088:  MOVLW  02
 0089:  MOVWF  27
@@ -422,20 +421,20 @@ CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:18
 008E:  DECFSZ 77,F
 008F:  GOTO   08E
 .................... 
-....................    // Configuración final (según teoría)
-....................    lcd_comando(0x28); // Modo 4 bits, 2 líneas, 5x8
+....................    // configuración final 
+....................    lcd_comando(0x28); // modo 4 bits, 2 lineas
 0090:  MOVLW  28
 0091:  MOVWF  22
 0092:  CALL   05E
-....................    lcd_comando(0x0C); // Display ON, cursor OFF
+....................    lcd_comando(0x0C); // display ON, cursor OFF
 0093:  MOVLW  0C
 0094:  MOVWF  22
 0095:  CALL   05E
-....................    lcd_comando(0x06); // Cursor se mueve a la derecha
+....................    lcd_comando(0x06); // cursor se mueve a la derecha
 0096:  MOVLW  06
 0097:  MOVWF  22
 0098:  CALL   05E
-....................    lcd_comando(0x01); // Limpio pantalla
+....................    lcd_comando(0x01); // limpio pantalla
 0099:  MOVLW  01
 009A:  MOVWF  22
 009B:  CALL   05E

@@ -13,20 +13,20 @@ Stack size: 16
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  110    37 100  ejercicio4.c
+  109    37 100  ejercicio4.c
     5     0   0  ejercicio4.h
   965     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
 ----- -----
- 1080    37 Total
+ 1079    37 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
-0     22   7    1             @delay_ms2
-0     20   7    1    125  2.0  @I2C_WRITEU_129
+0     22   7    1             @delay_ms1
+0     20   7    1             @I2C_WRITEU_129
 0     50  16    0    125  2.0  main
-0      6   2    0             @const742
-0     74  24    3     78  1.6  @PSTRINGC7_736
-0      4   1    0    205  5.2  @const747
+0      6   2    0             @const738
+0     74  24    3             @PSTRINGC7_732
+0      4   1    0             @const743
 0     17   6    1     78  1.6  i2c_enviar_byte
 0     22   7    4    205  5.2  lcd_enviar_4bits
 0     16   5    2     92  2.1  lcd_comando
@@ -35,16 +35,16 @@ Page ROM  %  RAM    Vol Diff  Functions:
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               9
+    Functions               6
     Statements              37
-    Comments                193
-    Volume (V)              2249
-    Difficulty (D)          23.4
-    Effort to implement (E) 52648
-    Time to implement (T)   49 minutes
+    Comments                192
+    Volume (V)              1449
+    Difficulty (D)          14.3
+    Effort to implement (E) 20745
+    Time to implement (T)   19 minutes
     Est Delivered Bugs (B)  0
-    Cyclomatic Complexity   2
-    Maintainability (MI)    158
+    Cyclomatic Complexity   1
+    Maintainability (MI)    144
 
  Segment     Used  Free
 -----------  ----  ----
