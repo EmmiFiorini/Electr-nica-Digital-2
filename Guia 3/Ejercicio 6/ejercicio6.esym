@@ -1,10 +1,10 @@
-F N "leer_temperatura_LM75" 0 117 ""
-D G "__PCM__" 0 138 ""5.093""
-D G "__DEVICE__" 0 138 "1827"
-D G "__DATE__" 0 138 ""16-Oct-25""
-D G "__TIME__" 0 138 ""19:18:19""
-D G "_UNICODE" 0 138 ""?""
-D G "__EVAL" 0 138 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
+F N "lsb" 0 153 ""
+D G "__PCM__" 0 153 ""5.093""
+D G "__DEVICE__" 0 153 "1827"
+D G "__DATE__" 0 153 ""16-Oct-25""
+D G "__TIME__" 0 153 ""19:47:25""
+D G "_UNICODE" 0 153 ""?""
+D G "__EVAL" 0 153 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 f N "set_tris_a" 2 39 ""
 v L "value" 2 39 "int8" `55 
@@ -1421,48 +1421,64 @@ F N "lcd_iniciar" 0 25 ""
 f G "lcd_iniciar" 0 25 "void()" `740 
 F N "lcd_mostrar_float" 0 26 ""
 V L "num" 0 26 "float" `742 
-f G "lcd_mostrar_float" 0 26 "void(float num)" `741  "SENSOR LM75"
-F N "leer_temperatura_LM75" 0 29 ""
-f G "leer_temperatura_LM75" 0 29 "float()" `743 
-F N "main" 0 32 ""
-F G "main" 0 32 "void()" `744 
-V L "temperatura" 0 33 "float" `745 
-C L "main" 0 6 1 "FUNCTION"
-C L "main" 0 6 1 "FUNCTION"
-C L "main" 0 6 1 "FUNCTION"
-C L "main" 0 6 2 "FUNCTION"
-C L "main" 0 6 1 "FUNCTION"
-C L "main" 0 6 1 "FUNCTION"
-C L "main" 0 6 1 "FUNCTION"
+f G "lcd_mostrar_float" 0 26 "void(float num)" `741 
+F N "leer_temperatura_LM75" 0 27 ""
+f G "leer_temperatura_LM75" 0 27 "float()" `743 
+F N "InitTimer0" 0 28 ""
+f G "InitTimer0" 0 28 "void()" `744 
+V G "contador_ms" 0 30 "int8" `745 
+V G "flag_segundo" 0 31 "int8" `746 
+C L "InitTimer0" 0 6 2 "FUNCTION"
+F N "Timer0_ISR" 0 34 ""
+F G "Timer0_ISR" 0 34 "void()" `747 
+C L "Timer0_ISR" 0 6 1 "FUNCTION"
+C L "Timer0_ISR" 0 6 1 "FUNCTION"
+C L "Timer0_ISR" 0 6 1 "FUNCTION"
+F N "MAIN" 0 47 ""
+F G "MAIN" 0 47 "void()" `748 
+V L "temperatura" 0 49 "float" `749 
+C L "MAIN" 0 6 1 "FUNCTION"
+C L "MAIN" 0 6 1 "FUNCTION"
+C L "MAIN" 0 6 1 "FUNCTION"
+C L "MAIN" 0 6 1 "FUNCTION"
+C L "MAIN" 0 6 2 "FUNCTION"
+C L "MAIN" 0 6 1 "FUNCTION"
+C L "MAIN" 0 6 1 "FUNCTION"
+F N "InitTimer0" 0 77 ""
+F G "InitTimer0" 0 77 "void()" `744 
+C L "InitTimer0" 0 6 1 "FUNCTION"
+C L "InitTimer0" 0 6 1 "FUNCTION"
+C L "InitTimer0" 0 6 1 "FUNCTION"
+C L "InitTimer0" 0 6 1 "FUNCTION"
 C L "i2c_enviar_byte_LCD" 0 6 1 "FUNCTION"
-F N "i2c_enviar_byte_LCD" 0 60 ""
-V L "dato" 0 60 "int8" `772 
-F G "i2c_enviar_byte_LCD" 0 60 "void(int8 dato)" `731 
-F N "lcd_enviar_4bits" 0 67 ""
-V L "nibble" 0 67 "int8" `734 
-V L "es_texto" 0 67 "int8" `773 
-F G "lcd_enviar_4bits" 0 67 "void(int8 nibble,int8 es_texto)" `733 
-V L "byte_i2c" 0 68 "int8" `771 
-F N "lcd_comando" 0 77 ""
-V L "comando" 0 77 "int8" `773 
-F G "lcd_comando" 0 77 "void(int8 comando)" `736 
-F N "lcd_texto" 0 83 ""
-V L "letra" 0 83 "int8" `773 
-F G "lcd_texto" 0 83 "void(int8 letra)" `738 
-F N "lcd_iniciar" 0 89 ""
-F G "lcd_iniciar" 0 89 "void()" `740 
+F N "i2c_enviar_byte_LCD" 0 85 ""
+V L "dato" 0 85 "int8" `776 
+F G "i2c_enviar_byte_LCD" 0 85 "void(int8 dato)" `731 
+F N "lcd_enviar_4bits" 0 92 ""
+V L "nibble" 0 92 "int8" `734 
+V L "es_texto" 0 92 "int8" `777 
+F G "lcd_enviar_4bits" 0 92 "void(int8 nibble,int8 es_texto)" `733 
+V L "byte_i2c" 0 93 "int8" `775 
+F N "lcd_comando" 0 102 ""
+V L "comando" 0 102 "int8" `777 
+F G "lcd_comando" 0 102 "void(int8 comando)" `736 
+F N "lcd_texto" 0 108 ""
+V L "letra" 0 108 "int8" `777 
+F G "lcd_texto" 0 108 "void(int8 letra)" `738 
+F N "lcd_iniciar" 0 114 ""
+F G "lcd_iniciar" 0 114 "void()" `740 
 C L "lcd_mostrar_float" 0 6 1 "FUNCTION"
-F N "lcd_mostrar_float" 0 108 ""
-V L "num" 0 108 "float" `773 
-F G "lcd_mostrar_float" 0 108 "void(float num)" `741 
-V L "entero" 0 109 "int8" `772 
-V L "decimales" 0 110 "int8" `775 
+F N "lcd_mostrar_float" 0 133 ""
+V L "num" 0 133 "float" `777 
+F G "lcd_mostrar_float" 0 133 "void(float num)" `741 
+V L "entero" 0 134 "int8" `776 
+V L "decimales" 0 135 "int8" `779 
 C L "leer_temperatura_LM75" 0 6 1 "FUNCTION"
-F N "leer_temperatura_LM75" 0 117 ""
-F G "leer_temperatura_LM75" 0 117 "float()" `743 
-V L "msb" 0 118 "int8" `788 
-V L "lsb" 0 118 "int8" `789 
-V L "temperatura" 0 119 "float" `790 
+F N "leer_temperatura_LM75" 0 142 ""
+F G "leer_temperatura_LM75" 0 142 "float()" `743 
+V L "msb" 0 143 "int8" `792 
+V L "lsb" 0 143 "int8" `793 
+V L "temperatura" 0 144 "float" `794 
 C L "leer_temperatura_LM75" 0 6 1 "FUNCTION"
 C L "leer_temperatura_LM75" 0 6 1 "FUNCTION"
 C L "leer_temperatura_LM75" 0 6 1 "FUNCTION"

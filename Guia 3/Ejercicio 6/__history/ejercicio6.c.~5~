@@ -24,65 +24,40 @@ void lcd_comando(int8 comando);
 void lcd_texto(char letra);
 void lcd_iniciar(void);
 void lcd_mostrar_float(float num);
+
+// SENSOR LM75 
 float leer_temperatura_LM75(void);
-void InitTimer0(void); 
-
-int contador_ms=0; 
-int flag_segundo=0; //para el timer
-
-//TIMER 0 
-void Timer0_ISR() {
-  
-  set_timer0(61); // 50 ms
-  
-  contador_ms++;
-  
-  if(contador_ms >= 20) { //PASO 1s
-       contador_ms = 0;
-       flag_segundo = 1; // aviso que ya pasó el tiempo deseado
-   }
-}
 
 
 void main() {
+   float temperatura;
 
-   float temperatura; 
-   
    lcd_iniciar();                        // inicializo LCD
-   InitTimer0();                         // inicializo Timer0
-   
    lcd_comando(0x80);                    // cursor al inicio
    printf(lcd_texto, "TEMP LM75 I2C");   // mensaje inicial
+
    printf("\r\n--- Lectura LM75 ---\r\n");
 
    while(TRUE) {
-      if (flag_segundo ==1) { 
-         flag_segundo=0;
-         
-         temperatura = leer_temperatura_LM75();   // leo temperatura del sensor
-   
-         // mostrar en LCD
-         lcd_comando(0xC0);                // segunda línea
-         printf(lcd_texto, "Temp: ");
-         lcd_mostrar_float(temperatura);
-         printf(lcd_texto, " C");
+      temperatura = leer_temperatura_LM75();   // leo temperatura del sensor
+
+      // mostrar en LCD
+      lcd_comando(0xC0);                // segunda línea
+      printf(lcd_texto, "Temp: ");
+      lcd_mostrar_float(temperatura);
+      printf(lcd_texto, " C");
 
       // mostrar por UART
       printf("\r\nTemperatura: %.2f C", temperatura);
-      
-      }
+
+      delay_ms(1000); // leo cada 1 segundo
    }
 }
 
-void InitTimer0(void){ 
-    setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256); // Reloj interno, prescaler 1:256
-    set_timer0(61);                              // valor inicial (50 ms)
-    enable_interrupts(INT_TIMER0);               // habilito interrupción Timer0
-    enable_interrupts(GLOBAL);                   // habilito interrupciones globales
-}
+
 // FUNCIONES I2C PARA EL LCD
 
-void i2c_enviar_byte_LCD(int8 dato){
+void i2c_enviar_byte_LCD(int8 dato) {
    i2c_start();
    i2c_write(I2C_LCD_DIR | 0);
    i2c_write(dato);

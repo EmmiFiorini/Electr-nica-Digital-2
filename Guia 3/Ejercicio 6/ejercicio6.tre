@@ -1,5 +1,5 @@
 ÀÄejercicio6
-   ÀÄmain  0/121  Ram=5
+   ÀÄMAIN  0/120  Ram=4
       ÃÄ@cinit1  (Inline)  Ram=0
       ÃÄ@cinit2  (Inline)  Ram=0
       ÃÄlcd_iniciar  0/51  Ram=0
@@ -30,9 +30,10 @@
       ³  ÃÄlcd_comando  0/16  Ram=2
       ³  ³  ÀÄ*
       ³  ÀÄ@delay_ms1  0/22  Ram=1
+      ÃÄInitTimer0  0/13  Ram=0
       ÃÄlcd_comando  0/16  Ram=2
       ³  ÀÄ*
-      ÃÄ@PSTRINGC7_738  0/74  Ram=5
+      ÃÄ@PSTRINGC7_738  0/74  Ram=3
       ³  ÃÄlcd_texto  0/19  Ram=2
       ³  ³  ÃÄlcd_enviar_4bits  0/22  Ram=4
       ³  ³  ³  ÀÄ*
@@ -40,7 +41,7 @@
       ³  ³     ÀÄ*
       ³  ÀÄlcd_texto  0/19  Ram=2
       ³     ÀÄ*
-      ÃÄ@PSTRINGC7_725  0/75  Ram=5
+      ÃÄ@PSTRINGC7_725  0/75  Ram=3
       ³  ÃÄ@PUTCHAR_1_  0/38  Ram=1
       ³  ÀÄ@PUTCHAR_1_  0/38  Ram=1
       ÃÄleer_temperatura_LM75  0/79  Ram=6
@@ -50,15 +51,15 @@
       ³  ÃÄ@I2C_READU_129  0/16  Ram=1
       ³  ÃÄ@I2C_READU_129  0/16  Ram=1
       ³  ÃÄ@ITOF  0/29  Ram=2
-      ³  ÀÄ@ADDFF  0/322  Ram=20
+      ³  ÀÄ@ADDFF  0/322  Ram=16
       ÃÄlcd_comando  0/16  Ram=2
       ³  ÀÄ*
-      ÃÄ@PSTRINGC7_738  0/74  Ram=5
+      ÃÄ@PSTRINGC7_738  0/74  Ram=3
       ³  ÀÄ*
-      ÃÄlcd_mostrar_float  0/82  Ram=10
+      ÃÄlcd_mostrar_float  0/82  Ram=12
       ³  ÃÄ@SFTOI  0/31  Ram=4
       ³  ÃÄ@ITOF  0/29  Ram=2
-      ³  ÃÄ@ADDFF  0/322  Ram=20
+      ³  ÃÄ@ADDFF  0/322  Ram=16
       ³  ÃÄ@MULFF  0/117  Ram=16
       ³  ÃÄ@SFTOI  0/31  Ram=4
       ³  ÃÄ@PRINTF_U_738  0/53  Ram=2
@@ -78,10 +79,10 @@
       ³  ÀÄ*
       ÃÄlcd_texto  0/19  Ram=2
       ³  ÀÄ*
-      ÃÄ@PSTRINGCN7_725  0/81  Ram=5
+      ÃÄ@PSTRINGCN7_725  0/81  Ram=6
       ³  ÃÄ@PUTCHAR_1_  0/38  Ram=1
       ³  ÀÄ@PUTCHAR_1_  0/38  Ram=1
-      ÃÄ@PRINTF_L32D_725FPFPF  0/226  Ram=18
+      ÃÄ@PRINTF_L32D_725FPFPF  0/226  Ram=16
       ³  ÃÄ@MULFF  0/117  Ram=16
       ³  ÃÄ@FTOSD  (Inline)  Ram=5
       ³  ÃÄ@DIV3232  0/77  Ram=16
@@ -91,5 +92,4 @@
       ³  ÃÄ@PUTCHAR_1_  0/38  Ram=1
       ³  ÀÄ@DIV3232  0/77  Ram=16
       ÃÄ@PUTCHAR_1_  0/38  Ram=1
-      ÃÄ@PUTCHAR_1_  0/38  Ram=1
-      ÀÄ@delay_ms1  0/22  Ram=1
+      ÀÄ@PUTCHAR_1_  0/38  Ram=1
