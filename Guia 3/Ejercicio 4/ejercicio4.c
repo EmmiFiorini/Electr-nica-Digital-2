@@ -1,0 +1,108 @@
+#include <ejercicio4.h>
+
+#fuses INTRC_IO, NOWDT, NOMCLR
+
+
+
+// =================== CONFIGURACIÓN I2C ===================
+#use i2c(MASTER, SDA=PIN_B1, SCL=PIN_B4, FAST=100000)
+
+// dirección de PCF8574 
+#define I2C_LCD_DIR 0x40   
+
+// =================== PINES DEL LCD ===================
+#define LCD_RS  0x01   // bit 0 ? RS
+#define LCD_RW  0x02   // bit 1 ? RW
+#define LCD_EN  0x04   // bit 2 ? enable
+// bits 4–7 ? D4–D7
+
+// =================== PROTOTIPOS ===================
+void i2c_enviar_byte(int8 dato);
+void lcd_enviar_4bits(int8 nibble, int1 es_texto);
+void lcd_comando(int8 comando);
+void lcd_texto(char letra);
+void lcd_iniciar(void);
+
+// =================================================
+void main() {
+
+   lcd_iniciar();                  // inicializo el LCD
+
+   lcd_comando(0x80);              // cursor al inicio (fila 1)
+   printf(lcd_texto, "ELECTRONICA");    // escribo texto
+
+   lcd_comando(0xC0);              // fila 2
+   printf(lcd_texto, "DIGITAL");
+
+   while(TRUE) {
+ 
+   }
+}
+
+// =================================================
+// FUNCIONES
+// =================================================
+
+// envía un byte por I2C al PCF8574
+void i2c_enviar_byte(int8 dato) {
+   i2c_start();
+   i2c_write(I2C_LCD_DIR | 0);   // dirección y bit de escritura (0)
+   i2c_write(dato);
+   i2c_stop();
+}
+
+// envía 4 bits al LCD (nibble)
+void lcd_enviar_4bits(int8 nibble, int1 es_texto) {
+   int8 byte_i2c;
+
+   // alineo nibble con los pines de datos D4–D7
+   byte_i2c = (nibble << 4);
+
+   // texto --> activo RS
+   if(es_texto)
+      byte_i2c |= LCD_RS;
+
+   // pulso enable para que el LCD lea el dato
+   i2c_enviar_byte(byte_i2c | LCD_EN);   // EN=1
+   delay_us(10);
+   i2c_enviar_byte(byte_i2c & ~LCD_EN);  // EN=0
+}
+
+// envía un comando (RS=0)
+void lcd_comando(int8 comando) {
+   lcd_enviar_4bits(comando >> 4, 0);   // nibble alto
+   lcd_enviar_4bits(comando, 0);        // nibble bajo
+   delay_ms(2);
+}
+
+// envía una letra o símbolo (RS=1)
+void lcd_texto(char letra) {
+   lcd_enviar_4bits(letra >> 4, 1);
+   lcd_enviar_4bits(letra, 1);
+   delay_us(40);
+}
+
+// inicializa el LCD en modo 4 bits 
+void lcd_iniciar(void) {
+   delay_ms(15);               // esperar que el LCD encienda
+
+   // secuencia de arranque
+   lcd_enviar_4bits(0x03, 0);
+   delay_ms(5);
+   lcd_enviar_4bits(0x03, 0);
+   delay_us(100);
+   lcd_enviar_4bits(0x03, 0);
+   delay_us(100);
+
+   // cambiar a modo 4 bits
+   lcd_enviar_4bits(0x02, 0);
+   delay_us(100);
+
+   // configuración final 
+   lcd_comando(0x28); // modo 4 bits, 2 lineas
+   lcd_comando(0x0C); // display ON, cursor OFF
+   lcd_comando(0x06); // cursor se mueve a la derecha
+   lcd_comando(0x01); // limpio pantalla
+   delay_ms(2);
+}
+

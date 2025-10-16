@@ -1,0 +1,452 @@
+CCS PCM C Compiler, Version 5.093, 4770               16-oct-25 11:45
+
+               Filename:   C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 3\Ejercicio 4\ejercicio4.lst
+
+               ROM used:   304 words (7%)
+                           Largest free fragment is 2048
+               RAM used:   6 (2%) at main() level
+                           28 (7%) worst case
+               Stack used: 5 locations
+               Stack size: 16
+
+0000:  MOVLP  00
+0001:  GOTO   0FE
+0002:  NOP
+.................... #include <ejercicio4.h>
+.................... #include <16F1827.h>
+.................... //////////// Standard Header file for the PIC16F1827 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC16F1827
+0003:  DATA 45,26
+0004:  DATA C5,21
+0005:  DATA 54,29
+0006:  DATA 4F,27
+0007:  DATA C9,21
+0008:  DATA 41,00
+0009:  DATA C4,24
+000A:  DATA C7,24
+000B:  DATA D4,20
+000C:  DATA 4C,00
+*
+00B4:  MOVF   0B,W
+00B5:  BCF    0B.7
+00B6:  MOVLB  03
+00B7:  BSF    15.7
+00B8:  BSF    15.0
+00B9:  NOP
+00BA:  NOP
+00BB:  BTFSC  09.7
+00BC:  BSF    0B.7
+00BD:  MOVF   13,W
+00BE:  ANDLW  7F
+00BF:  BTFSC  03.2
+00C0:  GOTO   0FC
+00C1:  MOVLB  00
+00C2:  MOVWF  22
+00C3:  MOVLB  03
+00C4:  MOVF   11,W
+00C5:  MOVLB  00
+00C6:  MOVWF  23
+00C7:  MOVLB  03
+00C8:  MOVF   12,W
+00C9:  MOVLB  00
+00CA:  MOVWF  24
+00CB:  MOVF   22,W
+00CC:  MOVWF  25
+00CD:  CALL   0A1
+00CE:  MOVF   23,W
+00CF:  MOVLB  03
+00D0:  MOVWF  11
+00D1:  MOVLB  00
+00D2:  MOVF   24,W
+00D3:  MOVLB  03
+00D4:  MOVWF  12
+00D5:  MOVF   0B,W
+00D6:  BCF    0B.7
+00D7:  BSF    15.7
+00D8:  BSF    15.0
+00D9:  NOP
+00DA:  NOP
+00DB:  BTFSC  09.7
+00DC:  BSF    0B.7
+00DD:  RLF    13,W
+00DE:  RLF    14,W
+00DF:  ANDLW  7F
+00E0:  BTFSC  03.2
+00E1:  GOTO   0FC
+00E2:  MOVLB  00
+00E3:  MOVWF  22
+00E4:  MOVLB  03
+00E5:  MOVF   11,W
+00E6:  MOVLB  00
+00E7:  MOVWF  23
+00E8:  MOVLB  03
+00E9:  MOVF   12,W
+00EA:  MOVLB  00
+00EB:  MOVWF  24
+00EC:  MOVF   22,W
+00ED:  MOVWF  25
+00EE:  CALL   0A1
+00EF:  MOVF   23,W
+00F0:  MOVLB  03
+00F1:  MOVWF  11
+00F2:  MOVLB  00
+00F3:  MOVF   24,W
+00F4:  MOVLB  03
+00F5:  MOVWF  12
+00F6:  INCF   11,F
+00F7:  BTFSC  03.2
+00F8:  INCF   12,F
+00F9:  MOVLB  00
+00FA:  GOTO   0B4
+00FB:  MOVLB  03
+00FC:  MOVLB  00
+00FD:  RETURN
+.................... 
+.................... #list
+.................... 
+.................... #device ADC=10
+.................... #use delay(internal=4MHz)
+*
+000D:  MOVLW  20
+000E:  MOVWF  05
+000F:  MOVLW  03
+0010:  MOVWF  04
+0011:  MOVF   00,W
+0012:  BTFSC  03.2
+0013:  GOTO   022
+0014:  MOVLW  01
+0015:  MOVWF  78
+0016:  CLRF   77
+0017:  DECFSZ 77,F
+0018:  GOTO   017
+0019:  DECFSZ 78,F
+001A:  GOTO   016
+001B:  MOVLW  4A
+001C:  MOVWF  77
+001D:  DECFSZ 77,F
+001E:  GOTO   01D
+001F:  GOTO   020
+0020:  DECFSZ 00,F
+0021:  GOTO   014
+0022:  RETURN
+.................... 
+.................... 
+.................... 
+.................... #fuses INTRC_IO, NOWDT, NOMCLR
+.................... 
+.................... 
+.................... 
+.................... // =================== CONFIGURACIÓN I2C ===================
+.................... #use i2c(MASTER, SDA=PIN_B1, SCL=PIN_B4, FAST=100000)
+0023:  MOVLB  04
+0024:  BCF    15.7
+0025:  MOVLB  00
+0026:  BCF    11.3
+0027:  MOVF   2C,W
+0028:  MOVLB  04
+0029:  MOVWF  11
+002A:  MOVLW  02
+002B:  BTFSC  15.7
+002C:  GOTO   034
+002D:  MOVLB  00
+002E:  BTFSS  11.3
+002F:  GOTO   02E
+0030:  MOVLW  00
+0031:  MOVLB  04
+0032:  BTFSC  16.6
+0033:  MOVLW  01
+0034:  MOVWF  78
+0035:  MOVLB  00
+0036:  RETURN
+.................... 
+.................... // dirección de PCF8574 
+.................... #define I2C_LCD_DIR 0x40   
+.................... 
+.................... // =================== PINES DEL LCD ===================
+.................... #define LCD_RS  0x01   // bit 0 ? RS
+.................... #define LCD_RW  0x02   // bit 1 ? RW
+.................... #define LCD_EN  0x04   // bit 2 ? enable
+.................... // bits 4–7 ? D4–D7
+.................... 
+.................... // =================== PROTOTIPOS ===================
+.................... void i2c_enviar_byte(int8 dato);
+.................... void lcd_enviar_4bits(int8 nibble, int1 es_texto);
+.................... void lcd_comando(int8 comando);
+.................... void lcd_texto(char letra);
+.................... void lcd_iniciar(void);
+.................... 
+.................... // =================================================
+.................... void main() {
+*
+00FE:  MOVLW  6A
+00FF:  MOVLB  01
+0100:  MOVWF  19
+0101:  BSF    0D.4
+0102:  BSF    0D.1
+0103:  MOVLB  04
+0104:  BCF    17.0
+0105:  BCF    17.1
+0106:  BCF    17.3
+0107:  MOVLW  09
+0108:  MOVWF  12
+0109:  MOVLW  28
+010A:  MOVWF  15
+010B:  BSF    14.7
+010C:  BCF    14.6
+010D:  MOVLB  00
+010E:  CLRF   21
+010F:  CLRF   20
+0110:  MOVLB  03
+0111:  CLRF   0C
+0112:  CLRF   0D
+0113:  MOVLB  02
+0114:  CLRF   12
+0115:  CLRF   11
+0116:  CLRF   14
+0117:  CLRF   13
+.................... 
+....................    lcd_iniciar();                  // inicializo el LCD
+0118:  MOVLB  00
+0119:  GOTO   06E
+.................... 
+....................    lcd_comando(0x80);              // cursor al inicio (fila 1)
+011A:  MOVLW  80
+011B:  MOVWF  22
+011C:  CALL   05E
+....................    printf(lcd_texto, "ELECTRONICA");    // escribo texto
+011D:  MOVLW  03
+011E:  MOVLB  03
+011F:  MOVWF  11
+0120:  MOVLW  00
+0121:  MOVWF  12
+0122:  MOVLB  00
+0123:  CALL   0B4
+.................... 
+....................    lcd_comando(0xC0);              // fila 2
+0124:  MOVLW  C0
+0125:  MOVWF  22
+0126:  CALL   05E
+....................    printf(lcd_texto, "DIGITAL");
+0127:  MOVLW  09
+0128:  MOVLB  03
+0129:  MOVWF  11
+012A:  MOVLW  00
+012B:  MOVWF  12
+012C:  MOVLB  00
+012D:  CALL   0B4
+.................... 
+....................    while(TRUE) {
+012E:  GOTO   12E
+....................  
+....................    }
+.................... }
+.................... 
+012F:  SLEEP
+.................... // =================================================
+.................... // FUNCIONES
+.................... // =================================================
+.................... 
+.................... // envía un byte por I2C al PCF8574
+.................... void i2c_enviar_byte(int8 dato) {
+....................    i2c_start();
+*
+0037:  MOVLB  04
+0038:  BSF    16.0
+0039:  BTFSC  16.0
+003A:  GOTO   039
+....................    i2c_write(I2C_LCD_DIR | 0);   // dirección y bit de escritura (0)
+003B:  MOVLW  40
+003C:  MOVLB  00
+003D:  MOVWF  2C
+003E:  CALL   023
+....................    i2c_write(dato);
+003F:  MOVF   2B,W
+0040:  MOVWF  2C
+0041:  CALL   023
+....................    i2c_stop();
+0042:  MOVLB  04
+0043:  BSF    16.2
+0044:  BTFSC  16.2
+0045:  GOTO   044
+0046:  MOVLB  00
+0047:  RETURN
+.................... }
+.................... 
+.................... // envía 4 bits al LCD (nibble)
+.................... void lcd_enviar_4bits(int8 nibble, int1 es_texto) {
+....................    int8 byte_i2c;
+.................... 
+....................    // alineo nibble con los pines de datos D4–D7
+....................    byte_i2c = (nibble << 4);
+0048:  SWAPF  27,W
+0049:  MOVWF  29
+004A:  MOVLW  F0
+004B:  ANDWF  29,F
+.................... 
+....................    // texto --> activo RS
+....................    if(es_texto)
+004C:  MOVF   28,F
+004D:  BTFSS  03.2
+....................       byte_i2c |= LCD_RS;
+004E:  BSF    29.0
+.................... 
+....................    // pulso enable para que el LCD lea el dato
+....................    i2c_enviar_byte(byte_i2c | LCD_EN);   // EN=1
+004F:  MOVF   29,W
+0050:  IORLW  04
+0051:  MOVWF  2A
+0052:  MOVWF  2B
+0053:  CALL   037
+....................    delay_us(10);
+0054:  MOVLW  03
+0055:  MOVWF  77
+0056:  DECFSZ 77,F
+0057:  GOTO   056
+....................    i2c_enviar_byte(byte_i2c & ~LCD_EN);  // EN=0
+0058:  MOVF   29,W
+0059:  ANDLW  FB
+005A:  MOVWF  2A
+005B:  MOVWF  2B
+005C:  CALL   037
+005D:  RETURN
+.................... }
+.................... 
+.................... // envía un comando (RS=0)
+.................... void lcd_comando(int8 comando) {
+....................    lcd_enviar_4bits(comando >> 4, 0);   // nibble alto
+005E:  SWAPF  22,W
+005F:  MOVWF  23
+0060:  MOVLW  0F
+0061:  ANDWF  23,F
+0062:  MOVF   23,W
+0063:  MOVWF  27
+0064:  CLRF   28
+0065:  CALL   048
+....................    lcd_enviar_4bits(comando, 0);        // nibble bajo
+0066:  MOVF   22,W
+0067:  MOVWF  27
+0068:  CLRF   28
+0069:  CALL   048
+....................    delay_ms(2);
+006A:  MOVLW  02
+006B:  MOVWF  23
+006C:  CALL   00D
+006D:  RETURN
+.................... }
+.................... 
+.................... // envía una letra o símbolo (RS=1)
+.................... void lcd_texto(char letra) {
+....................    lcd_enviar_4bits(letra >> 4, 1);
+*
+00A1:  SWAPF  25,W
+00A2:  MOVWF  26
+00A3:  MOVLW  0F
+00A4:  ANDWF  26,F
+00A5:  MOVF   26,W
+00A6:  MOVWF  27
+00A7:  MOVLW  01
+00A8:  MOVWF  28
+00A9:  CALL   048
+....................    lcd_enviar_4bits(letra, 1);
+00AA:  MOVF   25,W
+00AB:  MOVWF  27
+00AC:  MOVLW  01
+00AD:  MOVWF  28
+00AE:  CALL   048
+....................    delay_us(40);
+00AF:  MOVLW  0D
+00B0:  MOVWF  77
+00B1:  DECFSZ 77,F
+00B2:  GOTO   0B1
+00B3:  RETURN
+.................... }
+.................... 
+.................... // inicializa el LCD en modo 4 bits 
+.................... void lcd_iniciar(void) {
+....................    delay_ms(15);               // esperar que el LCD encienda
+*
+006E:  MOVLW  0F
+006F:  MOVWF  23
+0070:  CALL   00D
+.................... 
+....................    // secuencia de arranque
+....................    lcd_enviar_4bits(0x03, 0);
+0071:  MOVLW  03
+0072:  MOVWF  27
+0073:  CLRF   28
+0074:  CALL   048
+....................    delay_ms(5);
+0075:  MOVLW  05
+0076:  MOVWF  23
+0077:  CALL   00D
+....................    lcd_enviar_4bits(0x03, 0);
+0078:  MOVLW  03
+0079:  MOVWF  27
+007A:  CLRF   28
+007B:  CALL   048
+....................    delay_us(100);
+007C:  MOVLW  21
+007D:  MOVWF  77
+007E:  DECFSZ 77,F
+007F:  GOTO   07E
+....................    lcd_enviar_4bits(0x03, 0);
+0080:  MOVLW  03
+0081:  MOVWF  27
+0082:  CLRF   28
+0083:  CALL   048
+....................    delay_us(100);
+0084:  MOVLW  21
+0085:  MOVWF  77
+0086:  DECFSZ 77,F
+0087:  GOTO   086
+.................... 
+....................    // cambiar a modo 4 bits
+....................    lcd_enviar_4bits(0x02, 0);
+0088:  MOVLW  02
+0089:  MOVWF  27
+008A:  CLRF   28
+008B:  CALL   048
+....................    delay_us(100);
+008C:  MOVLW  21
+008D:  MOVWF  77
+008E:  DECFSZ 77,F
+008F:  GOTO   08E
+.................... 
+....................    // configuración final 
+....................    lcd_comando(0x28); // modo 4 bits, 2 lineas
+0090:  MOVLW  28
+0091:  MOVWF  22
+0092:  CALL   05E
+....................    lcd_comando(0x0C); // display ON, cursor OFF
+0093:  MOVLW  0C
+0094:  MOVWF  22
+0095:  CALL   05E
+....................    lcd_comando(0x06); // cursor se mueve a la derecha
+0096:  MOVLW  06
+0097:  MOVWF  22
+0098:  CALL   05E
+....................    lcd_comando(0x01); // limpio pantalla
+0099:  MOVLW  01
+009A:  MOVWF  22
+009B:  CALL   05E
+....................    delay_ms(2);
+009C:  MOVLW  02
+009D:  MOVWF  23
+009E:  CALL   00D
+009F:  MOVLP  00
+00A0:  GOTO   11A (RETURN)
+.................... }
+.................... 
+
+Configuration Fuses:
+   Word  1: 3F84   INTRC_IO NOWDT PUT NOMCLR NOPROTECT NOCPD BROWNOUT NOCLKOUT IESO FCMEN
+   Word  2: 1EFF   NOWRT PLL_SW STVREN BORV19 NODEBUG NOLVP
