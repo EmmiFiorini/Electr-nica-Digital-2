@@ -19,15 +19,15 @@ forcecoff=0
 [ProjectLog]
 Days=1
 D1=16-10-2025
-D1_L=19
+D1_L=21
 D1_L1=[39551]Project Opened.
 D1_L2=[39572]Project Closed.
 D1_L3=[39589]Project Opened.
 D1_L4=[39683]Started Editing.
 D1_L5=[40043]Stopped Editing.
-TotalEdit=6
+TotalEdit=22
 TotalDebug=0
-D1_E=6
+D1_E=22
 D1_D=0
 D1_L6=[40043]Project Closed.
 D1_L7=[41761]Project Opened.
@@ -43,6 +43,8 @@ D1_L16=[49952]Started Editing.
 D1_L17=[52298]Stopped Editing.
 D1_L18=[52635]Project Opened.
 D1_L19=[52658]Started Editing.
+D1_L20=[53597]Stopped Editing.
+D1_L21=[53597]Project Closed.
 
 [Opened Files]
 1=TP#3_Ejercicio5.c
