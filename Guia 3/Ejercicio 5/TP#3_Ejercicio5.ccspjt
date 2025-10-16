@@ -1,0 +1,33 @@
+[PROJECT]
+Target=C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 3\Ejercicio 5\TP#3_Ejercicio5.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+[Target Data]
+FileList=TP#3_Ejercicio5.c
+[Directories]
+Include=
+[C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 3\Ejercicio 5\TP#3_Ejercicio5]
+Type=4
+[mru-list]
+1=TP#3_Ejercicio5.c
+[Units]
+Count=1
+1=TP#3_Ejercicio5 (main)
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=16-10-2025
+D1_L=4
+D1_L1=[39551]Project Opened.
+D1_L2=[39572]Project Closed.
+D1_L3=[39589]Project Opened.
+D1_L4=[39683]Started Editing.
+
+[Opened Files]
+1=TP#3_Ejercicio5.c
+t1=41
+Count=1

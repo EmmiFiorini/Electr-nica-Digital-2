@@ -17,7 +17,7 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=4
+Days=5
 D1=23-09-2025
 D1_L=4
 D1_L1=[52480]Project Opened.
@@ -51,7 +51,7 @@ D3_E=12
 D3_D=0
 D3_L8=[48093]Project Closed.
 <<<<<<< HEAD
-============================
+================================================================================================================
 D4=14-10-2025
 D4_L=11
 D4_L1=[49024]Project Opened.
@@ -66,13 +66,17 @@ D4_L9=[52758]Project Closed.
 >>>>>>> 149a19569bcbd8cace2ba00ebbc7084e7d9ac660
 D4_L10=[53039]Project Opened.
 D4_L11=[53654]Project Closed.
+D5=16-10-2025
+D5_L=2
+D5_L1=[39267]Project Opened.
+D5_L2=[39551]Project Closed.
 
 [Opened Files]
 1=Ejercicio1_TP3.c
-t1=89
+t1=1
 2=..\TP2\Ejercicio6_TP2.c
 t2=10
-Count=2
+Count=1
 [Ejercicio1_TP3.c]
 Type=4
 

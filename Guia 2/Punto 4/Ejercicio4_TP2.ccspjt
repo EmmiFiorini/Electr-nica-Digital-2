@@ -17,7 +17,7 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=6
+Days=7
 D1=11-09-2025
 D1_L=9
 D1_L1=[41187]Project Opened.
@@ -86,6 +86,12 @@ D6_E=1
 D6_D=0
 D6_L=1
 D6_L1=[50841]Project Closed.
+D7=16-10-2025
+D7_L=4
+D7_L1=[39572]Project Opened.
+D7_L2=[39584]Project Closed.
+D7_L3=[39584]Project Opened.
+D7_L4=[39589]Project Closed.
 
 [Opened Files]
 1=Ejercicio4_TP2.c
@@ -96,7 +102,7 @@ Count=4
 3=..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
 t3=1
 4=lcd.c
-t4=88
+t4=1
 [Ejercicio4_TP2.c]
 Type=4
 
