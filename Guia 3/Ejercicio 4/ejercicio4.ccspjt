@@ -1,0 +1,43 @@
+[PROJECT]
+Target=ejercicio4.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+CCSVersion=5.093
+[Target Data]
+FileList=ejercicio4.c
+[Directories]
+Include=
+[C:\Users\MPF\Desktop\Electr-nica-Digital-2\Guia 3\Ejercicio 4\ejercicio4]
+Type=4
+[mru-list]
+1=ejercicio4.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=16-10-2025
+D1_L=4
+D1_L1=[40414]Project Opened.
+D1_L2=[40544]Started Editing.
+D1_L3=[40847]Stopped Editing.
+TotalEdit=6
+TotalDebug=0
+D1_E=6
+D1_D=0
+D1_L4=[40847]Project Closed.
+
+[Opened Files]
+1=ejercicio4.c
+t1=1
+Count=1
+[ejercicio4.c]
+Type=4
+
+[defines]
+buildcount=3
+[Units]
+Count=1
+1=ejercicio4 (main)
