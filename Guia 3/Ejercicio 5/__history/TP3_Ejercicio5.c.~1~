@@ -1,4 +1,4 @@
-#include <TP3_Ejercicio5.h>
+#include <TP#3_Ejercicio5.h>
 
 #fuses INTRC_IO   // Oscilador interno con pines RA6 y RA7 como GPIO
 #fuses NOMCLR     // Desactivo el MCLR
@@ -82,6 +82,7 @@ void main()
        
     while(TRUE) {
         if (flag_segundo == 1) {
+            lcd_putc('\f');  
             dx_val = leer_max128_channel(0x8c); 
             dy_val = leer_max128_channel(0xcc); 
             dz_val = leer_max128_channel(0xfc);

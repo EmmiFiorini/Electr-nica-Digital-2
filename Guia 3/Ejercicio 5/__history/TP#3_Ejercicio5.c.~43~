@@ -1,4 +1,4 @@
-#include <TP3_Ejercicio5.h>
+#include <TP#3_Ejercicio5.h>
 
 #fuses INTRC_IO   // Oscilador interno con pines RA6 y RA7 como GPIO
 #fuses NOMCLR     // Desactivo el MCLR
@@ -32,8 +32,9 @@
 
 void InitTimer0(void);
 void Init_GPIO(void);
+void Init_ADC(void);
 int16 leer_max128_channel(int channel);
-
+void i2c_test_and_show(void);
 
 /*****************************************************************************
 * Variables globales
@@ -82,6 +83,7 @@ void main()
        
     while(TRUE) {
         if (flag_segundo == 1) {
+            lcd_putc('\f');  
             dx_val = leer_max128_channel(0x8c); 
             dy_val = leer_max128_channel(0xcc); 
             dz_val = leer_max128_channel(0xfc);
@@ -121,10 +123,14 @@ void Init_GPIO()
     int16 leer_max128_channel(int8 control_byte) {
     int8 msb, lsb; // Most y Least Significant Bit
 
-    //  Iniciar conversión
+
+
+    // 1) Iniciar conversión
     i2c_start();
     i2c_write(MAX128_ADDR_W);       // Dirección de escritura
     i2c_write(control_byte);        // Envío del byte de control
+
+   
     i2c_start();
     i2c_write(MAX128_ADDR_R);
     msb = i2c_read(1);
@@ -132,7 +138,7 @@ void Init_GPIO()
     i2c_stop();
 
     // Ensamblar y ajustar la justificación a 12 bits
-    resultado_adc = make16(msb, lsb); // El valor devuelto es un entero que representa la lectura analógica ( son 8 de msb y 8 de lsb )
+      resultado_adc = make16(msb, lsb); // El valor devuelto es un entero que representa la lectura analógica ( son 8 de msb y 8 de lsb )
       return resultado_adc/16; // Desplaza el valor ensamblado 4 bits a la derecha para eliminar los 4 que sobran al final 
 }
 

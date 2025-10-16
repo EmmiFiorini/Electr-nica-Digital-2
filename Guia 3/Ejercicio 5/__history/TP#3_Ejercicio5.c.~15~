@@ -1,0 +1,135 @@
+#include <TP#3_Ejercicio5.h>
+
+#fuses INTRC_IO   // Oscilador interno con pines RA6 y RA7 como GPIO
+#fuses NOMCLR     // Desactivo el MCLR
+#fuses NOWDT      // Desactivo el watchdog
+
+/*****************************************************************************
+ * LCD
+ ****************************************************************************/
+
+#define LCD_ENABLE_PIN  PIN_A0
+#define LCD_RS_PIN      PIN_A1
+#define LCD_RW_PIN      PIN_A2 // CONECTADO A GND SI NO LO USAMOS
+#define LCD_DATA4       PIN_A4
+#define LCD_DATA5       PIN_A5
+#define LCD_DATA6       PIN_A6
+#define LCD_DATA7       PIN_A7
+
+#include <lcd.c>
+
+/*****************************************************************************
+ * I2C
+ ****************************************************************************/
+#define MAX128_ADDR_W 0x50 // Direccion I2C del MAX128 (Write)
+#define MAX128_ADDR_R 0x51 // Direccion I2C del MAX128 (Read)
+
+#use i2c(MASTER, SCL=PIN_B4, SDA=PIN_B1, FAST=400) // Configuración I2C
+
+/*****************************************************************************
+ * Funciones de Inicializacion de Perifericos
+ ****************************************************************************/
+
+void InitTimer0(void);
+void Init_GPIO(void);
+void Init_ADC(void);
+int16 leer_max128_channel(int channel);
+
+/*****************************************************************************
+* Variables globales
+****************************************************************************/
+
+/* ADC */
+int16 resultado_adc = 0;
+int16 dx_val = 0;
+int16 dy_val = 0;
+int16 dz_val = 0;
+
+/* TIMER 0 */
+int contador_ms = 0;
+int flag_segundo = 0;
+
+/*****************************************************************************
+* Interrupciones
+****************************************************************************/
+
+#INT_TIMER0 // ACA ESCRIBO QUÉ DEBO HACER EN CADA INTERRUPCIÓN
+void Timer0_ISR() {
+  
+  set_timer0(61); // 50 ms
+  
+  if(contador_ms >= 4) { //PASO 200 ms
+       contador_ms = 0;
+       flag_segundo = 1; // aviso que ya pasó el tiempo deseado
+   }
+   contador_ms++;
+}
+
+
+/*****************************************************************************
+* Funciones
+****************************************************************************/
+
+void main()
+{
+   Init_GPIO();
+   lcd_init();
+   InitTimer0();
+   
+   lcd_putc('\f');     
+   lcd_gotoxy(1, 1);
+   printf(LCD_PUTC, "ADC"); 
+    
+    while(TRUE) {
+        if (flag_segundo == 1) {
+            dx_val = leer_max128_channel(0); 
+            dy_val = leer_max128_channel(1); 
+            dz_val = leer_max128_channel(2);
+            // Actualización de LCD
+            lcd_gotoxy(1, 2); 
+            printf(LCD_PUTC, "DX:%ld DY:%ld DZ:%ld", dx_val, dy_val, dz_val);
+            flag_segundo = 0; // Limpiar el flag
+            }
+    }
+}
+void InitTimer0(void) {
+
+    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256); // Configuro prescaler
+    set_timer0(61);               // Reinicio el timer 
+    enable_interrupts(INT_TIMER0);    // Activo Interrupcion timer0
+    enable_interrupts(GLOBAL);
+    
+}
+
+void Init_GPIO()
+{   
+   set_tris_a(0b00000000); 
+   set_tris_b(0b00000000);
+   
+   enable_interrupts(GLOBAL);
+}
+
+// Funcion para leer un canal del MAX128 y devolver un valor de 12 bits (0-4095)
+    int16 leer_max128_channel(int8 channel) {
+    int8 control_byte;
+    int8 msb, lsb; // Most y Least Significant Bit
+
+    // Byte de Control: 0x80 (START) | SEL<2:0> | RNG=1 | BIP=0 | PD=00
+    // RNG=1, BIP=0, PD=00 es 0x04. Se usa 0x80 porque el MAX128 espera el bit START en ese byte.
+    control_byte = 0x80 | (channel << 4) | 0x04; 
+
+    // Para leer:
+    i2c_start();
+    i2c_write(MAX128_ADDR_W); //Escritura en el bus de comunicación(El master envía ID de dispositivo + w)
+    i2c_write(control_byte); //Escritura en el bus de comunicación (El master envía registro a leer)
+    i2c_stop();              
+    i2c_start(); // El master envía start (El master envía start (corta operación de escritura))
+    i2c_write(MAX128_ADDR_R); //Escritura en el bus de comunicación (El master envía ID de dispositivo + r)
+    msb = i2c_read(1); // Lee byte MSB (D11-D4), Lectura del bus( El slave envía datos ( 8 bits ))
+    lsb = i2c_read(0); // Lee byte LSB (D3-D0 + 4 ceros), Lectura del bus
+    i2c_stop(); // El master envía stop para finalizar operación
+
+    // Ensamblar y ajustar la justificación a 12 bits
+    resultado_adc = make16(msb, lsb); // El valor devuelto es un entero que representa la lectura analógica ( son 8 de msb y 8 de lsb )
+      return resultado_adc >> 4; // Desplaza el valor ensamblado 4 bits a la derecha para eliminar los 4 que sobran al final 
+}

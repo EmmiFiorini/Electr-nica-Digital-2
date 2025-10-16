@@ -8,13 +8,13 @@
  * LCD
  ****************************************************************************/
 
-#define LCD_ENABLE_PIN  PIN_B0
-#define LCD_RS_PIN      PIN_B2
+#define LCD_ENABLE_PIN  PIN_A0
+#define LCD_RS_PIN      PIN_A1
 #define LCD_RW_PIN      PIN_A2 // CONECTADO A GND SI NO LO USAMOS
-#define LCD_DATA4       PIN_B3
-#define LCD_DATA5       PIN_B5
-#define LCD_DATA6       PIN_B6
-#define LCD_DATA7       PIN_B7
+#define LCD_DATA4       PIN_A3
+#define LCD_DATA5       PIN_A4
+#define LCD_DATA6       PIN_A5
+#define LCD_DATA7       PIN_A6
 
 #include <lcd.c>
 
@@ -82,6 +82,7 @@ void main()
        
     while(TRUE) {
         if (flag_segundo == 1) {
+            lcd_putc('\f');  
             dx_val = leer_max128_channel(0x8c); 
             dy_val = leer_max128_channel(0xcc); 
             dz_val = leer_max128_channel(0xfc);

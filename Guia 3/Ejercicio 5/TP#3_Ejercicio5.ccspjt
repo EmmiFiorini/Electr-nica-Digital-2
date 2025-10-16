@@ -19,7 +19,7 @@ forcecoff=0
 [ProjectLog]
 Days=1
 D1=16-10-2025
-D1_L=8
+D1_L=17
 D1_L1=[39551]Project Opened.
 D1_L2=[39572]Project Closed.
 D1_L3=[39589]Project Opened.
@@ -32,18 +32,29 @@ D1_D=0
 D1_L6=[40043]Project Closed.
 D1_L7=[41761]Project Opened.
 D1_L8=[41890]Started Editing.
+D1_L9=[45635]Stopped Editing.
+D1_L10=[46047]Started Editing.
+D1_L11=[46357]Stopped Editing.
+D1_L12=[46696]Started Editing.
+D1_L13=[47715]Stopped Editing.
+D1_L14=[47782]Started Editing.
+D1_L15=[49903]Stopped Editing.
+D1_L16=[49952]Started Editing.
+D1_L17=[52298]Stopped Editing.
 
 [Opened Files]
-1=TP#3_Ejercicio5.c
-t1=36
+1=..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+t1=189
 Count=2
-2=..\..\Guia 2\Punto 6\Ejercicio6_TP2.c
-t2=49
+2=TP3_Ejercicio5.c
+t2=189
+3=TP#3_Ejercicio5.c
+t3=1
 [TP#3_Ejercicio5.c]
 Type=4
+
+[defines]
+buildcount=26
 [Units]
 Count=1
 1=TP#3_Ejercicio5 (main)
-
-[defines]
-buildcount=1

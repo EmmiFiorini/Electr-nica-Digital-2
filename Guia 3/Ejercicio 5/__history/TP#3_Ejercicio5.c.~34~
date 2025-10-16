@@ -1,4 +1,4 @@
-#include <TP3_Ejercicio5.h>
+#include <TP#3_Ejercicio5.h>
 
 #fuses INTRC_IO   // Oscilador interno con pines RA6 y RA7 como GPIO
 #fuses NOMCLR     // Desactivo el MCLR
@@ -21,8 +21,8 @@
 /*****************************************************************************
  * I2C
  ****************************************************************************/
-#define MAX128_ADDR_W 0x52 // Direccion I2C del MAX128 (Write)
-#define MAX128_ADDR_R 0x53 // Direccion I2C del MAX128 (Read)
+#define MAX128_ADDR_W 0x92 // Direccion I2C del MAX128 (Write)
+#define MAX128_ADDR_R 0x93 // Direccion I2C del MAX128 (Read)
 
 #use i2c(MASTER, SCL=PIN_B4, SDA=PIN_B1, FAST=400) // Configuración I2C
 
@@ -32,8 +32,8 @@
 
 void InitTimer0(void);
 void Init_GPIO(void);
+void Init_ADC(void);
 int16 leer_max128_channel(int channel);
-
 
 /*****************************************************************************
 * Variables globales
@@ -79,12 +79,13 @@ void main()
    lcd_putc('\f');     
    lcd_gotoxy(1, 1);
    printf(LCD_PUTC, "ADC"); 
-       
+    
     while(TRUE) {
         if (flag_segundo == 1) {
-            dx_val = leer_max128_channel(0x8c); 
-            dy_val = leer_max128_channel(0xcc); 
-            dz_val = leer_max128_channel(0xfc);
+            lcd_putc('\f');  
+            dx_val = leer_max128_channel(0); 
+            dy_val = leer_max128_channel(1); 
+            dz_val = leer_max128_channel(2);
             // Actualización de LCD
             lcd_gotoxy(1, 2);
             printf(lcd_putc, "DX=%4lu", dx_val);
@@ -111,6 +112,7 @@ void InitTimer0(void) {
 void Init_GPIO()
 {   
    setup_adc_ports(NO_ANALOGS);
+   setup_comparator(NC_NC); // desactiva comparadores si el MCU los tiene
    set_tris_a(0b00000000); 
    set_tris_b(0b00010010);
    
@@ -118,13 +120,35 @@ void Init_GPIO()
 }
 
 // Funcion para leer un canal del MAX128 y devolver un valor de 12 bits (0-4095)
-    int16 leer_max128_channel(int8 control_byte) {
+    int16 leer_max128_channel(int8 channel) {
+    int8 control_byte;
     int8 msb, lsb; // Most y Least Significant Bit
 
-    //  Iniciar conversión
+    // Byte de Control: 0x80 (START) | SEL<2:0> | RNG=1 | BIP=0 | PD=00
+    // RNG=1, BIP=0, PD=00 es 0x04. Se usa 0x80 porque el MAX128 espera el bit START en ese byte.
+    control_byte = 0x80 | (channel << 4) | 0x04; 
+
+
+    // 1) Iniciar conversión
     i2c_start();
     i2c_write(MAX128_ADDR_W);       // Dirección de escritura
     i2c_write(control_byte);        // Envío del byte de control
+    i2c_stop();
+
+    // 2) Esperar tiempo de conversión (mínimo 10 µs)
+    delay_ms(2);
+
+    // 
+    i2c_start();
+    i2c_write(MAX128_ADDR_R);
+    msb = i2c_read(1); // se descarta
+    lsb = i2c_read(0); // se descarta
+    i2c_stop();
+
+    // 4) Pequeño delay adicional para asegurar estabilidad
+    delay_ms(1);
+
+    // 5) Lectura real
     i2c_start();
     i2c_write(MAX128_ADDR_R);
     msb = i2c_read(1);
@@ -133,7 +157,5 @@ void Init_GPIO()
 
     // Ensamblar y ajustar la justificación a 12 bits
     resultado_adc = make16(msb, lsb); // El valor devuelto es un entero que representa la lectura analógica ( son 8 de msb y 8 de lsb )
-      return resultado_adc/16; // Desplaza el valor ensamblado 4 bits a la derecha para eliminar los 4 que sobran al final 
+      return resultado_adc >> 4; // Desplaza el valor ensamblado 4 bits a la derecha para eliminar los 4 que sobran al final 
 }
-
-
