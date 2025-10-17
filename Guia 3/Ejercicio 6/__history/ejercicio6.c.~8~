@@ -66,6 +66,7 @@ void main() {
    lcd_iniciar();// inicializo LCD
    InitTimer0(); // inicializo Timer0
    
+   float temperatura; //creo una variable
    
    //imprimo la intro
    lcd_comando(0x80); // cursor al inicio
@@ -73,7 +74,19 @@ void main() {
    printf("\r\n--- Lectura LM75 ---\r\n");
 
    while(TRUE) {
-      maquina();
+      if (flag_segundo ==1 ) { //si paso 1s 
+         flag_segundo = 0;
+         //flag_adc = 0;
+         temperatura = leer_temperatura_LM75();   // leo temperatura del sensor
+   
+         // mostrar en LCD
+         lcd_comando(0xC0);                // segunda línea
+         printf(lcd_texto, "Temp: ");
+         lcd_mostrar_float(temperatura);
+         printf(lcd_texto, " C");
+
+      // mostrar por UART
+      printf("\r\nTemperatura: %.2f C", temperatura);
       
       }
    }
@@ -83,9 +96,9 @@ void InitTimer0(void){
     setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256); //prescaler 1:256
     set_timer0(61);// valor inicial (50 ms)
     enable_interrupts(INT_TIMER0);// habilito interrupción Timer0
-    enable_interrupts(GLOBAL);//habilito interrupciones globales
     
     /*//para el adc:
+    enable_interrupts(GLOBAL);//habilito interrupciones globales
    enable_interrupts(INT_EXT);// x el ADC*/
 }
 
@@ -168,22 +181,3 @@ float leer_temperatura_LM75(void) {
    return temperatura;
 }
 
-//maquina de estados
-void maquina(void){
-   float temperatura; //creo una variable
-
-   if (flag_segundo ==1 ) { //si paso 1s 
-         flag_segundo = 0;
-         //flag_adc = 0;
-         temperatura = leer_temperatura_LM75();   // leo temperatura del sensor
-   
-         // mostrar en LCD
-         lcd_comando(0xC0);                // segunda línea
-         printf(lcd_texto, "Temp: ");
-         lcd_mostrar_float(temperatura);
-         printf(lcd_texto, " C");
-
-      // mostrar por UART
-      printf("\r\nTemperatura: %.2f C", temperatura);
-}
-}

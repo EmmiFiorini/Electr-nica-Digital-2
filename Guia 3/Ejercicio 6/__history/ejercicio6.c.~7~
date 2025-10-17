@@ -7,7 +7,7 @@
 #use i2c(MASTER, SDA=PIN_B1, SCL=PIN_B4, FAST=100000)
 
 // dirección del LM75 (A0–A2 a GND)
-#define LM75_ADDR 0x90// 10010000--> 0=w y 1=r
+#define LM75_ADDR 0x90  
 
 // CONFIGURACIÓN UART
 #use rs232(baud=9600, xmit=PIN_A0, rcv=PIN_A1, bits=8, parity=N, stop=1)
@@ -29,16 +29,14 @@ void lcd_iniciar(void);
 void lcd_mostrar_float(float num);
 float leer_temperatura_LM75(void);
 void InitTimer0(void); 
-void maquina(void);
 
 // VARIABLES
    /*Timer0*/
 int contador_ms=0; 
 int flag_segundo=0; //para el timer
-
    /* ADC */
-/*int16 resultado_adc=0;
-int flag_adc = 0;*/
+int16 resultado_adc=0;
+int flag_adc = 0;
 
 //INTERRUPCIONES
 //TIMER 0 
@@ -53,42 +51,52 @@ void Timer0_ISR() {
    contador_ms++;
 }
 
-/*//ADC
+//ADC
 #INT_AD
 void ISR_ADC(void) {
    resultado_adc = read_adc(ADC_READ_ONLY);
    flag_adc = 1;
    
-}*/
+}
 
 void main() {
-   //inicializo
+
+   float temperatura; 
+   
    lcd_iniciar();// inicializo LCD
    InitTimer0(); // inicializo Timer0
    
-   
-   //imprimo la intro
-   lcd_comando(0x80); // cursor al inicio
-   printf(lcd_texto, "TEMP LM75 I2C");// mensaje inicial
+   lcd_comando(0x80);                    // cursor al inicio
+   printf(lcd_texto, "TEMP LM75 I2C");   // mensaje inicial
    printf("\r\n--- Lectura LM75 ---\r\n");
 
    while(TRUE) {
-      maquina();
+      if (flag_segundo ==1 && flag_adc == 1) { //si paso 1s y el adc esta listo
+         flag_segundo=0;
+         flag_adc = 0;
+         temperatura = leer_temperatura_LM75();   // leo temperatura del sensor
+   
+         // mostrar en LCD
+         lcd_comando(0xC0);                // segunda línea
+         printf(lcd_texto, "Temp: ");
+         lcd_mostrar_float(temperatura);
+         printf(lcd_texto, " C");
+
+      // mostrar por UART
+      printf("\r\nTemperatura: %.2f C", temperatura);
       
       }
    }
 }
 
 void InitTimer0(void){ 
-    setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256); //prescaler 1:256
-    set_timer0(61);// valor inicial (50 ms)
-    enable_interrupts(INT_TIMER0);// habilito interrupción Timer0
-    enable_interrupts(GLOBAL);//habilito interrupciones globales
+    setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256); // Reloj interno, prescaler 1:256
+    set_timer0(61);                              // valor inicial (50 ms)
+    enable_interrupts(INT_TIMER0);               // habilito interrupción Timer0
+    enable_interrupts(GLOBAL);// habilito interrupciones globales
     
-    /*//para el adc:
-   enable_interrupts(INT_EXT);// x el ADC*/
+   enable_interrupts(INT_EXT);// x el ADC
 }
-
 // FUNCIONES I2C PARA EL LCD
 
 void i2c_enviar_byte_LCD(int8 dato){
@@ -168,22 +176,3 @@ float leer_temperatura_LM75(void) {
    return temperatura;
 }
 
-//maquina de estados
-void maquina(void){
-   float temperatura; //creo una variable
-
-   if (flag_segundo ==1 ) { //si paso 1s 
-         flag_segundo = 0;
-         //flag_adc = 0;
-         temperatura = leer_temperatura_LM75();   // leo temperatura del sensor
-   
-         // mostrar en LCD
-         lcd_comando(0xC0);                // segunda línea
-         printf(lcd_texto, "Temp: ");
-         lcd_mostrar_float(temperatura);
-         printf(lcd_texto, " C");
-
-      // mostrar por UART
-      printf("\r\nTemperatura: %.2f C", temperatura);
-}
-}
