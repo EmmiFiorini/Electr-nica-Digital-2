@@ -1,95 +1,95 @@
 ÀÄejercicio6
-   ÀÄMAIN  0/120  Ram=4
-      ÃÄ@cinit1  (Inline)  Ram=0
-      ÃÄ@cinit2  (Inline)  Ram=0
-      ÃÄlcd_iniciar  0/51  Ram=0
-      ³  ÃÄ@delay_ms1  0/22  Ram=1
-      ³  ÃÄlcd_enviar_4bits  0/22  Ram=4
-      ³  ³  ÃÄi2c_enviar_byte_LCD  0/17  Ram=1
-      ³  ³  ³  ÃÄ@I2C_WRITEU_129  0/20  Ram=1
-      ³  ³  ³  ÀÄ@I2C_WRITEU_129  0/20  Ram=1
-      ³  ³  ÀÄi2c_enviar_byte_LCD  0/17  Ram=1
-      ³  ³     ÀÄ*
-      ³  ÃÄ@delay_ms1  0/22  Ram=1
-      ³  ÃÄlcd_enviar_4bits  0/22  Ram=4
-      ³  ³  ÀÄ*
-      ³  ÃÄlcd_enviar_4bits  0/22  Ram=4
-      ³  ³  ÀÄ*
-      ³  ÃÄlcd_enviar_4bits  0/22  Ram=4
-      ³  ³  ÀÄ*
-      ³  ÃÄlcd_comando  0/16  Ram=2
-      ³  ³  ÃÄlcd_enviar_4bits  0/22  Ram=4
-      ³  ³  ³  ÀÄ*
-      ³  ³  ÃÄlcd_enviar_4bits  0/22  Ram=4
-      ³  ³  ³  ÀÄ*
-      ³  ³  ÀÄ@delay_ms1  0/22  Ram=1
-      ³  ÃÄlcd_comando  0/16  Ram=2
-      ³  ³  ÀÄ*
-      ³  ÃÄlcd_comando  0/16  Ram=2
-      ³  ³  ÀÄ*
-      ³  ÃÄlcd_comando  0/16  Ram=2
-      ³  ³  ÀÄ*
-      ³  ÀÄ@delay_ms1  0/22  Ram=1
-      ÃÄInitTimer0  0/13  Ram=0
-      ÃÄlcd_comando  0/16  Ram=2
-      ³  ÀÄ*
-      ÃÄ@PSTRINGC7_738  0/74  Ram=3
-      ³  ÃÄlcd_texto  0/19  Ram=2
-      ³  ³  ÃÄlcd_enviar_4bits  0/22  Ram=4
-      ³  ³  ³  ÀÄ*
-      ³  ³  ÀÄlcd_enviar_4bits  0/22  Ram=4
-      ³  ³     ÀÄ*
-      ³  ÀÄlcd_texto  0/19  Ram=2
-      ³     ÀÄ*
-      ÃÄ@PSTRINGC7_725  0/75  Ram=3
-      ³  ÃÄ@PUTCHAR_1_  0/38  Ram=1
-      ³  ÀÄ@PUTCHAR_1_  0/38  Ram=1
-      ÃÄleer_temperatura_LM75  0/79  Ram=6
-      ³  ÃÄ@I2C_WRITEU_129  0/20  Ram=1
-      ³  ÃÄ@I2C_WRITEU_129  0/20  Ram=1
-      ³  ÃÄ@I2C_WRITEU_129  0/20  Ram=1
-      ³  ÃÄ@I2C_READU_129  0/16  Ram=1
-      ³  ÃÄ@I2C_READU_129  0/16  Ram=1
-      ³  ÃÄ@ITOF  0/29  Ram=2
-      ³  ÀÄ@ADDFF  0/322  Ram=16
-      ÃÄlcd_comando  0/16  Ram=2
-      ³  ÀÄ*
-      ÃÄ@PSTRINGC7_738  0/74  Ram=3
-      ³  ÀÄ*
-      ÃÄlcd_mostrar_float  0/82  Ram=12
-      ³  ÃÄ@SFTOI  0/31  Ram=4
-      ³  ÃÄ@ITOF  0/29  Ram=2
-      ³  ÃÄ@ADDFF  0/322  Ram=16
-      ³  ÃÄ@MULFF  0/117  Ram=16
-      ³  ÃÄ@SFTOI  0/31  Ram=4
-      ³  ÃÄ@PRINTF_U_738  0/53  Ram=2
-      ³  ³  ÃÄ@DIV88  0/21  Ram=3
-      ³  ³  ÃÄlcd_texto  0/19  Ram=2
-      ³  ³  ³  ÀÄ*
-      ³  ³  ÃÄ@DIV88  0/21  Ram=3
-      ³  ³  ÃÄlcd_texto  0/19  Ram=2
-      ³  ³  ³  ÀÄ*
-      ³  ³  ÀÄlcd_texto  0/19  Ram=2
-      ³  ³     ÀÄ*
-      ³  ÃÄlcd_texto  0/19  Ram=2
-      ³  ³  ÀÄ*
-      ³  ÀÄ@PRINTF_U_738  0/53  Ram=2
-      ³     ÀÄ*
-      ÃÄlcd_texto  0/19  Ram=2
-      ³  ÀÄ*
-      ÃÄlcd_texto  0/19  Ram=2
-      ³  ÀÄ*
-      ÃÄ@PSTRINGCN7_725  0/81  Ram=6
-      ³  ÃÄ@PUTCHAR_1_  0/38  Ram=1
-      ³  ÀÄ@PUTCHAR_1_  0/38  Ram=1
-      ÃÄ@PRINTF_L32D_725FPFPF  0/226  Ram=16
-      ³  ÃÄ@MULFF  0/117  Ram=16
-      ³  ÃÄ@FTOSD  (Inline)  Ram=5
-      ³  ÃÄ@DIV3232  0/77  Ram=16
-      ³  ÃÄ@PUTCHAR_1_  0/38  Ram=1
-      ³  ÃÄ@PUTCHAR_1_  0/38  Ram=1
-      ³  ÃÄ@PUTCHAR_1_  0/38  Ram=1
-      ³  ÃÄ@PUTCHAR_1_  0/38  Ram=1
-      ³  ÀÄ@DIV3232  0/77  Ram=16
-      ÃÄ@PUTCHAR_1_  0/38  Ram=1
-      ÀÄ@PUTCHAR_1_  0/38  Ram=1
+   ÃÄMAIN  0/124  Ram=4
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄ@cinit2  (Inline)  Ram=0
+   ³  ÃÄlcd_iniciar  0/51  Ram=0
+   ³  ³  ÃÄ@delay_ms1  0/22  Ram=1
+   ³  ³  ÃÄlcd_enviar_4bits  0/26  Ram=4
+   ³  ³  ³  ÃÄ@I2C_WRITEU_129  0/20  Ram=1
+   ³  ³  ³  ÀÄ@I2C_WRITEU_129  0/20  Ram=1
+   ³  ³  ÃÄ@delay_ms1  0/22  Ram=1
+   ³  ³  ÃÄlcd_enviar_4bits  0/26  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_enviar_4bits  0/26  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_enviar_4bits  0/26  Ram=4
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_comando  0/29  Ram=2
+   ³  ³  ³  ÃÄ@I2C_WRITEU_129  0/20  Ram=1
+   ³  ³  ³  ÃÄlcd_enviar_4bits  0/26  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄlcd_enviar_4bits  0/26  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄ@delay_ms1  0/22  Ram=1
+   ³  ³  ÃÄlcd_comando  0/29  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_comando  0/29  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_comando  0/29  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄ@delay_ms1  0/22  Ram=1
+   ³  ÃÄInitTimer0  0/13  Ram=0
+   ³  ÃÄlcd_comando  0/29  Ram=2
+   ³  ³  ÀÄ*
+   ³  ÃÄ@PSTRINGC7_774  0/74  Ram=4
+   ³  ³  ÃÄlcd_texto  0/28  Ram=2
+   ³  ³  ³  ÃÄ@I2C_WRITEU_129  0/20  Ram=1
+   ³  ³  ³  ÃÄlcd_enviar_4bits  0/26  Ram=4
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄlcd_enviar_4bits  0/26  Ram=4
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÀÄlcd_texto  0/28  Ram=2
+   ³  ³     ÀÄ*
+   ³  ÃÄ@PSTRINGC7_725  0/75  Ram=4
+   ³  ³  ÃÄ@PUTCHAR_1_  0/38  Ram=1
+   ³  ³  ÀÄ@PUTCHAR_1_  0/38  Ram=1
+   ³  ÃÄleer_temperatura_LM75  0/79  Ram=6
+   ³  ³  ÃÄ@I2C_WRITEU_129  0/20  Ram=1
+   ³  ³  ÃÄ@I2C_WRITEU_129  0/20  Ram=1
+   ³  ³  ÃÄ@I2C_WRITEU_129  0/20  Ram=1
+   ³  ³  ÃÄ@I2C_READU_129  0/16  Ram=1
+   ³  ³  ÃÄ@I2C_READU_129  0/16  Ram=1
+   ³  ³  ÃÄ@ITOF  0/29  Ram=2
+   ³  ³  ÀÄ@ADDFF  0/322  Ram=16
+   ³  ÃÄlcd_comando  0/29  Ram=2
+   ³  ³  ÀÄ*
+   ³  ÃÄ@PSTRINGC7_774  0/74  Ram=4
+   ³  ³  ÀÄ*
+   ³  ÃÄlcd_mostrar_float  0/82  Ram=12
+   ³  ³  ÃÄ@SFTOI  0/31  Ram=4
+   ³  ³  ÃÄ@ITOF  0/29  Ram=2
+   ³  ³  ÃÄ@ADDFF  0/322  Ram=16
+   ³  ³  ÃÄ@MULFF  0/117  Ram=13
+   ³  ³  ÃÄ@SFTOI  0/31  Ram=4
+   ³  ³  ÃÄ@PRINTF_U_774  0/53  Ram=2
+   ³  ³  ³  ÃÄ@DIV88  0/21  Ram=3
+   ³  ³  ³  ÃÄlcd_texto  0/28  Ram=2
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄ@DIV88  0/21  Ram=3
+   ³  ³  ³  ÃÄlcd_texto  0/28  Ram=2
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄlcd_texto  0/28  Ram=2
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄlcd_texto  0/28  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÀÄ@PRINTF_U_774  0/53  Ram=2
+   ³  ³     ÀÄ*
+   ³  ÃÄlcd_texto  0/28  Ram=2
+   ³  ³  ÀÄ*
+   ³  ÃÄlcd_texto  0/28  Ram=2
+   ³  ³  ÀÄ*
+   ³  ÃÄ@PSTRINGCN7_725  0/81  Ram=4
+   ³  ³  ÃÄ@PUTCHAR_1_  0/38  Ram=1
+   ³  ³  ÀÄ@PUTCHAR_1_  0/38  Ram=1
+   ³  ÃÄ@PRINTF_L32D_725FPFPF  0/226  Ram=16
+   ³  ³  ÃÄ@MULFF  0/117  Ram=13
+   ³  ³  ÃÄ@FTOSD  (Inline)  Ram=5
+   ³  ³  ÃÄ@DIV3232  0/77  Ram=13
+   ³  ³  ÃÄ@PUTCHAR_1_  0/38  Ram=1
+   ³  ³  ÃÄ@PUTCHAR_1_  0/38  Ram=1
+   ³  ³  ÃÄ@PUTCHAR_1_  0/38  Ram=1
+   ³  ³  ÃÄ@PUTCHAR_1_  0/38  Ram=1
+   ³  ³  ÀÄ@DIV3232  0/77  Ram=13
+   ³  ÃÄ@PUTCHAR_1_  0/38  Ram=1
+   ³  ÀÄ@PUTCHAR_1_  0/38  Ram=1
+   ÀÄTimer0_ISR  0/13  Ram=0

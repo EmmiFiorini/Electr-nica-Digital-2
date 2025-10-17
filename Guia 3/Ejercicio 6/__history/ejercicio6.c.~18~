@@ -91,14 +91,21 @@ void InitTimer0(void){
     set_timer0(61);// valor inicial (50 ms)
     enable_interrupts(INT_TIMER0);// habilito interrupción Timer0
     enable_interrupts(GLOBAL);//habilito interrupciones globales
-}
+    
 
 
 // FUNCIONES I2C PARA EL LCD
 
 
 void lcd_enviar_4bits(int8 nibble, int1 es_texto) {
-   
+   /*
+   int8 byte_i2c;
+   byte_i2c = (nibble << 4);
+   if(es_texto) byte_i2c |= LCD_RS;
+
+   i2c_enviar_byte_LCD(byte_i2c | LCD_EN);
+   delay_us(10);
+   i2c_enviar_byte_LCD(byte_i2c & ~LCD_EN);*/
    int8 byte_i2c;
    byte_i2c = (nibble << 4);
    if(es_texto) byte_i2c |= LCD_RS;
@@ -110,7 +117,9 @@ void lcd_enviar_4bits(int8 nibble, int1 es_texto) {
 }
 
 void lcd_comando(int8 comando) {
-   
+   /*lcd_enviar_4bits(comando >> 4, 0);
+   lcd_enviar_4bits(comando, 0);
+   delay_ms(2);*/
    
     i2c_start();//empiezo a hablar
     i2c_write(I2C_LCD_DIR);//direccion LCD
@@ -121,7 +130,9 @@ void lcd_comando(int8 comando) {
 }
 
 void lcd_texto(char letra) {
-
+  /* lcd_enviar_4bits(letra >> 4, 1);
+   lcd_enviar_4bits(letra, 1);
+   delay_us(40);*/
    
    i2c_start();//inicio la comunicacion
    i2c_write(I2C_LCD_DIR); //digo a quien le hablo (LCD)

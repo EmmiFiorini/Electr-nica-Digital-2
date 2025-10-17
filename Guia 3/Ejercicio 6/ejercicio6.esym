@@ -1,10 +1,10 @@
-F N "lsb" 0 153 ""
-D G "__PCM__" 0 153 ""5.093""
-D G "__DEVICE__" 0 153 "1827"
-D G "__DATE__" 0 153 ""16-Oct-25""
-D G "__TIME__" 0 153 ""19:47:25""
-D G "_UNICODE" 0 153 ""?""
-D G "__EVAL" 0 153 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
+F N "leer_temperatura_LM75" 0 161 ""
+D G "__PCM__" 0 183 ""5.093""
+D G "__DEVICE__" 0 183 "1827"
+D G "__DATE__" 0 183 ""17-Oct-25""
+D G "__TIME__" 0 183 ""18:53:24""
+D G "_UNICODE" 0 183 ""?""
+D G "__EVAL" 0 183 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 f N "set_tris_a" 2 39 ""
 v L "value" 2 39 "int8" `55 
@@ -1399,92 +1399,175 @@ d G "INT_RB6_H2L" 2 959 "0x21400B08"
 d G "INT_RB7" 2 960 "0x31800B08"
 d G "INT_RB7_L2H" 2 961 "0x11800B08"
 d G "INT_RB7_H2L" 2 962 "0x21800B08"
-D G "LM75_ADDR" 0 10 "0x90"
-D G "I2C_LCD_DIR" 0 16 "0x40"
+D G "LM75_ADDR" 0 10 "0x90" "10010000--> 0=w y 1=r"
+D G "I2C_LCD_DIR" 0 16 "0x40" "defino las compuertas del LCD"
 D G "LCD_RS" 0 17 "0x01"
 D G "LCD_RW" 0 18 "0x02"
 D G "LCD_EN" 0 19 "0x04"
-F N "i2c_enviar_byte_LCD" 0 21 ""
-V L "dato" 0 21 "int8" `732 
-f G "i2c_enviar_byte_LCD" 0 21 "void(int8 dato)" `731 
-F N "lcd_enviar_4bits" 0 22 ""
-V L "nibble" 0 22 "int8" `734 
-V L "es_texto" 0 22 "int8" `735 
-f G "lcd_enviar_4bits" 0 22 "void(int8 nibble,int8 es_texto)" `733 
-F N "lcd_comando" 0 23 ""
-V L "comando" 0 23 "int8" `737 
-f G "lcd_comando" 0 23 "void(int8 comando)" `736 
-F N "lcd_texto" 0 24 ""
-V L "letra" 0 24 "int8" `739 
-f G "lcd_texto" 0 24 "void(int8 letra)" `738 
-F N "lcd_iniciar" 0 25 ""
-f G "lcd_iniciar" 0 25 "void()" `740 
-F N "lcd_mostrar_float" 0 26 ""
-V L "num" 0 26 "float" `742 
-f G "lcd_mostrar_float" 0 26 "void(float num)" `741 
-F N "leer_temperatura_LM75" 0 27 ""
-f G "leer_temperatura_LM75" 0 27 "float()" `743 
-F N "InitTimer0" 0 28 ""
-f G "InitTimer0" 0 28 "void()" `744 
-V G "contador_ms" 0 30 "int8" `745 
-V G "flag_segundo" 0 31 "int8" `746 
-C L "InitTimer0" 0 6 2 "FUNCTION"
-F N "Timer0_ISR" 0 34 ""
-F G "Timer0_ISR" 0 34 "void()" `747 
-C L "Timer0_ISR" 0 6 1 "FUNCTION"
-C L "Timer0_ISR" 0 6 1 "FUNCTION"
-C L "Timer0_ISR" 0 6 1 "FUNCTION"
-F N "MAIN" 0 47 ""
-F G "MAIN" 0 47 "void()" `748 
-V L "temperatura" 0 49 "float" `749 
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 2 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-C L "MAIN" 0 6 1 "FUNCTION"
-F N "InitTimer0" 0 77 ""
-F G "InitTimer0" 0 77 "void()" `744 
-C L "InitTimer0" 0 6 1 "FUNCTION"
-C L "InitTimer0" 0 6 1 "FUNCTION"
-C L "InitTimer0" 0 6 1 "FUNCTION"
-C L "InitTimer0" 0 6 1 "FUNCTION"
-C L "i2c_enviar_byte_LCD" 0 6 1 "FUNCTION"
-F N "i2c_enviar_byte_LCD" 0 85 ""
-V L "dato" 0 85 "int8" `776 
-F G "i2c_enviar_byte_LCD" 0 85 "void(int8 dato)" `731 
-F N "lcd_enviar_4bits" 0 92 ""
-V L "nibble" 0 92 "int8" `734 
-V L "es_texto" 0 92 "int8" `777 
-F G "lcd_enviar_4bits" 0 92 "void(int8 nibble,int8 es_texto)" `733 
-V L "byte_i2c" 0 93 "int8" `775 
-F N "lcd_comando" 0 102 ""
-V L "comando" 0 102 "int8" `777 
-F G "lcd_comando" 0 102 "void(int8 comando)" `736 
-F N "lcd_texto" 0 108 ""
-V L "letra" 0 108 "int8" `777 
-F G "lcd_texto" 0 108 "void(int8 letra)" `738 
-F N "lcd_iniciar" 0 114 ""
-F G "lcd_iniciar" 0 114 "void()" `740 
-C L "lcd_mostrar_float" 0 6 1 "FUNCTION"
-F N "lcd_mostrar_float" 0 133 ""
-V L "num" 0 133 "float" `777 
-F G "lcd_mostrar_float" 0 133 "void(float num)" `741 
-V L "entero" 0 134 "int8" `776 
-V L "decimales" 0 135 "int8" `779 
-C L "leer_temperatura_LM75" 0 6 1 "FUNCTION"
-F N "leer_temperatura_LM75" 0 142 ""
-F G "leer_temperatura_LM75" 0 142 "float()" `743 
-V L "msb" 0 143 "int8" `792 
-V L "lsb" 0 143 "int8" `793 
-V L "temperatura" 0 144 "float" `794 
-C L "leer_temperatura_LM75" 0 6 1 "FUNCTION"
-C L "leer_temperatura_LM75" 0 6 1 "FUNCTION"
-C L "leer_temperatura_LM75" 0 6 1 "FUNCTION"
-C L "leer_temperatura_LM75" 0 6 1 "FUNCTION"
-C L "leer_temperatura_LM75" 0 6 1 "FUNCTION"
-C L "leer_temperatura_LM75" 0 6 1 "FUNCTION"
+D G "__LCD_C__" 3 76 ""
+C L "jump_to_isr" 3 2 2 "FUNCTION"
+C L "jump_to_isr" 3 2 1 "FUNCTION"
+C L "jump_to_isr" 3 2 1 "FUNCTION"
+C L "jump_to_isr" 3 2 1 "FUNCTION"
+C L "jump_to_isr" 3 2 1 "FUNCTION"
+C L "jump_to_isr" 3 2 1 "FUNCTION"
+C L "jump_to_isr" 3 2 2 "FUNCTION"
+T G "LCD_PIN_MAP" 3 90 "{int1 enable,int1 rs,int1 rw,int1 unused,int4 data}" `737  "this is to improve compatability with previous LCD drivers that accepted"
+D G "lcd_output_enable" 3 109 "(x) lcdlat.enable=x"
+D G "lcd_enable_tris" 3 110 "()   lcdtris.enable=0"
+D G "lcd_output_rs" 3 117 "(x) lcdlat.rs=x"
+D G "lcd_rs_tris" 3 118 "()   lcdtris.rs=0"
+D G "lcd_output_rw" 3 125 "(x) lcdlat.rw=x"
+D G "lcd_rw_tris" 3 126 "()   lcdtris.rw=0"
+D G "LCD_DATA_PORT" 3 151 "getenv("SFR:PORTB")" "portb"
+V G "lcd" 3 161 "LCD_PIN_MAP" `738 
+V G "lcdlat" 3 161 "LCD_PIN_MAP" `739 
+V G "lcdtris" 3 161 "LCD_PIN_MAP" `740 
+D G "LCD_TYPE" 3 179 "2" "0=5x7, 1=5x10, 2=2 lines"
+D G "LCD_LINE_TWO" 3 183 "0x40" "LCD RAM address for the second line"
+D G "LCD_LINE_LENGTH" 3 187 "20"
+F N "lcd_read_nibble" 3 190 ""
+f G "lcd_read_nibble" 3 190 "int8()" `741 
+F N "lcd_read_byte" 3 192 ""
+F G "lcd_read_byte" 3 193 "int8()" `742 
+V L "low" 3 194 "int8" `743 
+V L "high" 3 194 "int8" `744 
+F N "lcd_read_nibble" 3 239 ""
+F G "lcd_read_nibble" 3 240 "int8()" `741 
+F N "lcd_send_nibble" 3 256 ""
+V L "n" 3 256 "int8" `746 
+F G "lcd_send_nibble" 3 257 "void(int8 n)" `745 
+F N "lcd_send_byte" 3 274 ""
+V L "address" 3 274 "int8" `748 
+V L "n" 3 274 "int8" `749 
+F G "lcd_send_byte" 3 275 "void(int8 address,int8 n)" `747 
+F N "lcd_init" 3 299 ""
+F G "lcd_init" 3 300 "void()" `750 
+V L "i" 3 301 "int8" `751 
+V L "LCD_INIT_STRING" 3 302 "int8[4]" `752 
+C L "lcd_init" 3 2 2 "FUNCTION"
+F N "lcd_gotoxy" 3 345 ""
+V L "x" 3 345 "int8" `754 
+V L "y" 3 345 "int8" `755 
+F G "lcd_gotoxy" 3 346 "void(int8 x,int8 y)" `753 
+V L "address" 3 347 "int8" `756 
+F N "lcd_putc" 3 363 ""
+V L "c" 3 363 "int8" `758 
+F G "lcd_putc" 3 364 "void(int8 c)" `757 
+F N "lcd_getc" 3 406 ""
+V L "x" 3 406 "int8" `760 
+V L "y" 3 406 "int8" `761 
+F G "lcd_getc" 3 407 "int8(int8 x,int8 y)" `759 
+V L "value" 3 408 "int8" `762 
+C L "lcd_getc" 3 2 1 "FUNCTION"
+C L "lcd_set_cgram_char" 3 2 5 "FUNCTION"
+F N "lcd_set_cgram_char" 3 424 ""
+V L "which" 3 424 "int8" `764 
+V L "ptr" 3 424 "*int8" `765 
+F G "lcd_set_cgram_char" 3 425 "void(int8 which,*int8 ptr)" `763 
+V L "i" 3 426 "int8" `766 
+C L "lcd_set_cgram_char" 3 2 1 "FUNCTION"
+F N "lcd_cursor_on" 3 443 ""
+V L "on" 3 443 "int8" `768 
+F G "lcd_cursor_on" 3 444 "void(int8 on)" `767 
+C L "lcd_cursor_on" 3 2 1 "FUNCTION"
+C L "lcd_cursor_on" 3 2 1 "FUNCTION"
+C L "lcd_enviar_4bits" 0 23 1 "FUNCTION"
+F N "lcd_enviar_4bits" 0 25 ""
+V L "nibble" 0 25 "int8" `770 
+V L "es_texto" 0 25 "int8" `771 
+f G "lcd_enviar_4bits" 0 25 "void(int8 nibble,int8 es_texto)" `769 
+F N "lcd_comando" 0 26 ""
+V L "comando" 0 26 "int8" `773 
+f G "lcd_comando" 0 26 "void(int8 comando)" `772 
+F N "lcd_texto" 0 27 ""
+V L "letra" 0 27 "int8" `775 
+f G "lcd_texto" 0 27 "void(int8 letra)" `774 
+F N "lcd_iniciar" 0 28 ""
+f G "lcd_iniciar" 0 28 "void()" `776 
+F N "lcd_mostrar_float" 0 29 ""
+V L "num" 0 29 "float" `778 
+f G "lcd_mostrar_float" 0 29 "void(float num)" `777 
+F N "leer_temperatura_LM75" 0 30 ""
+f G "leer_temperatura_LM75" 0 30 "float()" `779 
+F N "InitTimer0" 0 31 ""
+f G "InitTimer0" 0 31 "void()" `780 
+F N "maquina" 0 32 ""
+f G "maquina" 0 32 "void()" `781  "VARIABLES"
+C L "maquina" 0 23 1 "FUNCTION"
+V G "contador_ms" 0 36 "int8" `782 
+V G "flag_segundo" 0 37 "int8" `783 
+C L "maquina" 0 23 3 "FUNCTION"
+F N "Timer0_ISR" 0 44 ""
+F G "Timer0_ISR" 0 44 "void()" `784 
+C L "Timer0_ISR" 0 23 1 "FUNCTION"
+C L "Timer0_ISR" 0 23 1 "FUNCTION"
+C L "Timer0_ISR" 0 23 1 "FUNCTION"
+C L "Timer0_ISR" 0 23 1 "FUNCTION"
+F N "MAIN" 0 55 ""
+F G "MAIN" 0 55 "void()" `785  "inicializo"
+C L "MAIN" 0 23 1 "FUNCTION"
+C L "MAIN" 0 23 2 "FUNCTION"
+C L "MAIN" 0 23 1 "FUNCTION"
+C L "MAIN" 0 23 1 "FUNCTION"
+V L "temperatura" 0 66 "float" `795 
+C L "MAIN" 0 23 1 "FUNCTION"
+C L "MAIN" 0 23 1 "FUNCTION"
+C L "MAIN" 0 23 1 "FUNCTION"
+C L "MAIN" 0 23 1 "FUNCTION"
+C L "MAIN" 0 23 2 "FUNCTION"
+C L "MAIN" 0 23 1 "FUNCTION"
+C L "MAIN" 0 23 1 "FUNCTION"
+F N "InitTimer0" 0 89 ""
+F G "InitTimer0" 0 89 "void()" `780 
+C L "InitTimer0" 0 23 1 "FUNCTION"
+C L "InitTimer0" 0 23 1 "FUNCTION"
+C L "InitTimer0" 0 23 1 "FUNCTION"
+C L "InitTimer0" 0 23 1 "FUNCTION"
+C L "lcd_enviar_4bits" 0 23 1 "FUNCTION"
+F N "lcd_enviar_4bits" 0 100 ""
+V L "nibble" 0 100 "int8" `770 
+V L "es_texto" 0 100 "int8" `814 
+F G "lcd_enviar_4bits" 0 100 "void(int8 nibble,int8 es_texto)" `769 
+V L "byte_i2c" 0 102 "int8" `812 
+C L "lcd_enviar_4bits" 0 23 1 "FUNCTION"
+C L "lcd_enviar_4bits" 0 23 1 "FUNCTION"
+C L "lcd_enviar_4bits" 0 23 1 "FUNCTION"
+F N "lcd_comando" 0 112 ""
+V L "comando" 0 112 "int8" `814 
+F G "lcd_comando" 0 112 "void(int8 comando)" `772 
+C L "lcd_comando" 0 23 1 "FUNCTION"
+C L "lcd_comando" 0 23 1 "FUNCTION"
+C L "lcd_comando" 0 23 1 "FUNCTION"
+C L "lcd_comando" 0 23 1 "FUNCTION"
+C L "lcd_comando" 0 23 1 "FUNCTION"
+F N "lcd_texto" 0 123 ""
+V L "letra" 0 123 "int8" `814 
+F G "lcd_texto" 0 123 "void(int8 letra)" `774 
+C L "lcd_texto" 0 23 1 "FUNCTION"
+C L "lcd_texto" 0 23 1 "FUNCTION"
+C L "lcd_texto" 0 23 1 "FUNCTION"
+C L "lcd_texto" 0 23 1 "FUNCTION"
+F N "lcd_iniciar" 0 133 ""
+F G "lcd_iniciar" 0 133 "void()" `776 
+C L "lcd_mostrar_float" 0 23 1 "FUNCTION"
+F N "lcd_mostrar_float" 0 152 ""
+V L "num" 0 152 "float" `814 
+F G "lcd_mostrar_float" 0 152 "void(float num)" `777 
+V L "entero" 0 153 "int8" `813 
+V L "decimales" 0 154 "int8" `816 
+C L "leer_temperatura_LM75" 0 23 1 "FUNCTION"
+F N "leer_temperatura_LM75" 0 161 ""
+F G "leer_temperatura_LM75" 0 161 "float()" `779 
+V L "msb" 0 162 "int8" `829 
+V L "lsb" 0 162 "int8" `830 
+V L "temperatura" 0 163 "float" `831 
+C L "leer_temperatura_LM75" 0 23 1 "FUNCTION"
+C L "leer_temperatura_LM75" 0 23 1 "FUNCTION"
+C L "leer_temperatura_LM75" 0 23 1 "FUNCTION"
+C L "leer_temperatura_LM75" 0 23 1 "FUNCTION"
+C L "leer_temperatura_LM75" 0 23 1 "FUNCTION"
+C L "leer_temperatura_LM75" 0 23 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

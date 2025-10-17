@@ -91,7 +91,7 @@ void InitTimer0(void){
     set_timer0(61);// valor inicial (50 ms)
     enable_interrupts(INT_TIMER0);// habilito interrupción Timer0
     enable_interrupts(GLOBAL);//habilito interrupciones globales
-}
+    
 
 
 // FUNCIONES I2C PARA EL LCD

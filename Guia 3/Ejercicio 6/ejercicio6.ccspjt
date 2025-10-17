@@ -17,7 +17,7 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=1
+Days=2
 D1=16-10-2025
 D1_L=16
 D1_L1=[67145]Project Opened.
@@ -36,20 +36,30 @@ D1_L13=[70035]Started Editing.
 D1_L14=[70833]Stopped Editing.
 D1_L15=[70984]Started Editing.
 D1_L16=[71269]Project Closed.
+D2=17-10-2025
+D2_L=4
+D2_L1=[67693]Project Opened.
+D2_L2=[67736]Started Editing.
+D2_L3=[68123]Stopped Editing.
+TotalEdit=7
+TotalDebug=0
+D2_E=7
+D2_D=0
+D2_L4=[68123]Project Closed.
 
 [Opened Files]
 1=ejercicio6.c
-t1=49
+t1=81
 2=..\Ejercicio 5\TP3_Ejercicio5.c
 t2=16
 3=..\Ejercicio 5\TP#3_Ejercicio5.c
 t3=1
-Count=2
+Count=1
 [ejercicio6.c]
 Type=4
 
 [defines]
-buildcount=2
+buildcount=3
 [Units]
 Count=1
 1=ejercicio6 (main)

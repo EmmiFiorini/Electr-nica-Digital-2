@@ -1,23 +1,24 @@
 
-ROM used:   1659/4096 (41%)
-            1659/4096 (41%) including unused fragments
+ROM used:   1743/4096 (43%)
+            1743/4096 (43%) including unused fragments
 
-            1.5 Average locations per line
-            24.0 Average locations per statement
+            1.1 Average locations per line
+            11.2 Average locations per statement
 
-RAM used:   12/383 (3%) at main() level
-            52/383 (14%) worst case
+RAM used:   20/383 (5%) at main() level
+            60/383 (16%) worst case
 
-Stack used: 5 worst case (5 in main + 0 for interrupts)
+Stack used: 5 worst case (4 in main + 1 for interrupts)
 Stack size: 16
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  162    69 100  ejercicio6.c
+  182    72  46  ejercicio6.c
     5     0   0  ejercicio6.h
   965     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
+  456    84  54  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
 ----- -----
- 1132    69 Total
+ 1608   156 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
@@ -25,49 +26,51 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0     20   1    1             @I2C_WRITEU_129
 0     16   1    1             @I2C_READU_129
 0     38   2    1             @PUTCHAR_1_
-0    120   7    4    377  3.6  MAIN
-0      7   0    0             @const752
-0     74   4    3             @PSTRINGC7_738
-0     13   1    0             @const757
-0     75   5    3             @PSTRINGC7_725
-0      4   0    0             @const759
-0     11   1    0             @const761
-0     81   5    6             @PSTRINGCN7_725
-0    117   7   16             @MULFF
+0     13   1    0     96  2.9  Timer0_ISR
+0    124   7    4    391  3.7  MAIN
+0      7   0    0             @const788
+0     74   4    4             @PSTRINGC7_774
+0     13   1    0             @const793
+0     75   4    4             @PSTRINGC7_725
+0      4   0    0             @const796
+0     11   1    0             @const798
+0     81   5    4             @PSTRINGCN7_725
+0    117   7   13             @MULFF
  Inline         5             @FTOSD
-0     77   5   16             @DIV3232
-0    226  14   16             @PRINTF_L32D_725FPFPF
+0     77   4   13             @DIV3232
+0    226  13   16             @PRINTF_L32D_725FPFPF
 0     13   1    0     84  1.7  InitTimer0
-0     17   1    1     78  1.6  i2c_enviar_byte_LCD
-0     22   1    4    205  5.2  lcd_enviar_4bits
-0     16   1    2     92  2.1  lcd_comando
-0     19   1    2     92  2.1  lcd_texto
+0     26   1    4    229  5.3  lcd_enviar_4bits
+0     29   2    2    143  2.2  lcd_comando
+0     28   2    2    121  2.2  lcd_texto
 0     51   3    0    354  1.9  lcd_iniciar
 0     31   2    4             @SFTOI
 0     29   2    2             @ITOF
-0    322  19   16             @ADDFF
+0    322  18   16             @ADDFF
 0     82   5   12    156  3.5  lcd_mostrar_float
 0     21   1    3             @DIV88
-0     53   3    2             @PRINTF_U_738
+0     53   3    2             @PRINTF_U_774
 0     79   5    6    338  4.7  leer_temperatura_LM75
  Inline         0             @cinit1
 
 Program metrics:
     Functions               9
-    Statements              69
-    Comments                189
-    Volume (V)              2900
-    Difficulty (D)          23.8
-    Effort to implement (E) 69138
-    Time to implement (T)   1 hours, 4 minutes
+    Statements              156
+    Comments                316
+    Volume (V)              3126
+    Difficulty (D)          25.3
+    Effort to implement (E) 79081
+    Time to implement (T)   1 hours, 13 minutes
     Est Delivered Bugs (B)  1
-    Cyclomatic Complexity   3
-    Maintainability (MI)    144
+    Cyclomatic Complexity   4
+    Maintainability (MI)    106
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     3  0  
-00003-007FF  1656  389  
+00003-00003     0  1  
+00004-0003D    58  0  
+0003E-007FF  1682  304  
 00800-00FFF     0  2048  
 
 

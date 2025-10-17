@@ -1,6 +1,0 @@
-Compiling C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Adaptacion punto 4\Adaptacion punto 4 on 18-sept-25 at 21:55
-*** Error 1 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Adaptacion punto 4\Adaptacion punto 4.c" Line 1(0,1): Illegal C character in input file  0xED
-*** Error 128 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Adaptacion punto 4\Adaptacion punto 4.c" Line 1(2,7): A #DEVICE required before this line
-*** Error 43 "C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Adaptacion punto 4\Adaptacion punto 4.c" Line 1(0,1): Expecting a declaration
-      3 Errors,  0 Warnings.
-Build Failed.

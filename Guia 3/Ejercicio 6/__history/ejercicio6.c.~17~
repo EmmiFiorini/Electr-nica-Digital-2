@@ -21,7 +21,7 @@
 #include <lcd.c>
 
 // FUNCIONES
-
+//void i2c_enviar_byte_LCD(int8 dato);
 void lcd_enviar_4bits(int8 nibble, int1 es_texto);
 void lcd_comando(int8 comando);
 void lcd_texto(char letra);
@@ -36,7 +36,9 @@ void maquina(void);
 int contador_ms=0; 
 int flag_segundo=0; //para el timer
 
-
+   /* ADC */
+/*int16 resultado_adc=0;
+int flag_adc = 0;*/
 
 //INTERRUPCIONES
 //TIMER 0 
@@ -51,6 +53,13 @@ void Timer0_ISR() {
    }
 }
 
+/*//ADC
+#INT_AD
+void ISR_ADC(void) {
+   resultado_adc = read_adc(ADC_READ_ONLY);
+   flag_adc = 1;
+   
+}*/
 
 void main() {
    //inicializo
@@ -91,14 +100,29 @@ void InitTimer0(void){
     set_timer0(61);// valor inicial (50 ms)
     enable_interrupts(INT_TIMER0);// habilito interrupción Timer0
     enable_interrupts(GLOBAL);//habilito interrupciones globales
+    
+    /*//para el adc:
+   enable_interrupts(INT_EXT);// x el ADC*/
 }
-
 
 // FUNCIONES I2C PARA EL LCD
 
+/*void i2c_enviar_byte_LCD(int8 dato){
+   i2c_start();
+   i2c_write(I2C_LCD_DIR | 0);
+   i2c_write(dato);
+   i2c_stop();
+}*/
 
 void lcd_enviar_4bits(int8 nibble, int1 es_texto) {
-   
+   /*
+   int8 byte_i2c;
+   byte_i2c = (nibble << 4);
+   if(es_texto) byte_i2c |= LCD_RS;
+
+   i2c_enviar_byte_LCD(byte_i2c | LCD_EN);
+   delay_us(10);
+   i2c_enviar_byte_LCD(byte_i2c & ~LCD_EN);*/
    int8 byte_i2c;
    byte_i2c = (nibble << 4);
    if(es_texto) byte_i2c |= LCD_RS;
@@ -110,7 +134,9 @@ void lcd_enviar_4bits(int8 nibble, int1 es_texto) {
 }
 
 void lcd_comando(int8 comando) {
-   
+   /*lcd_enviar_4bits(comando >> 4, 0);
+   lcd_enviar_4bits(comando, 0);
+   delay_ms(2);*/
    
     i2c_start();//empiezo a hablar
     i2c_write(I2C_LCD_DIR);//direccion LCD
@@ -121,7 +147,9 @@ void lcd_comando(int8 comando) {
 }
 
 void lcd_texto(char letra) {
-
+  /* lcd_enviar_4bits(letra >> 4, 1);
+   lcd_enviar_4bits(letra, 1);
+   delay_us(40);*/
    
    i2c_start();//inicio la comunicacion
    i2c_write(I2C_LCD_DIR); //digo a quien le hablo (LCD)
@@ -178,4 +206,23 @@ float leer_temperatura_LM75(void) {
    return temperatura;
 }
 
+//maquina de estados
+/*void maquina(void){
+   printf("\r\nIniciando programa...\r\n"); 
+   float temperatura; //creo una variable
 
+   if (flag_segundo ==1 ) { //si paso 1s 
+         flag_segundo = 0;
+         //flag_adc = 0;
+         temperatura = leer_temperatura_LM75();   // leo temperatura del sensor
+   
+         // mostrar en LCD
+         lcd_comando(0xC0);// segunda línea
+         printf(lcd_texto, "Temp: ");
+         lcd_mostrar_float(temperatura);
+         printf(lcd_texto, " C");
+
+      // mostrar por UART
+      printf("\r\nTemperatura: %.2f C", temperatura);
+}
+}*/
