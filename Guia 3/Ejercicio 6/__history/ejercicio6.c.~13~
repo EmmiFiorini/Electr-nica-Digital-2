@@ -21,7 +21,7 @@
 #include <lcd.c>
 
 // FUNCIONES
-//void i2c_enviar_byte_LCD(int8 dato);
+void i2c_enviar_byte_LCD(int8 dato);
 void lcd_enviar_4bits(int8 nibble, int1 es_texto);
 void lcd_comando(int8 comando);
 void lcd_texto(char letra);
@@ -72,10 +72,11 @@ void main() {
    printf(lcd_texto, "TEMP LM75 I2C");// mensaje inicial
    printf("\r\n--- Lectura LM75 ---\r\n");
    
-   float temperatura=0; //creo una variable y la inicializo
+   float temperatura; //creo una variable
 
    while(TRUE) {
       //maquina();
+         printf("\r\nIniciando programa...\r\n"); 
 
       if (flag_segundo ==1 ) { //si paso 1s 
          flag_segundo = 0;
@@ -107,55 +108,33 @@ void InitTimer0(void){
 
 // FUNCIONES I2C PARA EL LCD
 
-/*void i2c_enviar_byte_LCD(int8 dato){
+void i2c_enviar_byte_LCD(int8 dato){
    i2c_start();
    i2c_write(I2C_LCD_DIR | 0);
    i2c_write(dato);
    i2c_stop();
-}*/
+}
 
 void lcd_enviar_4bits(int8 nibble, int1 es_texto) {
-   /*
    int8 byte_i2c;
    byte_i2c = (nibble << 4);
    if(es_texto) byte_i2c |= LCD_RS;
 
    i2c_enviar_byte_LCD(byte_i2c | LCD_EN);
    delay_us(10);
-   i2c_enviar_byte_LCD(byte_i2c & ~LCD_EN);*/
-   int8 byte_i2c;
-   byte_i2c = (nibble << 4);
-   if(es_texto) byte_i2c |= LCD_RS;
-   i2c_write(byte_i2c | LCD_EN); // Sube el pin EN
-   delay_us(10);
-   i2c_write(byte_i2c & ~LCD_EN); //bajo el Enable
-   delay_us(40); //pauso el LCD
-   
+   i2c_enviar_byte_LCD(byte_i2c & ~LCD_EN);
 }
 
 void lcd_comando(int8 comando) {
-   /*lcd_enviar_4bits(comando >> 4, 0);
+   lcd_enviar_4bits(comando >> 4, 0);
    lcd_enviar_4bits(comando, 0);
-   delay_ms(2);*/
-   
-    i2c_start();//empiezo a hablar
-    i2c_write(I2C_LCD_DIR);//direccion LCD
-    lcd_enviar_4bits(comando >> 4, 0); //4 bits más significativos
-    lcd_enviar_4bits(comando, 0);//4 bits menos significativos
-    i2c_stop();//termine de comunicar
-    delay_ms(2);
+   delay_ms(2);
 }
 
 void lcd_texto(char letra) {
-  /* lcd_enviar_4bits(letra >> 4, 1);
+   lcd_enviar_4bits(letra >> 4, 1);
    lcd_enviar_4bits(letra, 1);
-   delay_us(40);*/
-   
-   i2c_start();//inicio la comunicacion
-   i2c_write(I2C_LCD_DIR); //digo a quien le hablo (LCD)
-   lcd_enviar_4bits(letra>>4,1);//envio los 4 MSB
-   lcd_enviar_4bits(letra,1);//envio los 4 LSB
-   i2c_stop();
+   delay_us(40);
 }
 
 void lcd_iniciar(void) {

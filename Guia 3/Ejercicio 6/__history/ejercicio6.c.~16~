@@ -4,7 +4,7 @@
 
 
 // CONFIGURACIÓN I2C 
-#use i2c(MASTER, SDA=PIN_B1, SCL=PIN_B4, FAST=100000)
+#use i2c(MASTER, SDA=PIN_B1, SCL=PIN_B4, FAST=400)
 
 // dirección del LM75 (A0–A2 a GND)
 #define LM75_ADDR 0x90// 10010000--> 0=w y 1=r

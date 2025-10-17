@@ -35,16 +35,24 @@ D2_L=2
 D2_L1=[41017]Project Closed.
 D2_L2=[41019]Project Opened.
 D3=17-10-2025
-D3_L=3
+D3_L=11
 D3_L1=[24627]Project Opened.
 D3_L2=[25727]Started Editing.
 D3_L3=[27920]Stopped Editing.
+D3_L4=[29818]Started Editing.
+D3_L5=[30652]Stopped Editing.
+D3_L6=[30749]Started Editing.
+D3_L7=[31077]Stopped Editing.
+D3_L8=[31205]Started Editing.
+D3_L9=[32088]Stopped Editing.
+D3_L10=[32361]Started Editing.
+D3_L11=[32836]Stopped Editing.
 
 [Opened Files]
 1=..\..\Guia 3\Ejercicio 6\ejercicio6.c
-t1=78
+t1=112
 2=..\..\Guia 3\Ejercicio 5\TP3_Ejercicio5.c
-t2=1
+t2=93
 Count=3
 3=..\Punto 6\Ejercicio6_TP2.c
 t3=152
@@ -52,7 +60,7 @@ t3=152
 Type=4
 
 [defines]
-buildcount=12
+buildcount=18
 [Units]
 Count=1
 1=Punto5 (main)
