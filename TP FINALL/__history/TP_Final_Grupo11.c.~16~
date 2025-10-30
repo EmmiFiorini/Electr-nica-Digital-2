@@ -1,0 +1,140 @@
+#include <TP_Final_Grupo11.h>
+
+#use RS232(BAUD = 9600, XMIT = PIN_B5, BITS = 8, PARITY = N, STOP = 1)
+
+#fuses INTRC_IO   // Oscilador interno con pines RA6 y RA7 como GPIO
+#fuses NOMCLR     // Desactivo el MCLR
+#fuses NOWDT      // Desactivo el watchdog
+
+//CATODO COMUN:
+Byte CONST display[10]= {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x67}; //npn
+
+/*****************************************************************************
+ * Funciones de Inicializacion
+ ****************************************************************************/
+ 
+void Init_GPIO(void);
+void Init_Keypad(void);
+void decharabin(void);
+
+/*****************************************************************************
+* Variables globales
+****************************************************************************/
+
+const char keymap[4][3] = {
+  {'1','2','3'},
+  {'4','5','6'},
+  {'7','8','9'},
+  {'*','0','#'}
+};
+
+char tecla = ' ';
+int8 teclabin = 00000000; //inicializo en 0
+
+/*****************************************************************************
+* Funciones
+****************************************************************************/
+
+void maquina(void);
+char getKey(void);
+
+/*****************************************************************************
+* Interrupciones
+****************************************************************************/
+
+void main()
+{
+   Init_GPIO();
+   Init_Keypad();
+   
+   while(TRUE)
+   {
+
+   tecla = getKey();
+   
+   if(tecla != 'f') {
+         printf("<%c>", tecla);
+         decharabin();
+         output_a(display[teclabin]);
+      } 
+   }
+}
+
+void decharabin(){//funcion que cambia de char a binario
+   if(tecla == '0')
+      teclabin=  00000000; //escribo el 0
+   if (tecla == '1')
+      teclabin=  00000001; //escribo el 1
+   if (tecla == '2')
+      teclabin=  00000010; //escribo el 2
+   if (tecla == '3')
+      teclabin=  00000011; //escribo el 3
+   if (tecla == '4')
+      teclabin=  00000100; //escribo el 4
+   if (tecla == '5')
+      teclabin=  00000101; //escribo el 5
+   if (tecla == '6')
+      teclabin=  00000110; //escribo el 6
+   if (tecla == '7')
+      teclabin=  00000111; //escribo el 7
+   if (tecla == '8')
+      teclabin=  00001000; //escribo el 8
+   if (tecla == '9')
+      teclabin=  00001001; //escribo el 9
+}
+
+void maquina(void) {
+}
+
+void Init_GPIO(void){ 
+   
+   set_tris_a(0b00000000);
+   set_tris_b(0b11010000); // RB0, RB1, RB2 y RB3 filas del teclado, entrada
+                           // RB4, RB6, RB7 columnas, salidas
+   
+   enable_interrupts(GLOBAL);
+}
+
+void Init_Keypad(void){
+   
+   setup_adc_ports(NO_ANALOGS); // desactiva funciones analógicas en los pines si aplica
+
+   // Se dejan las filas inicialmente en HIGH (no activas)
+   output_high(PIN_B0);
+   output_high(PIN_B1);
+   output_high(PIN_B2);
+   output_high(PIN_B3);
+}
+
+char getKey(void){
+
+   const unsigned char pines_filas[4] = {PIN_B0, PIN_B1, PIN_B2, PIN_B3};
+   const unsigned char pines_col[3] = {PIN_B4, PIN_B6, PIN_B7};
+   int f, c;
+   char result = '0';
+   
+   for(f = 0; f < 4; f++) {
+      // Poner todas las filas en HIGH
+      output_high(PIN_B0);
+      output_high(PIN_B1);
+      output_high(PIN_B2);
+      output_high(PIN_B3);
+
+      // Activar la fila r (tirarla a LOW)
+      output_low(pines_filas[f]);
+
+      // Leemos columnas
+      for(c = 0; c < 3; c++) {
+         if(!input(pines_col[c])) { // columna detectada en 0 --> tecla presionada
+
+            if(!input(pines_col[c])) { // sigue presionada
+               result = keymap[f][c];
+               return result;
+            }
+         }
+      }
+   }
+
+   return 'f'; // No se presiono ninguna tecla
+}
+

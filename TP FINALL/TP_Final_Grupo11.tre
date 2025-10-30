@@ -1,0 +1,23 @@
+ÀÄTP_Final_Grupo11
+   ÀÄmain  0/50  Ram=1
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ@cinit2  (Inline)  Ram=0
+      ÃÄInit_GPIO  0/10  Ram=0
+      ÃÄInit_Keypad  0/27  Ram=0
+      ÃÄgetKey  0/135  Ram=4
+      ³  ÃÄ@const746  0/5  Ram=0
+      ³  ÃÄ@WRITEBITA  0/32  Ram=6
+      ³  ÃÄ@WRITEBITA  0/32  Ram=6
+      ³  ÃÄ@const749  0/4  Ram=0
+      ³  ÃÄ@WRITEBITA  0/32  Ram=6
+      ³  ÃÄ@READBITA  0/25  Ram=5
+      ³  ÃÄ@const749  0/4  Ram=0
+      ³  ÃÄ@WRITEBITA  0/32  Ram=6
+      ³  ÃÄ@READBITA  0/25  Ram=5
+      ³  ÃÄ@MUL88  (Inline)  Ram=2
+      ³  ÀÄ@const734  0/13  Ram=0
+      ÃÄ@PUTCHAR_1_  0/38  Ram=1
+      ÃÄ@PUTCHAR_1_  0/38  Ram=1
+      ÃÄ@PUTCHAR_1_  0/38  Ram=1
+      ÃÄdecharabin  0/60  Ram=0
+      ÀÄ@const728  0/11  Ram=0
