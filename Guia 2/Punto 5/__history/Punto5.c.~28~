@@ -1,0 +1,197 @@
+#include <16F1827.h>
+#use delay(internal=4MHz)
+#include <Punto5.h>
+
+#fuses INTRC_IO   // Oscilador interno con pines RA6 y RA7 como GPIO
+#fuses NOMCLR     // Desactivo el MCLR
+#fuses NOWDT      // Desactivo el watchdog
+
+
+/*****************************************************************************
+ * LCD
+ ****************************************************************************/
+#define use_porta_lcd TRUE
+
+#define LCD_ENABLE_PIN  PIN_A1
+#define LCD_RS_PIN      PIN_A2
+//#define LCD_RW_PIN      PIN_A3 // CONECTADO A GND SI NO LO USAMOS
+#define LCD_DATA4       PIN_A4
+#define LCD_DATA5       PIN_A5
+#define LCD_DATA6       PIN_A6
+#define LCD_DATA7       PIN_A7
+
+#include <lcd.c*>
+
+#define use_portb_kbd TRUE //defino el portb como donde va el teclado
+#include <kbd.c>
+
+/*****************************************************************************
+ * Funciones de Inicializacion de Perifericos
+ ****************************************************************************/
+ 
+void Init_GPIO(void);
+void Init_ADC(void);
+void InitTimer0(void);
+
+/*****************************************************************************
+* Estados
+****************************************************************************/
+typedef enum {
+    INICIO,            
+    ESPERA_TECLA,      
+    CLAVE_CORRECTA,   
+    CLAVE_INCORRECTA   
+} eEstado;
+
+eEstado estado_actual = INICIO;
+
+/*****************************************************************************
+* Funciones
+****************************************************************************/
+
+void maquina(void);
+int comparadorcontra(void);
+
+/*****************************************************************************
+* Variables globales
+****************************************************************************/
+
+int contador_ms = 0;
+int flag_tiempo_cumplido = 0; // Aviso de tiempo cumplido
+
+char tecla;
+const char contra_real[3] = {'2','5','3'}; // contraseña 
+int cont_digitos = 0; 
+
+/*****************************************************************************
+* Interrupciones
+****************************************************************************/
+
+#INT_TIMER0 // ACA ESCRIBO QUÉ DEBO HACER EN CADA INTERRUPCIÓN
+void Timer0_ISR() {
+    set_timer0(61); // 50ms
+    contador_ms++;
+  
+    if(estado_actual == CLAVE_CORRECTA || estado_actual == CLAVE_INCORRECTA) {
+        if(contador_ms >= 40) { // 40 * 50ms = 2 s
+            contador_ms = 0;
+            flag_tiempo_cumplido = 1; 
+        }
+    } else {
+        contador_ms = 0; 
+    }
+}
+
+/*****************************************************************************
+* Main
+****************************************************************************/
+void main()
+{
+
+   Init_GPIO();
+   lcd_init(); //inicializo el led
+   kbd_init();//inicializo el teclado
+   InitTimer0();
+   printf(lcd_putc,"Ingrese Clave:");
+   while(TRUE) {
+      maquina();
+   }
+
+}
+
+void maquina(void) {
+    
+    switch(estado_actual) {
+        
+        case INICIO:
+            lcd_putc("\fIngrese Clave:"); // \f limpia la pantalla
+            lcd_gotoxy(1, 2);   
+            cont_digitos = 0;     
+            estado_actual = ESPERA_TECLA;
+            break;
+
+        case ESPERA_TECLA:
+            tecla = kbd_getc();
+            
+            if (tecla != 0) { // ¡Solo hago algo si se presionó una tecla!
+                
+                // Opcional: mostrar un * para que el usuario vea que se presionó
+                lcd_putc('*'); 
+
+                if (tecla == contra_real[cont_digitos]) {
+                    // DÍGITO CORRECTO
+                    cont_digitos++;
+                    if (cont_digitos == 3) {
+                        estado_actual = CLAVE_CORRECTA;
+                    }
+                } else {
+                    // DÍGITO INCORRECTO
+                    // El usuario presionó una tecla, pero no era la que tocaba
+                    estado_actual = CLAVE_INCORRECTA;
+                }
+            }
+            // Si (tecla == 0), no hago nada y el switch-case termina,
+            // volviendo a ejecutarse en el estado ESPERA_TECLA (¡correcto!)
+            break;
+            
+         case CLAVE_CORRECTA:
+            lcd_putc("\fCorrecta");
+            flag_tiempo_cumplido = 0; // Reseteo el flag
+            contador_ms = 0;          // Reseteo el contador de tiempo
+            
+            // 1. ESPERO a que se cumpla el tiempo
+            while(flag_tiempo_cumplido == 0) {
+                // No hago NADA aquí dentro, solo esperar.
+                // La ISR hará su trabajo.
+            } 
+            
+            // 2. DESPUÉS de que terminó el while, CAMBIO de estado
+            estado_actual = INICIO; // Vuelvo al inicio
+            break;
+
+        case CLAVE_INCORRECTA:
+            lcd_putc("\fIncorrecta");
+            flag_tiempo_cumplido = 0; // Reseteo el flag
+            contador_ms = 0;          // Reseteo el contador de tiempo
+            
+            // 1. ESPERO...
+            while(flag_tiempo_cumplido == 0) {
+                // ...solo espero
+            }
+            
+            // 2. DESPUÉS...
+            estado_actual = INICIO; // ...cambio el estado
+            break;
+            
+        default:
+            estado_actual = INICIO;
+            break;
+    }
+}
+
+void InitTimer0(void) {
+
+    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256); // Configuro prescaler
+    set_timer0(61);                  // Reinicio el timer --> Interrupciones cada 50ms
+    enable_interrupts(INT_TIMER0);    // Activo Interrupcion timer0
+    
+}
+
+void Init_GPIO()
+{
+   setup_adc_ports(NO_ANALOGS); 
+   setup_comparator(NC_NC_NC_NC);
+   set_tris_a(0b00000000); // TODO PORTA como salida 
+   set_tris_b(0b11110000);
+
+   output_low(PIN_A1);
+   output_low(PIN_A2);
+   output_low(PIN_A3);
+   output_low(PIN_A4);
+   output_low(PIN_A5);
+   output_low(PIN_A6);
+   output_low(PIN_A7);
+   
+   port_b_pullups(TRUE);
+   enable_interrupts(GLOBAL);
+}

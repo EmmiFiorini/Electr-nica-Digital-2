@@ -1,12 +1,14 @@
+#include <16F1827.h>  
 #include <Ejercicio4_TP2.h>
 
-#fuses INTRC_IO   // Oscilador interno con pines RA6 y RA7 como GPIO
-#fuses NOMCLR     // Desactivo el MCLR
-#fuses NOWDT      // Desactivo el watchdog
+#fuses INTRC_IO  // Oscilador interno con pines RA6 y RA7 como GPIO
+#fuses NOMCLR   // Desactivo el MCLR
+#fuses NOWDT   // Desactivo el watchdog
 
 /*****************************************************************************
  * LCD
  ****************************************************************************/
+
 #include <lcd.c>
 #define LCD_ENABLE_PIN  PIN_A0
 #define LCD_RS_PIN      PIN_A1
@@ -16,20 +18,16 @@
 #define LCD_DATA6       PIN_A6
 #define LCD_DATA7       PIN_A7
 
-
-
 /*****************************************************************************
  * Funciones de Inicializacion de Perifericos
  ****************************************************************************/
-
 void Init_GPIO();
-
 /*****************************************************************************
 * Estados
 ****************************************************************************/
 typedef enum {
    ESPERAR,     // Espero que se presione una tecla
-   MOSTRAR      // Muestro la tecla en el LCD
+   MOSTRAR,      // Muestro la tecla en el LCD
 } eEstado;
 
 eEstado estado_actual = ESPERAR;
@@ -60,6 +58,7 @@ void main()
 
 Init_GPIO();
 lcd_init();
+printf(LCD_PUTC,"HOLA");
 
    while(TRUE) {
    maquina();
@@ -69,24 +68,18 @@ lcd_init();
 
 void Init_GPIO()
 {
+  // Estas funciones hacen lo mismo que ANSELA=0 y ANSELB=0
+    setup_adc_ports(NO_ANALOGS); 
+    
+    // El 16F1827 también tiene comparadores que usan pines de PORTA.
+    // Hay que desactivarlos también.
+    setup_comparator(NC_NC_NC_NC);
 /* SETEAMOS LOS PINES PB0-PB7 COMO SALIDA */
    set_tris_b(0b00000111); //RB0-RB2 = entrada, columnas, RB4-RB7 = Filas, salidas
    set_tris_a(0b00000000); // TODO COMO SALIDA EN ESTADO BAJO 
    
    port_b_pullups(TRUE);
    
-   output_high(PIN_B4);
-   output_high(PIN_B5);
-   output_high(PIN_B6);
-   output_high(PIN_B7);
-   
-   output_low(PIN_A1);
-   output_low(PIN_A2);
-   output_low(PIN_A0);
-   output_low(PIN_A4);
-   output_low(PIN_A5);
-   output_low(PIN_A6);
-   output_low(PIN_A7);
 }
 
 char read_keypad(void) {
@@ -121,5 +114,6 @@ void maquina() {
             lcd_putc(tecla);  // mostrar tecla
             estado_actual = ESPERAR;     // volver a esperar
          break;
+
    }
 }

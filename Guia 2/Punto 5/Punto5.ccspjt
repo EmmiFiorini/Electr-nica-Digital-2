@@ -17,7 +17,7 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=3
+Days=5
 D1=19-09-2025
 D1_L=6
 D1_L1=[66533]Project Opened.
@@ -26,7 +26,7 @@ D1_L3=[67343]Project Closed.
 D1_L4=[72561]Project Opened.
 D1_L5=[72773]Started Editing.
 D1_L6=[74761]Stopped Editing.
-TotalEdit=29
+TotalEdit=72
 TotalDebug=0
 D2=20-09-2025
 D2_E=29
@@ -47,20 +47,36 @@ D3_L8=[31205]Started Editing.
 D3_L9=[32088]Stopped Editing.
 D3_L10=[32361]Started Editing.
 D3_L11=[32836]Stopped Editing.
+D4=31-10-2025
+D4_L=7
+D4_L1=[39474]Project Opened.
+D4_L2=[39577]Started Editing.
+D4_L3=[41150]Stopped Editing.
+D4_L4=[41179]Started Editing.
+D4_L5=[42599]Stopped Editing.
+D4_L6=[42648]Started Editing.
+D4_L7=[43131]Stopped Editing.
+D5=03-11-2025
+D5_E=43
+D5_D=0
+D5_L=1
+D5_L1=[50550]Project Closed.
 
 [Opened Files]
-1=..\..\Guia 3\Ejercicio 6\ejercicio6.c
-t1=112
-2=..\..\Guia 3\Ejercicio 5\TP3_Ejercicio5.c
-t2=93
-Count=3
-3=..\Punto 6\Ejercicio6_TP2.c
-t3=152
+1=Punto5.c
+t1=13
+2=lcd.c
+t2=89
+Count=4
+3=Punto5.h
+t3=1
+4=..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+t4=1
 [Punto5.c]
 Type=4
 
 [defines]
-buildcount=18
+buildcount=29
 [Units]
 Count=1
 1=Punto5 (main)

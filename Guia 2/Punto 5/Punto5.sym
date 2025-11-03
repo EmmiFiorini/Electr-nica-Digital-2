@@ -1,7 +1,7 @@
 004-005 @WRITE_PACKED_MEMORY.P1
 004-005 @READ_PROGRAM_MEMORY8.P2
-004-005 @READ_PACKED_MEMORY.P3
-004-005 @WRITE_PROGRAM_MEMORY8.P4
+004-005 @WRITE_PROGRAM_MEMORY8.P3
+004-005 @READ_PACKED_MEMORY.P4
 006-007 @READ_PACKED_MEMORY.P1
 006-007 @WRITE_PACKED_MEMORY.P2
 00D     kbd
@@ -15,48 +15,40 @@
 027     @INTERRUPT_AREA
 028     kbd_getc.kbd_call_count
 029.0   kbd_getc.kbd_down
-029.1   estado_actual
 02A     kbd_getc.last_key
 02B     kbd_getc.col
-02C     contador_ms
-02D     flag_segundo
-02E     tecla
-02F-031 cont_ing
-032-034 contra_real
-035     contador_boton_pres
-036-037 @sprintf_string
-038     lcd_init.i
-038     comparadorcontra.j
-038     kbd_getc.kchar
-038     maquina.@SCRATCH1
-038     @PSTRINGR_745.@SCRATCH1
-039     kbd_getc.row
-039-03C lcd_init.LCD_INIT_STRING
-039     maquina.@SCRATCH2
-039     @PSTRINGR_745.@SCRATCH2
-039     comparadorcontra.@SCRATCH1
-03A     @MUL88.P1
-03A     kbd_getc.@SCRATCH1
-03A     @PSTRINGC7_745.@SCRATCH1
-03B     @MUL88.P1
-03B     @PSTRINGC7_745.@SCRATCH2
-03C     @PSTRINGC7_745.@SCRATCH3
-03D     lcd_putc.c
-03D     lcd_init.@SCRATCH1
-03E     lcd_gotoxy.x
-03E     @delay_ms1.P1
-03F     lcd_gotoxy.y
-040     lcd_gotoxy.address
-041     lcd_gotoxy.@SCRATCH1
-042     lcd_send_byte.address
-043     lcd_send_byte.n
-044     lcd_read_byte.low
-044     lcd_send_byte.@SCRATCH1
-045     lcd_send_nibble.n
-045     lcd_read_byte.high
-046     lcd_read_nibble.n
-046     lcd_read_byte.@SCRATCH1
-047     lcd_read_nibble.@SCRATCH1
+02C     estado_actual
+02D     contador_ms
+02E     flag_tiempo_cumplido
+02F     tecla
+030     cont_digitos
+031-032 @sprintf_string
+033     lcd_init.i
+033     kbd_getc.kchar
+034     kbd_getc.row
+034-037 lcd_init.LCD_INIT_STRING
+034     @PSTRINGC7_745.@SCRATCH1
+035     @MUL88.P1
+035     kbd_getc.@SCRATCH1
+035     @PSTRINGC7_745.@SCRATCH2
+036     @MUL88.P1
+036     @PSTRINGC7_745.@SCRATCH3
+037     lcd_putc.c
+038     lcd_gotoxy.x
+038     @delay_ms1.P1
+038     lcd_init.@SCRATCH1
+039     lcd_gotoxy.y
+03A     lcd_gotoxy.address
+03B     lcd_gotoxy.@SCRATCH1
+03C     lcd_send_byte.address
+03D     lcd_send_byte.n
+03E     lcd_read_byte.low
+03E     lcd_send_byte.@SCRATCH1
+03F     lcd_send_nibble.n
+03F     lcd_read_byte.high
+040     lcd_read_nibble.n
+040     lcd_read_byte.@SCRATCH1
+041     lcd_read_nibble.@SCRATCH1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -80,56 +72,55 @@
 319     CCP_4_HIGH
 
 ROM Allocation:
-000003  @const798.call
 00003E  KEYS.call
 00003F  KEYS.data
-00004B  Timer0_ISR
-000058  @const793.call
-000060  @const799.call
-000061  @const800.call
-000077  @const802.call
-00008B  Init_GPIO
-0000B6  @delay_ms1
-0000CC  lcd_send_nibble
-000103  lcd_read_nibble
-000134  lcd_send_byte
-00013C  lcd_read_byte
-000195  lcd_init
-0001DE  kbd_init
-0001E0  InitTimer0
-0001EB  lcd_gotoxy
-0001FD  lcd_putc
-000229  @PSTRINGC7_745
-000273  @PSTRINGR_745
-000284  maquina
-000295  kbd_getc
-0002E5  @MUL88
-000347  comparadorcontra
-00037E  MAIN
-00037E  @cinit1
-000390  @cinit2
+00004B  contra_real.call
+00004C  contra_real.data
+00004F  Timer0_ISR
+000066  @const796.call
+00006E  @const801.call
+000076  @const802.call
+00007B  @const803.call
+000081  Init_GPIO
+0000B7  @delay_ms1
+0000CD  lcd_send_nibble
+000104  lcd_read_nibble
+000135  lcd_send_byte
+00013D  lcd_read_byte
+000196  lcd_init
+0001DF  kbd_init
+0001E1  InitTimer0
+0001EC  lcd_gotoxy
+0001FE  lcd_putc
+00022A  @PSTRINGC7_745
+000274  maquina
+000292  kbd_getc
+0002E2  @MUL88
+000351  @cinit1
+000351  MAIN
+000363  @cinit2
 
 Project Directory:
-    C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 5\
+    C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Punto 5\
 
 Project Files:
-    Punto5.c                                                [19-sept-25 20:41  CRC=D8D6B348]
-    Punto5.h                                                [19-sept-25 18:28  CRC=00000000]
-    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb-20 15:48  CRC=D6A5AF9F]
-    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb-16 09:05  CRC=D1A6378A]
-    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd.c [25-may-15 21:33  CRC=7C81F56B]
+    Punto5.c                                                [31-oct.-25 11:53  CRC=574739E6]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb.-20 15:48  CRC=D6A5AF9F]
+    Punto5.h                                                [31-oct.-25 11:42  CRC=00000000]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb.-16 09:05  CRC=D1A6378A]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd.c [25-may.-15 21:33  CRC=7C81F56B]
 
-Source signature=7A268547
+Source signature=F8970BE5
 Program memory checksum=0000
-Hex file CRC=C0F3
+Hex file CRC=41E0
 
 Units:
-    C:\Users\emmif\source\Electronica Digital 2\Electr-nica-Digital-2\Guia 2\Punto 5\Punto5 (main)
+    C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Punto 5\Punto5 (main)
 
 Compiler Settings:
     Processor:      PIC16F1827
     Pointer Size:   16
-    ADC Range:      0-1023
+    ADC Range:      0-255
     Opt Level:      9
     Short,Int,Long: UNSIGNED: 1,8,16
     Float,Double:   32,32
