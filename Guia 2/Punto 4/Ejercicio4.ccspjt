@@ -19,21 +19,22 @@ forcecoff=0
 [ProjectLog]
 Days=1
 D1=04-11-2025
-D1_L=2
+D1_L=3
 D1_L1=[47320]Project Opened.
 D1_L2=[47328]Started Editing.
+D1_L3=[48993]Stopped Editing.
 
 [Opened Files]
 1=Ejercicio4.c
-t1=65
-Count=2
+t1=72
+Count=1
 2=..\TP FINALL\TP_Final_Grupo11.c
-t2=85
+t2=82
 [Ejercicio4.c]
 Type=4
 
 [defines]
-buildcount=4
+buildcount=10
 [Units]
 Count=1
 1=Ejercicio4 (main)

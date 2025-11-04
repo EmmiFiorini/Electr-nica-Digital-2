@@ -1,10 +1,9 @@
-F N "maquina" 0 114 ""
-D G "__PCM__" 0 131 ""5.093""
-D G "__DEVICE__" 0 131 "1827"
-D G "__DATE__" 0 131 ""4-Nov-25""
-D G "__TIME__" 0 131 ""13:16:42""
-D G "_UNICODE" 0 131 ""?""
-D G "__EVAL" 0 131 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
+D G "__PCM__" 0 134 ""5.093""
+D G "__DEVICE__" 0 134 "1827"
+D G "__DATE__" 0 134 ""4-Nov-25""
+D G "__TIME__" 0 134 ""13:31:36""
+D G "_UNICODE" 0 134 ""?""
+D G "__EVAL" 0 134 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 f N "set_tris_a" 2 39 ""
 v L "value" 2 39 "int8" `55 
@@ -1482,42 +1481,40 @@ E G "MOSTRAR" 0 31 "1" `760
 T G "eEstado" 0 31 "" `761 
 V G "estado_actual" 0 33 "eEstado" `762 
 C L "Init_GPIO" 0 34 1 "*"
-V G "tecla" 0 37 "int8" `763 
+V G "result" 0 37 "int8" `763 
 C L "Init_GPIO" 0 34 1 "FUNCTION"
-V G "fila_pins" 0 38 "int8[4]" `764 
-V G "col_pins" 0 39 "int8[3]" `765 
-C L "Init_GPIO" 0 41 1 "*"
-V G "teclado" 0 45 "int8[4][3]" `766 
-C L "Init_GPIO" 0 50 1 "*"
-F N "read_keypad" 0 53 ""
-f G "read_keypad" 0 53 "int8()" `768 
-F N "maquina" 0 54 ""
-f G "maquina" 0 54 "void()" `769 
-F N "MAIN" 0 56 ""
-F G "MAIN" 0 57 "void()" `770 
-F N "Init_GPIO" 0 68 ""
-F G "Init_GPIO" 0 69 "void()" `757  "Estas funciones hacen lo mismo que ANSELA=0 y ANSELB=0"
-C L "Init_GPIO" 0 50 2 "FUNCTION"
-C L "Init_GPIO" 0 50 1 "FUNCTION"
-C L "Init_GPIO" 0 50 1 "FUNCTION"
-C L "Init_GPIO" 0 50 1 "FUNCTION"
-F N "read_keypad" 0 84 ""
-F G "read_keypad" 0 84 "int8()" `768 
-V L "f" 0 86 "int8" `773 
-V L "c" 0 86 "int8" `774 
-V L "result" 0 87 "int8" `775 
-C L "read_keypad" 0 50 1 "FUNCTION"
-C L "read_keypad" 0 50 1 "FUNCTION"
-C L "read_keypad" 0 50 1 "FUNCTION"
-C L "read_keypad" 0 50 1 "FUNCTION"
-C L "read_keypad" 0 50 1 "FUNCTION"
-C L "read_keypad" 0 50 1 "FUNCTION"
-F N "maquina" 0 114 ""
-F G "maquina" 0 114 "void()" `769 
-C L "maquina" 0 50 1 "FUNCTION"
-C L "maquina" 0 50 1 "FUNCTION"
-C L "maquina" 0 50 1 "FUNCTION"
-C L "maquina" 0 50 1 "FUNCTION"
+C L "Init_GPIO" 0 39 1 "*"
+V G "teclado" 0 43 "int8[4][3]" `764 
+C L "Init_GPIO" 0 48 1 "*"
+F N "read_keypad" 0 51 ""
+f G "read_keypad" 0 51 "int8()" `766 
+F N "maquina" 0 52 ""
+f G "maquina" 0 52 "void()" `767 
+F N "MAIN" 0 54 ""
+F G "MAIN" 0 55 "void()" `768 
+F N "Init_GPIO" 0 64 ""
+F G "Init_GPIO" 0 65 "void()" `757 
+C L "Init_GPIO" 0 48 2 "FUNCTION"
+C L "Init_GPIO" 0 48 1 "FUNCTION"
+F N "getKey" 0 74 ""
+F G "getKey" 0 74 "int8()" `771 
+V L "pines_filas" 0 76 "[4]" `773 
+V L "pines_col" 0 77 "[3]" `776 
+V L "f" 0 78 "int8" `778 
+V L "c" 0 78 "int8" `779 
+V L "result" 0 79 "int8" `780 
+C L "getKey" 0 48 1 "FUNCTION"
+C L "getKey" 0 48 1 "FUNCTION"
+C L "getKey" 0 48 2 "FUNCTION"
+C L "getKey" 0 48 1 "FUNCTION"
+C L "getKey" 0 48 1 "FUNCTION"
+C L "getKey" 0 48 1 "FUNCTION"
+F N "maquina" 0 116 ""
+F G "maquina" 0 116 "void()" `767 
+C L "maquina" 0 48 1 "FUNCTION"
+C L "maquina" 0 48 1 "FUNCTION"
+C L "maquina" 0 48 1 "FUNCTION"
+C L "maquina" 0 48 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

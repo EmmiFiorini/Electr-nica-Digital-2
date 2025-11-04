@@ -1,3 +1,5 @@
+#include <16F1827.h>
+#use delay(internal=4MHz)
 #include <Punto5.h>
 
 #fuses INTRC_IO   // Oscilador interno con pines RA6 y RA7 como GPIO
@@ -13,7 +15,7 @@
 #define LCD_RS_PIN      PIN_A2
 #define LCD_RW_PIN      PIN_A3 // CONECTADO A GND SI NO LO USAMOS
 #define LCD_DATA4       PIN_A4
-#define LCD_DATA5       PIN_A0
+#define LCD_DATA5       PIN_A5
 #define LCD_DATA6       PIN_A6
 #define LCD_DATA7       PIN_A7
 

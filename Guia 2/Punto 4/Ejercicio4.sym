@@ -1,43 +1,41 @@
-004-005 @READ_PACKED_MEMORY.P1
-004-005 @READ_PROGRAM_MEMORY8.P2
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @READ_PACKED_MEMORY.P2
 004-005 @WRITE_PACKED_MEMORY.P3
 004-005 @WRITE_PROGRAM_MEMORY8.P4
 006-007 @READ_PACKED_MEMORY.P1
 006-007 @WRITE_PACKED_MEMORY.P2
 020.0   estado_actual
-021     tecla
-022-025 fila_pins
-026-028 col_pins
-029-034 teclado
-035     lcd_putc.c
-035     read_keypad.f
-035     lcd_init.i
-036     lcd_gotoxy.x
-036     read_keypad.c
-036-039 lcd_init.LCD_INIT_STRING
-037     lcd_gotoxy.y
-037     read_keypad.result
-038     @MUL88.P1
-038     lcd_gotoxy.address
-038     read_keypad.@SCRATCH1
-039     @MUL88.P1
-039     @WRITEBITA.P2
-039     @READBITA.P3
-039     lcd_gotoxy.@SCRATCH1
-03A     @WRITEBITA.P1
-03A-03B @READBITA.P2
-03A     @delay_ms1.P3
-03A     lcd_init.@SCRATCH1
-03B     lcd_send_byte.address
-03B-03C @WRITEBITA.P1
-03C     lcd_send_byte.n
-03D     lcd_read_byte.low
-03D     lcd_send_byte.@SCRATCH1
-03E     lcd_send_nibble.n
-03E     lcd_read_byte.high
-03F     lcd_read_nibble.n
-03F     lcd_read_byte.@SCRATCH1
-040     lcd_read_nibble.@SCRATCH1
+021     result
+022-02D teclado
+02E     lcd_init.i
+02E     lcd_putc.c
+02E     getKey.f
+02F     lcd_gotoxy.x
+02F     getKey.c
+02F-032 lcd_init.LCD_INIT_STRING
+030     getKey.result
+030     lcd_gotoxy.y
+031     lcd_gotoxy.address
+031     @MUL88.P1
+031     getKey.@SCRATCH1
+032     @MUL88.P1
+032     @WRITEBITA.P2
+032     @READBITA.P3
+032     lcd_gotoxy.@SCRATCH1
+033     @delay_ms1.P1
+033     @WRITEBITA.P2
+033-034 @READBITA.P3
+033     lcd_init.@SCRATCH1
+034     lcd_send_byte.address
+034-035 @WRITEBITA.P1
+035     lcd_send_byte.n
+036     lcd_read_byte.low
+036     lcd_send_byte.@SCRATCH1
+037     lcd_read_byte.high
+037     lcd_send_nibble.n
+038     lcd_read_nibble.n
+038     lcd_read_byte.@SCRATCH1
+039     lcd_read_nibble.@SCRATCH1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -47,50 +45,54 @@
 113.6   C2OUT
 191-192 @WRITE_PROGRAM_MEMORY8.P1
 191-192 @READ_PROGRAM_MEMORY8.P2
-291     CCP_1_LOW
 291     CCP_1
+291     CCP_1_LOW
 292     CCP_1_HIGH
 298     CCP_2_LOW
 298     CCP_2
 299     CCP_2_HIGH
-311     CCP_3
 311     CCP_3_LOW
+311     CCP_3
 312     CCP_3_HIGH
 318     CCP_4
 318     CCP_4_LOW
 319     CCP_4_HIGH
 
 ROM Allocation:
-000003  Init_GPIO
-00001D  @delay_ms1
-000033  lcd_send_nibble
-00006A  lcd_read_nibble
-00009B  lcd_send_byte
-0000A3  lcd_read_byte
-0000FC  lcd_init
-000145  @WRITEBITA
-000165  @READBITA
-00017E  lcd_gotoxy
-000190  maquina
-00019A  read_keypad
-0001FF  @MUL88
-00023E  lcd_putc
-00026C  MAIN
-00026C  @cinit1
-00027A  @cinit2
+000003  pines_filas.call
+000004  pines_filas.data
+000008  pines_col.call
+000009  pines_col.data
+00000C  Init_GPIO
+000019  @delay_ms1
+00002F  lcd_send_nibble
+000066  lcd_read_nibble
+000097  lcd_send_byte
+00009F  lcd_read_byte
+0000F8  lcd_init
+000141  @WRITEBITA
+000161  @READBITA
+00017A  lcd_gotoxy
+00018C  maquina
+000196  getKey
+0001F0  @MUL88
+000255  lcd_putc
+000283  MAIN
+000283  @cinit1
+000292  @cinit2
 
 Project Directory:
     C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\
 
 Project Files:
-    Ejercicio4.c                                            [04-nov.-25 13:16  CRC=65FD2494]
+    Ejercicio4.c                                            [04-nov.-25 13:31  CRC=46A89888]
     Ejercicio4.h                                            [04-nov.-25 13:08  CRC=00000000]
     ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb.-20 15:48  CRC=D6A5AF9F]
     ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb.-16 09:05  CRC=D1A6378A]
 
-Source signature=DFEF4347
+Source signature=C09AB73B
 Program memory checksum=0000
-Hex file CRC=2C87
+Hex file CRC=4080
 
 Units:
     C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Ejercicio4 (main)
