@@ -11,7 +11,7 @@
 
 #define LCD_ENABLE_PIN  PIN_A1
 #define LCD_RS_PIN      PIN_A2
-#define LCD_RW_PIN      PIN_A3 // CONECTADO A GND SI NO LO USAMOS
+//#define LCD_RW_PIN      PIN_A3 // CONECTADO A GND SI NO LO USAMOS
 #define LCD_DATA4       PIN_A4
 #define LCD_DATA5       PIN_A0
 #define LCD_DATA6       PIN_A6
@@ -173,7 +173,6 @@ void Init_GPIO()
 {
    setup_adc_ports(NO_ANALOGS); 
    setup_comparator(NC_NC_NC_NC);
-
    set_tris_a(0b00000000); // TODO PORTA como salida 
    set_tris_b(0b11110000);
    

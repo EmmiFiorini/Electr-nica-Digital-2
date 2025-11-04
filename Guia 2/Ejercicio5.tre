@@ -2,7 +2,7 @@
    ÃÄMAIN  0/31  Ram=0
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄ@cinit2  (Inline)  Ram=0
-   ³  ÃÄInit_GPIO  0/52  Ram=0
+   ³  ÃÄInit_GPIO  0/54  Ram=0
    ³  ÃÄlcd_init  0/73  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/22  Ram=1
    ³  ³  ÃÄlcd_send_nibble  0/55  Ram=1

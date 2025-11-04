@@ -1,6 +1,6 @@
 
-ROM used:   870/4096 (21%)
-            870/4096 (21%) including unused fragments
+ROM used:   872/4096 (21%)
+            872/4096 (21%) including unused fragments
 
             0.5 Average locations per line
             4.2 Average locations per statement
@@ -13,13 +13,13 @@ Stack size: 16
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  189    67  32  Ejercicio5.c
+  193    68  33  Ejercicio5.c
     5     0   0  Ejercicio5.h
   965     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
   456   100  48  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
   135    40  19  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd.c
 ----- -----
- 1750   207 Total
+ 1754   208 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
@@ -40,21 +40,21 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0     31   4    0     75  1.5  MAIN
 0    221  25    0    860  8.0  maquina
 0      9   1    0             @const796
-0     74   9    4    860  8.0  @PSTRINGC7_745
+0     74   8    4    860  8.0  @PSTRINGC7_745
 0      5   1    0             @const801
 0      6   1    0             @const802
 0     11   1    0     65  1.6  InitTimer0
-0     52   6    0    243  1.4  Init_GPIO
+0     54   6    0    268  1.4  Init_GPIO
  Inline         0    268  1.4  @cinit1
 
 Program metrics:
     Functions               16
-    Statements              207
+    Statements              208
     Comments                348
-    Volume (V)              15623
+    Volume (V)              15668
     Difficulty (D)          68.9
-    Effort to implement (E) 1076265
-    Time to implement (T)   16 hours, 37 minutes
+    Effort to implement (E) 1079394
+    Time to implement (T)   16 hours, 39 minutes
     Est Delivered Bugs (B)  4
     Cyclomatic Complexity   38
     Maintainability (MI)    134
@@ -64,7 +64,7 @@ Program metrics:
 00000-00002     3  0  
 00003-00003     0  1  
 00004-0003D    58  0  
-0003E-007FF   809  1177  
+0003E-007FF   811  1175  
 00800-00FFF     0  2048  
 
 

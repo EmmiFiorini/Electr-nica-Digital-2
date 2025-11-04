@@ -19,23 +19,32 @@ forcecoff=0
 [ProjectLog]
 Days=1
 D1=04-11-2025
-D1_L=4
+D1_L=11
 D1_L1=[49878]Project Opened.
 D1_L2=[49894]Started Editing.
 D1_L3=[50194]Stopped Editing.
 D1_L4=[50218]Started Editing.
+D1_L5=[51557]Stopped Editing.
+D1_L6=[51883]Started Editing.
+D1_L7=[52519]Stopped Editing.
+D1_L8=[52582]Started Editing.
+D1_L9=[52906]Stopped Editing.
+D1_L10=[53408]Started Editing.
+D1_L11=[54289]Stopped Editing.
 
 [Opened Files]
 1=Ejercicio5.c
-t1=161
-Count=2
+t1=1
+Count=3
 2=..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd.c
-t2=27
+t2=15
+3=..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+t3=199
 [Ejercicio5.c]
 Type=4
 
 [defines]
-buildcount=4
+buildcount=13
 [Units]
 Count=1
 1=Ejercicio5 (main)

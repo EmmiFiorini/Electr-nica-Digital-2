@@ -173,7 +173,7 @@ void Init_GPIO()
 {
    setup_adc_ports(NO_ANALOGS); 
    setup_comparator(NC_NC_NC_NC);
-
+   ANSELB = 0;
    set_tris_a(0b00000000); // TODO PORTA como salida 
    set_tris_b(0b11110000);
    

@@ -171,7 +171,7 @@ void InitTimer0(void) {
 
 void Init_GPIO()
 {
-   setup_adc_ports(NO_ANALOGS); 
+   setup_adc(ADC_OFF);
    setup_comparator(NC_NC_NC_NC);
 
    set_tris_a(0b00000000); // TODO PORTA como salida 
