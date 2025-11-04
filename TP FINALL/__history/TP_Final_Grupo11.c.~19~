@@ -111,7 +111,7 @@ char getKey(void){
    const unsigned char pines_filas[4] = {PIN_B0, PIN_B1, PIN_B2, PIN_B3};
    const unsigned char pines_col[3] = {PIN_B4, PIN_B6, PIN_B7};
    int f, c;
-   char result = 'f';
+   char result = '0';
    
    for(f = 0; f < 4; f++) {
       // Poner todas las filas en HIGH
@@ -122,23 +122,13 @@ char getKey(void){
 
       // Activar la fila r (tirarla a LOW)
       output_low(pines_filas[f]);
-      delay_us(100); // asegurar estabilidad
 
       // Leemos columnas
       for(c = 0; c < 3; c++) {
-         
          if(!input(pines_col[c])) { // columna detectada en 0 --> tecla presionada
-            
-            delay_ms(20);
-            
+
             if(!input(pines_col[c])) { // sigue presionada
                result = keymap[f][c];
-               
-               while(!input(pines_col[c])) {
-                  delay_ms(10);
-               }
-               
-               output_high(pines_filas[f]);
                return result;
             }
          }

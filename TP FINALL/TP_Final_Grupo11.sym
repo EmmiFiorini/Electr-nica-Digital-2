@@ -12,12 +12,13 @@
 023     getKey.c
 024     getKey.result
 025     @MUL88.P1
+025     @delay_ms1.P2
 025     getKey.@SCRATCH1
 026     @WRITEBITA.P1
-026     @READBITA.P2
-026     @MUL88.P3
-027     @WRITEBITA.P1
-027-028 @READBITA.P2
+026     @MUL88.P2
+026     @READBITA.P3
+027-028 @READBITA.P1
+027     @WRITEBITA.P2
 028-029 @WRITEBITA.P1
 077     @SCRATCH
 078     @SCRATCH
@@ -54,28 +55,29 @@ ROM Allocation:
 00002E  Init_Keypad
 000049  @WRITEBITA
 000069  @READBITA
-000082  getKey
-0000D5  @MUL88
-000109  @PUTCHAR_1_
-00012F  decharabin
-00016B  main
-00016B  @cinit1
-00017D  @cinit2
+000082  @delay_ms1
+000098  getKey
+0000F2  @MUL88
+00014B  @PUTCHAR_1_
+000171  decharabin
+0001AD  main
+0001AD  @cinit1
+0001BF  @cinit2
 
 Project Directory:
-    C:\Users\santi\OneDrive\Escritorio\EDI2\TP FINAL\
+    C:\Users\santi\OneDrive\Documentos\EDI2_Grupo_11\Electr-nica-Digital-2\TP FINALL\
 
 Project Files:
-    TP_Final_Grupo11.c                                      [30-oct-25 14:19  CRC=43CB26EC]
+    TP_Final_Grupo11.c                                      [03-nov-25 18:34  CRC=E5F1FD61]
     TP_Final_Grupo11.h                                      [29-oct-25 18:32  CRC=00000000]
-    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb-20 15:48  CRC=D6A5AF9F]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb-20 15:48  CRC=D6A5AF9F]
 
-Source signature=F116862A
+Source signature=933D5C9F
 Program memory checksum=0000
-Hex file CRC=C6AA
+Hex file CRC=FA38
 
 Units:
-    C:\Users\santi\OneDrive\Escritorio\EDI2\TP FINAL\TP_Final_Grupo11 (main)
+    C:\Users\santi\OneDrive\Documentos\EDI2_Grupo_11\Electr-nica-Digital-2\TP FINALL\TP_Final_Grupo11 (main)
 
 Compiler Settings:
     Processor:      PIC16F1827

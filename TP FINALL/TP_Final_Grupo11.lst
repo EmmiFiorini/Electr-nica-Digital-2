@@ -1,8 +1,8 @@
-CCS PCM C Compiler, Version 5.093, 4770               30-oct-25 14:19
+CCS PCM C Compiler, Version 5.093, 4770               03-nov-25 18:34
 
-               Filename:   C:\Users\santi\OneDrive\Escritorio\EDI2\TP FINAL\TP_Final_Grupo11.lst
+               Filename:   C:\Users\santi\OneDrive\Documentos\EDI2_Grupo_11\Electr-nica-Digital-2\TP FINALL\TP_Final_Grupo11.lst
 
-               ROM used:   413 words (10%)
+               ROM used:   479 words (12%)
                            Largest free fragment is 2048
                RAM used:   7 (2%) at main() level
                            25 (7%) worst case
@@ -10,7 +10,7 @@ CCS PCM C Compiler, Version 5.093, 4770               30-oct-25 14:19
                Stack size: 16
 
 0000:  MOVLP  00
-0001:  GOTO   16B
+0001:  GOTO   1AD
 0002:  NOP
 .................... #include <TP_Final_Grupo11.h>
 .................... #include <16F1827.h>
@@ -117,90 +117,113 @@ CCS PCM C Compiler, Version 5.093, 4770               30-oct-25 14:19
 0080:  ANDWF  78,F
 0081:  RETURN
 *
-00D5:  CLRF   77
-00D6:  CLRF   78
-00D7:  MOVF   25,W
-00D8:  BCF    03.0
-00D9:  BTFSC  26.0
-00DA:  ADDWF  77,F
-00DB:  RRF    77,F
-00DC:  RRF    78,F
-00DD:  BTFSC  26.1
-00DE:  ADDWF  77,F
-00DF:  RRF    77,F
-00E0:  RRF    78,F
-00E1:  BTFSC  26.2
-00E2:  ADDWF  77,F
-00E3:  RRF    77,F
-00E4:  RRF    78,F
-00E5:  BTFSC  26.3
-00E6:  ADDWF  77,F
-00E7:  RRF    77,F
-00E8:  RRF    78,F
-00E9:  BTFSC  26.4
-00EA:  ADDWF  77,F
-00EB:  RRF    77,F
-00EC:  RRF    78,F
-00ED:  BTFSC  26.5
-00EE:  ADDWF  77,F
-00EF:  RRF    77,F
-00F0:  RRF    78,F
-00F1:  BTFSC  26.6
-00F2:  ADDWF  77,F
-00F3:  RRF    77,F
-00F4:  RRF    78,F
-00F5:  BTFSC  26.7
-00F6:  ADDWF  77,F
-00F7:  RRF    77,F
-00F8:  RRF    78,F
+00F2:  CLRF   77
+00F3:  CLRF   78
+00F4:  MOVF   25,W
+00F5:  BCF    03.0
+00F6:  BTFSC  26.0
+00F7:  ADDWF  77,F
+00F8:  RRF    77,F
+00F9:  RRF    78,F
+00FA:  BTFSC  26.1
+00FB:  ADDWF  77,F
+00FC:  RRF    77,F
+00FD:  RRF    78,F
+00FE:  BTFSC  26.2
+00FF:  ADDWF  77,F
+0100:  RRF    77,F
+0101:  RRF    78,F
+0102:  BTFSC  26.3
+0103:  ADDWF  77,F
+0104:  RRF    77,F
+0105:  RRF    78,F
+0106:  BTFSC  26.4
+0107:  ADDWF  77,F
+0108:  RRF    77,F
+0109:  RRF    78,F
+010A:  BTFSC  26.5
+010B:  ADDWF  77,F
+010C:  RRF    77,F
+010D:  RRF    78,F
+010E:  BTFSC  26.6
+010F:  ADDWF  77,F
+0110:  RRF    77,F
+0111:  RRF    78,F
+0112:  BTFSC  26.7
+0113:  ADDWF  77,F
+0114:  RRF    77,F
+0115:  RRF    78,F
 .................... 
 .................... #list
 .................... 
 .................... #device ADC=10
 .................... #use delay(internal=4MHz)
+*
+0082:  MOVLW  20
+0083:  MOVWF  05
+0084:  MOVLW  05
+0085:  MOVWF  04
+0086:  MOVF   00,W
+0087:  BTFSC  03.2
+0088:  GOTO   097
+0089:  MOVLW  01
+008A:  MOVWF  78
+008B:  CLRF   77
+008C:  DECFSZ 77,F
+008D:  GOTO   08C
+008E:  DECFSZ 78,F
+008F:  GOTO   08B
+0090:  MOVLW  4A
+0091:  MOVWF  77
+0092:  DECFSZ 77,F
+0093:  GOTO   092
+0094:  GOTO   095
+0095:  DECFSZ 00,F
+0096:  GOTO   089
+0097:  RETURN
 .................... 
 .................... 
 .................... 
 .................... #use RS232(BAUD = 9600, XMIT = PIN_B5, BITS = 8, PARITY = N, STOP = 1)
 *
-0109:  MOVLB  01
-010A:  BCF    0D.5
-010B:  MOVLB  02
-010C:  BCF    0D.5
-010D:  MOVLW  08
-010E:  MOVWF  78
-010F:  GOTO   110
-0110:  NOP
-0111:  BSF    78.7
-0112:  GOTO   123
-0113:  BCF    78.7
-0114:  MOVLB  00
-0115:  RRF    22,F
-0116:  MOVLB  02
-0117:  BTFSC  03.0
-0118:  BSF    0D.5
-0119:  BTFSS  03.0
-011A:  BCF    0D.5
-011B:  BSF    78.6
-011C:  GOTO   123
-011D:  BCF    78.6
-011E:  DECFSZ 78,F
-011F:  GOTO   114
-0120:  GOTO   121
-0121:  NOP
-0122:  BSF    0D.5
-0123:  MOVLW  1B
-0124:  MOVWF  04
-0125:  DECFSZ 04,F
-0126:  GOTO   125
-0127:  GOTO   128
-0128:  NOP
-0129:  BTFSC  78.7
-012A:  GOTO   113
-012B:  BTFSC  78.6
-012C:  GOTO   11D
-012D:  MOVLB  00
-012E:  RETURN
+014B:  MOVLB  01
+014C:  BCF    0D.5
+014D:  MOVLB  02
+014E:  BCF    0D.5
+014F:  MOVLW  08
+0150:  MOVWF  78
+0151:  GOTO   152
+0152:  NOP
+0153:  BSF    78.7
+0154:  GOTO   165
+0155:  BCF    78.7
+0156:  MOVLB  00
+0157:  RRF    22,F
+0158:  MOVLB  02
+0159:  BTFSC  03.0
+015A:  BSF    0D.5
+015B:  BTFSS  03.0
+015C:  BCF    0D.5
+015D:  BSF    78.6
+015E:  GOTO   165
+015F:  BCF    78.6
+0160:  DECFSZ 78,F
+0161:  GOTO   156
+0162:  GOTO   163
+0163:  NOP
+0164:  BSF    0D.5
+0165:  MOVLW  1B
+0166:  MOVWF  04
+0167:  DECFSZ 04,F
+0168:  GOTO   167
+0169:  GOTO   16A
+016A:  NOP
+016B:  BTFSC  78.7
+016C:  GOTO   155
+016D:  BTFSC  78.6
+016E:  GOTO   15F
+016F:  MOVLB  00
+0170:  RETURN
 .................... 
 .................... #fuses INTRC_IO   // Oscilador interno con pines RA6 y RA7 como GPIO
 .................... #fuses NOMCLR     // Desactivo el MCLR
@@ -244,155 +267,155 @@ CCS PCM C Compiler, Version 5.093, 4770               30-oct-25 14:19
 .................... 
 .................... void main()
 *
-016B:  MOVLW  6A
-016C:  MOVLB  01
-016D:  MOVWF  19
-016E:  BCF    0D.5
-016F:  MOVLB  02
-0170:  BSF    0D.5
-0171:  MOVLW  20
-0172:  MOVLB  00
-0173:  MOVWF  20
-0174:  CLRF   21
-0175:  MOVLB  03
-0176:  CLRF   0C
-0177:  CLRF   0D
-0178:  MOVLB  02
-0179:  CLRF   12
-017A:  CLRF   11
-017B:  CLRF   14
-017C:  CLRF   13
+01AD:  MOVLW  6A
+01AE:  MOVLB  01
+01AF:  MOVWF  19
+01B0:  BCF    0D.5
+01B1:  MOVLB  02
+01B2:  BSF    0D.5
+01B3:  MOVLW  20
+01B4:  MOVLB  00
+01B5:  MOVWF  20
+01B6:  CLRF   21
+01B7:  MOVLB  03
+01B8:  CLRF   0C
+01B9:  CLRF   0D
+01BA:  MOVLB  02
+01BB:  CLRF   12
+01BC:  CLRF   11
+01BD:  CLRF   14
+01BE:  CLRF   13
 .................... {
 ....................    Init_GPIO();
-017D:  MOVLB  00
-017E:  GOTO   024
+01BF:  MOVLB  00
+01C0:  GOTO   024
 ....................    Init_Keypad();
-017F:  GOTO   02E
+01C1:  GOTO   02E
 ....................    
 ....................    while(TRUE)
 ....................    {
 .................... 
 ....................    tecla = getKey();
-0180:  GOTO   082
-0181:  MOVF   78,W
-0182:  MOVWF  20
+01C2:  GOTO   098
+01C3:  MOVF   78,W
+01C4:  MOVWF  20
 ....................    
 ....................    if(tecla != 'f') {
-0183:  MOVF   20,W
-0184:  SUBLW  66
-0185:  BTFSC  03.2
-0186:  GOTO   19B
+01C5:  MOVF   20,W
+01C6:  SUBLW  66
+01C7:  BTFSC  03.2
+01C8:  GOTO   1DD
 ....................          printf("<%c>", tecla);
-0187:  MOVLW  3C
-0188:  MOVWF  22
-0189:  CALL   109
-018A:  MOVF   20,W
-018B:  MOVWF  22
-018C:  CALL   109
-018D:  MOVLW  3E
-018E:  MOVWF  22
-018F:  CALL   109
+01C9:  MOVLW  3C
+01CA:  MOVWF  22
+01CB:  CALL   14B
+01CC:  MOVF   20,W
+01CD:  MOVWF  22
+01CE:  CALL   14B
+01CF:  MOVLW  3E
+01D0:  MOVWF  22
+01D1:  CALL   14B
 ....................          decharabin();
-0190:  GOTO   12F
+01D2:  GOTO   171
 ....................          output_a(display[teclabin]);
-0191:  MOVF   21,W
-0192:  CALL   003
-0193:  MOVWF  22
-0194:  MOVLB  01
-0195:  CLRF   0C
-0196:  MOVLB  00
-0197:  MOVF   22,W
-0198:  MOVLB  02
-0199:  MOVWF  0C
-019A:  MOVLB  00
+01D3:  MOVF   21,W
+01D4:  CALL   003
+01D5:  MOVWF  22
+01D6:  MOVLB  01
+01D7:  CLRF   0C
+01D8:  MOVLB  00
+01D9:  MOVF   22,W
+01DA:  MOVLB  02
+01DB:  MOVWF  0C
+01DC:  MOVLB  00
 ....................       } 
-019B:  GOTO   180
+01DD:  GOTO   1C2
 ....................    }
 .................... }
 .................... 
-019C:  SLEEP
+01DE:  SLEEP
 .................... void decharabin(){//funcion que cambia de char a binario
 ....................    if(tecla == '0')
 *
-012F:  MOVF   20,W
-0130:  SUBLW  30
-0131:  BTFSS  03.2
-0132:  GOTO   135
+0171:  MOVF   20,W
+0172:  SUBLW  30
+0173:  BTFSS  03.2
+0174:  GOTO   177
 ....................       teclabin=  1111110; //escribo el 0
-0133:  MOVLW  46
-0134:  MOVWF  21
+0175:  MOVLW  46
+0176:  MOVWF  21
 ....................    if (tecla == '1')
-0135:  MOVF   20,W
-0136:  SUBLW  31
-0137:  BTFSC  03.2
+0177:  MOVF   20,W
+0178:  SUBLW  31
+0179:  BTFSC  03.2
 ....................       teclabin=  0110000; //escribo el 1
-0138:  CLRF   21
+017A:  CLRF   21
 ....................    if (tecla == '2')
-0139:  MOVF   20,W
-013A:  SUBLW  32
-013B:  BTFSS  03.2
-013C:  GOTO   13F
+017B:  MOVF   20,W
+017C:  SUBLW  32
+017D:  BTFSS  03.2
+017E:  GOTO   181
 ....................       teclabin=  1101101; //escribo el 2
-013D:  MOVLW  2D
-013E:  MOVWF  21
+017F:  MOVLW  2D
+0180:  MOVWF  21
 ....................    if (tecla == '3')
-013F:  MOVF   20,W
-0140:  SUBLW  33
-0141:  BTFSS  03.2
-0142:  GOTO   145
+0181:  MOVF   20,W
+0182:  SUBLW  33
+0183:  BTFSS  03.2
+0184:  GOTO   187
 ....................       teclabin=  1111001; //escribo el 3
-0143:  MOVLW  D9
-0144:  MOVWF  21
+0185:  MOVLW  D9
+0186:  MOVWF  21
 ....................    if (tecla == '4')
-0145:  MOVF   20,W
-0146:  SUBLW  34
-0147:  BTFSS  03.2
-0148:  GOTO   14B
+0187:  MOVF   20,W
+0188:  SUBLW  34
+0189:  BTFSS  03.2
+018A:  GOTO   18D
 ....................       teclabin=  0110011; //escribo el 4
-0149:  MOVLW  09
-014A:  MOVWF  21
+018B:  MOVLW  09
+018C:  MOVWF  21
 ....................    if (tecla == '5')
-014B:  MOVF   20,W
-014C:  SUBLW  35
-014D:  BTFSS  03.2
-014E:  GOTO   151
+018D:  MOVF   20,W
+018E:  SUBLW  35
+018F:  BTFSS  03.2
+0190:  GOTO   193
 ....................       teclabin=  1011011; //escribo el 5
-014F:  MOVLW  43
-0150:  MOVWF  21
+0191:  MOVLW  43
+0192:  MOVWF  21
 ....................    if (tecla == '6')
-0151:  MOVF   20,W
-0152:  SUBLW  36
-0153:  BTFSS  03.2
-0154:  GOTO   157
+0193:  MOVF   20,W
+0194:  SUBLW  36
+0195:  BTFSS  03.2
+0196:  GOTO   199
 ....................       teclabin=  0011111; //escribo el 6
-0155:  MOVLW  49
-0156:  MOVWF  21
+0197:  MOVLW  49
+0198:  MOVWF  21
 ....................    if (tecla == '7')
-0157:  MOVF   20,W
-0158:  SUBLW  37
-0159:  BTFSS  03.2
-015A:  GOTO   15D
+0199:  MOVF   20,W
+019A:  SUBLW  37
+019B:  BTFSS  03.2
+019C:  GOTO   19F
 ....................       teclabin=  1110000; //escribo el 7
-015B:  MOVLW  F0
-015C:  MOVWF  21
+019D:  MOVLW  F0
+019E:  MOVWF  21
 ....................    if (tecla == '8')
-015D:  MOVF   20,W
-015E:  SUBLW  38
-015F:  BTFSS  03.2
-0160:  GOTO   163
+019F:  MOVF   20,W
+01A0:  SUBLW  38
+01A1:  BTFSS  03.2
+01A2:  GOTO   1A5
 ....................       teclabin=  1111111; //escribo el 8
-0161:  MOVLW  47
-0162:  MOVWF  21
+01A3:  MOVLW  47
+01A4:  MOVWF  21
 ....................    if (tecla == '9')
-0163:  MOVF   20,W
-0164:  SUBLW  39
-0165:  BTFSS  03.2
-0166:  GOTO   169
+01A5:  MOVF   20,W
+01A6:  SUBLW  39
+01A7:  BTFSS  03.2
+01A8:  GOTO   1AB
 ....................       teclabin=  1110011; //escribo el 9
-0167:  MOVLW  FB
-0168:  MOVWF  21
-0169:  MOVLP  00
-016A:  GOTO   191 (RETURN)
+01A9:  MOVLW  FB
+01AA:  MOVWF  21
+01AB:  MOVLP  00
+01AC:  GOTO   1D3 (RETURN)
 .................... }
 .................... 
 .................... void maquina(void) {
@@ -415,7 +438,7 @@ CCS PCM C Compiler, Version 5.093, 4770               30-oct-25 14:19
 002A:  IORWF  0B,F
 002B:  MOVLP  00
 002C:  MOVLB  00
-002D:  GOTO   17F (RETURN)
+002D:  GOTO   1C1 (RETURN)
 .................... }
 .................... 
 .................... void Init_Keypad(void){
@@ -453,140 +476,194 @@ CCS PCM C Compiler, Version 5.093, 4770               30-oct-25 14:19
 0045:  BSF    0D.3
 0046:  MOVLP  00
 0047:  MOVLB  00
-0048:  GOTO   180 (RETURN)
+0048:  GOTO   1C2 (RETURN)
 .................... }
 .................... 
 .................... char getKey(void){
 *
-0082:  MOVLW  30
-0083:  MOVWF  24
+0098:  MOVLW  66
+0099:  MOVWF  24
 .................... 
 ....................    const unsigned char pines_filas[4] = {PIN_B0, PIN_B1, PIN_B2, PIN_B3};
 ....................    const unsigned char pines_col[3] = {PIN_B4, PIN_B6, PIN_B7};
 ....................    int f, c;
-....................    char result = '0';
+....................    char result = 'f';
 ....................    
 ....................    for(f = 0; f < 4; f++) {
-0084:  CLRF   22
-0085:  MOVF   22,W
-0086:  SUBLW  03
-0087:  BTFSS  03.0
-0088:  GOTO   105
+009A:  CLRF   22
+009B:  MOVF   22,W
+009C:  SUBLW  03
+009D:  BTFSS  03.0
+009E:  GOTO   147
 ....................       // Poner todas las filas en HIGH
 ....................       output_high(PIN_B0);
-0089:  MOVLB  01
-008A:  BCF    0D.0
-008B:  MOVLB  02
-008C:  BSF    0D.0
+009F:  MOVLB  01
+00A0:  BCF    0D.0
+00A1:  MOVLB  02
+00A2:  BSF    0D.0
 ....................       output_high(PIN_B1);
-008D:  MOVLB  01
-008E:  BCF    0D.1
-008F:  MOVLB  02
-0090:  BSF    0D.1
+00A3:  MOVLB  01
+00A4:  BCF    0D.1
+00A5:  MOVLB  02
+00A6:  BSF    0D.1
 ....................       output_high(PIN_B2);
-0091:  MOVLB  01
-0092:  BCF    0D.2
-0093:  MOVLB  02
-0094:  BSF    0D.2
+00A7:  MOVLB  01
+00A8:  BCF    0D.2
+00A9:  MOVLB  02
+00AA:  BSF    0D.2
 ....................       output_high(PIN_B3);
-0095:  MOVLB  01
-0096:  BCF    0D.3
-0097:  MOVLB  02
-0098:  BSF    0D.3
+00AB:  MOVLB  01
+00AC:  BCF    0D.3
+00AD:  MOVLB  02
+00AE:  BSF    0D.3
 .................... 
 ....................       // Activar la fila r (tirarla a LOW)
 ....................       output_low(pines_filas[f]);
-0099:  MOVLB  00
-009A:  MOVF   22,W
-009B:  CALL   01B
-009C:  MOVWF  25
-009D:  MOVWF  26
-009E:  CLRF   27
-009F:  MOVLW  01
-00A0:  MOVWF  29
-00A1:  CLRF   28
-00A2:  CALL   049
-00A3:  MOVF   25,W
-00A4:  MOVWF  26
-00A5:  CLRF   27
-00A6:  CLRF   29
-00A7:  MOVLW  80
-00A8:  MOVWF  28
-00A9:  CALL   049
-.................... 
-....................       // Leemos columnas
-....................       for(c = 0; c < 3; c++) {
-00AA:  CLRF   23
-00AB:  MOVF   23,W
-00AC:  SUBLW  02
-00AD:  BTFSS  03.0
-00AE:  GOTO   103
-....................          if(!input(pines_col[c])) { // columna detectada en 0 --> tecla presionada
-00AF:  MOVF   23,W
-00B0:  CALL   020
-00B1:  MOVWF  25
-00B2:  MOVWF  26
-00B3:  MOVLW  01
-00B4:  MOVWF  27
-00B5:  CLRF   29
-00B6:  MOVLW  80
-00B7:  MOVWF  28
+00AF:  MOVLB  00
+00B0:  MOVF   22,W
+00B1:  CALL   01B
+00B2:  MOVWF  25
+00B3:  MOVWF  26
+00B4:  CLRF   27
+00B5:  MOVLW  01
+00B6:  MOVWF  29
+00B7:  CLRF   28
 00B8:  CALL   049
 00B9:  MOVF   25,W
 00BA:  MOVWF  26
-00BB:  CLRF   28
-00BC:  CLRF   27
-00BD:  CALL   069
-00BE:  BTFSC  78.0
-00BF:  GOTO   101
+00BB:  CLRF   27
+00BC:  CLRF   29
+00BD:  MOVLW  80
+00BE:  MOVWF  28
+00BF:  CALL   049
+....................       delay_us(100); // asegurar estabilidad
+00C0:  MOVLW  21
+00C1:  MOVWF  77
+00C2:  DECFSZ 77,F
+00C3:  GOTO   0C2
 .................... 
-....................             if(!input(pines_col[c])) { // sigue presionada
-00C0:  MOVF   23,W
-00C1:  CALL   020
-00C2:  MOVWF  25
-00C3:  MOVWF  26
-00C4:  MOVLW  01
-00C5:  MOVWF  27
-00C6:  CLRF   29
-00C7:  MOVLW  80
-00C8:  MOVWF  28
-00C9:  CALL   049
-00CA:  MOVF   25,W
-00CB:  MOVWF  26
-00CC:  CLRF   28
-00CD:  CLRF   27
-00CE:  CALL   069
-00CF:  BTFSC  78.0
-00D0:  GOTO   101
-....................                result = keymap[f][c];
-00D1:  MOVF   22,W
-00D2:  MOVWF  25
-00D3:  MOVLW  03
+....................       // Leemos columnas
+....................       for(c = 0; c < 3; c++) {
+00C4:  CLRF   23
+00C5:  MOVF   23,W
+00C6:  SUBLW  02
+00C7:  BTFSS  03.0
+00C8:  GOTO   145
+....................          
+....................          if(!input(pines_col[c])) { // columna detectada en 0 --> tecla presionada
+00C9:  MOVF   23,W
+00CA:  CALL   020
+00CB:  MOVWF  25
+00CC:  MOVWF  26
+00CD:  MOVLW  01
+00CE:  MOVWF  27
+00CF:  CLRF   29
+00D0:  MOVLW  80
+00D1:  MOVWF  28
+00D2:  CALL   049
+00D3:  MOVF   25,W
 00D4:  MOVWF  26
+00D5:  CLRF   28
+00D6:  CLRF   27
+00D7:  CALL   069
+00D8:  BTFSC  78.0
+00D9:  GOTO   143
+....................             
+....................             delay_ms(20);
+00DA:  MOVLW  14
+00DB:  MOVWF  25
+00DC:  CALL   082
+....................             
+....................             if(!input(pines_col[c])) { // sigue presionada
+00DD:  MOVF   23,W
+00DE:  CALL   020
+00DF:  MOVWF  25
+00E0:  MOVWF  26
+00E1:  MOVLW  01
+00E2:  MOVWF  27
+00E3:  CLRF   29
+00E4:  MOVLW  80
+00E5:  MOVWF  28
+00E6:  CALL   049
+00E7:  MOVF   25,W
+00E8:  MOVWF  26
+00E9:  CLRF   28
+00EA:  CLRF   27
+00EB:  CALL   069
+00EC:  BTFSC  78.0
+00ED:  GOTO   143
+....................                result = keymap[f][c];
+00EE:  MOVF   22,W
+00EF:  MOVWF  25
+00F0:  MOVLW  03
+00F1:  MOVWF  26
 *
-00F9:  MOVF   23,W
-00FA:  ADDWF  78,W
-00FB:  CALL   00E
-00FC:  MOVWF  78
-00FD:  MOVWF  24
+0116:  MOVF   23,W
+0117:  ADDWF  78,W
+0118:  CALL   00E
+0119:  MOVWF  78
+011A:  MOVWF  24
+....................                
+....................                while(!input(pines_col[c])) {
+011B:  MOVF   23,W
+011C:  CALL   020
+011D:  MOVWF  25
+011E:  MOVWF  26
+011F:  MOVLW  01
+0120:  MOVWF  27
+0121:  CLRF   29
+0122:  MOVLW  80
+0123:  MOVWF  28
+0124:  CALL   049
+0125:  MOVF   25,W
+0126:  MOVWF  26
+0127:  CLRF   28
+0128:  CLRF   27
+0129:  CALL   069
+012A:  BTFSC  78.0
+012B:  GOTO   130
+....................                   delay_ms(10);
+012C:  MOVLW  0A
+012D:  MOVWF  25
+012E:  CALL   082
+012F:  GOTO   11B
+....................                }
+....................                
+....................                output_high(pines_filas[f]);
+0130:  MOVF   22,W
+0131:  CALL   01B
+0132:  MOVWF  25
+0133:  MOVWF  26
+0134:  MOVLW  01
+0135:  MOVWF  27
+0136:  MOVWF  29
+0137:  CLRF   28
+0138:  CALL   049
+0139:  MOVF   25,W
+013A:  MOVWF  26
+013B:  CLRF   27
+013C:  CLRF   29
+013D:  MOVLW  80
+013E:  MOVWF  28
+013F:  CALL   049
 ....................                return result;
-00FE:  MOVF   24,W
-00FF:  MOVWF  78
-0100:  GOTO   107
+0140:  MOVF   24,W
+0141:  MOVWF  78
+0142:  GOTO   149
 ....................             }
 ....................          }
-0101:  INCF   23,F
-0102:  GOTO   0AB
+0143:  INCF   23,F
+0144:  GOTO   0C5
 ....................       }
-0103:  INCF   22,F
-0104:  GOTO   085
+0145:  INCF   22,F
+0146:  GOTO   09B
 ....................    }
 .................... 
 ....................    return 'f'; // No se presiono ninguna tecla
-0105:  MOVLW  66
-0106:  MOVWF  78
-0107:  MOVLP  00
-0108:  GOTO   181 (RETURN)
+0147:  MOVLW  66
+0148:  MOVWF  78
+0149:  MOVLP  00
+014A:  GOTO   1C3 (RETURN)
 .................... }
 .................... 
 

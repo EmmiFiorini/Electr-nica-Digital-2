@@ -17,7 +17,7 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=2
+Days=3
 D1=29-10-2025
 D1_L=8
 D1_L1=[66728]Project Opened.
@@ -27,7 +27,7 @@ D1_L4=[68079]Started Editing.
 D1_L5=[69191]Stopped Editing.
 D1_L6=[69518]Started Editing.
 D1_L7=[69844]Stopped Editing.
-TotalEdit=26
+TotalEdit=29
 TotalDebug=0
 D1_E=26
 D1_D=0
@@ -47,18 +47,26 @@ D2_L10=[50158]Started Editing.
 D2_L11=[50641]Stopped Editing.
 D2_L12=[51229]Started Editing.
 D2_L13=[51724]Stopped Editing.
+D3=03-11-2025
+D3_L=4
+D3_L1=[66132]Project Opened.
+D3_L2=[66726]Started Editing.
+D3_L3=[67185]Stopped Editing.
+D3_E=3
+D3_D=0
+D3_L4=[67212]Project Closed.
 
 [Opened Files]
 1=TP_Final_Grupo11.c
-t1=49
+t1=125
 2=..\TP3\Grupo11_EjercicioPresencial.c
 t2=109
-Count=2
+Count=1
 [TP_Final_Grupo11.c]
 Type=4
 
 [defines]
-buildcount=18
+buildcount=19
 [Units]
 Count=1
 1=TP_Final_Grupo11 (main)
