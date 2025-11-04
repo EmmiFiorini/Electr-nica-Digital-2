@@ -1,0 +1,71 @@
+
+ROM used:   870/4096 (21%)
+            870/4096 (21%) including unused fragments
+
+            0.5 Average locations per line
+            4.2 Average locations per statement
+
+RAM used:   23/383 (6%) at main() level
+            49/383 (13%) worst case
+
+Stack used: 6 worst case (5 in main + 1 for interrupts)
+Stack size: 16
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  189    67  32  Ejercicio5.c
+    5     0   0  Ejercicio5.h
+  965     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
+  456   100  48  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+  135    40  19  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd.c
+----- -----
+ 1750   207 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     22   3    1             @delay_ms1
+ Inline         3    760  4.5  lcd_read_byte
+0     49   6    2    262  3.7  lcd_read_nibble
+0     55   6    1    399  2.4  lcd_send_nibble
+0     97  11    3    415  3.7  lcd_send_byte
+0     73   8    6    852  6.2  lcd_init
+0     18   2    4    208  6.3  lcd_gotoxy
+0     44   5    1    354  4.7  lcd_putc
+0     13   1    0             @const759
+0      2   0    0      3  0.0  kbd_init
+ Inline         3   4540 10.2  kbd_getc
+ Inline         2             @MUL88
+0      4   0    0             @const789
+0     23   3    0    185  4.4  Timer0_ISR
+0     31   4    0     75  1.5  MAIN
+0    221  25    0    860  8.0  maquina
+0      9   1    0             @const796
+0     74   9    4    860  8.0  @PSTRINGC7_745
+0      5   1    0             @const801
+0      6   1    0             @const802
+0     11   1    0     65  1.6  InitTimer0
+0     52   6    0    243  1.4  Init_GPIO
+ Inline         0    268  1.4  @cinit1
+
+Program metrics:
+    Functions               16
+    Statements              207
+    Comments                348
+    Volume (V)              15623
+    Difficulty (D)          68.9
+    Effort to implement (E) 1076265
+    Time to implement (T)   16 hours, 37 minutes
+    Est Delivered Bugs (B)  4
+    Cyclomatic Complexity   38
+    Maintainability (MI)    134
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     3  0  
+00003-00003     0  1  
+00004-0003D    58  0  
+0003E-007FF   809  1177  
+00800-00FFF     0  2048  
+
+
+

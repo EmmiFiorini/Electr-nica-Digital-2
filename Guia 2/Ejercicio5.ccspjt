@@ -1,0 +1,41 @@
+[PROJECT]
+Target=Ejercicio5.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+CCSVersion=5.093
+[Target Data]
+FileList=Ejercicio5.c
+[Directories]
+Include=
+[C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Ejercicio5]
+Type=4
+[mru-list]
+1=Ejercicio5.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=04-11-2025
+D1_L=4
+D1_L1=[49878]Project Opened.
+D1_L2=[49894]Started Editing.
+D1_L3=[50194]Stopped Editing.
+D1_L4=[50218]Started Editing.
+
+[Opened Files]
+1=Ejercicio5.c
+t1=161
+Count=2
+2=..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd.c
+t2=27
+[Ejercicio5.c]
+Type=4
+
+[defines]
+buildcount=4
+[Units]
+Count=1
+1=Ejercicio5 (main)
