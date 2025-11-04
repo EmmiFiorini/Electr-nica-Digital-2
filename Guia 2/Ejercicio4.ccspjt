@@ -1,0 +1,39 @@
+[PROJECT]
+Target=Ejercicio4.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+CCSVersion=5.093
+[Target Data]
+FileList=Ejercicio4.c
+[Directories]
+Include=
+[C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Ejercicio4]
+Type=4
+[mru-list]
+1=Ejercicio4.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=04-11-2025
+D1_L=2
+D1_L1=[47320]Project Opened.
+D1_L2=[47328]Started Editing.
+
+[Opened Files]
+1=Ejercicio4.c
+t1=65
+Count=2
+2=..\TP FINALL\TP_Final_Grupo11.c
+t2=85
+[Ejercicio4.c]
+Type=4
+
+[defines]
+buildcount=4
+[Units]
+Count=1
+1=Ejercicio4 (main)

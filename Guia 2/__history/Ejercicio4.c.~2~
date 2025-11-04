@@ -1,4 +1,4 @@
-#include <Ejercicio4_TP2.h>
+#include <Ejercicio4.h>
 
 #fuses INTRC_IO  // Oscilador interno con pines RA6 y RA7 como GPIO
 #fuses NOMCLR   // Desactivo el MCLR
@@ -16,6 +16,7 @@
 #define LCD_DATA5       PIN_A3
 #define LCD_DATA6       PIN_A6
 #define LCD_DATA7       PIN_A7
+
 #include <lcd.c>
 /*****************************************************************************
  * Funciones de Inicializacion de Perifericos

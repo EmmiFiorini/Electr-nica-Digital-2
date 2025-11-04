@@ -31,34 +31,34 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0     73   8    6    852  6.2  lcd_init
 0     18   2    4    208  6.3  lcd_gotoxy
 0     44   5    1    354  4.7  lcd_putc
-0     13   1    0    267  6.8  @const759
+0     13   1    0             @const759
 0      2   0    0      3  0.0  kbd_init
  Inline         3   4540 10.2  kbd_getc
- Inline         2      3  0.0  @MUL88
-0      4   0    0   4540 10.2  @const789
+ Inline         2             @MUL88
+0      4   0    0             @const789
 0     23   3    0    185  4.4  Timer0_ISR
 0     38   4    0    110  1.9  MAIN
-0      8   1    0    185  4.4  @const796
+0      8   1    0             @const796
 0     74   8    4             @PSTRINGC7_745
 0    221  25    0    860  8.0  maquina
 0      8   1    0             @const801
-0      5   1    0    860  8.0  @const802
-0      6   1    0     65  1.6  @const803
+0      5   1    0             @const802
+0      6   1    0             @const803
 0     11   1    0     65  1.6  InitTimer0
 0     54   6    0    268  1.4  Init_GPIO
- Inline         0     65  1.6  @cinit1
+ Inline         0             @cinit1
 
 Program metrics:
-    Functions               21
+    Functions               14
     Statements              209
     Comments                348
-    Volume (V)              23027
-    Difficulty (D)          94.4
-    Effort to implement (E) 2173614
-    Time to implement (T)   33 hours, 33 minutes
-    Est Delivered Bugs (B)  6
-    Cyclomatic Complexity   53
-    Maintainability (MI)    98
+    Volume (V)              13602
+    Difficulty (D)          59.5
+    Effort to implement (E) 809783
+    Time to implement (T)   12 hours, 30 minutes
+    Est Delivered Bugs (B)  3
+    Cyclomatic Complexity   30
+    Maintainability (MI)    141
 
  Segment     Used  Free
 -----------  ----  ----

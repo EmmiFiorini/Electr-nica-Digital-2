@@ -1,4 +1,4 @@
-#include <Ejercicio4_TP2.h>
+#include <Ejercicio4.h>
 
 #fuses INTRC_IO  // Oscilador interno con pines RA6 y RA7 como GPIO
 #fuses NOMCLR   // Desactivo el MCLR
@@ -16,6 +16,7 @@
 #define LCD_DATA5       PIN_A3
 #define LCD_DATA6       PIN_A6
 #define LCD_DATA7       PIN_A7
+
 #include <lcd.c>
 /*****************************************************************************
  * Funciones de Inicializacion de Perifericos
@@ -57,10 +58,9 @@ void main()
 
    Init_GPIO();
    lcd_init();
-   printf(LCD_PUTC,"HOLA");
 
    while(TRUE) {
-   //maquina();
+    maquina();
    }
 
 }
@@ -82,20 +82,32 @@ void Init_GPIO()
 }
 
 char read_keypad(void) {
-   int fila;
-   int col;
-   for(fila=0; fila<4; fila++) {
-         output_high(PIN_B4);
-         output_high(PIN_B5);
-         output_high(PIN_B6);
-         output_high(PIN_B7);          // Todas filas en 1
-         output_low(fila_pins[fila]);    // Activar una fila en 0
 
-      for(col=0; col<3; col++) {
-         if(!input(col_pins[col])) // si se presiono alguna tecla la col tmb 0
-            return teclado[fila][col];
+   int f, c;
+   char result = '0';
+   
+   for(f = 0; f < 4; f++) {
+      // Poner todas las filas en HIGH
+      output_high(PIN_B0);
+      output_high(PIN_B1);
+      output_high(PIN_B2);
+      output_high(PIN_B3);
+
+      // Activar la fila r (tirarla a LOW)
+      output_low(fila_pins[f]);
+
+      // Leemos columnas
+      for(c = 0; c < 3; c++) {
+         if(!input(col_pins[c])) { // columna detectada en 0 --> tecla presionada
+
+            if(!input(col_pins[c])) { // sigue presionada
+               result = teclado[f][c];
+               return result;
+            }
+         }
       }
    }
+
    return 0; // nada presionado
 }
 
@@ -109,7 +121,6 @@ void maquina() {
          break;
    
          case MOSTRAR:
-            lcd_putc('\f'); // borrar LCD
             lcd_putc(tecla);  // mostrar tecla
             estado_actual = ESPERAR;     // volver a esperar
          break;

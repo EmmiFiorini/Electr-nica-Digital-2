@@ -1,0 +1,31 @@
+[PROJECT]
+Target=C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 3\Ejercicio 5\Ej4_TP#2.hex
+Processor_Text=PIC16F1827
+CCSVerions=5.093
+Compiler=PCM
+[Target Data]
+FileList=Ej4_TP#2.c
+[Directories]
+Include=
+[C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 3\Ejercicio 5\Ej4_TP#2]
+Type=4
+[mru-list]
+1=Ej4_TP#2.c
+[Units]
+Count=1
+1=Ej4_TP#2 (main)
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=04-11-2025
+D1_L=2
+D1_L1=[47230]Project Opened.
+D1_L2=[47320]Project Closed.
+
+[Opened Files]
+1=Ej4_TP#2.c
+t1=1
+Count=1

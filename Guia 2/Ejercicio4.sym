@@ -1,0 +1,118 @@
+004-005 @READ_PACKED_MEMORY.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+004-005 @WRITE_PACKED_MEMORY.P3
+004-005 @WRITE_PROGRAM_MEMORY8.P4
+006-007 @READ_PACKED_MEMORY.P1
+006-007 @WRITE_PACKED_MEMORY.P2
+020.0   estado_actual
+021     tecla
+022-025 fila_pins
+026-028 col_pins
+029-034 teclado
+035     lcd_putc.c
+035     read_keypad.f
+035     lcd_init.i
+036     lcd_gotoxy.x
+036     read_keypad.c
+036-039 lcd_init.LCD_INIT_STRING
+037     lcd_gotoxy.y
+037     read_keypad.result
+038     @MUL88.P1
+038     lcd_gotoxy.address
+038     read_keypad.@SCRATCH1
+039     @MUL88.P1
+039     @WRITEBITA.P2
+039     @READBITA.P3
+039     lcd_gotoxy.@SCRATCH1
+03A     @WRITEBITA.P1
+03A-03B @READBITA.P2
+03A     @delay_ms1.P3
+03A     lcd_init.@SCRATCH1
+03B     lcd_send_byte.address
+03B-03C @WRITEBITA.P1
+03C     lcd_send_byte.n
+03D     lcd_read_byte.low
+03D     lcd_send_byte.@SCRATCH1
+03E     lcd_send_nibble.n
+03E     lcd_read_byte.high
+03F     lcd_read_nibble.n
+03F     lcd_read_byte.@SCRATCH1
+040     lcd_read_nibble.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+111.6   C1OUT
+113.6   C2OUT
+191-192 @WRITE_PROGRAM_MEMORY8.P1
+191-192 @READ_PROGRAM_MEMORY8.P2
+291     CCP_1_LOW
+291     CCP_1
+292     CCP_1_HIGH
+298     CCP_2_LOW
+298     CCP_2
+299     CCP_2_HIGH
+311     CCP_3
+311     CCP_3_LOW
+312     CCP_3_HIGH
+318     CCP_4
+318     CCP_4_LOW
+319     CCP_4_HIGH
+
+ROM Allocation:
+000003  Init_GPIO
+00001D  @delay_ms1
+000033  lcd_send_nibble
+00006A  lcd_read_nibble
+00009B  lcd_send_byte
+0000A3  lcd_read_byte
+0000FC  lcd_init
+000145  @WRITEBITA
+000165  @READBITA
+00017E  lcd_gotoxy
+000190  maquina
+00019A  read_keypad
+0001FF  @MUL88
+00023E  lcd_putc
+00026C  MAIN
+00026C  @cinit1
+00027A  @cinit2
+
+Project Directory:
+    C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\
+
+Project Files:
+    Ejercicio4.c                                            [04-nov.-25 13:16  CRC=65FD2494]
+    Ejercicio4.h                                            [04-nov.-25 13:08  CRC=00000000]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb.-20 15:48  CRC=D6A5AF9F]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb.-16 09:05  CRC=D1A6378A]
+
+Source signature=DFEF4347
+Program memory checksum=0000
+Hex file CRC=2C87
+
+Units:
+    C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Ejercicio4 (main)
+
+Compiler Settings:
+    Processor:      PIC16F1827
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Enhanced 16:    Yes
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   Ejercicio4.xsym
+    Errors:      Ejercicio4.err
+    Ext Symbols: Ejercicio4.esym
+    INHX8:       Ejercicio4.hex
+    Symbols:     Ejercicio4.sym
+    List:        Ejercicio4.lst
+    Debug/COFF:  Ejercicio4.cof
+    Project:     Ejercicio4.ccspjt
+    Call Tree:   Ejercicio4.tre
+    Statistics:  Ejercicio4.STA
