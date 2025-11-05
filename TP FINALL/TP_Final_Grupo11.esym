@@ -1,10 +1,9 @@
-F N "getKey" 0 109 ""
-D G "__PCM__" 0 150 ""5.093""
-D G "__DEVICE__" 0 150 "1827"
-D G "__DATE__" 0 150 ""3-Nov-25""
-D G "__TIME__" 0 150 ""18:34:48""
-D G "_UNICODE" 0 150 ""?""
-D G "__EVAL" 0 150 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
+D G "__PCM__" 0 274 ""5.093""
+D G "__DEVICE__" 0 274 "1827"
+D G "__DATE__" 0 274 ""5-Nov-25""
+D G "__TIME__" 0 274 ""17:20:25""
+D G "_UNICODE" 0 274 ""?""
+D G "__EVAL" 0 274 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 f N "set_tris_a" 2 39 ""
 v L "value" 2 39 "int8" `55 
@@ -1399,59 +1398,94 @@ d G "INT_RB6_H2L" 2 959 "0x21400B08"
 d G "INT_RB7" 2 960 "0x31800B08"
 d G "INT_RB7_L2H" 2 961 "0x11800B08"
 d G "INT_RB7_H2L" 2 962 "0x21800B08"
-C L "jump_to_isr" 0 9 1 "FUNCTION"
-V G "display" 0 10 "[10]" `728 
-C L "jump_to_isr" 0 9 1 "FUNCTION"
-C L "jump_to_isr" 0 12 1 "*"
-F N "Init_GPIO" 0 16 ""
-f G "Init_GPIO" 0 16 "void()" `730 
-F N "Init_Keypad" 0 17 ""
-f G "Init_Keypad" 0 17 "void()" `731 
-F N "decharabin" 0 18 ""
-f G "decharabin" 0 18 "void()" `732  "* Variables globales"
-V G "keymap" 0 24 "[4][3]" `734 
-V G "tecla" 0 31 "int8" `737 
-V G "teclabin" 0 32 "int8" `738 
-C L "decharabin" 0 12 1 "FUNCTION"
-C L "decharabin" 0 34 1 "*"
-F N "maquina" 0 38 ""
-f G "maquina" 0 38 "void()" `739 
-F N "getKey" 0 39 ""
-f G "getKey" 0 39 "int8()" `740  "* Interrupciones"
-F N "main" 0 45 ""
-F G "main" 0 46 "void()" `741 
-F N "decharabin" 0 63 ""
-F G "decharabin" 0 63 "void()" `732  "funcion que cambia de char a binario"
-C L "decharabin" 0 34 1 "FUNCTION"
-C L "decharabin" 0 34 1 "FUNCTION"
-C L "decharabin" 0 34 1 "FUNCTION"
-C L "decharabin" 0 34 1 "FUNCTION"
-C L "decharabin" 0 34 1 "FUNCTION"
-C L "decharabin" 0 34 1 "FUNCTION"
-C L "decharabin" 0 34 1 "FUNCTION"
-C L "decharabin" 0 34 1 "FUNCTION"
-C L "decharabin" 0 34 1 "FUNCTION"
-C L "decharabin" 0 34 1 "FUNCTION"
-F N "maquina" 0 86 ""
-F G "maquina" 0 86 "void()" `739 
-F N "Init_GPIO" 0 89 ""
-F G "Init_GPIO" 0 89 "void()" `730 
-C L "Init_GPIO" 0 34 2 "FUNCTION"
-F N "Init_Keypad" 0 98 ""
-F G "Init_Keypad" 0 98 "void()" `731 
-C L "Init_Keypad" 0 34 2 "FUNCTION"
-F N "getKey" 0 109 ""
-F G "getKey" 0 109 "int8()" `740 
-V L "pines_filas" 0 111 "[4]" `746 
-V L "pines_col" 0 112 "[3]" `749 
-V L "f" 0 113 "int8" `751 
-V L "c" 0 113 "int8" `752 
-V L "result" 0 114 "int8" `753 
-C L "getKey" 0 34 1 "FUNCTION"
-C L "getKey" 0 34 1 "FUNCTION"
-C L "getKey" 0 34 2 "FUNCTION"
-C L "getKey" 0 34 1 "FUNCTION"
-C L "getKey" 0 34 1 "FUNCTION"
+C L "jump_to_isr" 0 10 1 "*"
+F N "Init_GPIO" 0 14 ""
+f G "Init_GPIO" 0 14 "void()" `731 
+F N "Init_Keypad" 0 15 ""
+f G "Init_Keypad" 0 15 "void()" `732 
+F N "InitTimer0" 0 16 ""
+f G "InitTimer0" 0 16 "void()" `733  "* Variables globales"
+C L "InitTimer0" 0 10 1 "FUNCTION"
+V G "flag_debounce" 0 23 "int8" `734 
+C L "InitTimer0" 0 10 1 "FUNCTION"
+V G "keymap" 0 26 "[4][3]" `736 
+V G "tecla" 0 33 "int8" `739 
+C L "InitTimer0" 0 10 1 "FUNCTION"
+V G "contador_ms_1" 0 36 "int8" `740 
+V G "contador_ms_2" 0 37 "int8" `741 
+V G "flag_segundo" 0 39 "int8" `742 
+V G "flag_segundo2" 0 40 "int8" `743 
+C L "InitTimer0" 0 42 1 "*"
+F N "getKey" 0 46 ""
+f G "getKey" 0 46 "int8()" `744 
+F N "decharabin" 0 47 ""
+f G "decharabin" 0 47 "void()" `745  "* Interrupciones"
+F N "Timer0_ISR" 0 53 ""
+F G "Timer0_ISR" 0 53 "void()" `746 
+C L "Timer0_ISR" 0 42 1 "FUNCTION"
+C L "Timer0_ISR" 0 42 1 "FUNCTION"
+C L "Timer0_ISR" 0 42 1 "FUNCTION"
+C L "Timer0_ISR" 0 42 1 "FUNCTION"
+F N "IOC_ISR" 0 73 ""
+F G "IOC_ISR" 0 73 "void()" `747 
+C L "IOC_ISR" 0 42 1 "FUNCTION"
+F N "MAIN" 0 81 ""
+F G "MAIN" 0 82 "void()" `748 
+C L "getKey" 0 105 1 "*"
+F N "getKey" 0 108 ""
+F G "getKey" 0 108 "int8()" `744 
+V L "pines_filas" 0 110 "[4]" `753 
+V L "pines_col" 0 111 "[3]" `756 
+V L "f" 0 112 "int8" `758 
+V L "c" 0 112 "int8" `759 
+V L "result" 0 113 "int8" `760 
+C L "getKey" 0 105 1 "FUNCTION"
+C L "getKey" 0 105 1 "FUNCTION"
+C L "getKey" 0 105 1 "FUNCTION"
+C L "getKey" 0 105 1 "FUNCTION"
+C L "getKey" 0 105 1 "FUNCTION"
+C L "getKey" 0 105 1 "FUNCTION"
+F N "decharabin" 0 143 ""
+F G "decharabin" 0 143 "void()" `745  "funcion que cambia de char a binario"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "decharabin" 0 105 1 "FUNCTION"
+C L "Init_GPIO" 0 244 1 "*"
+F N "Init_GPIO" 0 247 ""
+F G "Init_GPIO" 0 247 "void()" `731 
+C L "Init_GPIO" 0 244 2 "FUNCTION"
+F N "Init_Keypad" 0 256 ""
+F G "Init_Keypad" 0 256 "void()" `732 
+C L "Init_Keypad" 0 244 2 "FUNCTION"
+F N "InitTimer0" 0 267 ""
+F G "InitTimer0" 0 267 "void()" `733 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0
@@ -1582,6 +1616,8 @@ F B "spi_data_is_in2" 0 0
 F B "setup_dac" 1 0
 F B "dac_write" 1 0
 F B "brownout_enable" 1 0
+F B "delay_ms" 1 0
+F B "delay_us" 1 0
 F B "delay_ms" 1 0
 F B "delay_us" 1 0
 F B "putchar" 1 2

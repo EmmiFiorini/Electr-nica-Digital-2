@@ -1,13 +1,11 @@
 #include <TP_Final_Grupo11.h>
 
+#use delay(clock = 4000000)
 #use RS232(BAUD = 9600, XMIT = PIN_B5, BITS = 8, PARITY = N, STOP = 1)
 
 #fuses INTRC_IO   // Oscilador interno con pines RA6 y RA7 como GPIO
 #fuses NOMCLR     // Desactivo el MCLR
 #fuses NOWDT      // Desactivo el watchdog
-
-//CATODO COMUN:
-Byte CONST display[10]= {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x67}; //npn
 
 /*****************************************************************************
  * Funciones de Inicializacion
@@ -15,12 +13,16 @@ Byte CONST display[10]= {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x67}; //n
  
 void Init_GPIO(void);
 void Init_Keypad(void);
-void decharabin(void);
+void InitTimer0(void);
 
 /*****************************************************************************
 * Variables globales
 ****************************************************************************/
 
+/* DEBOUNCE */
+int flag_debounce = 0;
+
+/* TECLADO */
 const char keymap[4][3] = {
   {'1','2','3'},
   {'4','5','6'},
@@ -29,23 +31,58 @@ const char keymap[4][3] = {
 };
 
 char tecla = ' ';
-int8 teclabin = 00000000; //inicializo en 0
+
+/* TIMER 0 */
+int contador_ms_1 = 0;
+int contador_ms_2 = 0;
+
+int flag_segundo = 0;
+int flag_segundo2 = 0;
 
 /*****************************************************************************
 * Funciones
 ****************************************************************************/
 
-void maquina(void);
 char getKey(void);
+void decharabin(void);
 
 /*****************************************************************************
 * Interrupciones
 ****************************************************************************/
+#INT_TIMER0 // ACA ESCRIBO QUÉ DEBO HACER EN CADA INTERRUPCIÓN
+void Timer0_ISR() {
+  
+  set_timer0(61);
+ 
+  if(contador_ms_1 >= 3) { //Pasaron 150ms
+       contador_ms_1 = 0;
+       flag_segundo = 1; // aviso que ya pasó el tiempo deseado
+   }
+   
+   if(contador_ms_2 >= 20) { //Pasaron 1s
+       contador_ms_2 = 0;
+       flag_segundo2 = 1; // aviso que ya pasó el tiempo deseado
+   }
+   
+   contador_ms_1++;
+   contador_ms_2++;
+   
+}
+
+#INT_IOC
+void IOC_ISR(){
+   if(flag_segundo == 1) { // Hubo variación de estado en los pines y pasó el tiempo de espera
+         flag_debounce = 1;
+         flag_segundo = 0;
+   }
+}
+
 
 void main()
 {
-   Init_GPIO();
    Init_Keypad();
+   InitTimer0();
+   Init_GPIO();
    
    while(TRUE)
    {
@@ -53,59 +90,21 @@ void main()
    tecla = getKey();
    
    if(tecla != 'f') {
-         printf("<%c>", tecla);
+         
+         if(flag_segundo2 == 1) {
+            printf("<%c>", tecla);
+            flag_segundo2 = 0;
+         }
+         
          decharabin();
-         output_a(display[teclabin]);
+         
       } 
    }
 }
 
-void decharabin(){//funcion que cambia de char a binario
-   if(tecla == '0')
-      teclabin=  1111110; //escribo el 0
-   if (tecla == '1')
-      teclabin=  0110000; //escribo el 1
-   if (tecla == '2')
-      teclabin=  1101101; //escribo el 2
-   if (tecla == '3')
-      teclabin=  1111001; //escribo el 3
-   if (tecla == '4')
-      teclabin=  0110011; //escribo el 4
-   if (tecla == '5')
-      teclabin=  1011011; //escribo el 5
-   if (tecla == '6')
-      teclabin=  0011111; //escribo el 6
-   if (tecla == '7')
-      teclabin=  1110000; //escribo el 7
-   if (tecla == '8')
-      teclabin=  1111111; //escribo el 8
-   if (tecla == '9')
-      teclabin=  1110011; //escribo el 9
-}
-
-void maquina(void) {
-}
-
-void Init_GPIO(void){ 
-   
-   set_tris_a(0b00000000);
-   set_tris_b(0b11010000); // RB0, RB1, RB2 y RB3 filas del teclado, entrada
-                           // RB4, RB6, RB7 columnas, salidas
-   
-   enable_interrupts(GLOBAL);
-}
-
-void Init_Keypad(void){
-   
-   setup_adc_ports(NO_ANALOGS); // desactiva funciones analógicas en los pines si aplica
-
-   // Se dejan las filas inicialmente en HIGH (no activas)
-   output_high(PIN_B0);
-   output_high(PIN_B1);
-   output_high(PIN_B2);
-   output_high(PIN_B3);
-}
-
+/*****************************************************************************
+* Funciones
+****************************************************************************/
 char getKey(void){
 
    const unsigned char pines_filas[4] = {PIN_B0, PIN_B1, PIN_B2, PIN_B3};
@@ -122,29 +121,152 @@ char getKey(void){
 
       // Activar la fila r (tirarla a LOW)
       output_low(pines_filas[f]);
-      delay_us(100); // asegurar estabilidad
 
       // Leemos columnas
       for(c = 0; c < 3; c++) {
          
          if(!input(pines_col[c])) { // columna detectada en 0 --> tecla presionada
             
-            delay_ms(20);
-            
-            if(!input(pines_col[c])) { // sigue presionada
+            if( (input(pines_col[c]) == 0) && (flag_debounce == 1) ) { // sigue presionada
+               
                result = keymap[f][c];
-               
-               while(!input(pines_col[c])) {
-                  delay_ms(10);
-               }
-               
+               flag_debounce = 0;
                output_high(pines_filas[f]);
                return result;
             }
          }
       }
    }
-
    return 'f'; // No se presiono ninguna tecla
 }
 
+void decharabin(){//funcion que cambia de char a binario
+ 
+   if(tecla == '0'){
+      output_low(PIN_A6); // LE
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
+      output_low(PIN_A3); // D
+      output_low(PIN_A2); // C
+      output_low(PIN_A1); // B
+      output_low(PIN_A0); // A
+   }
+   if (tecla == '1'){
+      output_low(PIN_A6); // LE
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
+      output_low(PIN_A3); // D
+      output_low(PIN_A2); // C
+      output_low(PIN_A1); // B
+      output_high(PIN_A0); // A
+   }
+   if (tecla == '2') {
+      output_low(PIN_A6); // LE
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
+      output_low(PIN_A3); // D
+      output_low(PIN_A2); // C
+      output_high(PIN_A1); // B
+      output_low(PIN_A0); // A
+   }
+      
+   if (tecla == '3') {
+      output_low(PIN_A6); // LE
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
+      output_low(PIN_A3); // D
+      output_low(PIN_A2); // C
+      output_high(PIN_A1); // B
+      output_high(PIN_A0); // A
+   }
+   if (tecla == '4'){
+      output_low(PIN_A6); // LE
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
+      output_low(PIN_A3); // D
+      output_high(PIN_A2); // C
+      output_low(PIN_A1); // B
+      output_low(PIN_A0); // A
+      }
+      
+   if (tecla == '5'){
+      output_low(PIN_A6); // LE
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
+      output_low(PIN_A3); // D
+      output_high(PIN_A2); // C
+      output_low(PIN_A1); // B
+      output_high(PIN_A0); // A
+   }
+      
+   if (tecla == '6') {
+      output_low(PIN_A6); // LE
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
+      output_low(PIN_A3); // D
+      output_high(PIN_A2); // C
+      output_high(PIN_A1); // B
+      output_low(PIN_A0); // A
+      }
+      
+   if (tecla == '7'){
+      output_low(PIN_A6); // LE
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
+      output_low(PIN_A3); // D
+      output_high(PIN_A2); // C
+      output_high(PIN_A1); // B
+      output_high(PIN_A0); // A
+   }
+      
+   if (tecla == '8'){
+      output_low(PIN_A6); // LE
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
+      output_high(PIN_A3); // D
+      output_low(PIN_A2); // C
+      output_low(PIN_A1); // B
+      output_low(PIN_A0); // A
+   }
+      
+   if (tecla == '9'){
+       output_low(PIN_A6); // LE
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
+      output_high(PIN_A3); // D
+      output_low(PIN_A2); // C
+      output_low(PIN_A1); // B
+      output_high(PIN_A0); // A
+   }
+
+}
+
+/*****************************************************************************
+ * Funciones de Inicializacion
+ ****************************************************************************/
+void Init_GPIO(void){ 
+   
+   set_tris_a(0b00000000);
+   set_tris_b(0b11010000); // RB0, RB1, RB2 y RB3 filas del teclado, entrada
+                           // RB4, RB6, RB7 columnas, salidas
+   enable_interrupts(INT_IOC);
+   enable_interrupts(GLOBAL);   
+}
+
+void Init_Keypad(void){
+   
+   setup_adc_ports(NO_ANALOGS); // desactiva funciones analógicas en los pines si aplica
+
+   // Se dejan las filas inicialmente en HIGH
+   output_high(PIN_B0);
+   output_high(PIN_B1);
+   output_high(PIN_B2);
+   output_high(PIN_B3);
+}
+
+void InitTimer0(void) {
+   setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256);
+   set_timer0(61);
+   
+   enable_interrupts(INT_TIMER0);
+}

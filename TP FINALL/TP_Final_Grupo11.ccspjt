@@ -17,7 +17,7 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=3
+Days=5
 D1=29-10-2025
 D1_L=8
 D1_L1=[66728]Project Opened.
@@ -27,7 +27,7 @@ D1_L4=[68079]Started Editing.
 D1_L5=[69191]Stopped Editing.
 D1_L6=[69518]Started Editing.
 D1_L7=[69844]Stopped Editing.
-TotalEdit=29
+TotalEdit=32
 TotalDebug=0
 D1_E=26
 D1_D=0
@@ -55,18 +55,32 @@ D3_L3=[67185]Stopped Editing.
 D3_E=3
 D3_D=0
 D3_L4=[67212]Project Closed.
+D4=04-11-2025
+D4_L=6
+D4_L1=[48034]Project Opened.
+D4_L2=[48063]Started Editing.
+D4_L3=[48375]Stopped Editing.
+D4_L4=[48483]Started Editing.
+D4_L5=[48625]Stopped Editing.
+D4_E=3
+D4_D=0
+D4_L6=[48641]Project Closed.
+D5=05-11-2025
+D5_L=2
+D5_L1=[62404]Project Opened.
+D5_L2=[62437]Project Closed.
 
 [Opened Files]
 1=TP_Final_Grupo11.c
-t1=125
-2=..\TP3\Grupo11_EjercicioPresencial.c
-t2=109
+t1=73
+2=..\..\..\..\Escritorio\EDI2\TP FINAL\AntiReboteAux.c
+t2=45
 Count=1
 [TP_Final_Grupo11.c]
 Type=4
 
 [defines]
-buildcount=19
+buildcount=21
 [Units]
 Count=1
 1=TP_Final_Grupo11 (main)
