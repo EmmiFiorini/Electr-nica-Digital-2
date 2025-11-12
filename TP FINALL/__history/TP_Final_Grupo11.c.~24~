@@ -250,6 +250,7 @@ void Init_GPIO(void){
    set_tris_b(0b11010000); // RB0, RB1, RB2 y RB3 filas del teclado, entrada
                            // RB4, RB6, RB7 columnas, salidas
    output_low(PIN_B5);  // inicializa el pin
+   set_uart_tx_pin(PIN_B5);  // asigna TX al pin RB5 (función PPS)
    enable_interrupts(INT_IOC);
    enable_interrupts(GLOBAL);   
 }
