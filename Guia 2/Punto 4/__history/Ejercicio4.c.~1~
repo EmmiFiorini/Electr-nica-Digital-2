@@ -1,0 +1,132 @@
+#include <Ejercicio4.h>
+
+#fuses INTRC_IO  // Oscilador interno con pines RA6 y RA7 como GPIO
+#fuses NOMCLR   // Desactivo el MCLR
+#fuses NOWDT   // Desactivo el watchdog
+
+/*****************************************************************************
+ * LCD
+ ****************************************************************************/
+
+
+#define LCD_ENABLE_PIN  PIN_A0
+#define LCD_RS_PIN      PIN_A1
+#define LCD_RW_PIN      PIN_A2 // CONECTADO A GND SI NO LO USAMOS
+#define LCD_DATA4       PIN_A4
+#define LCD_DATA5       PIN_A3
+#define LCD_DATA6       PIN_A6
+#define LCD_DATA7       PIN_A7
+
+#include <lcd.c>
+/*****************************************************************************
+ * Funciones de Inicializacion de Perifericos
+ ****************************************************************************/
+void Init_GPIO();
+/*****************************************************************************
+* Estados
+****************************************************************************/
+typedef enum {
+   ESPERAR,     // Espero que se presione una tecla
+   MOSTRAR,      // Muestro la tecla en el LCD
+} eEstado;
+
+eEstado estado_actual = ESPERAR;
+/*****************************************************************************
+* Variables globales
+****************************************************************************/
+char result = 'f' ; // tecla que se presiona
+
+/*****************************************************************************
+* Teclado
+****************************************************************************/
+
+char teclado[4][3] = {{'1','2','3'},
+                      {'4','5','6'},
+                      {'7','8','9'},
+                      {'*','0','#'}};
+
+/*****************************************************************************
+* Funciones
+****************************************************************************/
+char read_keypad(void);
+void maquina(void);
+
+void main()
+{
+
+   Init_GPIO();
+   lcd_init();
+   while(TRUE) {
+    maquina();
+   }
+}
+
+void Init_GPIO()
+{
+   set_tris_b(0b11010000); // RB0, RB1, RB2 y RB3 filas del teclado, entrada
+                           // RB4, RB6, RB7 columnas, salidas
+   set_tris_a(0b00000000); // TODO COMO SALIDA EN ESTADO BAJO 
+   
+   port_b_pullups(TRUE);
+   
+}
+
+char getKey(void){
+
+   const unsigned char pines_filas[4] = {PIN_B0, PIN_B1, PIN_B2, PIN_B3};
+   const unsigned char pines_col[3] = {PIN_B4, PIN_B6, PIN_B7};
+   int f, c;
+   char result = 'f';
+   
+   for(f = 0; f < 4; f++) {
+      // Poner todas las filas en HIGH
+      output_high(PIN_B0);
+      output_high(PIN_B1);
+      output_high(PIN_B2);
+      output_high(PIN_B3);
+
+      // Activar la fila r (tirarla a LOW)
+      output_low(pines_filas[f]);
+      delay_us(100); // asegurar estabilidad
+
+      // Leemos columnas
+      for(c = 0; c < 3; c++) {
+         
+         if(!input(pines_col[c])) { // columna detectada en 0 --> tecla presionada
+            
+            delay_ms(20);
+            
+            if(!input(pines_col[c])) { // sigue presionada
+               result = teclado[f][c];
+               
+               while(!input(pines_col[c])) {
+                  delay_ms(10);
+               }
+               
+               output_high(pines_filas[f]);
+               return result;
+            }
+         }
+      }
+   }
+
+   return 'f'; // No se presiono ninguna tecla
+}
+
+void maquina() {
+   switch(estado_actual) {
+   
+         case ESPERAR:
+           result = getkey();       // leo teclado
+            if(result != 'f') {             // si presionaron algo, no hay 0 en el teclado
+               estado_actual = MOSTRAR;
+            }
+         break;
+   
+         case MOSTRAR:
+            lcd_putc(result);  // mostrar tecla
+            estado_actual = ESPERAR;     // volver a esperar
+         break;
+
+   }
+}

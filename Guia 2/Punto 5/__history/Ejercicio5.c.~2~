@@ -173,9 +173,18 @@ void Init_GPIO()
    setup_adc_ports(NO_ANALOGS); 
    setup_comparator(NC_NC_NC_NC);
 
-   set_tris_b(0b11010000); // RB0, RB1, RB2 y RB3 filas del teclado, entrada  // RB4, RB6, RB7 columnas, salidas
+   set_tris_b(0b11010000); // RB0, RB1, RB2 y RB3 filas del teclado, entrada
+                           // RB4, RB6, RB7 columnas, salidas
    set_tris_a(0b00000000); // TODO COMO SALIDA EN ESTADO BAJO 
    port_b_pullups(TRUE);
+   
+   output_low(PIN_A1);
+   output_low(PIN_A2);
+   output_low(PIN_A3);
+   output_low(PIN_A4);
+   output_low(PIN_A0);
+   output_low(PIN_A6);
+   output_low(PIN_A7);
    
   
    enable_interrupts(GLOBAL);

@@ -81,40 +81,40 @@ ROM Allocation:
 00006F  @const801.call
 000074  @const802.call
 00007A  Init_GPIO
-0000B0  @delay_ms1
-0000C6  lcd_send_nibble
-0000FD  lcd_read_nibble
-00012E  lcd_send_byte
-000136  lcd_read_byte
-00018F  lcd_init
-0001D8  kbd_init
-0001DA  InitTimer0
-0001E5  lcd_gotoxy
-0001F7  lcd_putc
-000223  @PSTRINGC7_745
-00026D  maquina
-00028B  kbd_getc
-0002DB  @MUL88
-00034A  @cinit1
-00034A  MAIN
-00035C  @cinit2
+0000B1  @delay_ms1
+0000C7  lcd_send_nibble
+0000FE  lcd_read_nibble
+00012F  lcd_send_byte
+000137  lcd_read_byte
+000190  lcd_init
+0001D9  kbd_init
+0001DB  InitTimer0
+0001E6  lcd_gotoxy
+0001F8  lcd_putc
+000224  @PSTRINGC7_745
+00026E  maquina
+00028C  kbd_getc
+0002DC  @MUL88
+00034B  @cinit1
+00034B  MAIN
+00035D  @cinit2
 
 Project Directory:
-    C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\
+    C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Punto 5\
 
 Project Files:
-    Ejercicio5.c                                            [04-nov.-25 15:06  CRC=7BACE4AE]
+    Ejercicio5.c                                            [14-nov.-25 20:07  CRC=D468E4F0]
     Ejercicio5.h                                            [04-nov.-25 13:51  CRC=00000000]
-    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb.-20 15:48  CRC=D6A5AF9F]
-    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb.-16 09:05  CRC=D1A6378A]
-    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd.c [25-may.-15 21:33  CRC=7C81F56B]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb.-20 15:48  CRC=D6A5AF9F]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb.-16 09:05  CRC=D1A6378A]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd.c [25-may.-15 21:33  CRC=7C81F56B]
 
-Source signature=1CFCB6AD
+Source signature=75B8B6EF
 Program memory checksum=0000
-Hex file CRC=58E8
+Hex file CRC=6AE7
 
 Units:
-    C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Ejercicio5 (main)
+    C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Punto 5\Ejercicio5 (main)
 
 Compiler Settings:
     Processor:      PIC16F1827
