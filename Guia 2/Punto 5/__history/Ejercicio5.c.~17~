@@ -59,7 +59,7 @@ char tecla;
 const char contra_real[3] = {'2','5','3'}; // contraseña 
 int cont_digitos = 0; 
 int cont_digitos_correctos = 0; 
-
+int cont_digitos_incorrectos = 0; 
 /*****************************************************************************
 * Interrupciones
 ****************************************************************************/
@@ -166,5 +166,6 @@ void Init_GPIO()
    set_tris_b(0b00001111); // RB0, RB1, RB2 y RB3 filas del teclado, entrada  // RB4, RB6, RB7 columnas, salidas
    set_tris_a(0b00000000); // TODO COMO SALIDA EN ESTADO BAJO 
 
+  
    enable_interrupts(GLOBAL);
 }

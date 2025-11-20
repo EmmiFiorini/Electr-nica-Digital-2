@@ -59,7 +59,7 @@ char tecla;
 const char contra_real[3] = {'2','5','3'}; // contraseña 
 int cont_digitos = 0; 
 int cont_digitos_correctos = 0; 
-
+int cont_digitos_incorrectos = 0; 
 /*****************************************************************************
 * Interrupciones
 ****************************************************************************/
@@ -70,12 +70,10 @@ void Timer0_ISR() {
     contador_ms++;
   
     if(estado_actual == CLAVE_CORRECTA || estado_actual == CLAVE_INCORRECTA) {
-          if(contador_ms >= 40) { // 2 s
-              contador_ms = 0;
-              flag_tiempo_cumplido = 1; 
-          }
-      }
-    
+        if(contador_ms >= 40) { // 40 * 50ms = 2 s
+            contador_ms = 0;
+            flag_tiempo_cumplido = 1; 
+        }
 }
 
 /*****************************************************************************
@@ -99,59 +97,58 @@ void maquina(void) {
     switch(estado_actual) {
         
         case INICIO:
-          lcd_putc("\fIngrese Clave:");
-          lcd_gotoxy(1,2);
-      
-          cont_digitos = 0;
-          cont_digitos_correctos = 0;
-      
-          contador_ms = 0;
-          flag_tiempo_cumplido = 0;
-      
-          estado_actual = ESPERA_TECLA;
-          break;
+            lcd_putc("\f Ingrese Clave:"); // \f limpia la pantalla
+            lcd_gotoxy(1, 2);   
+            cont_digitos = 0;     
+            estado_actual = ESPERA_TECLA;
+            break;
 
         case ESPERA_TECLA:
-             tecla = kbd_getc();
-         
-             if(tecla != 0) {
-                 lcd_putc('*');   // mostrar asterisco
-                 // comparo la tecla con el dígito real
-                 if (tecla == contra_real[cont_digitos]) {
-                     cont_digitos_correctos++;
-                 }
-                 cont_digitos++;  // siempre incremento       
-                 if(cont_digitos == 3) {
-                     contador_ms = 0;
-                     if(cont_digitos_correctos == 3)
-                         estado_actual = CLAVE_CORRECTA;
-                     else
-                         estado_actual = CLAVE_INCORRECTA;
-                 }
-             }
-             break;
-             
-       case CLAVE_CORRECTA:
-             lcd_putc("\fCorrecta");
-         
-             if(flag_tiempo_cumplido == 1) {
-                 estado_actual = INICIO;
-             }
-             break;
+            tecla = kbd_getc();
+            if (tecla != 0) { 
+                lcd_putc('*'); 
+                if (tecla == contra_real[cont_digitos]) {
+                    cont_digitos_correctos++;
+                    if (cont_digitos_correctos == 3) 
+                        estado_actual = CLAVE_CORRECTA;
+                }
+            }
+            else{
+                 cont_digitos_incorrectos++;
+                     if (cont_digitos_incorrectos == 3) 
+                        estado_actual = CLAVE_INCORRECTA;
+               }
+            break;
+            
+         case CLAVE_CORRECTA:
+            lcd_putc("\fCorrecta");
+            flag_tiempo_cumplido = 0; // Reseteo el flag
+            contador_ms= 0;          // Reseteo el contador de tiempo
+            if(flag_tiempo_cumplido == 1){
+               flag_tiempo_cumplido = 0; // Reseteo el flag
+               contador_ms= 0; 
+               estado_actual = INICIO; 
+            }
+               // Vuelvo al inicio
+            break;
 
         case CLAVE_INCORRECTA:
             lcd_putc("\fIncorrecta");
-         
-             if(flag_tiempo_cumplido == 1) {
-                 estado_actual = INICIO;
-             }
-             break;
+            flag_tiempo_cumplido = 0; // Reseteo el flag
+            contador_ms = 0; 
+             if(flag_tiempo_cumplido == 1){
+               flag_tiempo_cumplido = 0; // Reseteo el flag
+               contador_ms= 0; 
+               estado_actual = INICIO; 
+            }// Reseteo el contador de tie
+            break;
             
         default:
             estado_actual = INICIO;
             break;
     }
 }
+
 void InitTimer0(void) {
 
     setup_timer_0(RTCC_INTERNAL|RTCC_DIV_256); // Configuro prescaler
@@ -163,8 +160,9 @@ void InitTimer0(void) {
 void Init_GPIO()
 {
 
-   set_tris_b(0b00001111); // RB0, RB1, RB2 y RB3 filas del teclado, entrada  // RB4, RB6, RB7 columnas, salidas
+   set_tris_b(0b11010000); // RB0, RB1, RB2 y RB3 filas del teclado, entrada  // RB4, RB6, RB7 columnas, salidas
    set_tris_a(0b00000000); // TODO COMO SALIDA EN ESTADO BAJO 
 
+  
    enable_interrupts(GLOBAL);
 }

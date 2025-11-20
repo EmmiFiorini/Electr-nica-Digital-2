@@ -22,22 +22,23 @@
 02E     flag_tiempo_cumplido
 02F     tecla
 030     cont_digitos
-031-032 @sprintf_string
-033     lcd_init.i
-033     kbd_getc.kchar
-034     kbd_getc.row
-034-037 lcd_init.LCD_INIT_STRING
+031     cont_digitos_correctos
+032-033 @sprintf_string
+034     lcd_init.i
+034     kbd_getc.kchar
 034     @PSTRINGC7_745.@SCRATCH1
-035     @MUL88.P1
-035     kbd_getc.@SCRATCH1
+035     kbd_getc.row
+035-038 lcd_init.LCD_INIT_STRING
 035     @PSTRINGC7_745.@SCRATCH2
 036     @MUL88.P1
+036     kbd_getc.@SCRATCH1
 036     @PSTRINGC7_745.@SCRATCH3
+037     @MUL88.P1
 037     lcd_putc.c
 038     lcd_gotoxy.x
-038     @delay_ms1.P1
-038     lcd_init.@SCRATCH1
+039     @delay_ms1.P1
 039     lcd_gotoxy.y
+039     lcd_init.@SCRATCH1
 03A     lcd_gotoxy.address
 03B     lcd_gotoxy.@SCRATCH1
 03C     lcd_send_byte.address
@@ -77,41 +78,41 @@ ROM Allocation:
 00004B  contra_real.call
 00004C  contra_real.data
 00004F  Timer0_ISR
-000066  @const796.call
-00006F  @const801.call
-000074  @const802.call
-00007A  Init_GPIO
-0000B1  @delay_ms1
-0000C7  lcd_send_nibble
-0000FE  lcd_read_nibble
-00012F  lcd_send_byte
-000137  lcd_read_byte
-000190  lcd_init
-0001D9  kbd_init
-0001DB  InitTimer0
-0001E6  lcd_gotoxy
-0001F8  lcd_putc
-000224  @PSTRINGC7_745
-00026E  maquina
-00028C  kbd_getc
-0002DC  @MUL88
-00034B  @cinit1
-00034B  MAIN
-00035D  @cinit2
+000064  @const797.call
+00006C  @const802.call
+000071  @const803.call
+000077  Init_GPIO
+000081  @delay_ms1
+000097  lcd_send_nibble
+0000CE  lcd_read_nibble
+0000FF  lcd_send_byte
+000107  lcd_read_byte
+000160  lcd_init
+0001A9  kbd_init
+0001AB  InitTimer0
+0001B6  lcd_gotoxy
+0001C8  lcd_putc
+0001F4  @PSTRINGC7_745
+00023E  maquina
+00025F  kbd_getc
+0002AF  @MUL88
+00031D  @cinit1
+00031D  MAIN
+000330  @cinit2
 
 Project Directory:
     C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Punto 5\
 
 Project Files:
-    Ejercicio5.c                                            [14-nov.-25 20:07  CRC=D468E4F0]
+    Ejercicio5.c                                            [20-nov.-25 19:07  CRC=74195ADA]
     Ejercicio5.h                                            [04-nov.-25 13:51  CRC=00000000]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb.-20 15:48  CRC=D6A5AF9F]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb.-16 09:05  CRC=D1A6378A]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd.c [25-may.-15 21:33  CRC=7C81F56B]
 
-Source signature=75B8B6EF
+Source signature=15692CD9
 Program memory checksum=0000
-Hex file CRC=6AE7
+Hex file CRC=F671
 
 Units:
     C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Punto 5\Ejercicio5 (main)

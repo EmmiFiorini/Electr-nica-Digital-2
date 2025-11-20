@@ -1,8 +1,8 @@
 ÀÄEjercicio5
-   ÃÄMAIN  0/31  Ram=0
+   ÃÄMAIN  0/32  Ram=0
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄ@cinit2  (Inline)  Ram=0
-   ³  ÃÄInit_GPIO  0/55  Ram=0
+   ³  ÃÄInit_GPIO  0/10  Ram=0
    ³  ÃÄlcd_init  0/73  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/22  Ram=1
    ³  ³  ÃÄlcd_send_nibble  0/55  Ram=1
@@ -17,8 +17,8 @@
    ³  ³     ÀÄlcd_send_nibble  0/55  Ram=1
    ³  ÃÄkbd_init  0/2  Ram=0
    ³  ÃÄInitTimer0  0/11  Ram=0
-   ³  ÀÄmaquina  0/221  Ram=0
-   ³     ÃÄ@PSTRINGC7_745  0/74  Ram=4
+   ³  ÀÄmaquina  0/223  Ram=0
+   ³     ÃÄ@PSTRINGC7_745  0/74  Ram=3
    ³     ³  ÃÄlcd_putc  0/44  Ram=1
    ³     ³  ³  ÃÄlcd_gotoxy  0/18  Ram=4
    ³     ³  ³  ³  ÀÄlcd_send_byte  0/97  Ram=3
@@ -42,8 +42,8 @@
    ³     ÃÄlcd_putc  0/44  Ram=1
    ³     ³  ÀÄ*
    ³     ÃÄ@const789  0/4  Ram=0
-   ³     ÃÄ@PSTRINGC7_745  0/74  Ram=4
+   ³     ÃÄ@PSTRINGC7_745  0/74  Ram=3
    ³     ³  ÀÄ*
-   ³     ÀÄ@PSTRINGC7_745  0/74  Ram=4
+   ³     ÀÄ@PSTRINGC7_745  0/74  Ram=3
    ³        ÀÄ*
-   ÀÄTimer0_ISR  0/23  Ram=0
+   ÀÄTimer0_ISR  0/21  Ram=0

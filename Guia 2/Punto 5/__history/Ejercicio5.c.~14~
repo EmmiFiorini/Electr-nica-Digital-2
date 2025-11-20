@@ -59,7 +59,7 @@ char tecla;
 const char contra_real[3] = {'2','5','3'}; // contraseña 
 int cont_digitos = 0; 
 int cont_digitos_correctos = 0; 
-
+int cont_digitos_incorrectos = 0; 
 /*****************************************************************************
 * Interrupciones
 ****************************************************************************/
@@ -70,12 +70,11 @@ void Timer0_ISR() {
     contador_ms++;
   
     if(estado_actual == CLAVE_CORRECTA || estado_actual == CLAVE_INCORRECTA) {
-          if(contador_ms >= 40) { // 2 s
-              contador_ms = 0;
-              flag_tiempo_cumplido = 1; 
-          }
-      }
-    
+        if(contador_ms >= 40) { // 40 * 50ms = 2 s
+            contador_ms = 0;
+            flag_tiempo_cumplido = 1; 
+        }
+    }
 }
 
 /*****************************************************************************
@@ -99,17 +98,12 @@ void maquina(void) {
     switch(estado_actual) {
         
         case INICIO:
-          lcd_putc("\fIngrese Clave:");
-          lcd_gotoxy(1,2);
-      
-          cont_digitos = 0;
-          cont_digitos_correctos = 0;
-      
-          contador_ms = 0;
-          flag_tiempo_cumplido = 0;
-      
-          estado_actual = ESPERA_TECLA;
-          break;
+            lcd_putc("\fIngrese clave:");
+            lcd_gotoxy(1, 2);
+
+            cont_digitos = 0;
+            estado_actual = ESPERA_TECLA;
+            break;
 
         case ESPERA_TECLA:
              tecla = kbd_getc();
@@ -130,22 +124,21 @@ void maquina(void) {
                  }
              }
              break;
-             
-       case CLAVE_CORRECTA:
-             lcd_putc("\fCorrecta");
-         
-             if(flag_tiempo_cumplido == 1) {
-                 estado_actual = INICIO;
-             }
-             break;
+        case CLAVE_CORRECTA:
+            lcd_putc("\fContraseña correcta");
+            if(flag_tiempo_cumplido) {
+                flag_tiempo_cumplido = 0;
+                estado_actual = INICIO;
+            }
+            break;
 
         case CLAVE_INCORRECTA:
-            lcd_putc("\fIncorrecta");
-         
-             if(flag_tiempo_cumplido == 1) {
-                 estado_actual = INICIO;
-             }
-             break;
+            lcd_putc("\fContraseña incorrecta");
+            if(flag_tiempo_cumplido) {
+                flag_tiempo_cumplido = 0;
+                estado_actual = INICIO;
+            }
+            break;
             
         default:
             estado_actual = INICIO;
@@ -163,8 +156,9 @@ void InitTimer0(void) {
 void Init_GPIO()
 {
 
-   set_tris_b(0b00001111); // RB0, RB1, RB2 y RB3 filas del teclado, entrada  // RB4, RB6, RB7 columnas, salidas
+   set_tris_b(0b11010000); // RB0, RB1, RB2 y RB3 filas del teclado, entrada  // RB4, RB6, RB7 columnas, salidas
    set_tris_a(0b00000000); // TODO COMO SALIDA EN ESTADO BAJO 
 
+  
    enable_interrupts(GLOBAL);
 }
