@@ -1,10 +1,9 @@
-F N "Init_DAC" 0 85 ""
-D G "__PCM__" 0 90 ""5.093""
-D G "__DEVICE__" 0 90 "1827"
-D G "__DATE__" 0 90 ""19-Sep-25""
-D G "__TIME__" 0 90 ""21:18:23""
-D G "_UNICODE" 0 90 ""?""
-D G "__EVAL" 0 90 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
+D G "__PCM__" 0 80 ""5.093""
+D G "__DEVICE__" 0 80 "1827"
+D G "__DATE__" 0 80 ""21-Nov-25""
+D G "__TIME__" 0 80 ""13:59:52""
+D G "_UNICODE" 0 80 ""?""
+D G "__EVAL" 0 80 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 f N "set_tris_a" 2 39 ""
 v L "value" 2 39 "int8" `55 
@@ -1399,37 +1398,36 @@ d G "INT_RB6_H2L" 2 959 "0x21400B08"
 d G "INT_RB7" 2 960 "0x31800B08"
 d G "INT_RB7_L2H" 2 961 "0x11800B08"
 d G "INT_RB7_H2L" 2 962 "0x21800B08"
-C L "jump_to_isr" 0 7 1 "*"
+T G "t_dac_value" 0 8 "int8" `725  "Prototipos"
 F N "Init_GPIO" 0 11 ""
-f G "Init_GPIO" 0 11 "void()" `721 
+f G "Init_GPIO" 0 11 "void()" `726 
 F N "Init_ADC" 0 12 ""
-f G "Init_ADC" 0 12 "void()" `722 
+f G "Init_ADC" 0 12 "void()" `727 
 F N "Init_DAC" 0 13 ""
-f G "Init_DAC" 0 13 "void()" `723  "* Variables globales"
-C L "Init_DAC" 0 7 1 "FUNCTION"
-V G "resultado_adc" 0 20 "int16" `724 
-V G "flag_adc" 0 21 "int8" `725 
-C L "Init_DAC" 0 7 1 "FUNCTION"
-V G "resultado_dac" 0 24 "int8" `726 
-C L "Init_DAC" 0 26 1 "*"
-C L "Init_DAC" 0 31 1 "*"
-F N "ISR_ADC" 0 36 ""
-F G "ISR_ADC" 0 36 "void()" `727 
-C L "ISR_ADC" 0 31 1 "FUNCTION"
-C L "ISR_ADC" 0 31 2 "FUNCTION"
-C L "ISR_ADC" 0 31 1 "FUNCTION"
-F N "MAIN" 0 48 ""
-F G "MAIN" 0 49 "void()" `728 
-F N "Init_GPIO" 0 65 ""
-F G "Init_GPIO" 0 66 "void()" `721  "SETEAMOS LOS PINES PB1-PB7 COMO SALIDA *"
-C L "Init_GPIO" 0 31 1 "FUNCTION"
-C L "Init_GPIO" 0 31 1 "FUNCTION"
-C L "Init_GPIO" 0 31 1 "FUNCTION"
-F N "Init_ADC" 0 76 ""
-F G "Init_ADC" 0 76 "void()" `722 
-C L "Init_ADC" 0 31 1 "FUNCTION"
-F N "Init_DAC" 0 85 ""
-F G "Init_DAC" 0 85 "void()" `723 
+f G "Init_DAC" 0 13 "void()" `728  "Variables globales"
+V G "resultado_adc" 0 16 "int16" `729 
+V G "resultado_dac" 0 17 "t_dac_value" `730 
+C L "Init_DAC" 0 19 1 "*"
+F N "ISR_ADC" 0 23 ""
+F G "ISR_ADC" 0 23 "void()" `731  "1. Leo conversión (10 bits)"
+C L "ISR_ADC" 0 19 1 "FUNCTION"
+C L "ISR_ADC" 0 19 1 "FUNCTION"
+C L "ISR_ADC" 0 19 1 "FUNCTION"
+F N "MAIN" 0 38 ""
+F G "MAIN" 0 39 "void()" `732 
+C L "MAIN" 0 44 1 "*"
+C L "MAIN" 0 44 1 "FUNCTION"
+C L "MAIN" 0 44 2 "FUNCTION"
+F N "Init_GPIO" 0 54 ""
+F G "Init_GPIO" 0 55 "void()" `726  "Usamos esta directiva para configurar RA0 (AN0) como analógico (entrada),"
+C L "Init_GPIO" 0 44 2 "FUNCTION"
+C L "Init_GPIO" 0 44 2 "FUNCTION"
+C L "Init_GPIO" 0 44 1 "FUNCTION"
+F N "Init_ADC" 0 68 ""
+F G "Init_ADC" 0 68 "void()" `727 
+C L "Init_ADC" 0 44 1 "FUNCTION"
+F N "Init_DAC" 0 74 ""
+F G "Init_DAC" 0 74 "void()" `728 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0
@@ -1560,5 +1558,7 @@ F B "spi_data_is_in2" 0 0
 F B "setup_dac" 1 0
 F B "dac_write" 1 0
 F B "brownout_enable" 1 0
+F B "delay_ms" 1 0
+F B "delay_us" 1 0
 F B "delay_ms" 1 0
 F B "delay_us" 1 0

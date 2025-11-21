@@ -9,9 +9,7 @@
 022     @INTERRUPT_AREA
 023     @INTERRUPT_AREA
 024-025 resultado_adc
-026     flag_adc
-027     resultado_dac
-028     ISR_ADC.@SCRATCH1
+026     resultado_dac
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -36,27 +34,27 @@
 
 ROM Allocation:
 000021  ISR_ADC
-00004C  Init_GPIO
+000048  Init_GPIO
 000059  Init_ADC
-000071  Init_DAC
-000077  MAIN
-000077  @cinit1
-000087  @cinit2
+000069  Init_DAC
+00006F  MAIN
+00006F  @cinit1
+00007E  @cinit2
 
 Project Directory:
-    C:\Users\santi\OneDrive\Escritorio\EDI2\TP2\
+    C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Punto 7\
 
 Project Files:
-    Ejercicio7_TP2.c                                        [19-sept-25 21:18  CRC=3A7A9F31]
-    Ejercicio7_TP2.h                                        [19-sept-25 20:20  CRC=00000000]
-    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb-20 15:48  CRC=D6A5AF9F]
+    Ejercicio7_TP2.c                                        [21-nov.-25 13:59  CRC=63D153F2]
+    Ejercicio7_TP2.h                                        [14-oct.-25 13:14  CRC=00000000]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb.-20 15:48  CRC=D6A5AF9F]
 
-Source signature=E7C5FE6F
+Source signature=111CB330
 Program memory checksum=0000
-Hex file CRC=F2F0
+Hex file CRC=F901
 
 Units:
-    C:\Users\santi\OneDrive\Escritorio\EDI2\TP2\Ejercicio7_TP2 (main)
+    C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Punto 7\Ejercicio7_TP2 (main)
 
 Compiler Settings:
     Processor:      PIC16F1827

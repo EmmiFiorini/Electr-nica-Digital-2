@@ -1,6 +1,6 @@
 
-ROM used:   828/4096 (20%)
-            828/4096 (20%) including unused fragments
+ROM used:   839/4096 (20%)
+            839/4096 (20%) including unused fragments
 
             0.5 Average locations per line
             4.2 Average locations per statement
@@ -13,13 +13,13 @@ Stack size: 16
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  171    57  29  Ejercicio5.c
+  176    60  30  Ejercicio5.c
     5     0   0  Ejercicio5.h
   965     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h
-  456   100  51  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+  456   100  50  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
   135    40  20  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd.c
 ----- -----
- 1732   197 Total
+ 1737   200 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
@@ -44,27 +44,27 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0      5   1    0             @const802
 0      6   1    0             @const803
 0     11   1    0     65  1.6  InitTimer0
-0     10   1    0     48  1.1  Init_GPIO
- Inline         0     48  1.1  @cinit1
+0     21   3    0    106  1.3  Init_GPIO
+ Inline         0             @cinit1
 
 Program metrics:
-    Functions               15
-    Statements              197
+    Functions               14
+    Statements              200
     Comments                331
-    Volume (V)              13259
-    Difficulty (D)          59.6
-    Effort to implement (E) 790198
-    Time to implement (T)   12 hours, 12 minutes
+    Volume (V)              13229
+    Difficulty (D)          58.2
+    Effort to implement (E) 770287
+    Time to implement (T)   11 hours, 53 minutes
     Est Delivered Bugs (B)  3
     Cyclomatic Complexity   33
-    Maintainability (MI)    135
+    Maintainability (MI)    139
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     3  0  
 00003-00003     0  1  
 00004-0003D    58  0  
-0003E-007FF   767  1219  
+0003E-007FF   778  1208  
 00800-00FFF     0  2048  
 
 

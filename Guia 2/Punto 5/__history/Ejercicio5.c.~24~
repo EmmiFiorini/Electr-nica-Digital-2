@@ -56,7 +56,7 @@ int contador_ms = 0;
 int flag_tiempo_cumplido = 0; // Aviso de tiempo cumplido
 
 char tecla;
-const char contra_real[3] = {'5','5','5'}; // contraseña 
+const char contra_real[3] = {'2','5','3'}; // contraseña 
 int cont_digitos = 0; 
 int cont_digitos_correctos = 0; 
 
@@ -166,10 +166,9 @@ void Init_GPIO()
    set_tris_b(0b00001111); // RB0, RB1, RB2 y RB3 filas del teclado, entrada  // RB4, RB6, RB7 columnas, salidas
    set_tris_a(0b00000000); // TODO COMO SALIDA EN ESTADO BAJO 
    
-   output_high(PIN_B4);
    output_high(PIN_B5);
    output_high(PIN_B6);
-
+   output_high(PIN_B7);
 
    enable_interrupts(GLOBAL);
 }

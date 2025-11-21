@@ -17,7 +17,7 @@ Type=4
 forcecoff=0
 
 [ProjectLog]
-Days=1
+Days=2
 D1=19-09-2025
 D1_L=6
 D1_L1=[73205]Project Opened.
@@ -30,18 +30,22 @@ TotalDebug=0
 D1_E=53
 D1_D=0
 D1_L6=[76716]Project Closed.
+D2=21-11-2025
+D2_L=2
+D2_L1=[49092]Project Opened.
+D2_L2=[49876]Started Editing.
 
 [Opened Files]
 1=Ejercicio7_TP2.c
-t1=64
+t1=54
 2=Ejercicio6_TP2.c
 t2=157
-Count=2
+Count=1
 [Ejercicio7_TP2.c]
 Type=4
 
 [defines]
-buildcount=5
+buildcount=8
 [Units]
 Count=1
 1=Ejercicio7_TP2 (main)

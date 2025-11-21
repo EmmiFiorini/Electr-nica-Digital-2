@@ -82,29 +82,29 @@ ROM Allocation:
 00006C  @const802.call
 000071  @const803.call
 000077  Init_GPIO
-000081  @delay_ms1
-000097  lcd_send_nibble
-0000CE  lcd_read_nibble
-0000FF  lcd_send_byte
-000107  lcd_read_byte
-000160  lcd_init
-0001A9  kbd_init
-0001AB  InitTimer0
-0001B6  lcd_gotoxy
-0001C8  lcd_putc
-0001F4  @PSTRINGC7_745
-00023E  maquina
-00025F  kbd_getc
-0002AF  @MUL88
-00031D  @cinit1
-00031D  MAIN
-000330  @cinit2
+00008C  @delay_ms1
+0000A2  lcd_send_nibble
+0000D9  lcd_read_nibble
+00010A  lcd_send_byte
+000112  lcd_read_byte
+00016B  lcd_init
+0001B4  kbd_init
+0001B6  InitTimer0
+0001C1  lcd_gotoxy
+0001D3  lcd_putc
+0001FF  @PSTRINGC7_745
+000249  maquina
+00026A  kbd_getc
+0002BA  @MUL88
+000328  @cinit1
+000328  MAIN
+00033B  @cinit2
 
 Project Directory:
     C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Punto 5\
 
 Project Files:
-    Ejercicio5.c                                            [20-nov.-25 19:07  CRC=74195ADA]
+    Ejercicio5.c                                            [21-nov.-25 13:35  CRC=74195ADA]
     Ejercicio5.h                                            [04-nov.-25 13:51  CRC=00000000]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb.-20 15:48  CRC=D6A5AF9F]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb.-16 09:05  CRC=D1A6378A]
@@ -112,7 +112,7 @@ Project Files:
 
 Source signature=15692CD9
 Program memory checksum=0000
-Hex file CRC=F671
+Hex file CRC=903E
 
 Units:
     C:\Users\MPF\Desktop\Git\Electr-nica-Digital-2\Guia 2\Punto 5\Ejercicio5 (main)

@@ -1,0 +1,78 @@
+#include <Ejercicio7_TP2.h>
+
+#fuses INTRC_IO   // Oscilador interno con pines RA6 y RA7 como GPIO
+#fuses NOMCLR     // Desactivo el MCLR
+#fuses NOWDT      // Desactivo el watchdog     
+#use delay(clock=4000000) 
+
+// Definimos el tipo de dato correcto para el valor de DAC (5 bits)
+typedef unsigned int8 t_dac_value; 
+
+/*****************************************************************************
+* Variables globales
+****************************************************************************/
+unsigned int16 resultado_adc = 0;
+t_dac_value resultado_dac = 0; // Usamos el tipo definido
+
+/*****************************************************************************
+* Interrupciones (ISR)
+****************************************************************************/
+
+#INT_AD
+void ISR_ADC(void) {
+    // 1. Leo conversión (10 bits: 0-1023)
+    resultado_adc = read_adc(ADC_READ_ONLY); 
+    
+    // 2. Escalado de 10 bits a 5 bits (1024 niveles -> 32 niveles)
+    // dac_value = adc_value / 32. El resultado está entre 0 y 31.
+    resultado_dac = (t_dac_value)(resultado_adc >> 5); 
+
+    // 3. ENVIAR VALOR AL MÓDULO DAC INTERNO
+    dac_write(resultado_dac); 
+    
+    // 4. Iniciar la siguiente conversión inmediatamente (muestreo periódico)
+    read_adc(ADC_START_ONLY); 
+}
+
+
+void main()
+{
+    Init_GPIO();
+    Init_ADC();
+    Init_DAC();
+
+    // El bucle principal no necesita lógica, ya que la ISR maneja todo el proceso
+    // de muestreo y reconstrucción.
+    while(TRUE)
+    {
+        // Se podría agregar aquí una función de bajo nivel o SLEEP para ahorro de energía.
+        // El proceso está autocontenido en la ISR.
+    }
+}
+
+void Init_GPIO()
+{
+    // *** CORRECCIÓN CRÍTICA: Desactivar funciones analógicas para DAC ***
+    setup_adc_ports(sAN0 | NO_ANALOGS); // RA0 (AN0) es analógico, el resto es digital.
+    
+    // set_tris_a: RA0 (AN0) es entrada, RA2 (DACOUT) es salida.
+    set_tris_a(0b00000001); 
+    
+    // set_tris_b: No se usa para el DAC, se deja como salida/entrada (aquí se configura como entrada/salida).
+    set_tris_b(0b11111111); // Todos como entrada por defecto, ya que no se usan.
+
+    enable_interrupts(GLOBAL);
+}
+
+void Init_ADC() {
+    // ADC_CLOCK_INTERNAL usa Frc y es apropiado para el muestreo de señal.
+    setup_adc(ADC_CLOCK_INTERNAL); 
+    set_adc_channel(0); // Selecciona AN0
+    enable_interrupts(INT_AD); // Habilita la interrupción del ADC
+}
+
+void Init_DAC(void) {
+    // Configura el DAC para usar VDD/VSS como referencias y habilita la salida DACOUT (RA2)
+    setup_dac(DAC_VSS_VDD | DAC_OUTPUT); // DACOUT está en RA2
+}
+

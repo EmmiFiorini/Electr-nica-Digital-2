@@ -4,6 +4,7 @@
 #fuses NOMCLR     // Desactivo el MCLR
 #fuses NOWDT      // Desactivo el watchdog     
 #use delay(clock=4000000) 
+#use adc=10 // Añadir para asegurar que setup_adc_ports funcione
 
 typedef unsigned int8 t_dac_value; 
 
@@ -51,20 +52,22 @@ void main()
         // Se puede usar SLEEP para ahorro de energía aquí.
     }
 }
+
 void Init_GPIO()
 {
-    // Usamos esta directiva para configurar RA0 (AN0) como analógico (entrada), 
-    // y el resto de los pines (RA1, RA2, etc.) como digitales, 
-    // y establecemos las referencias a VDD/VSS.
-    setup_adc_ports(sAN0 | VSS_VDD); // <--- CORRECCIÓN CLAVE
+    // *** CORRECCIÓN CRÍTICA: Desactivar funciones analógicas para DAC ***
+    // RA0 (AN0) es analógico, el resto es digital/output.
+    setup_adc_ports(sAN0 | VSS_VREF); // Asegura que AN0 es analógico y el resto digital (VREF es VDD/VSS)
     
     // set_tris_a: RA0 (AN0) es entrada (1), RA2 (DACOUT) es salida (0).
     set_tris_a(0b00000001); 
     
-    // ... (rest of Init_GPIO) ...
+    // set_tris_b: Todos como entrada (1), ya que no se usan.
+    set_tris_b(0b11111111); 
+
     enable_interrupts(GLOBAL);
 }
-// ...
+
 void Init_ADC() {
     setup_adc(ADC_CLOCK_INTERNAL); 
     set_adc_channel(0); // Selecciona AN0
