@@ -1,9 +1,10 @@
-D G "__PCM__" 0 274 ""5.093""
-D G "__DEVICE__" 0 274 "1827"
-D G "__DATE__" 0 274 ""5-Nov-25""
-D G "__TIME__" 0 274 ""17:20:25""
-D G "_UNICODE" 0 274 ""?""
-D G "__EVAL" 0 274 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
+f N "Pq" 2 723 ""
+D G "__PCM__" 2 723 ""5.093""
+D G "__DEVICE__" 2 723 "1827"
+D G "__DATE__" 2 723 ""20-Nov-25""
+D G "__TIME__" 2 723 ""13:04:59""
+D G "_UNICODE" 2 723 ""?""
+D G "__EVAL" 2 723 ""?"" "Standard Header file for the PIC16F1827 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 f N "set_tris_a" 2 39 ""
 v L "value" 2 39 "int8" `55 
@@ -935,7 +936,7 @@ v L "stream" 2 724 "int8" `476
 v L "address" 2 724 "int8" `477 
 v L "wData" 2 724 "*int8" `478 
 v L "wCount" 2 724 "int8" `479 
-f B "i2c_transfer" 2 724 "int8(int8 stream,int8 address,*int8 wData,int8 wCount)" `475 
+f B "i2c_transfer" 2 724 "int8(int8 stream,int8 address,*int8 wData,int8 wCount,int8 )" `475 
 f N "i2c_transfer" 2 725 ""
 v L "stream" 2 725 "int8" `481 
 v L "address" 2 725 "int8" `482 
@@ -969,9 +970,9 @@ f B "i2c_transfer_in" 2 729 "int8(int8 stream,int8 address,*int8 rData,int8 rCou
 f N "spi_xfer" 2 732 ""
 f B "spi_xfer" 2 732 "int8()" `505 
 f N "spi_xfer" 2 733 ""
-f G "spi_xfer" 2 733 "int16(int8 data)" `506 
+f G "spi_xfer" 2 733 "int16()" `506 
 f N "spi_xfer" 2 734 ""
-f G "spi_xfer" 2 734 "int32(int8 data)" `506 
+f G "spi_xfer" 2 734 "int32()" `506 
 f N "spi_xfer" 2 735 ""
 v L "data" 2 735 "int8" `507 
 f B "spi_xfer" 2 735 "int8(int8 data)" `506 
@@ -988,11 +989,11 @@ f B "spi_xfer" 2 738 "int8(int8 stream,int8 data)" `512
 f N "spi_xfer" 2 739 ""
 v L "stream" 2 739 "int8" `516 
 v L "data" 2 739 "int16" `517 
-f B "spi_xfer" 2 739 "int16(int8 stream,int16 data)" `515 
+f B "spi_xfer" 2 739 "int16(int8 stream,int16 data,int16 )" `515 
 f N "spi_xfer" 2 740 ""
 v L "stream" 2 740 "int8" `519 
 v L "data" 2 740 "int32" `520 
-f B "spi_xfer" 2 740 "int32(int8 stream,int32 data)" `518 
+f B "spi_xfer" 2 740 "int32(int8 stream,int32 data,int16 )" `518 
 f N "spi_xfer" 2 741 ""
 v L "stream" 2 741 "int8" `522 
 v L "data" 2 741 "int8" `523 
@@ -1398,94 +1399,99 @@ d G "INT_RB6_H2L" 2 959 "0x21400B08"
 d G "INT_RB7" 2 960 "0x31800B08"
 d G "INT_RB7_L2H" 2 961 "0x11800B08"
 d G "INT_RB7_H2L" 2 962 "0x21800B08"
+C L "jump_to_isr" 0 6 1 "FUNCTION"
 C L "jump_to_isr" 0 10 1 "*"
 F N "Init_GPIO" 0 14 ""
-f G "Init_GPIO" 0 14 "void()" `731 
+f G "Init_GPIO" 0 14 "void()" `727 
 F N "Init_Keypad" 0 15 ""
-f G "Init_Keypad" 0 15 "void()" `732 
+f G "Init_Keypad" 0 15 "void()" `728 
 F N "InitTimer0" 0 16 ""
-f G "InitTimer0" 0 16 "void()" `733  "* Variables globales"
+f G "InitTimer0" 0 16 "void()" `729  "* Variables globales"
 C L "InitTimer0" 0 10 1 "FUNCTION"
-V G "flag_debounce" 0 23 "int8" `734 
+V G "flag_debounce" 0 23 "int8" `730 
 C L "InitTimer0" 0 10 1 "FUNCTION"
-V G "keymap" 0 26 "[4][3]" `736 
-V G "tecla" 0 33 "int8" `739 
+V G "keymap" 0 26 "[4][3]" `732 
+V G "tecla" 0 33 "int8" `735 
 C L "InitTimer0" 0 10 1 "FUNCTION"
-V G "contador_ms_1" 0 36 "int8" `740 
-V G "contador_ms_2" 0 37 "int8" `741 
-V G "flag_segundo" 0 39 "int8" `742 
-V G "flag_segundo2" 0 40 "int8" `743 
+V G "contador_ms_1" 0 36 "int8" `736 
+V G "contador_ms_2" 0 37 "int8" `737 
+V G "flag_segundo" 0 39 "int8" `738 
+V G "flag_segundo2" 0 40 "int8" `739 
 C L "InitTimer0" 0 42 1 "*"
 F N "getKey" 0 46 ""
-f G "getKey" 0 46 "int8()" `744 
+f G "getKey" 0 46 "int8()" `740 
 F N "decharabin" 0 47 ""
-f G "decharabin" 0 47 "void()" `745  "* Interrupciones"
+f G "decharabin" 0 47 "void()" `741  "* Interrupciones"
 F N "Timer0_ISR" 0 53 ""
-F G "Timer0_ISR" 0 53 "void()" `746 
+F G "Timer0_ISR" 0 53 "void()" `742 
 C L "Timer0_ISR" 0 42 1 "FUNCTION"
 C L "Timer0_ISR" 0 42 1 "FUNCTION"
 C L "Timer0_ISR" 0 42 1 "FUNCTION"
 C L "Timer0_ISR" 0 42 1 "FUNCTION"
 F N "IOC_ISR" 0 73 ""
-F G "IOC_ISR" 0 73 "void()" `747 
+F G "IOC_ISR" 0 73 "void()" `743 
 C L "IOC_ISR" 0 42 1 "FUNCTION"
 F N "MAIN" 0 81 ""
-F G "MAIN" 0 82 "void()" `748 
-C L "getKey" 0 105 1 "*"
-F N "getKey" 0 108 ""
-F G "getKey" 0 108 "int8()" `744 
-V L "pines_filas" 0 110 "[4]" `753 
-V L "pines_col" 0 111 "[3]" `756 
-V L "f" 0 112 "int8" `758 
-V L "c" 0 112 "int8" `759 
-V L "result" 0 113 "int8" `760 
-C L "getKey" 0 105 1 "FUNCTION"
-C L "getKey" 0 105 1 "FUNCTION"
-C L "getKey" 0 105 1 "FUNCTION"
-C L "getKey" 0 105 1 "FUNCTION"
-C L "getKey" 0 105 1 "FUNCTION"
-C L "getKey" 0 105 1 "FUNCTION"
-F N "decharabin" 0 143 ""
-F G "decharabin" 0 143 "void()" `745  "funcion que cambia de char a binario"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "decharabin" 0 105 1 "FUNCTION"
-C L "Init_GPIO" 0 244 1 "*"
-F N "Init_GPIO" 0 247 ""
-F G "Init_GPIO" 0 247 "void()" `731 
-C L "Init_GPIO" 0 244 2 "FUNCTION"
-F N "Init_Keypad" 0 256 ""
-F G "Init_Keypad" 0 256 "void()" `732 
-C L "Init_Keypad" 0 244 2 "FUNCTION"
-F N "InitTimer0" 0 267 ""
-F G "InitTimer0" 0 267 "void()" `733 
+F G "MAIN" 0 82 "void()" `744 
+C L "MAIN" 0 42 1 "FUNCTION"
+C L "MAIN" 0 42 1 "FUNCTION"
+C L "MAIN" 0 42 1 "FUNCTION"
+C L "getKey" 0 111 1 "*"
+F N "getKey" 0 114 ""
+F G "getKey" 0 114 "int8()" `740 
+V L "pines_filas" 0 116 "[4]" `749 
+V L "pines_col" 0 117 "[3]" `752 
+V L "f" 0 118 "int8" `754 
+V L "c" 0 118 "int8" `755 
+V L "result" 0 119 "int8" `756 
+C L "getKey" 0 111 1 "FUNCTION"
+C L "getKey" 0 111 1 "FUNCTION"
+C L "getKey" 0 111 1 "FUNCTION"
+C L "getKey" 0 111 1 "FUNCTION"
+C L "getKey" 0 111 1 "FUNCTION"
+C L "getKey" 0 111 1 "FUNCTION"
+F N "decharabin" 0 149 ""
+F G "decharabin" 0 149 "void()" `741  "funcion que cambia de char a binario"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "decharabin" 0 111 1 "FUNCTION"
+C L "Init_GPIO" 0 250 1 "*"
+F N "Init_GPIO" 0 253 ""
+F G "Init_GPIO" 0 253 "void()" `727 
+C L "Init_GPIO" 0 250 2 "FUNCTION"
+C L "Init_GPIO" 0 250 1 "FUNCTION"
+F N "Init_Keypad" 0 266 ""
+F G "Init_Keypad" 0 266 "void()" `728 
+C L "Init_Keypad" 0 250 2 "FUNCTION"
+F N "InitTimer0" 0 277 ""
+F G "InitTimer0" 0 277 "void()" `729 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0
@@ -1616,8 +1622,6 @@ F B "spi_data_is_in2" 0 0
 F B "setup_dac" 1 0
 F B "dac_write" 1 0
 F B "brownout_enable" 1 0
-F B "delay_ms" 1 0
-F B "delay_us" 1 0
 F B "delay_ms" 1 0
 F B "delay_us" 1 0
 F B "putchar" 1 2

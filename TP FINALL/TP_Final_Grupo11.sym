@@ -1,9 +1,9 @@
-004-005 @READ_PACKED_MEMORY.P1
-004-005 @READ_PROGRAM_MEMORY8.P2
-004-005 @WRITE_PROGRAM_MEMORY8.P3
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+004-005 @READ_PACKED_MEMORY.P3
 004-005 @WRITE_PACKED_MEMORY.P4
-006-007 @READ_PACKED_MEMORY.P1
-006-007 @WRITE_PACKED_MEMORY.P2
+006-007 @WRITE_PACKED_MEMORY.P1
+006-007 @READ_PACKED_MEMORY.P2
 020     @INTERRUPT_AREA
 021     @INTERRUPT_AREA
 022     @INTERRUPT_AREA
@@ -33,19 +33,19 @@
 07A     @SCRATCH
 111.6   C1OUT
 113.6   C2OUT
-191-192 @WRITE_PROGRAM_MEMORY8.P1
-191-192 @READ_PROGRAM_MEMORY8.P2
+191-192 @READ_PROGRAM_MEMORY8.P1
+191-192 @WRITE_PROGRAM_MEMORY8.P2
 291     CCP_1
 291     CCP_1_LOW
 292     CCP_1_HIGH
-298     CCP_2
 298     CCP_2_LOW
+298     CCP_2
 299     CCP_2_HIGH
 311     CCP_3_LOW
 311     CCP_3
 312     CCP_3_HIGH
-318     CCP_4_LOW
 318     CCP_4
+318     CCP_4_LOW
 319     CCP_4_HIGH
 
 ROM Allocation:
@@ -60,27 +60,27 @@ ROM Allocation:
 00005C  Init_Keypad
 000077  InitTimer0
 000082  Init_GPIO
-000091  @WRITEBITA
-0000B1  @READBITA
-0000CA  getKey
-00011F  @MUL88
-000164  @PUTCHAR_1_
-00018A  decharabin
-0002D6  MAIN
-0002D6  @cinit1
-0002EC  @cinit2
+000096  @WRITEBITA
+0000B6  @READBITA
+0000CF  getKey
+000124  @MUL88
+000169  @PUTCHAR_1_
+00018F  decharabin
+0002DB  MAIN
+0002DB  @cinit1
+0002F1  @cinit2
 
 Project Directory:
     C:\Users\santi\OneDrive\Documentos\EDI2_Grupo_11\Electr-nica-Digital-2\TP FINALL\
 
 Project Files:
-    TP_Final_Grupo11.c                                      [05-nov-25 17:19  CRC=65C23943]
+    TP_Final_Grupo11.c                                      [20-nov-25 13:05  CRC=2B04D7BC]
     TP_Final_Grupo11.h                                      [29-oct-25 18:32  CRC=00000000]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F1827.h [21-feb-20 15:48  CRC=D6A5AF9F]
 
-Source signature=130D9881
+Source signature=D85036FA
 Program memory checksum=0000
-Hex file CRC=375E
+Hex file CRC=B1DD
 
 Units:
     C:\Users\santi\OneDrive\Documentos\EDI2_Grupo_11\Electr-nica-Digital-2\TP FINALL\TP_Final_Grupo11 (main)
