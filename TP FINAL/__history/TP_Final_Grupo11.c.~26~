@@ -1,9 +1,9 @@
 #include <TP_Final_Grupo11.h>
 
-
+#use delay(clock = 4000000)
 #use RS232(BAUD = 9600, XMIT = PIN_B5, BITS = 8, PARITY = N, STOP = 1)
 
-//#fuses INTRC_IO   // Oscilador interno con pines RA6 y RA7 como GPIO
+#fuses INTRC_IO   // Oscilador interno con pines RA6 y RA7 como GPIO
 #fuses NOMCLR     // Desactivo el MCLR
 #fuses NOWDT      // Desactivo el watchdog
 
@@ -83,18 +83,11 @@ void main()
    Init_Keypad();
    InitTimer0();
    Init_GPIO();
-
-   output_low(PIN_A6); // LE
-   output_high(PIN_A7); // BI = BL (?)
-   output_high(PIN_A4); // LT = PH (?)
-   output_low(PIN_A3); // D
-   output_high(PIN_A2); // C
-   output_low(PIN_A1); // B
-   output_high(PIN_A0); // A
-
+   
    while(TRUE)
    {
 
+   printf("adsa");
    tecla = getKey();
    
    if(tecla != 'f') {
@@ -102,10 +95,12 @@ void main()
          if(flag_segundo2 == 1) {
             printf("<%c>", tecla);
             flag_segundo2 = 0;
-         }         
-      }
-      decharabin();
-   }   
+         }
+         
+         decharabin();
+         
+      } 
+   }
 }
 
 /*****************************************************************************
@@ -150,8 +145,8 @@ void decharabin(){//funcion que cambia de char a binario
  
    if(tecla == '0'){
       output_low(PIN_A6); // LE
-      output_high(PIN_A7); // BI = 
-      output_high(PIN_A4); // LT =
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
       output_low(PIN_A3); // D
       output_low(PIN_A2); // C
       output_low(PIN_A1); // B
@@ -159,8 +154,8 @@ void decharabin(){//funcion que cambia de char a binario
    }
    if (tecla == '1'){
       output_low(PIN_A6); // LE
-      output_high(PIN_A7); // BI 
-      output_high(PIN_A4); // LT 
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
       output_low(PIN_A3); // D
       output_low(PIN_A2); // C
       output_low(PIN_A1); // B
@@ -168,8 +163,8 @@ void decharabin(){//funcion que cambia de char a binario
    }
    if (tecla == '2') {
       output_low(PIN_A6); // LE
-      output_high(PIN_A7); // BI =
-      output_high(PIN_A4); // LT = 
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
       output_low(PIN_A3); // D
       output_low(PIN_A2); // C
       output_high(PIN_A1); // B
@@ -178,8 +173,8 @@ void decharabin(){//funcion que cambia de char a binario
       
    if (tecla == '3') {
       output_low(PIN_A6); // LE
-      output_high(PIN_A7); // BI 
-      output_high(PIN_A4); // LT 
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
       output_low(PIN_A3); // D
       output_low(PIN_A2); // C
       output_high(PIN_A1); // B
@@ -187,8 +182,8 @@ void decharabin(){//funcion que cambia de char a binario
    }
    if (tecla == '4'){
       output_low(PIN_A6); // LE
-      output_high(PIN_A7); // BI 
-      output_high(PIN_A4); // LT 
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
       output_low(PIN_A3); // D
       output_high(PIN_A2); // C
       output_low(PIN_A1); // B
@@ -197,8 +192,8 @@ void decharabin(){//funcion que cambia de char a binario
       
    if (tecla == '5'){
       output_low(PIN_A6); // LE
-      output_high(PIN_A7); // BI 
-      output_high(PIN_A4); // LT 
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
       output_low(PIN_A3); // D
       output_high(PIN_A2); // C
       output_low(PIN_A1); // B
@@ -207,8 +202,8 @@ void decharabin(){//funcion que cambia de char a binario
       
    if (tecla == '6') {
       output_low(PIN_A6); // LE
-      output_high(PIN_A7); // BI 
-      output_high(PIN_A4); // LT 
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
       output_low(PIN_A3); // D
       output_high(PIN_A2); // C
       output_high(PIN_A1); // B
@@ -217,8 +212,8 @@ void decharabin(){//funcion que cambia de char a binario
       
    if (tecla == '7'){
       output_low(PIN_A6); // LE
-      output_high(PIN_A7); // BI 
-      output_high(PIN_A4); // LT 
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
       output_low(PIN_A3); // D
       output_high(PIN_A2); // C
       output_high(PIN_A1); // B
@@ -227,8 +222,8 @@ void decharabin(){//funcion que cambia de char a binario
       
    if (tecla == '8'){
       output_low(PIN_A6); // LE
-      output_high(PIN_A7); // BI 
-      output_high(PIN_A4); // LT 
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
       output_high(PIN_A3); // D
       output_low(PIN_A2); // C
       output_low(PIN_A1); // B
@@ -237,8 +232,8 @@ void decharabin(){//funcion que cambia de char a binario
       
    if (tecla == '9'){
        output_low(PIN_A6); // LE
-      output_high(PIN_A7); // BI 
-      output_high(PIN_A4); // LT 
+      output_high(PIN_A7); // BI = BL (?)
+      output_high(PIN_A4); // LT = PH (?)
       output_high(PIN_A3); // D
       output_low(PIN_A2); // C
       output_low(PIN_A1); // B
@@ -254,13 +249,9 @@ void Init_GPIO(void){
    
    set_tris_a(0b00000000);
    set_tris_b(0b11010000); // RB0, RB1, RB2 y RB3 filas del teclado, entrada
-                           // RB4, RB6 RB7 columnas, salidas
-   enable_interrupts(INT_IOC_B4);
-   enable_interrupts(INT_IOC_B6);
-   enable_interrupts(INT_IOC_B7);
-   
-   // port_b_pullups(TRUE);
-   enable_interrupts(GLOBAL);
+                           // RB4, RB6, RB7 columnas, salidas
+   enable_interrupts(INT_IOC);
+   enable_interrupts(GLOBAL);   
 }
 
 void Init_Keypad(void){
